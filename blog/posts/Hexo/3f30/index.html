@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-16x16-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/favicon-16x16-next.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Sans HK:300,300italic,400,400italic,700,700italic|Secular One:300,300italic,400,400italic,700,700italic|Kosugi Maru:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flat-top.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kevin1061517.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":230,"display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"perspectiveUpIn","sidebar":"shrinkIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="前言在 Hexo &amp; Next 建構部落格 這篇有說明到Next主題(theme)套用的方式，其實Hexo還有很多其他的 Theme ，但目前Next的關注度及資源都比其他還要來的高，透過Hexo和Next主題套件能夠快速客製化和其他人不同的排版、字形、顏色等風格的部落格，因此這邊來記錄在使用Next主題的相關樣式配置，特別是針對Gemini這個外觀(Scheme)，但有可能版本不同會有所">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Next的CSS相關樣式配置">
+<meta property="og:url" content="https://kevin1061517.github.io/blog/posts/Hexo/3f30/index.html">
+<meta property="og:site_name" content="Kevin Blog">
+<meta property="og:description" content="前言在 Hexo &amp; Next 建構部落格 這篇有說明到Next主題(theme)套用的方式，其實Hexo還有很多其他的 Theme ，但目前Next的關注度及資源都比其他還要來的高，透過Hexo和Next主題套件能夠快速客製化和其他人不同的排版、字形、顏色等風格的部落格，因此這邊來記錄在使用Next主題的相關樣式配置，特別是針對Gemini這個外觀(Scheme)，但有可能版本不同會有所">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2020-12-26T16:29:20.000Z">
+<meta property="article:modified_time" content="2020-12-29T14:12:06.738Z">
+<meta property="article:author" content="Kevin Fang">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Next">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://kevin1061517.github.io/blog/posts/Hexo/3f30/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>Next的CSS相關樣式配置 | Kevin Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Kevin Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Kevin Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Be brave to chase my dreams</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>回到首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>文章分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>所有文章</a>
+
+  </li>
+	<!--<div style="padding: 5px 10px"> http://moxfive.xyz/2016/05/31/hexo-local-search/
+			<form id="search-form">
+				<i class="fa fa-search"><font>搜尋: </font></i>
+				<input type="text" id="local-search-input" name="q" results="0" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off"/>
+				<i class="fa fa-times" onclick="resetSearch()"></i>
+			</form>
+			<div id="local-search-result" class="local-search-result-cls"></div>
+			<p class='no-result'>No results found </p>
+	</div>-->
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li> 
+	
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <font>置頂</font>
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://kevin1061517.github.io/blog/posts/Hexo/3f30/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/42539369?s=460&u=39b9ef0ba8f701077a22689184ac5bcce289e9e4&v=4">
+      <meta itemprop="name" content="Kevin Fang">
+      <meta itemprop="description" content="Better late than never">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kevin Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Next的CSS相關樣式配置
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-12-27 00:29:20" itemprop="dateCreated datePublished" datetime="2020-12-27T00:29:20+08:00">2020-12-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-12-29 22:12:06" itemprop="dateModified" datetime="2020-12-29T22:12:06+08:00">2020-12-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/blog/posts/Hexo/3f30/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="blog/posts/Hexo/3f30/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在 <a href="https://kevin1061517.github.io/blog/post/Hexo/ee15325b/">Hexo &amp; Next 建構部落格</a> 這篇有說明到Next主題(theme)套用的方式，其實Hexo還有很多其他的 <a target="_blank" rel="noopener" href="https://hexo.io/themes/">Theme</a> ，但目前Next的關注度及資源都比其他還要來的高，透過Hexo和Next主題套件能夠快速客製化和其他人不同的排版、字形、顏色等風格的部落格，因此這邊來記錄在使用Next主題的相關樣式配置，特別是針對Gemini這個外觀(Scheme)，但有可能版本不同會有所些微差異，所以有疑問都歡迎留言告知!</p>
+<a id="more"></a>
+
+<h2 id="基本樣式配置"><a href="#基本樣式配置" class="headerlink" title="基本樣式配置"></a>基本樣式配置</h2><p>Next主題的樣式配置主要是在 <code>next\source\css</code>裡面，其中在<code>next\source\css\_variables</code>資料夾有4個Scheme的樣式以及基本大家共用的base.styl，檔案結構如下圖</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">├── _css</span><br><span class="line"><span class="string">|   ├── _common</span></span><br><span class="line"><span class="string">|   ├── _custom</span></span><br><span class="line"><span class="string">|   ├── _schemes</span></span><br><span class="line"><span class="string">|   ├── _variables</span></span><br><span class="line"><span class="string">|   ├── _colors.styl</span></span><br><span class="line"><span class="string">|   ├── _mixins.styl</span></span><br><span class="line"><span class="string">|   └── main.styl</span></span><br></pre></td></tr></table></figure>
+
+<p>下面將base.styl、Gemini.styl和Pisces.styl較重要的部份來做紀錄</p>
+<ul>
+<li><p>base.styl</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//文章h1 h2...用字的顏色</span></span><br><span class="line">$text-color                   = $black-light;</span><br><span class="line"><span class="comment">//超連結文字的顏色</span></span><br><span class="line">$link-color                   = $black-light;</span><br><span class="line"><span class="comment">//碰到超連結文字顏色</span></span><br><span class="line">$link-hover-color             = $black-deep;</span><br><span class="line"><span class="comment">// Global border color.</span></span><br><span class="line">$border-color                 = $grey-light;</span><br><span class="line"><span class="comment">// Background color for &lt;body&gt;</span></span><br><span class="line">$body-bg-color                = white;</span><br><span class="line"><span class="comment">//sidebar的背底色</span></span><br><span class="line">$content-bg-color             = white;</span><br><span class="line"><span class="comment">// Selection</span></span><br><span class="line">$selection-bg                 = $blue-deep;</span><br><span class="line"><span class="comment">// Dark mode color</span></span><br><span class="line">$card-bg-color                = $whitesmoke;</span><br><span class="line"><span class="comment">//導覽目錄地目前欄位及碰到背底色</span></span><br><span class="line">$menu-item-bg-color           = $black-light;</span><br><span class="line"><span class="comment">// Font size</span></span><br><span class="line">$font-size-smallest       = .<span class="number">5</span>em; <span class="comment">//每一篇文章標題下面的發表時間相關資訊的字型大小</span></span><br><span class="line">$font-size-smaller        = .<span class="number">8</span>em; <span class="comment">//Sidebar上半部的導覽目錄的字型大小</span></span><br><span class="line">$font-size-small          = .<span class="number">875</span>em; <span class="comment">//Sidebar下半部的文章目錄和本章概要的字型大小</span></span><br><span class="line">$font-size-medium         = <span class="number">1.3</span>em; <span class="comment">//Sidebar本站概要的文章、分類和標籤上面的數字字型大小</span></span><br><span class="line">$font-size-large          = <span class="number">1.125</span>em; <span class="comment">//文章文字的字型大小</span></span><br><span class="line">$font-size-largest        = <span class="number">1.75</span>em; <span class="comment">//文章標題的字型大小</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Gemini.styl</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@import</span> <span class="string">&quot;Pisces.styl&quot;</span>;</span><br><span class="line"><span class="comment">// Settings for some of the most global styles.</span></span><br><span class="line"><span class="comment">// --------------------------------------------------</span></span><br><span class="line">$body-bg-color           = #F0F0F0;</span><br><span class="line"><span class="comment">// Borders.</span></span><br><span class="line"><span class="comment">// --------------------------------------------------</span></span><br><span class="line">$box-shadow-inner        = <span class="number">0</span> <span class="number">2</span>px <span class="number">2</span>px <span class="number">0</span> rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">12</span>), <span class="number">0</span> <span class="number">3</span>px <span class="number">1</span>px -<span class="number">2</span><span class="function">px <span class="title">rgba</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">.06</span>)</span>, 0 1px 5px 0 <span class="title">rgba</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">.12</span>)</span></span>;</span><br><span class="line">$box-shadow              = <span class="number">0</span> <span class="number">2</span>px <span class="number">2</span>px <span class="number">0</span> rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">12</span>), <span class="number">0</span> <span class="number">3</span>px <span class="number">1</span>px -<span class="number">2</span><span class="function">px <span class="title">rgba</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">.06</span>)</span>, 0 1px 5px 0 <span class="title">rgba</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">.12</span>)</span>, 0 -1px .5px 0 <span class="title">rgba</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">.09</span>)</span></span>;</span><br><span class="line"><span class="comment">// 部落格通用文字的大小</span></span><br><span class="line">$font-size-base = <span class="number">15</span>px</span><br><span class="line"><span class="comment">// Code字體的大小</span></span><br><span class="line">$code-font-size = <span class="number">11</span>px</span><br><span class="line"><span class="comment">//依照不同尺寸的縮放比例</span></span><br><span class="line">$content-desktop         = <span class="number">85</span>%</span><br><span class="line">$content-desktop-large   = <span class="number">85</span>%</span><br><span class="line">$content-desktop-largest = <span class="number">85</span>%</span><br><span class="line"><span class="comment">// 設定目錄導覽(site-nav)的sidebar的圓角(回到首頁、關於作者...)</span></span><br><span class="line">$border-radius-inner = <span class="number">15</span>px</span><br><span class="line"><span class="comment">// 設定文章導覽(本站概要)的sidebar的圓角(文章目錄、本站概要...)</span></span><br><span class="line">$border-radius = <span class="number">15</span>px</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="自行客製化樣式"><a href="#自行客製化樣式" class="headerlink" title="自行客製化樣式"></a>自行客製化樣式</h2><p>Gemini有引用(import)Pisces的樣式配置，所以可以進一步對 <code>next\source\css\_schemes\Pisces</code> 裡面的檔案做修改，但自訂義的樣式可以在<code>next\source\css\_custom\custom.styl</code>做加入，有些版本的Next需要自己建立custom.styl檔案，一些可以美化的配置如下</p>
+<ul>
+<li>custom\custom.styl<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//副標題(Be brave to chase my dreams)的文字配置</span></span><br><span class="line">.site-subtitle &#123;</span><br><span class="line">    color: #fff;</span><br><span class="line">    font-family: Kosugi Maru;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sidebar文章導覽的超連結文字(前言...)在激活(active)時(就是目前停留的章節)的配置</span></span><br><span class="line">.post-toc .nav .active &gt; a &#123;</span><br><span class="line">  color: #06A2E4;</span><br><span class="line">  border-bottom-color: #06A2E4;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sidebar文章導覽的超連結文字(前言...)碰到的配置</span></span><br><span class="line">.post-toc ol a:hover &#123;</span><br><span class="line">  color: #06A2E4;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sidebar導覽目錄(回到首頁、關於...)在激活(active)時(就是目前停留的章節)的配置</span></span><br><span class="line">#menu &gt; li.menu-item-active &gt; a &#123;</span><br><span class="line">  color: black;</span><br><span class="line">  border: 3px #FFAC55 solid;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 碰到Sidebar導覽目錄(回到首頁、關於...)的配置</span></span><br><span class="line">#menu &gt; li :hover &#123;</span><br><span class="line">  color: black;</span><br><span class="line">  border: 3px #FFAC55 solid;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 碰到Sidebar導覽目錄(回到首頁、關於...)的超連結文字配置</span></span><br><span class="line">a:hover,</span><br><span class="line">span.exturl:hover &#123;</span><br><span class="line">  color: #06A2E4;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在Sidebar導覽目錄碰到顯示黑色小圓點</span></span><br><span class="line">.menu-item-active a:after,</span><br><span class="line">.menu .menu-item a:hover:after,</span><br><span class="line">.menu .menu-item span.exturl:hover:after &#123;</span><br><span class="line">  background-color: black;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 文章上面邊緣(margin)去掉</span></span><br><span class="line">.content &#123;</span><br><span class="line">    padding-top: <span class="number">0</span>px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//首頁的繼續閱讀按鈕下面空白去除</span></span><br><span class="line">.post-footer&#123;</span><br><span class="line">    display: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 部落格標題(Kevin blog)那邊的背景配置</span></span><br><span class="line">.site-brand-container &#123;</span><br><span class="line">    background: #00FF00;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 部落格標題(Kevin blog)碰到時候的配置</span></span><br><span class="line">.site-title:hover &#123;</span><br><span class="line">    letter-spacing: <span class="number">0.05</span>rem;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sidebar下面的文章目錄和本站概要 碰到的配置</span></span><br><span class="line">.sidebar-nav li:hover &#123;</span><br><span class="line">  color: #E800E8;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sidebar下面的文章目錄和本站概要在激活(active)時(就是目前停留的章節)的配置</span></span><br><span class="line">.sidebar-nav .sidebar-nav-active &#123;</span><br><span class="line">  color: #06A2E4;</span><br><span class="line">  border-bottom-color: #06A2E4;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sidebar本站概要的(文章、分類、標籤)上面的數字的配置</span></span><br><span class="line">.site-state-item-count &#123;</span><br><span class="line">  color: #06A2E4;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 碰到本站概要的(文章、分類、標籤)的配置</span></span><br><span class="line">.site-state div:hover,</span><br><span class="line">.links-of-author-item a:hover&#123;</span><br><span class="line">    color: black;</span><br><span class="line">    background: #F0F0F0;</span><br><span class="line">    letter-spacing: <span class="number">0.02</span>rem;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 碰到近期文章的配置</span></span><br><span class="line">.links-of-blogroll-list a:hover&#123;</span><br><span class="line">    color: black;</span><br><span class="line">    letter-spacing: <span class="number">0.03</span>rem;</span><br><span class="line">    border-bottom: 3px #FFAC55 solid;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// markdown寫的文章在h1、h2...前面加上編號</span></span><br><span class="line">body &#123;counter-reset: h2&#125;</span><br><span class="line">h2 &#123;counter-reset: h3&#125;</span><br><span class="line">h3 &#123;counter-reset: h4&#125;</span><br><span class="line">h4 &#123;counter-reset: h5&#125;</span><br><span class="line">h2:before &#123;counter-increment: h2; content: counter(h2) <span class="string">&quot; &quot;</span>&#125;</span><br><span class="line">h3:before &#123;counter-increment: h3; content: counter(h2) <span class="string">&quot;.&quot;</span> counter(h3) <span class="string">&quot;) &quot;</span>&#125;</span><br><span class="line">h4:before &#123;counter-increment: h4; content: counter(h2) <span class="string">&quot;.&quot;</span> counter(h3) <span class="string">&quot;.&quot;</span> counter(h4) <span class="string">&quot;) &quot;</span>&#125;</span><br><span class="line">h5:before &#123;counter-increment: h5; content: counter(h2) <span class="string">&quot;.&quot;</span> counter(h3) <span class="string">&quot;.&quot;</span> counter(h4) <span class="string">&quot;.&quot;</span> counter(h5) <span class="string">&quot;. &quot;</span>&#125;</span><br><span class="line">h2.nocount:before, h3.nocount:before, h4.nocount:before, h5.nocount:before, h6.nocount:before &#123; content: <span class="string">&quot;&quot;</span>; counter-increment: none &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取消首頁和分類頁面的h2編號</span></span><br><span class="line">.index, .collection-title &#123;</span><br><span class="line">    h2:before &#123;counter-increment: h2; content: <span class="string">&quot;&quot;</span>&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>作者： </strong>Kevin Fang
+  </li>
+  <li class="post-copyright-link">
+    <strong>文章連結：</strong>
+    <a href="https://kevin1061517.github.io/blog/posts/Hexo/3f30/" title="Next的CSS相關樣式配置">https://kevin1061517.github.io/blog/posts/Hexo/3f30/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 許可協議。轉載請註明出處！
+  </li>
+</ul>
+</div>
+
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/tags/Next/" rel="tag"># Next</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/posts/JavaScript/45fd/" rel="prev" title="Revealing Module Pattern (JS)">
+      <i class="fa fa-chevron-left"></i> Revealing Module Pattern (JS)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/blog/posts/Hexo/7dce27be/" rel="next" title="Hexo分類頁面部分項目連結404錯誤">
+      Hexo分類頁面部分項目連結404錯誤 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+	
+	
+       <div class="post-nav">
+         <div class="post-nav-next post-nav-item">
+           
+             <a href="/blog/posts/Hexo/7dce27be/" rel="prev" title="Hexo分類頁面部分項目連結404錯誤">
+               <i class="fa fa-chevron-left"></i> Hexo分類頁面部分項目連結404錯誤
+             </a>
+           
+         </div>
+
+         <span class="post-nav-divider"></span>
+
+         <div class="post-nav-prev post-nav-item">
+           
+             <a href="/blog/posts/JavaScript/45fd/" rel="next" title="Revealing Module Pattern (JS)">
+               Revealing Module Pattern (JS) <i class="fa fa-chevron-right"></i>
+             </a>
+           
+         </div>
+       </div>
+     
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A8%A3%E5%BC%8F%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">基本樣式配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E8%A1%8C%E5%AE%A2%E8%A3%BD%E5%8C%96%E6%A8%A3%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">自行客製化樣式</span></a></li></ol></div>
+
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kevin Fang"
+      src="https://avatars1.githubusercontent.com/u/42539369?s=460&u=39b9ef0ba8f701077a22689184ac5bcce289e9e4&v=4">
+  <p class="site-author-name" itemprop="name">Kevin Fang</p>
+  <div class="site-description" itemprop="description">Better late than never</div>
+  
+     <div class="feed-link motion-element">
+       <a href="/atom.xml" rel="alternate">
+         <i class="fa fa-rss"></i>
+           RSS
+       </a>
+     </div>
+  
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/kevin1061517" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;kevin1061517" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:kevin1061517@gmail.com" title="E-Mail → mailto:kevin1061517@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+	<div class="links-of-blogroll motion-element links-of-blogroll-block">
+	  <div class="links-of-blogroll-title">
+		<!-- 选择合适的icon -->
+		<i class="fa fa-history fa-" aria-hidden="true"></i>
+		<!-- 这里对应下文主题配置文件的recent_posts_title值 -->
+		近期文章
+	  </div>
+	  <ul class="links-of-blogroll-list"> 
+		 <!-- 设置排序规格，此处我采用按照文章更新时间排序 -updated -->
+		
+		<!-- 显示三条近期文章，请自信合理配置 -->
+		
+		  <li>
+			<a href="/blog/posts/Hexo/e5a2de66/" title="Hexo出現 Template render error" target="_self">Hexo出現 Template render error</a>
+		  </li>
+		
+		  <li>
+			<a href="/blog/posts/ExtJS/c1113943/" title="ExtJS 製作 Banner" target="_self">ExtJS 製作 Banner</a>
+		  </li>
+		
+		  <li>
+			<a href="/blog/posts/Hexo/7dce27be/" title="Hexo分類頁面部分項目連結404錯誤" target="_self">Hexo分類頁面部分項目連結404錯誤</a>
+		  </li>
+		
+	  </ul>
+	</div>
+
+
+		
+		<!--近期文章 這邊是首頁's siderbar-->
+		
+      </div>
+
+
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span style="color: #fc6423; margin: 0px 5px;">
+    <i class="fas fa-user-graduate"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kevin Fang</span>
+</div>
+  <!--<div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
+  </div>-->
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script color='61, 61, 61' opacity='1.5' zIndex='-1' count='50' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://kevin1061517.github.io/blog/posts/Hexo/3f30/',]
+      });
+      });
+  </script>
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://myblog.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://kevin1061517.github.io/blog/posts/Hexo/3f30/";
+    this.page.identifier = "blog/posts/Hexo/3f30/";
+    this.page.title = "Next的CSS相關樣式配置";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://myblog.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+  
+  <!-- custom js from _layout.swig -->
+	<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+	<script type="text/javascript" src="/js/src/custom.js"></script>
+	<script type="text/javascript" src="/js/search.js"></script>
+</body>
+</html>

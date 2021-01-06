@@ -1,0 +1,201 @@
+
+/* post padding  margin */
+.main-post{  /* tab那邊*/
+	padding: 25px; 
+}
+
+.post-block{
+	padding: 0;
+	margin: 0;
+}
+
+.post-title, .post-meta{
+	display:none;
+}
+
+.wrapper{
+	padding: 35px;
+}
+
+hr{
+	margin: 15px;
+}
+
+
+/* kevin background */
+ 
+.description {
+  padding: 35px;
+}
+
+.title{
+	font-size: 26px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.slogan{
+	font-size: 1em;
+	text-align: center;
+}
+
+/* tabs 表格相關 */
+#aboutme{
+	border: 2px #7B7B7B solid;
+	background-color: rgb(255, 244, 194, 0.4);
+	padding-top: 2px;
+}
+
+.nav-tabs{
+	background-color: rgb(224, 224, 224, 0.6);
+}
+
+.nav-tabs li{
+	border-style:solid;
+}
+
+.nav-tabs .active{
+	font-weight: bold;
+	background-color: #FFE66F;
+}
+
+
+/* align setting */
+.center_div {    
+	display:  flex;
+	align-items: center;
+	justify-content:  center;
+}
+
+
+/* font setting */
+h3{ 
+	text-align: center; 
+	font-weight: bold; 
+	font-size: 24px; 
+	margin: 4px; 
+}
+
+.md{
+	font-size: 12pt;
+	font-weight: bold;
+}
+
+.sub_title{ 
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+/* introduction tag*/
+.gold_tag{
+	background-color: #272727;
+	color: white;
+	font-size: 8pt;
+	border-radius:10px;
+	padding: 3px 15px;
+	margin: 5px 10px;
+}
+
+
+/* related line height */
+.column{
+	line-height: 0.5;
+}
+
+/* icon  margin with right character */
+.icon {
+	margin-right: 11px;
+}
+
+/* author pic */
+.center_div img{		
+	width: 65%;
+}
+
+/* skill bar */
+
+.meter { 
+	height: 20px;
+	width: 70%;
+	background: #000000;
+	-moz-border-radius: 25px;
+	-webkit-border-radius: 25px;
+	border-radius: 20px;
+	margin: 2% 0% 2% 15%;
+}
+
+.meter > span {
+	display: block;
+	height: 100%;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	background-color: #EAC100;
+	background-image: linear-gradient(
+	  center bottom,
+	  rgb(74, 238, 95) 37%,
+	  rgb(174, 253, 178) 69%
+	);
+}
+
+
+@media (min-width: 768px){
+	.wrapper {
+		display: grid;
+		grid-template-columns: 40% 60%;
+	}
+	#gold ul li{
+		display: inline;
+	}
+	.doitems ul{
+		font-size: 12pt;
+		list-style-type: square;
+   }
+	.content1 {
+		 background: url(../img/test2.png) no-repeat center center fixed;
+		 background-size: cover;
+		 height: 55vh;
+		 width: 100%;
+		 display: table;
+		 background-attachment: fixed;
+		 /* 邊緣圓角 and 淡化 */
+		 border-radius: 4px;
+		 box-shadow:0 0 30px 10px rgba(255,255,255,.7) inset;
+	}
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+	#gold ul li{
+		margin-top: 10px;
+	}
+   .center_div {
+		width: 100%;
+   }
+   .center_div img{
+		width: 100%;
+		display:block;
+		margin: 25 auto;
+   }
+   .main-post h3{
+		font-size: 18px;
+		margin: 5;
+   }
+
+   .doitems ul{
+		font-size: 10pt;
+		list-style-type: square;
+   }
+	
+   .content1 {
+		background: url(../img/coding.png) no-repeat center center fixed;
+		background-size: cover;
+		height: 25%;
+		width: 100%;
+		display: table;
+		background-attachment: fixed;
+   }
+	
+}
+

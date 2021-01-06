@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-16x16-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/favicon-16x16-next.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Sans HK:300,300italic,400,400italic,700,700italic|Secular One:300,300italic,400,400italic,700,700italic|Kosugi Maru:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flat-top.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kevin1061517.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":230,"display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"perspectiveUpIn","sidebar":"shrinkIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="前言看到在 stackoverflow 有人發問 why do I need to return “init” to execute init function?  ，這是一個關於JS的design pattern的問題，其實我之前在其他地方就有看過類似的寫法，只是不知道它的一些概念和目的，因此這篇就來記錄一下這種設計模式的筆記。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Revealing Module Pattern (JS)">
+<meta property="og:url" content="https://kevin1061517.github.io/blog/posts/JavaScript/45fd/index.html">
+<meta property="og:site_name" content="Kevin Blog">
+<meta property="og:description" content="前言看到在 stackoverflow 有人發問 why do I need to return “init” to execute init function?  ，這是一個關於JS的design pattern的問題，其實我之前在其他地方就有看過類似的寫法，只是不知道它的一些概念和目的，因此這篇就來記錄一下這種設計模式的筆記。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2020-12-20T11:51:58.000Z">
+<meta property="article:modified_time" content="2020-12-27T15:50:49.522Z">
+<meta property="article:author" content="Kevin Fang">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="Design Pattern">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://kevin1061517.github.io/blog/posts/JavaScript/45fd/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>Revealing Module Pattern (JS) | Kevin Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Kevin Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Kevin Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Be brave to chase my dreams</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>回到首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>文章分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>所有文章</a>
+
+  </li>
+	<!--<div style="padding: 5px 10px"> http://moxfive.xyz/2016/05/31/hexo-local-search/
+			<form id="search-form">
+				<i class="fa fa-search"><font>搜尋: </font></i>
+				<input type="text" id="local-search-input" name="q" results="0" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off"/>
+				<i class="fa fa-times" onclick="resetSearch()"></i>
+			</form>
+			<div id="local-search-result" class="local-search-result-cls"></div>
+			<p class='no-result'>No results found </p>
+	</div>-->
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li> 
+	
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <font>置頂</font>
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://kevin1061517.github.io/blog/posts/JavaScript/45fd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/42539369?s=460&u=39b9ef0ba8f701077a22689184ac5bcce289e9e4&v=4">
+      <meta itemprop="name" content="Kevin Fang">
+      <meta itemprop="description" content="Better late than never">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kevin Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Revealing Module Pattern (JS)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-12-20 19:51:58" itemprop="dateCreated datePublished" datetime="2020-12-20T19:51:58+08:00">2020-12-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-12-27 23:50:49" itemprop="dateModified" datetime="2020-12-27T23:50:49+08:00">2020-12-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/blog/posts/JavaScript/45fd/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="blog/posts/JavaScript/45fd/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>看到在 stackoverflow 有人發問 <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/43929098/why-do-i-need-to-return-init-to-execute-init-function">why do I need to return “init” to execute init function?
+</a> ，這是一個關於JS的design pattern的問題，其實我之前在其他地方就有看過類似的寫法，只是不知道它的一些概念和目的，因此這篇就來記錄一下這種設計模式的筆記。</p>
+<a id="more"></a>
+
+<p>下面的code是網友發問貼上來的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> test = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;kick off&quot;</span>);</span><br><span class="line">  <span class="keyword">var</span> insideTest = <span class="string">&quot;variable inside test&quot;</span>;</span><br><span class="line">  <span class="keyword">var</span> init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> insideInit =<span class="string">&quot;variable inside init&quot;</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;inside init&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    init:init</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">test().init();   <span class="comment">// exposing the private function</span></span><br><span class="line"><span class="comment">// ====Console====</span></span><br><span class="line"><span class="comment">// kick off</span></span><br><span class="line"><span class="comment">// inside init</span></span><br></pre></td></tr></table></figure>
+<p>主要是發問說為何不能直接呼叫test().init()，而一定要加上return inint:init，才能得到正確的結果。其實回答的網友就直接提到這是一個Revealing Module Pattern，另外說明因為function init是寫在function test裡面，所以init的存取權限就只限於test裡面，只要超出test的範圍(scope)就會存取不到(undefined)，所以才要在函式的最後加上<code>return init:init;</code>這一段，讓外部的範圍可以來存取到這一方法，其實就是間接達到Java中的封裝效果，讓外部範圍只能透過你所提供的公開方法來存取，像是給函式init加上Private一樣。其實標準習慣的方式會直接宣告function()那邊加上括號，如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> test = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;kick off&quot;</span>);</span><br><span class="line">  <span class="keyword">var</span> insideTest = <span class="string">&quot;variable inside test&quot;</span>;</span><br><span class="line">  <span class="keyword">var</span> init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> insideInit =<span class="string">&quot;variable inside init&quot;</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;inside init&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    init:init</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(test)); <span class="comment">//object</span></span><br><span class="line">test.init(); </span><br></pre></td></tr></table></figure>
+<p>這自動執行function並回傳，所以test會直接是一個物件，而不是一個函式，如此可以省去呼叫test時候還要加上()。下面將來紀錄這種設計模式的範例</p>
+<h2 id="Module-Pattern"><a href="#Module-Pattern" class="headerlink" title="Module Pattern"></a>Module Pattern</h2><p>透過閉包(closure)的特性(變數或函式可以存取的範圍)，來實作出一種可以呼叫的公共(public) 函式，同時能夠封裝私有成員的方法，滿足我們想要隱藏一些商業邏輯及讓程式碼更具結構化，下面則是以上面的例子來修改</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> test = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// private variable</span></span><br><span class="line">  <span class="keyword">var</span> insideTest = <span class="string">&quot;variable inside test&quot;</span>;</span><br><span class="line">  <span class="comment">// private function</span></span><br><span class="line">  <span class="keyword">var</span> init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> insideInit =<span class="string">&quot;variable inside init&quot;</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;inside init&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 回傳一個object</span></span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    <span class="comment">//public function</span></span><br><span class="line">    getInsideTest: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> insideTest;</span><br><span class="line">    &#125;,</span><br><span class="line">    setInsideTest: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        insideTest = insideTest;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br><span class="line">test.setInsideTest(<span class="string">&#x27;akb48&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(test.getInsideTest()); <span class="comment">//akb48</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Revealing-Module-Pattern"><a href="#Revealing-Module-Pattern" class="headerlink" title="Revealing Module Pattern"></a>Revealing Module Pattern</h2><p>揭示模組模式(Revealing Module Pattern)則是上面Module Pattern的改良版本，其實就是把所有函式或變數都在閉包中定義，返回值是不包含任何定義，提高程式碼的可讀性及結構性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> test = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// private variable</span></span><br><span class="line">  <span class="keyword">var</span> insideTest = <span class="string">&quot;variable inside test&quot;</span>;</span><br><span class="line">  <span class="comment">// private function</span></span><br><span class="line">  <span class="keyword">var</span> setInsideTest = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    insideTest = insideTest;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> getInsideTest = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> insideTest;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// Return an object literal with no function definitions</span></span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    getInsideTest: getInsideTest,</span><br><span class="line">    setInsideTest: setInsideTest</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br><span class="line">test.setInsideTest(<span class="string">&#x27;tpe48&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(test.getInsideTest()); <span class="comment">//tpe48</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://medium.com/@Rahulx1/revealing-module-pattern-tips-e3442d4e352">https://medium.com/@Rahulx1/revealing-module-pattern-tips-e3442d4e352</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.oreilly.com/library/view/learning-javascript-design/9781449334840/ch09s03.html">https://www.oreilly.com/library/view/learning-javascript-design/9781449334840/ch09s03.html</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.tastones.com/zh-tw/stackoverflow/javascript/creational-design-patterns/module_and_revealing_module_patterns/">http://www.tastones.com/zh-tw/stackoverflow/javascript/creational-design-patterns/module_and_revealing_module_patterns/</a></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>作者： </strong>Kevin Fang
+  </li>
+  <li class="post-copyright-link">
+    <strong>文章連結：</strong>
+    <a href="https://kevin1061517.github.io/blog/posts/JavaScript/45fd/" title="Revealing Module Pattern (JS)">https://kevin1061517.github.io/blog/posts/JavaScript/45fd/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 許可協議。轉載請註明出處！
+  </li>
+</ul>
+</div>
+
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/tags/Design-Pattern/" rel="tag"># Design Pattern</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/posts/Java/8f30/" rel="prev" title="Practical Java筆記">
+      <i class="fa fa-chevron-left"></i> Practical Java筆記
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/blog/posts/Hexo/3f30/" rel="next" title="Next的CSS相關樣式配置">
+      Next的CSS相關樣式配置 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+	
+	
+       <div class="post-nav">
+         <div class="post-nav-next post-nav-item">
+           
+             <a href="/blog/posts/Hexo/3f30/" rel="prev" title="Next的CSS相關樣式配置">
+               <i class="fa fa-chevron-left"></i> Next的CSS相關樣式配置
+             </a>
+           
+         </div>
+
+         <span class="post-nav-divider"></span>
+
+         <div class="post-nav-prev post-nav-item">
+           
+             <a href="/blog/posts/Java/8f30/" rel="next" title="Practical Java筆記">
+               Practical Java筆記 <i class="fa fa-chevron-right"></i>
+             </a>
+           
+         </div>
+       </div>
+     
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-Pattern"><span class="nav-number">2.</span> <span class="nav-text">Module Pattern</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Revealing-Module-Pattern"><span class="nav-number">3.</span> <span class="nav-text">Revealing Module Pattern</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">參考</span></a></li></ol></div>
+
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kevin Fang"
+      src="https://avatars1.githubusercontent.com/u/42539369?s=460&u=39b9ef0ba8f701077a22689184ac5bcce289e9e4&v=4">
+  <p class="site-author-name" itemprop="name">Kevin Fang</p>
+  <div class="site-description" itemprop="description">Better late than never</div>
+  
+     <div class="feed-link motion-element">
+       <a href="/atom.xml" rel="alternate">
+         <i class="fa fa-rss"></i>
+           RSS
+       </a>
+     </div>
+  
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/kevin1061517" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;kevin1061517" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:kevin1061517@gmail.com" title="E-Mail → mailto:kevin1061517@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+	<div class="links-of-blogroll motion-element links-of-blogroll-block">
+	  <div class="links-of-blogroll-title">
+		<!-- 选择合适的icon -->
+		<i class="fa fa-history fa-" aria-hidden="true"></i>
+		<!-- 这里对应下文主题配置文件的recent_posts_title值 -->
+		近期文章
+	  </div>
+	  <ul class="links-of-blogroll-list"> 
+		 <!-- 设置排序规格，此处我采用按照文章更新时间排序 -updated -->
+		
+		<!-- 显示三条近期文章，请自信合理配置 -->
+		
+		  <li>
+			<a href="/blog/posts/Hexo/e5a2de66/" title="Hexo出現 Template render error" target="_self">Hexo出現 Template render error</a>
+		  </li>
+		
+		  <li>
+			<a href="/blog/posts/ExtJS/c1113943/" title="ExtJS 製作 Banner" target="_self">ExtJS 製作 Banner</a>
+		  </li>
+		
+		  <li>
+			<a href="/blog/posts/Hexo/7dce27be/" title="Hexo分類頁面部分項目連結404錯誤" target="_self">Hexo分類頁面部分項目連結404錯誤</a>
+		  </li>
+		
+	  </ul>
+	</div>
+
+
+		
+		<!--近期文章 這邊是首頁's siderbar-->
+		
+      </div>
+
+
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span style="color: #fc6423; margin: 0px 5px;">
+    <i class="fas fa-user-graduate"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kevin Fang</span>
+</div>
+  <!--<div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
+  </div>-->
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script color='61, 61, 61' opacity='1.5' zIndex='-1' count='50' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://kevin1061517.github.io/blog/posts/JavaScript/45fd/',]
+      });
+      });
+  </script>
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://myblog.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://kevin1061517.github.io/blog/posts/JavaScript/45fd/";
+    this.page.identifier = "blog/posts/JavaScript/45fd/";
+    this.page.title = "Revealing Module Pattern (JS)";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://myblog.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+  
+  <!-- custom js from _layout.swig -->
+	<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+	<script type="text/javascript" src="/js/src/custom.js"></script>
+	<script type="text/javascript" src="/js/search.js"></script>
+</body>
+</html>

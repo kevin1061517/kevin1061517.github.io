@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-16x16-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/favicon-16x16-next.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Sans HK:300,300italic,400,400italic,700,700italic|Secular One:300,300italic,400,400italic,700,700italic|Kosugi Maru:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flat-top.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kevin1061517.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":230,"display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"perspectiveUpIn","sidebar":"shrinkIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="前言我們接觸Java可能已經有好幾年時間了，對於Java提供的不同關鍵字或各種機制都有一定程度上的了解，尤其常常受惠於它優秀、擴充性強大及多樣功能的標準函式庫(library)，透過這些套件就可以快速開發出一個應用程式，但其中還是有許多設計和編寫上的實用方法及觀念，讓我們可以花較少的時間在除錯或優化程式碼，並產出較高效能的系統，所以當然需要來好好了解這些知識點。所以此篇為 Peter Haggar">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Practical Java筆記">
+<meta property="og:url" content="https://kevin1061517.github.io/blog/posts/Java/8f30/index.html">
+<meta property="og:site_name" content="Kevin Blog">
+<meta property="og:description" content="前言我們接觸Java可能已經有好幾年時間了，對於Java提供的不同關鍵字或各種機制都有一定程度上的了解，尤其常常受惠於它優秀、擴充性強大及多樣功能的標準函式庫(library)，透過這些套件就可以快速開發出一個應用程式，但其中還是有許多設計和編寫上的實用方法及觀念，讓我們可以花較少的時間在除錯或優化程式碼，並產出較高效能的系統，所以當然需要來好好了解這些知識點。所以此篇為 Peter Haggar">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/xkJGS0L.png">
+<meta property="og:image" content="https://i.imgur.com/mo4pU0X.png">
+<meta property="og:image" content="https://i.imgur.com/WdZr0i8.png">
+<meta property="article:published_time" content="2020-11-01T02:48:30.000Z">
+<meta property="article:modified_time" content="2021-01-06T16:03:23.314Z">
+<meta property="article:author" content="Kevin Fang">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/xkJGS0L.png">
+
+<link rel="canonical" href="https://kevin1061517.github.io/blog/posts/Java/8f30/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>Practical Java筆記 | Kevin Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Kevin Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Kevin Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Be brave to chase my dreams</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>回到首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>文章分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>所有文章</a>
+
+  </li>
+	<!--<div style="padding: 5px 10px"> http://moxfive.xyz/2016/05/31/hexo-local-search/
+			<form id="search-form">
+				<i class="fa fa-search"><font>搜尋: </font></i>
+				<input type="text" id="local-search-input" name="q" results="0" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off"/>
+				<i class="fa fa-times" onclick="resetSearch()"></i>
+			</form>
+			<div id="local-search-result" class="local-search-result-cls"></div>
+			<p class='no-result'>No results found </p>
+	</div>-->
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li> 
+	
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <font>置頂</font>
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://kevin1061517.github.io/blog/posts/Java/8f30/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/42539369?s=460&u=39b9ef0ba8f701077a22689184ac5bcce289e9e4&v=4">
+      <meta itemprop="name" content="Kevin Fang">
+      <meta itemprop="description" content="Better late than never">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kevin Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Practical Java筆記
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-11-01 10:48:30" itemprop="dateCreated datePublished" datetime="2020-11-01T10:48:30+08:00">2020-11-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-01-07 00:03:23" itemprop="dateModified" datetime="2021-01-07T00:03:23+08:00">2021-01-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/blog/posts/Java/8f30/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="blog/posts/Java/8f30/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我們接觸Java可能已經有好幾年時間了，對於Java提供的不同關鍵字或各種機制都有一定程度上的了解，尤其常常受惠於它優秀、擴充性強大及多樣功能的標準函式庫(library)，透過這些套件就可以快速開發出一個應用程式，但其中還是有許多設計和編寫上的實用方法及觀念，讓我們可以花較少的時間在除錯或優化程式碼，並產出較高效能的系統，所以當然需要來好好了解這些知識點。所以此篇為 Peter Haggar 所著寫的 Practical Java Programming Language Guide 之讀後心得筆記，目標就是讓我們寫出更正確、高效率且穩定的Java程式，且非常適合我們中高階的Programmer來閱讀。</p>
+<a id="more"></a>
+
+<h2 id="Java傳遞參數都只有Call-by-value"><a href="#Java傳遞參數都只有Call-by-value" class="headerlink" title="Java傳遞參數都只有Call by value"></a>Java傳遞參數都只有Call by value</h2><ol>
+<li>Java中所有引數(Argument Value)都是 <em>call by value</em> 的方式來傳遞資訊</li>
+<li>Java 對於 primitive type 和 reference type 的處理是不太一樣的<ul>
+<li>函數參數收到primitive type的值後，會在stack產生一個同樣值得副本</li>
+<li>函數參數收到object reference(儲存物件在Heap的記憶體位址)後，一樣也會產生object reference的副本(一個Address)</li>
+<li>primitive type 的複件(copy)隨便賦值都不影響，但object reference 的複件(copy)就必須要小心使用</li>
+</ul>
+</li>
+</ol>
+<p>Example</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line">    String name;</span><br><span class="line">    String empId;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Employee</span><span class="params">(String name, String empId)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.empId = empId;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> String.format(<span class="string">&quot;Employee&#123;name=%s, empId=%s&#125;&quot;</span>, name, empId);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PassByValueExample</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">doEmployee</span><span class="params">(Employee e, <span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">        v = <span class="number">100</span>;</span><br><span class="line">        e.name = <span class="string">&quot;KevinFang&quot;</span>;<span class="comment">//這邊的e還是物件參考變數kevin的Heap address</span></span><br><span class="line">        e = <span class="keyword">new</span> Employee(<span class="string">&quot;Red&quot;</span>, <span class="string">&quot;54321&quot;</span>);<span class="comment">//During Modify Employee&#123;name=Red, empId=54321&#125; and v = 100</span></span><br><span class="line">        System.out.println(String.format(<span class="string">&quot;During Modify %s and v = %d&quot;</span>, e, v));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> v = <span class="number">10</span>;</span><br><span class="line">        Employee kevin = <span class="keyword">new</span> Employee(<span class="string">&quot;kevin&quot;</span>, <span class="string">&quot;12345&quot;</span>);</span><br><span class="line">        System.out.println(String.format(<span class="string">&quot;Before Modify %s and v = %d&quot;</span>, kevin, v));<span class="comment">//Before Modify Employee&#123;name=kevin, empId=12345&#125; and v = 10</span></span><br><span class="line">        doEmployee(kevin, v);</span><br><span class="line">        System.out.println(String.format(<span class="string">&quot;After Modify %s and v = %d&quot;</span>, kevin, v));<span class="comment">//After Modify Employee&#123;name=KevinFang, empId=12345&#125; and v = 10</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Output</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Before Modify Employee&#123;<span class="attribute">name</span>=kevin, <span class="attribute">empId</span>=12345&#125; <span class="keyword">and</span> v = 10</span><br><span class="line">During Modify Employee&#123;<span class="attribute">name</span>=Red, <span class="attribute">empId</span>=54321&#125; <span class="keyword">and</span> v = 100</span><br><span class="line">After Modify Employee&#123;<span class="attribute">name</span>=KevinFang, <span class="attribute">empId</span>=12345&#125; <span class="keyword">and</span> v = 10</span><br></pre></td></tr></table></figure>
+
+<p>變數v傳進去方法出來後還是維持不變，但在第17行對傳進來的物件參考進行修改，出來後就改變了，這是因為此時此刻doEmployee的參數e和main的物件參考kevin都是指向同一個Heap的記憶體位址。在第18行把參數e的位址賦予新的物件，因為原本的位址就是一個copy，所以也不會影響到其他地方，最後e就會改指向新的位址，如下圖所示。<br><img src="https://i.imgur.com/xkJGS0L.png" style="zoom:80%" /></p>
+<h2 id="不變的常數或物件參考使用關鍵字final"><a href="#不變的常數或物件參考使用關鍵字final" class="headerlink" title="不變的常數或物件參考使用關鍵字final"></a>不變的常數或物件參考使用關鍵字final</h2><ol>
+<li>final可以放在類別(Class)、函數(method)以及變數(variable)之前來表示不同作用<ul>
+<li>類別之前表示該類別禁止被繼承 (Ex: String)</li>
+<li>函數之前表示繼承他的子類別無法覆寫此方法 (Ex: Java.lang.Object的getClass())</li>
+<li>變數之前則代表此變數是一個常數，且不能再被賦予其他值 (Ex: PI)</li>
+<li>物件參考之前表示必須永遠都要指向Heap裡面的同一個物件的位址</li>
+</ul>
+</li>
+<li>final的變數通常用來表示常數資料<ul>
+<li>final的常數名稱習慣上會全部大寫</li>
+<li>宣告時或建構式(Constructor)中一定要有賦值的動作</li>
+</ul>
+</li>
+<li>在Java SE API中會宣告為final的類別或方法，通常與JVM物件或作業系統資源管理有密切相關，因此不希望API使用者繼承或重新定義 (良葛葛)</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="keyword">double</span> PI = <span class="number">3.14</span>;</span><br><span class="line">PI = <span class="number">1.23</span>; <span class="comment">//Error, The final field Test.PI cannot be assigned</span></span><br><span class="line">------------------------</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Employee</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> salary;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Employee</span><span class="params">(<span class="keyword">int</span> salary)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.salary = salary;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSalary</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> salary;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSalary</span><span class="params">(<span class="keyword">int</span> salary)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.salary = salary;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Finance</span></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> Employee kevin = <span class="keyword">new</span> Employee(<span class="number">22000</span>);</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        kevin.setSalary(<span class="number">100000</span>);  <span class="comment">//可以改變物件變數salary，物件參考還是指向同一個物件</span></span><br><span class="line">        <span class="comment">//kevin = new Employee(100000);  //Error. kevin cannot be assigned...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="所有non-static函式都可以被覆寫"><a href="#所有non-static函式都可以被覆寫" class="headerlink" title="所有non-static函式都可以被覆寫"></a>所有non-static函式都可以被覆寫</h2><ol>
+<li>只要函式具有是private、static或final關鍵字就能夠阻止被子類別覆寫(Override)</li>
+<li>兩個方式防止函式被子類別覆寫<ul>
+<li>宣告函式所在class為final，但也暗示此class的所有函式皆為final，因為也沒有其他類別可以繼承</li>
+<li>宣告此函式為final</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Father</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> num = <span class="number">10</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getNum</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> num;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">Father</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getNum</span><span class="params">()</span> </span>&#123;<span class="comment">//Cannot override the final method from Father</span></span><br><span class="line">        <span class="keyword">return</span> num + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//==================================================</span></span><br><span class="line"><span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Father</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> num = <span class="number">10</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getNum</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> num;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">Father</span> </span>&#123; <span class="comment">//Error, The type Son cannot subclass the final class Father</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>關鍵字final的應用在library就隨處可見，像是String類別在宣告前就加上final關鍵字，防止我們來去繼承它，另外Object類別中的許多函式都有加上final避免被覆寫，如下官方API所示</p>
+<img src="https://i.imgur.com/mo4pU0X.png" style="zoom:80%" />
+
+<img src="https://i.imgur.com/WdZr0i8.png" style="zoom:85%" />
+
+<h2 id="多型-Polymorphism-優於-instanceof"><a href="#多型-Polymorphism-優於-instanceof" class="headerlink" title="多型(Polymorphism) 優於 instanceof"></a>多型(Polymorphism) 優於 instanceof</h2><p>使用 instanceof 能夠得到物件之間是否具有某種繼承或實作關係</p>
+<h3 id="Bad-example"><a href="#Bad-example" class="headerlink" title="Bad example"></a>Bad example</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getSalary</span><span class="params">()</span></span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Manager</span> <span class="keyword">implements</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> mgrSal = <span class="number">40000</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSalary</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mgrSal;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Programmer</span> <span class="keyword">implements</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> prgSal = <span class="number">50000</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> bonus = <span class="number">10000</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSalary</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> prgSal;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getBonus</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> bonus;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Payroll</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">calcPayroll</span><span class="params">(Employee emp)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> totalSalary = emp.getSalary();</span><br><span class="line">        <span class="keyword">if</span> (emp <span class="keyword">instanceof</span> Programmer) &#123;</span><br><span class="line">            totalSalary += ((Programmer) emp).getBonus();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> totalSalary;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Payroll pr = <span class="keyword">new</span> Payroll();</span><br><span class="line">        Employee programmer = <span class="keyword">new</span> Programmer();</span><br><span class="line">        Employee manager = <span class="keyword">new</span> Manager();</span><br><span class="line">        System.out.println(<span class="string">&quot;Payroll for Programmer is &quot;</span> + pr.calcPayroll(programmer));<span class="comment">//Payroll for Programmer is 60000</span></span><br><span class="line">        System.out.println(<span class="string">&quot;Payroll for Manager is &quot;</span> + pr.calcPayroll(manager));<span class="comment">//Payroll for Manager is 40000</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="多型取代-instanceof"><a href="#多型取代-instanceof" class="headerlink" title="多型取代 instanceof"></a>多型取代 instanceof</h3><ol>
+<li>日後隨需求改變可能又會多出HR等繼承Employee介面的類別</li>
+<li>C++大師Scott Meyers 曾提到:「如果物件的型別是T1就做某事，接著如果物件的型別是T2就做另外一件事情，請給自己一個巴掌」</li>
+<li>透過多型改善程式的物件導向純度，同時提高維護性及擴充性</li>
+</ol>
+<h3 id="Good-example"><a href="#Good-example" class="headerlink" title="Good example"></a>Good example</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getSalary</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getBonus</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Manager</span> <span class="keyword">implements</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> mgrSal = <span class="number">40000</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> bonus = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSalary</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mgrSal;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getBonus</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> bonus;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Programmer</span> <span class="keyword">implements</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> prgSal = <span class="number">50000</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> bonus = <span class="number">10000</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSalary</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> prgSal;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getBonus</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> bonus;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Payroll</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">calcPayroll</span><span class="params">(Employee emp)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> totalSalary = emp.getSalary() + emp.getBonus();</span><br><span class="line">        <span class="keyword">return</span> totalSalary;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Payroll pr = <span class="keyword">new</span> Payroll();</span><br><span class="line">        Employee programmer = <span class="keyword">new</span> Programmer();</span><br><span class="line">        Employee manager = <span class="keyword">new</span> Manager();</span><br><span class="line">        System.out.println(<span class="string">&quot;Payroll for Programmer is &quot;</span> + pr.calcPayroll(programmer));<span class="comment">//Payroll for Programmer is 60000</span></span><br><span class="line">        System.out.println(<span class="string">&quot;Payroll for Manager is &quot;</span> + pr.calcPayroll(manager));<span class="comment">//Payroll for Manager is 40000</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="必要時才使用-instanceof"><a href="#必要時才使用-instanceof" class="headerlink" title="必要時才使用 instanceof"></a>必要時才使用 instanceof</h2><p>常見的使用時機</p>
+<ol>
+<li>使用的library設計不當</li>
+<li>處理向下轉型(Down Casting)的時候</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> leg;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Koala</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> leg = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Kangaroo</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> leg = <span class="number">4</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rhinoceros</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Payroll</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Animal animal1 = <span class="keyword">new</span> Koala();</span><br><span class="line">        Object animal2 = <span class="keyword">new</span> Kangaroo();</span><br><span class="line">        System.out.println(animal1.leg); <span class="comment">//0</span></span><br><span class="line"></span><br><span class="line">        Kangaroo kangaroo = (Kangaroo)animal1; <span class="comment">//Runtime error</span></span><br><span class="line">        Rhinoceros rhinoceros = (Rhinoceros)animal1; <span class="comment">//Compile error</span></span><br><span class="line">        Kangaroo an2 = (Kangaroo)animal2; <span class="comment">//OK</span></span><br><span class="line">        System.out.println(an2.leg); <span class="comment">//4</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>第23行會在執行期拋出ClassCastException例外，可利用instanceof來確保向下轉型的安全性，避免使用try-catch來處理這種異常</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (animal1 <span class="keyword">instanceof</span> Kangaroo) &#123;</span><br><span class="line">    Kangaroo kangaroo = (Kangaroo)animal1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="一旦不需要object-reference就將它設為null"><a href="#一旦不需要object-reference就將它設為null" class="headerlink" title="一旦不需要object reference就將它設為null"></a>一旦不需要object reference就將它設為null</h2><p>當不需要再使用某個物件，可將其物件參考(reference)設為null，Java的GC就會來回收這不需要的記憶體</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Class Customers &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] custIdArray;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Customers</span><span class="params">(String db)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> num = query(db);</span><br><span class="line">        custIdArray = <span class="keyword">new</span> <span class="keyword">int</span>[num];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=;i&lt;num;i++) &#123;</span><br><span class="line">            custIdArray[i] = <span class="comment">//some value from a database representing a customer ID</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Console</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Customers cust = <span class="keyword">new</span> Customers(<span class="string">&quot;Oracle_db&quot;</span>);</span><br><span class="line">        <span class="comment">//use our Customers object to prime fields in a GUI</span></span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">        <span class="comment">//Customers object no longer needed</span></span><br><span class="line">        cust = <span class="keyword">null</span>;</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">        <span class="comment">//The rest of the codes</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/30903801/hql-order-by-expression">https://stackoverflow.com/questions/30903801/hql-order-by-expression</a><br><a href="\aboutKevin\file\Garmin_Study_Group.pptx">Study Group</a> </p>
+<p>Java function 命名習慣</p>
+<p>變數名稱一定要以英文字母大小寫(a-z, A-Z)，金錢符號($)，底線符號(_)來開頭，不能以數字或其他特殊符號為開頭。<br>Java關鍵字or保留字不作為命名</p>
+<p>介面(Interface)多以形容詞或名詞來命名</p>
+<p>類別(Class)則是應為名詞</p>
+<p>方法(Method)應為動詞<br>saveMoney<br>getCustomerName<br>isWakeUp<br>turnOff</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">var fxkGroup = &#123;</span><br><span class="line">    <span class="symbol">xtype:</span> <span class="string">&#x27;checkboxgroup&#x27;</span>,</span><br><span class="line">    <span class="symbol">id:</span> <span class="string">&#x27;group&#x27;</span>,</span><br><span class="line">    <span class="attr">width :</span> <span class="number">550</span>,</span><br><span class="line">    <span class="attr">columns :</span> <span class="number">4</span>, <span class="comment">// 在上面定義的寬度上展示3列</span></span><br><span class="line">    <span class="symbol">defaults:</span> &#123;</span><br><span class="line">        <span class="symbol">listeners:</span> &#123;</span><br><span class="line">            <span class="comment">//https://stackoverflow.com/questions/63558005/javascript-extjs-check-only-one-checkbox-from-two</span></span><br><span class="line">            <span class="symbol">change:</span> function(checkbox, newValue) &#123;</span><br><span class="line">                <span class="keyword">if</span>(newValue) &#123; </span><br><span class="line">                    var arr = Ext.getCmp(<span class="string">&#x27;group&#x27;</span>).query(<span class="string">&#x27;checkbox&#x27;</span>);</span><br><span class="line">                    Ext.Array.forEach(arr,  function(item, index) &#123;</span><br><span class="line">                          <span class="keyword">if</span> (item.boxLabel !== checkbox.boxLabel) &#123;</span><br><span class="line">                              item.setValue(<span class="literal">false</span>);</span><br><span class="line">                          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                              console.log(item.boxLabel);</span><br><span class="line">                          &#125;</span><br><span class="line">                      &#125;);</span><br><span class="line">                    <span class="comment">//checkbox.previousSibling().setValue(false);</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">items :</span> [&#123;</span><br><span class="line">                <span class="attr">boxLabel :</span> <span class="string">&#x27;A&#x27;</span>,</span><br><span class="line">                <span class="attr">inputValue :</span> <span class="string">&quot;1&quot;</span></span><br><span class="line">            &#125;, &#123;</span><br><span class="line">                <span class="attr">boxLabel :</span> <span class="string">&#x27;B&#x27;</span>,</span><br><span class="line">                <span class="attr">inputValue :</span> <span class="string">&quot;2&quot;</span></span><br><span class="line">            &#125;, &#123;</span><br><span class="line">                <span class="attr">boxLabel :</span> <span class="string">&#x27;C&#x27;</span>,</span><br><span class="line">                <span class="attr">inputValue :</span> <span class="string">&quot;3&quot;</span></span><br><span class="line">            &#125;, &#123;</span><br><span class="line">                <span class="attr">boxLabel :</span> <span class="string">&#x27;All&#x27;</span>,</span><br><span class="line">                <span class="attr">inputValue :</span> <span class="string">&quot;4&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>前言<br>異常處理在javs當中是一個強大而實用的機制，但同時也增加了不少複雜性<br>java是最早引入異常處理模型的語言<br>但要怎樣恰當使用異常處理也變得相當不容易<br>有時候處理異常 以為只是加入try catch 反而造成另外的異常發生<br>異常處理讓我們建立具有容錯(fault-tolerant) 穩固(robust)的錯誤處理機制和回復(recovery)</p>
+<p><a target="_blank" rel="noopener" href="https://litotom.com/java-exception-handling-try-catch/">https://litotom.com/java-exception-handling-try-catch/</a></p>
+<p>16 認識異常控制流(exception control flow)機制</p>
+<p>複雜原因=&gt;程式碼地點一下跳轉到另外一個區塊</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Example</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ex1</span>(<span class="params"></span>) throws IOException</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            ex2();</span><br><span class="line">            ex3();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            System.<span class="keyword">out</span>.println(<span class="string">&quot;Caught IOException in ex1()&quot;</span>);</span><br><span class="line">            <span class="keyword">throw</span> e;</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            System.<span class="keyword">out</span>.println(<span class="string">&quot;In finally for ex1()&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">&quot;Exit ex1()&quot;</span>); <span class="comment">//1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ex2</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> tmp = <span class="number">5</span>/<span class="number">0</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ArithmeticException e) &#123;</span><br><span class="line">            System.<span class="keyword">out</span>.println(<span class="string">&quot;Caught ArithmeticException in ex2()&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            System.<span class="keyword">out</span>.println(<span class="string">&quot;In finally for ex2()&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">&quot;Exit ex2()&quot;</span>); <span class="comment">//</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ex3</span>(<span class="params"></span>) throws IOException</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IOException();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            System.<span class="keyword">out</span>.println(<span class="string">&quot;In finally for ex3()&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//System.out.println(&quot;Exit ex3()&quot;);</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>)</span> &#123;</span><br><span class="line">        Example em = <span class="keyword">new</span> Example();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.<span class="keyword">out</span>.println(<span class="string">&quot;call ex1&quot;</span>);</span><br><span class="line">            em.ex1();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            System.<span class="keyword">out</span>.println(<span class="string">&quot;Caught IOException in main&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>output</p>
+<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">call</span> <span class="variable">ex1</span></span><br><span class="line"><span class="variable">Caught</span> <span class="variable">ArithmeticException</span> <span class="variable"><span class="keyword">in</span></span> <span class="function"><span class="title">ex2</span>()</span></span><br><span class="line"><span class="variable"><span class="keyword">In</span></span> <span class="variable"><span class="keyword">finally</span></span> <span class="variable">for</span> <span class="function"><span class="title">ex2</span>()</span></span><br><span class="line"><span class="variable">Exit</span> <span class="function"><span class="title">ex2</span>()</span></span><br><span class="line"><span class="variable"><span class="keyword">In</span></span> <span class="variable"><span class="keyword">finally</span></span> <span class="variable">for</span> <span class="function"><span class="title">ex3</span>()</span></span><br><span class="line"><span class="variable">Caught</span> <span class="variable">IOException</span> <span class="variable"><span class="keyword">in</span></span> <span class="function"><span class="title">ex1</span>()</span></span><br><span class="line"><span class="variable"><span class="keyword">In</span></span> <span class="variable"><span class="keyword">finally</span></span> <span class="variable">for</span> <span class="function"><span class="title">ex1</span>()</span></span><br><span class="line"><span class="variable">Exit</span> <span class="function"><span class="title">ex1</span>()</span></span><br></pre></td></tr></table></figure>
+<p>1沒有執行是因為在他之前有拋出異常沒有捕獲(拋出後捕獲但又再拋出，等同於沒有捕獲)，再執行完finally後就跳離function<br>程式在try區段內拋出異常會發生，控制流會先到catch 再到finally，接著finally後面的也會執行<br>如果沒有catch，則舊址到finally<br>輕忽 對異常發生時導致事情 會造成程式行為錯誤及況展及維護的難度</p>
+<p>17 絕對不可以輕忽異常<br>異常發生不捕捉會造成目前執行續(Thread)中斷<br>異常產生可以做的事情有</p>
+<ol>
+<li>捕捉他 防止近一步傳播(propagate)</li>
+<li>捕捉他並再次拋出他，給呼叫端來處理</li>
+<li>捕捉他，然後拋出新的異常給呼叫端</li>
+<li>不捕捉她，聽任他傳播給呼叫端</li>
+</ol>
+<p>3要確保拋出新的異常包含原有異常的相關資訊<br>草率方式是捕捉他不作為=&gt;會好像什麼都沒發生過 把異常吞掉 =&gt; 吞噬異常比忽略回傳碼(!)(return code)異常引起更多麻煩</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">    <span class="regexp">//</span> code that could throw a FileNotFoundException</span><br><span class="line">&#125; catch (FileNotFoundException e) &#123;</span><br><span class="line">    <span class="regexp">//</span> <span class="keyword">do</span> nothing</span><br><span class="line">&#125;</span><br><span class="line"><span class="regexp">//</span> rest of code <span class="keyword">in</span> method</span><br></pre></td></tr></table></figure>
+<p>至少要輸出到log file</p>
+<p>18 千萬不要遮掩異常<br>處理前面拋出的異常後，再catch或finally又拋出異常，會讓前面的異常被遮掩掉，只剩下最後生成的異常傳給呼叫端<br>=&gt;想知道異常的罪魁禍首，就不能遮掩異常(串肉粽)</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">static</span> <span class="keyword">void</span> foo() throws <span class="built_in">Exception</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Exception</span>(<span class="string">&quot;first Exception&quot;</span>); <span class="comment">//1</span></span><br><span class="line">    &#125; <span class="keyword">catch</span> (<span class="built_in">Exception</span> e) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Exception</span>(<span class="string">&quot;second Exception&quot;</span>); <span class="comment">//2</span></span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Exception</span>(<span class="string">&quot;third Exception&quot;</span>); <span class="comment">//3</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo(); <span class="comment">//third Exception</span></span><br></pre></td></tr></table></figure>
+<p> /1 和 / 2被3遮掩</p>
+<p>19 明察throws子句的缺點<br>throws 向呼叫的函式發出預警<br>woker method 增加了一個可能拋出異常的code 就地處理 call他的人處理<br>慎用，只要method加上throws，會影響每一個呼叫者<br>沒有一定答案，系統設計時就有設計好錯誤處理的策略</p>
+<p>20 細緻而全面理解 throws 子句<br>提醒呼叫者可能會發生的異常(像料靶子)<br>覆寫時 方法拋出的例外只能是相同或其子類別 甚至是不拋</p>
+<p>21 使用 finally 避免資源洩漏 (V)<br>關掉DB連線相關設定 socket.close() connect.close()</p>
+<p>22 不要從try區段返回return<br>finally再就一定會執行<br>try有三種結果<br>拋出異常<br>try區段正常結束<br>再try區段執行return break continue等關鍵字，會直接離開try區段</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">method1</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">method2</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">4</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">System.<span class="keyword">out</span>.println(method1());<span class="comment">//1</span></span><br><span class="line">System.<span class="keyword">out</span>.println(method2());<span class="comment">//4</span></span><br></pre></td></tr></table></figure>
+<p>傳統認為return就會立刻離開，finally是特例。<br>return 3後控制權會移轉到finally 並蓋過此return<br>finally這種獨特性質有可能令人困惑，陷入漫長的除厝困境無法自拔<br>盡可能避免在try區段中使用return break continue敘述句<br>如果堅持要用要確保finally存在不會改變回傳值</p>
+<p>23 將 try/catch 區段置於迴圈之外 (V)<br>24 不要將異常用於流程控制</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="comment">// Do something</span></span><br><span class="line">        <span class="comment">// if some loop terminating condition</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="type">CustomException</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (CustomException e) &#123;</span><br><span class="line">    <span class="comment">// ..</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>用異常來控制流程是使用異常來中斷迴圈，雖可執行 但效率低 且語意含糊 難以維護<br>記住=&gt; 異常處理(Exception handling)只用於異常情況，不要把它當作是流程控制的方式</p>
+<p>25 不要每逢出錯就使用異常<br>異常處理的初衷是作為錯誤處理技術(Error Handling techniques)的一份更可靠的替代品<br>避免使用在流程控制及揭發非錯誤的情況<br>Good example</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">int</span> <span class="class"><span class="keyword">data</span>;</span></span><br><span class="line"><span class="type">MyInpustStram</span> <span class="keyword">in</span> = <span class="type">MyInputStream</span>(&#x27;test.txt&#x27;);</span><br><span class="line"><span class="class"><span class="keyword">data</span> = in.getData();</span></span><br><span class="line"><span class="title">while</span> (<span class="class"><span class="keyword">data</span> != 0) &#123;</span></span><br><span class="line"><span class="class">    // <span class="type">Do</span> <span class="title">something</span> <span class="title">with</span> <span class="title">data</span></span></span><br><span class="line"><span class="class">    <span class="title">data</span> = <span class="title">in</span>.<span class="title">getData</span>();</span></span><br><span class="line"><span class="class">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>檢查回傳值是不是0 0就表示再資料的尾端<br>此方法為傳的的回傳碼(return code)進行錯誤檢查<br>Bad example</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> data;</span><br><span class="line">MyInpustStram <span class="keyword">in</span> = <span class="constructor">MyInputStream(&#x27;<span class="params">test</span>.<span class="params">txt</span>&#x27;)</span>;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="comment">// Do something with data</span></span><br><span class="line">        data = <span class="keyword">in</span>.get<span class="constructor">Data()</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; catch (NoMoreDataException e) &#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>當while迴圈裡面的data不再是0的時候就拋出NoMoreDataException，<br>通常建議是 出乎程式可預料的行為才使用異常，前面已經預期最後一定會到達文件的底端0，所以拋出異常在這邊就很怪<br>異常必須用在符合意義的地方 也就是出現非尋常情況<br>Bad example違反原則<br>直接回傳一個0來條件判斷更快速 更直觀</p>
+<p>26 在建構式中拋出異常</p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>作者： </strong>Kevin Fang
+  </li>
+  <li class="post-copyright-link">
+    <strong>文章連結：</strong>
+    <a href="https://kevin1061517.github.io/blog/posts/Java/8f30/" title="Practical Java筆記">https://kevin1061517.github.io/blog/posts/Java/8f30/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 許可協議。轉載請註明出處！
+  </li>
+</ul>
+</div>
+
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/posts/Hexo/2721/" rel="prev" title="Hexo圖片不套用fancybox">
+      <i class="fa fa-chevron-left"></i> Hexo圖片不套用fancybox
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/blog/posts/JavaScript/45fd/" rel="next" title="Revealing Module Pattern (JS)">
+      Revealing Module Pattern (JS) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+	
+	
+       <div class="post-nav">
+         <div class="post-nav-next post-nav-item">
+           
+             <a href="/blog/posts/JavaScript/45fd/" rel="prev" title="Revealing Module Pattern (JS)">
+               <i class="fa fa-chevron-left"></i> Revealing Module Pattern (JS)
+             </a>
+           
+         </div>
+
+         <span class="post-nav-divider"></span>
+
+         <div class="post-nav-prev post-nav-item">
+           
+             <a href="/blog/posts/Hexo/2721/" rel="next" title="Hexo圖片不套用fancybox">
+               Hexo圖片不套用fancybox <i class="fa fa-chevron-right"></i>
+             </a>
+           
+         </div>
+       </div>
+     
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E5%82%B3%E9%81%9E%E5%8F%83%E6%95%B8%E9%83%BD%E5%8F%AA%E6%9C%89Call-by-value"><span class="nav-number">2.</span> <span class="nav-text">Java傳遞參數都只有Call by value</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E8%AE%8A%E7%9A%84%E5%B8%B8%E6%95%B8%E6%88%96%E7%89%A9%E4%BB%B6%E5%8F%83%E8%80%83%E4%BD%BF%E7%94%A8%E9%97%9C%E9%8D%B5%E5%AD%97final"><span class="nav-number">3.</span> <span class="nav-text">不變的常數或物件參考使用關鍵字final</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%80%E6%9C%89non-static%E5%87%BD%E5%BC%8F%E9%83%BD%E5%8F%AF%E4%BB%A5%E8%A2%AB%E8%A6%86%E5%AF%AB"><span class="nav-number">4.</span> <span class="nav-text">所有non-static函式都可以被覆寫</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E5%9E%8B-Polymorphism-%E5%84%AA%E6%96%BC-instanceof"><span class="nav-number">5.</span> <span class="nav-text">多型(Polymorphism) 優於 instanceof</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bad-example"><span class="nav-number">5.1.</span> <span class="nav-text">Bad example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E5%9E%8B%E5%8F%96%E4%BB%A3-instanceof"><span class="nav-number">5.2.</span> <span class="nav-text">多型取代 instanceof</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Good-example"><span class="nav-number">5.3.</span> <span class="nav-text">Good example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%85%E8%A6%81%E6%99%82%E6%89%8D%E4%BD%BF%E7%94%A8-instanceof"><span class="nav-number">6.</span> <span class="nav-text">必要時才使用 instanceof</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E6%97%A6%E4%B8%8D%E9%9C%80%E8%A6%81object-reference%E5%B0%B1%E5%B0%87%E5%AE%83%E8%A8%AD%E7%82%BAnull"><span class="nav-number">7.</span> <span class="nav-text">一旦不需要object reference就將它設為null</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">8.</span> <span class="nav-text">其他</span></a></li></ol></div>
+
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kevin Fang"
+      src="https://avatars1.githubusercontent.com/u/42539369?s=460&u=39b9ef0ba8f701077a22689184ac5bcce289e9e4&v=4">
+  <p class="site-author-name" itemprop="name">Kevin Fang</p>
+  <div class="site-description" itemprop="description">Better late than never</div>
+  
+     <div class="feed-link motion-element">
+       <a href="/atom.xml" rel="alternate">
+         <i class="fa fa-rss"></i>
+           RSS
+       </a>
+     </div>
+  
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/kevin1061517" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;kevin1061517" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:kevin1061517@gmail.com" title="E-Mail → mailto:kevin1061517@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+	<div class="links-of-blogroll motion-element links-of-blogroll-block">
+	  <div class="links-of-blogroll-title">
+		<!-- 选择合适的icon -->
+		<i class="fa fa-history fa-" aria-hidden="true"></i>
+		<!-- 这里对应下文主题配置文件的recent_posts_title值 -->
+		近期文章
+	  </div>
+	  <ul class="links-of-blogroll-list"> 
+		 <!-- 设置排序规格，此处我采用按照文章更新时间排序 -updated -->
+		
+		<!-- 显示三条近期文章，请自信合理配置 -->
+		
+		  <li>
+			<a href="/blog/posts/Hexo/e5a2de66/" title="Hexo出現 Template render error" target="_self">Hexo出現 Template render error</a>
+		  </li>
+		
+		  <li>
+			<a href="/blog/posts/ExtJS/c1113943/" title="ExtJS 製作 Banner" target="_self">ExtJS 製作 Banner</a>
+		  </li>
+		
+		  <li>
+			<a href="/blog/posts/Hexo/7dce27be/" title="Hexo分類頁面部分項目連結404錯誤" target="_self">Hexo分類頁面部分項目連結404錯誤</a>
+		  </li>
+		
+	  </ul>
+	</div>
+
+
+		
+		<!--近期文章 這邊是首頁's siderbar-->
+		
+      </div>
+
+
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span style="color: #fc6423; margin: 0px 5px;">
+    <i class="fas fa-user-graduate"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kevin Fang</span>
+</div>
+  <!--<div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
+  </div>-->
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script color='61, 61, 61' opacity='1.5' zIndex='-1' count='50' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://kevin1061517.github.io/blog/posts/Java/8f30/',]
+      });
+      });
+  </script>
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://myblog.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://kevin1061517.github.io/blog/posts/Java/8f30/";
+    this.page.identifier = "blog/posts/Java/8f30/";
+    this.page.title = "Practical Java筆記";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://myblog.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+  
+  <!-- custom js from _layout.swig -->
+	<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+	<script type="text/javascript" src="/js/src/custom.js"></script>
+	<script type="text/javascript" src="/js/search.js"></script>
+</body>
+</html>
