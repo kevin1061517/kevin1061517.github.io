@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://kevin1061517.github.io/"/>
-  <updated>2021-01-05T16:01:53.700Z</updated>
+  <updated>2021-01-08T15:23:06.631Z</updated>
   <id>https://kevin1061517.github.io/</id>
   
   <author>
@@ -21,11 +21,11 @@
     <link href="https://kevin1061517.github.io/blog/posts/Hexo/e5a2de66/"/>
     <id>https://kevin1061517.github.io/blog/posts/Hexo/e5a2de66/</id>
     <published>2021-01-05T13:43:44.000Z</published>
-    <updated>2021-01-05T16:01:53.700Z</updated>
+    <updated>2021-01-08T15:23:06.631Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;在寫上一篇文章筆記完後，結果執行hexo g生成靜態文件後，就出現下面的錯誤了!導致後續的部屬進行不下去，上網搜尋問題大都是提到某個模板出現的字串符號跟 Hexo 產生衝突，把我之前修改的swig全部Run過一遍，結果看到眼睛爛掉也沒找出什麼，最後沒辦法重新佈署一個新的Next資料夾，在一個個檔案試哪邊錯，結果找到是Next目錄資料夾的某個地方….&lt;/p&gt;
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;上次寫完上一篇文章筆記後，執行hexo g生成靜態文件後，就出現下面的錯誤了!導致後續的部屬根本進行不下去，google搜尋的問題大都是提到某個模板(swig)出現的字串符號跟 Hexo 產生衝突，把我之前修改的.swig檔案全部Run過一遍，結果看到眼睛爛掉也沒找出什麼，最後沒辦法只好重新佈署一個新的Next資料夾，在一個個檔案試哪邊錯，結果找到是主題目錄下的_config註解錯地方了…其實會導致Hexo編譯時出現 Template render error的原因有幾種，這篇就來記錄一下吧!&lt;/p&gt;
     
     </summary>
     

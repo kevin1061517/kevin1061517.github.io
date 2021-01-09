@@ -23,15 +23,15 @@
     var CONFIG = {"hostname":"kevin1061517.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":230,"display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"perspectiveUpIn","sidebar":"shrinkIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="前言在寫上一篇文章筆記完後，結果執行hexo g生成靜態文件後，就出現下面的錯誤了!導致後續的部屬進行不下去，上網搜尋問題大都是提到某個模板出現的字串符號跟 Hexo 產生衝突，把我之前修改的swig全部Run過一遍，結果看到眼睛爛掉也沒找出什麼，最後沒辦法重新佈署一個新的Next資料夾，在一個個檔案試哪邊錯，結果找到是Next目錄資料夾的某個地方….">
+  <meta name="description" content="前言上次寫完上一篇文章筆記後，執行hexo g生成靜態文件後，就出現下面的錯誤了!導致後續的部屬根本進行不下去，google搜尋的問題大都是提到某個模板(swig)出現的字串符號跟 Hexo 產生衝突，把我之前修改的.swig檔案全部Run過一遍，結果看到眼睛爛掉也沒找出什麼，最後沒辦法只好重新佈署一個新的Next資料夾，在一個個檔案試哪邊錯，結果找到是主題目錄下的_config註解錯地方了…其實">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo出現 Template render error">
 <meta property="og:url" content="https://kevin1061517.github.io/blog/posts/Hexo/e5a2de66/index.html">
 <meta property="og:site_name" content="Kevin Blog">
-<meta property="og:description" content="前言在寫上一篇文章筆記完後，結果執行hexo g生成靜態文件後，就出現下面的錯誤了!導致後續的部屬進行不下去，上網搜尋問題大都是提到某個模板出現的字串符號跟 Hexo 產生衝突，把我之前修改的swig全部Run過一遍，結果看到眼睛爛掉也沒找出什麼，最後沒辦法重新佈署一個新的Next資料夾，在一個個檔案試哪邊錯，結果找到是Next目錄資料夾的某個地方….">
+<meta property="og:description" content="前言上次寫完上一篇文章筆記後，執行hexo g生成靜態文件後，就出現下面的錯誤了!導致後續的部屬根本進行不下去，google搜尋的問題大都是提到某個模板(swig)出現的字串符號跟 Hexo 產生衝突，把我之前修改的.swig檔案全部Run過一遍，結果看到眼睛爛掉也沒找出什麼，最後沒辦法只好重新佈署一個新的Next資料夾，在一個個檔案試哪邊錯，結果找到是主題目錄下的_config註解錯地方了…其實">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2021-01-05T13:43:44.000Z">
-<meta property="article:modified_time" content="2021-01-05T16:01:53.700Z">
+<meta property="article:modified_time" content="2021-01-08T15:23:06.631Z">
 <meta property="article:author" content="Kevin Fang">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
@@ -122,6 +122,11 @@
         <li class="menu-item menu-item-home">
 
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>回到首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/aboutKevin/" rel="section"><i class="fa fa-user fa-fw"></i>關於作者</a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -230,7 +235,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-01-06 00:01:53" itemprop="dateModified" datetime="2021-01-06T00:01:53+08:00">2021-01-06</time>
+                <time title="修改時間：2021-01-08 23:23:06" itemprop="dateModified" datetime="2021-01-08T23:23:06+08:00">2021-01-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -267,8 +272,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在寫上一篇文章筆記完後，結果執行hexo g生成靜態文件後，就出現下面的錯誤了!導致後續的部屬進行不下去，上網搜尋問題大都是提到某個模板出現的字串符號跟 Hexo 產生衝突，把我之前修改的swig全部Run過一遍，結果看到眼睛爛掉也沒找出什麼，最後沒辦法重新佈署一個新的Next資料夾，在一個個檔案試哪邊錯，結果找到是Next目錄資料夾的某個地方….</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上次寫完上一篇文章筆記後，執行hexo g生成靜態文件後，就出現下面的錯誤了!導致後續的部屬根本進行不下去，google搜尋的問題大都是提到某個模板(swig)出現的字串符號跟 Hexo 產生衝突，把我之前修改的.swig檔案全部Run過一遍，結果看到眼睛爛掉也沒找出什麼，最後沒辦法只好重新佈署一個新的Next資料夾，在一個個檔案試哪邊錯，結果找到是主題目錄下的_config註解錯地方了…其實會導致Hexo編譯時出現 Template render error的原因有幾種，這篇就來記錄一下吧!</p>
 <a id="more"></a>
+
 
 <pre><code>ERROR Template render error: (C:\Users\kevin\Documents\hexo\blog\themes\next\layout\page.swig)
   Template render error: (C:\Users\kevin\Documents\hexo\blog\themes\next\layout\page.swig)
@@ -281,26 +287,31 @@
   Template render error: (C:\Users\kevin\Documents\hexo\blog\themes\next\layout\_partials\header\menu.swig) [Line 20, Column 28]
   Template render error: (C:\Users\kevin\Documents\hexo\blog\themes\next\layout\_partials\header\menu.swig) [Line 2, Column 31]
   Error: Unable to call `value[&quot;split&quot;]`, which is undefined or falsey
-  .....
   .....</code></pre>
-<h2 id="產生-ERROR-Template-render-error-原因"><a href="#產生-ERROR-Template-render-error-原因" class="headerlink" title="產生 ERROR Template render error 原因"></a>產生 ERROR Template render error 原因</h2><p>當執行hexo g後出現 ERROR Template render error，大致上可能是這三個原因，都會讓Hexo在編譯時候就會爛掉</p>
-<ol>
-<li><p>在.md 或 swig模板中誤用<code>&#123;</code> <code>&#123;</code> 及 <code>&#125;</code> <code>&#125;</code>這符號</p>
+<h2 id="產生-ERROR-Template-render-error-原因"><a href="#產生-ERROR-Template-render-error-原因" class="headerlink" title="產生 ERROR Template render error 原因"></a>產生 ERROR Template render error 原因</h2><p>當執行hexo g後出現 ERROR Template render error，大致上可能是下面三個原因，都會讓Hexo在編譯時候爛掉</p>
+<ul>
+<li><p><strong>.md 或 .swig檔案中出現兩個左括號<code>&#123;</code> <code>&#123;</code> 或 兩個右括號 <code>&#125;</code> <code>&#125;</code></strong><br>Hexo 本身的語法具有這兩種括號的語意，所以只要出現兩個左括號或兩個右括號就都會導致Hexo無法編譯</p>
 </li>
-<li><p>在swig模板中有include某個不存在的swig</p>
+<li><p><strong>swig模板中include到某個不存在的swig</strong><br>如下範例在第二行include了<code>recommended_posts.swig</code>，但如果目錄中根本不存在此檔案，這時也會出現Template渲染的錯誤，而且cmd上面的錯誤訊息很難看出缺少哪一個檔案</p>
 <pre><code class="html">&#123;% if theme.recommended_posts.enabled and not is_index %&#125;
-  <div>
-	&#123;% include 'recommended_posts.swig' with &#123;post: post, site: site&#125; %&#125;
-  </div>
+    &#123;% include 'recommended_posts.swig' with &#123;post: post, site: site&#125; %&#125;
 &#123;% endif %&#125;
 &#123;%- if theme.related_posts.enable and (theme.related_posts.display_in_home or not is_index) %&#125;
- &#123;&#123; partial('_partials/post/post-related.swig') &#125;&#125;
+  &#123;&#123; partial('_partials/post/post-related.swig') &#125;&#125;
 &#123;%- endif %&#125;</code></pre>
 </li>
-</ol>
-<ol start="3">
-<li>在.config.yml中配置某個設定</li>
-</ol>
+<li><p><strong>_config.yml中配置目錄項目位址的值放空</strong><br>這邊就是我碰到的<code>Template render error</code>罪魁禍首，當初在主題目錄下的<code>_config.ynl</code>註解掉menu的about選單項目，如下所示在值的前面加上#直接將其註解掉，如下面所示</p>
+<pre><code>menu:
+home: / || fa fa-home
+about: #/aboutKevin/ || fa fa-user
+...</code></pre>
+<p>但這樣子沒有整行註解掉的話，還是會讓某一個swig執行about頁面，但因為是項目空值就會出現Template渲染的錯誤，正確的註解應該是要如下</p>
+<pre><code>menu:
+home: / || fa fa-home
+#about: /aboutKevin/ || fa fa-user
+...</code></pre>
+</li>
+</ul>
 <h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol>
 <li><a target="_blank" rel="noopener" href="https://www.fvolcano.red/2020/hexo-githubPages-setUp-record.html">https://www.fvolcano.red/2020/hexo-githubPages-setUp-record.html</a></li>
 <li><a target="_blank" rel="noopener" href="https://wxnacy.com/2018/01/12/hexo-specific-symbol/">https://wxnacy.com/2018/01/12/hexo-specific-symbol/</a></li>
@@ -538,7 +549,7 @@
   <span style="color: #fc6423; margin: 0px 5px;">
     <i class="fas fa-user-graduate"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Kevin Fang</span>
+  <span class="author" itemprop="copyrightHolder">Kevin Fang</br>歡迎分享此文章，如有引用請保留作者名稱和網站連結</span>
 </div>
   <!--<div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
   </div>-->

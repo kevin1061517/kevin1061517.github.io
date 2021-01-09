@@ -1215,7 +1215,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #20ffff;
+  background: #b35221;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1890,6 +1890,12 @@ var {
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
+@media (max-width: 767px) {
+  .posts-expand .post-title {
+    font-size: 1.3em;
+    font-weight: bold;
+  }
+}
 .posts-expand .post-title-link {
   border-bottom: none;
   color: var(--link-color);
@@ -1925,6 +1931,11 @@ var {
   font-size: 0.5em;
   margin: 3px 0 60px 0;
   text-align: center;
+}
+@media (max-width: 767px) {
+  .posts-expand .post-meta {
+    margin: 10px 0;
+  }
 }
 .posts-expand .post-meta .post-description {
   font-size: 0.875em;
@@ -2388,7 +2399,7 @@ ul.breadcrumb li + li:last-child {
   position: absolute;
   top: 0;
   width: 230px;
-  margin-top: 5px;
+  margin-top: 6px;
 }
 @media (min-width: 1200px) {
   .header-inner {
@@ -2419,11 +2430,10 @@ ul.breadcrumb li + li:last-child {
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
   box-sizing: border-box;
   padding: 40px;
-  width: calc(100% - 235px);
+  width: calc(100% - 236px);
 }
 @media (max-width: 991px) {
   .content-wrap {
-    margin-top: 30px;
     border-radius: initial;
     padding: 20px;
     width: 100%;
@@ -2607,7 +2617,7 @@ ul.breadcrumb li + li:last-child {
 }
 .sidebar-inner.affix {
   position: fixed;
-  top: 5px;
+  top: 6px;
 }
 .sidebar-inner.affix-bottom {
   position: absolute;
@@ -2693,14 +2703,15 @@ ul.breadcrumb li + li:last-child {
   border-radius: 15px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
   padding: 40px;
-  margin-top: 5px;
-  margin-left: 5px;
+  margin-top: 6px;
+  margin-left: 18px;
   margin-bottom: 15px;
-}
-.post-block + .post-block {
-  border-radius: 15px;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
-  margin-top: 5px;
+/*& + .post-block {
+    border-radius: $border-radius;
+    // Rewrite shadows & borders because all blocks have offsets.
+    box-shadow: $box-shadow;
+    margin-top: $sidebar-offset;
+  }*/
 }
 .site-title {
   font-family: $font-family-kaiti;
@@ -2722,8 +2733,8 @@ ul.breadcrumb li + li:last-child {
   background: var(--content-bg-color);
   border-radius: 15px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
-  margin-top: 5px;
-  margin-left: 5px;
+  margin-top: 6px;
+  margin-left: 6px;
   padding: 40px;
 }
 .tabs-comment {
@@ -2737,7 +2748,7 @@ ul.breadcrumb li + li:last-child {
   border-radius: 15px;
   border-top: initial;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
-  margin: 5px 0 0;
+  margin: 6px 0 0;
   padding: 10px 0 10px;
 }
 .pagination .prev,
@@ -2762,7 +2773,7 @@ ul.breadcrumb li + li:last-child {
 }
 .sub-menu + .content .post-block {
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
-  margin-top: 5px;
+  margin-top: 6px;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .sub-menu + .content .post-block {
@@ -2780,6 +2791,11 @@ ul.breadcrumb li + li:last-child {
 .post-body h2 {
   border-bottom: 1px solid #ecf5ff;
 }
+@media (max-width: 767px) {
+  .post-body h2 {
+    font-size: 1.15em;
+  }
+}
 .post-body h3 {
   font-size: 1.2em;
   border-bottom: 1px solid #ecf5ff;
@@ -2795,6 +2811,7 @@ ul.breadcrumb li + li:last-child {
     margin-top: 20px;
   }
   .post-block {
+    margin: 6px;
     border-radius: 15px;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
     padding: 20px;
@@ -2815,20 +2832,21 @@ ul.breadcrumb li + li:last-child {
     padding: 8px;
   }
   .posts-expand .post-button {
-    margin: 5px 0;
+    margin: 6px 0;
   }
   .post-block {
+    margin: 6px;
     border-radius: 15px;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
     min-height: auto;
-    padding: 5px;
+    padding: 20px;
   }
   .post-block + .post-block {
     margin-top: 8px;
   }
   .comments {
     margin-top: 8px;
-    padding: 10px 5px;
+    padding: 10px 6px;
   }
   .pagination {
     margin: 8px 0 0;
