@@ -123,48 +123,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo圖片不套用fancybox</title>
-    <url>/blog/posts/Hexo/2721/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>fancybox套件的功能是實現點開圖片，並可以放大顯示和左右切換圖片，還會隨版面的大小自動來調整跳出的版面範圍，而且手機端也可以直接實現。fancybox在Jquery中也有相關的套件，而Next主題自己在config有內建fancybox的配置，配製好以後就會在所有img標籤實作這功能，但如果有部分圖片不想要有放大顯示，則就需要做一些步驟。</p>
-<a id="more"></a>
-
-<h2 id="安裝fancybox"><a href="#安裝fancybox" class="headerlink" title="安裝fancybox"></a>安裝fancybox</h2><p>我的版本的Next需要去把fnacybox clone下來，所以要先在next資料夾內執行下面的指令，就應該會在source/lib資料夾內出現fancybox資料夾</p>
-<figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">git clone <span class="symbol">https:</span>/<span class="regexp">/github.com/theme</span>-<span class="keyword">next</span>/theme-<span class="keyword">next</span>-fancybox3 source/<span class="class"><span class="keyword">lib</span>/<span class="title">fancybox</span></span></span><br></pre></td></tr></table></figure>
-
-<p>接著在自己的next主題的<code>_config.yml</code>來將fancybox設為true，要注意不是在vendors底下的fancybox喔!!</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.</span></span><br><span class="line"><span class="comment"># For more information: https://fancyapps.com/fancybox</span></span><br><span class="line"><span class="attr">fancybox:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<p>如果要在vendors配置則是如下</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">vendors:</span><br><span class="line">  fancybox: <span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>fancyapps<span class="regexp">/fancybox@3/</span>dist/jquery.fancybox.min.js</span><br><span class="line">  fancybox_css: <span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>fancyapps<span class="regexp">/fancybox@3/</span>dist/jquery.fancybox.min.css</span><br></pre></td></tr></table></figure>
-
-<h2 id="鼠標顯示放大鏡icon"><a href="#鼠標顯示放大鏡icon" class="headerlink" title="鼠標顯示放大鏡icon"></a>鼠標顯示放大鏡icon</h2><p>可以在<code>next\source\css\_common\components\post</code>中的這<code>post.styl</code>檔案裡面配製下面css語法</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">.post-body img:hover &#123;</span><br><span class="line">    cursor: zoom-<span class="keyword">in</span>;<span class="regexp">//</span>鼠标样式：手势</span><br><span class="line">    <span class="regexp">//</span>transform: scale(<span class="number">1.4</span>); <span class="regexp">//</span>放大倍數：<span class="number">1.4</span>倍</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="結果圖"><a href="#結果圖" class="headerlink" title="結果圖"></a>結果圖</h3><p>可以點選放大</p>
-<img src="https://i.imgur.com/W4RoWAe.jpg" width=80%/>
-
-<h2 id="照片取消fancybox放大"><a href="#照片取消fancybox放大" class="headerlink" title="照片取消fancybox放大"></a>照片取消fancybox放大</h2><p>有些照片不想給人放大的話，就要自己改一些語法，如先在img標籤內給定一個自己定義的nofancybox屬性</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://i.imgur.com/W4RoWAe.jpg&quot;</span> <span class="attr">class</span>=<span class="string">&quot;nofancybox&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>接著在<code>source\js</code>裡面的<code>utils.js</code>中找出<code>var $image = $(element);</code>，在它的下面加入如下</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> ($(element).hasClass(<span class="string">&#x27;nofancybox&#x27;</span>))&#123;  <span class="comment">//是否有包含自己定義的nofancybox屬性，有就return true</span></span><br><span class="line">        $(element).css(<span class="string">&quot;cursor&quot;</span>,<span class="string">&quot;default&quot;</span>);    <span class="comment">//將碰到圖片的鼠標從放大鏡變成default模式</span></span><br><span class="line">        <span class="keyword">return</span>;    <span class="comment">//不進行下面的fancybox的配置</span></span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
-
-<p>加入後會呈現如下</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">wrapImageWithFancyBox: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.post-body :not(a) &gt; img, .post-body &gt; img&#x27;</span>).forEach(<span class="function"><span class="params">element</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">var</span> $image = $(element);      </span><br><span class="line">      <span class="keyword">if</span> ($(element).hasClass(<span class="string">&#x27;nofancybox&#x27;</span>))&#123;</span><br><span class="line">        $(element).css(<span class="string">&quot;cursor&quot;</span>,<span class="string">&quot;default&quot;</span>); </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">var</span> imageLink = $image.attr(<span class="string">&#x27;data-src&#x27;</span>) || $image.attr(<span class="string">&#x27;src&#x27;</span>);</span><br><span class="line">      .....</span><br><span class="line">      .....</span><br></pre></td></tr></table></figure>
-
-<h3 id="結果圖-1"><a href="#結果圖-1" class="headerlink" title="結果圖"></a>結果圖</h3><img src="https://i.imgur.com/W4RoWAe.jpg" width=80% class="nofancybox"/>
-
-
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>fancybox照片放大</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo分類頁面部分項目連結404錯誤</title>
     <url>/blog/posts/Hexo/7dce27be/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>原本分類(categories)和標籤(tags)頁面很正常，某天調整了Next主題的一些配置，接著就發現分類和標籤頁面的某些關鍵字點下去都直接爛掉(顯示404)如下圖，原本一直以為是哪邊配置沒有弄號，但越試越奇怪，明明localhost端的分類項目和標籤關鍵字連結開起來一切都正常，到Remote開起來就會有些顯示404。結果試了老半天，發現原來是Hexo有個小bug…因此這邊來記錄一下!</p>
@@ -312,35 +270,45 @@
       </tags>
   </entry>
   <entry>
-    <title>Revealing Module Pattern (JS)</title>
-    <url>/blog/posts/JavaScript/45fd/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>看到在 stackoverflow 有人發問 <a href="https://stackoverflow.com/questions/43929098/why-do-i-need-to-return-init-to-execute-init-function">why do I need to return “init” to execute init function?
-</a> ，這是一個關於JS的design pattern的問題，其實我之前在其他地方就有看過類似的寫法，只是不知道它的一些概念和目的，因此這篇就來記錄一下這種設計模式的筆記。</p>
+    <title>Hexo圖片不套用fancybox</title>
+    <url>/blog/posts/Hexo/2721/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>fancybox套件的功能是實現點開圖片，並可以放大顯示和左右切換圖片，還會隨版面的大小自動來調整跳出的版面範圍，而且手機端也可以直接實現。fancybox在Jquery中也有相關的套件，而Next主題自己在config有內建fancybox的配置，配製好以後就會在所有img標籤實作這功能，但如果有部分圖片不想要有放大顯示，則就需要做一些步驟。</p>
 <a id="more"></a>
 
-<p>下面的code是網友發問貼上來的</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;kick off&quot;</span>);</span><br><span class="line">  <span class="keyword">var</span> insideTest = <span class="string">&quot;variable inside test&quot;</span>;</span><br><span class="line">  <span class="keyword">var</span> init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> insideInit =<span class="string">&quot;variable inside init&quot;</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;inside init&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    init:init</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">test().init();   <span class="comment">// exposing the private function</span></span><br><span class="line"><span class="comment">// ====Console====</span></span><br><span class="line"><span class="comment">// kick off</span></span><br><span class="line"><span class="comment">// inside init</span></span><br></pre></td></tr></table></figure>
-<p>主要是發問說為何不能直接呼叫test().init()，而一定要加上return inint:init，才能得到正確的結果。其實回答的網友就直接提到這是一個Revealing Module Pattern，另外說明因為function init是寫在function test裡面，所以init的存取權限就只限於test裡面，只要超出test的範圍(scope)就會存取不到(undefined)，所以才要在函式的最後加上<code>return init:init;</code>這一段，讓外部的範圍可以來存取到這一方法，其實就是間接達到Java中的封裝效果，讓外部範圍只能透過你所提供的公開方法來存取，像是給函式init加上Private一樣。其實標準習慣的方式會直接宣告function()那邊加上括號，如下</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;kick off&quot;</span>);</span><br><span class="line">  <span class="keyword">var</span> insideTest = <span class="string">&quot;variable inside test&quot;</span>;</span><br><span class="line">  <span class="keyword">var</span> init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> insideInit =<span class="string">&quot;variable inside init&quot;</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;inside init&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    init:init</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(test)); <span class="comment">//object</span></span><br><span class="line">test.init(); </span><br></pre></td></tr></table></figure>
-<p>這自動執行function並回傳，所以test會直接是一個物件，而不是一個函式，如此可以省去呼叫test時候還要加上()。下面將來紀錄這種設計模式的範例</p>
-<h2 id="Module-Pattern"><a href="#Module-Pattern" class="headerlink" title="Module Pattern"></a>Module Pattern</h2><p>透過閉包(closure)的特性(變數或函式可以存取的範圍)，來實作出一種可以呼叫的公共(public) 函式，同時能夠封裝私有成員的方法，滿足我們想要隱藏一些商業邏輯及讓程式碼更具結構化，下面則是以上面的例子來修改</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// private variable</span></span><br><span class="line">  <span class="keyword">var</span> insideTest = <span class="string">&quot;variable inside test&quot;</span>;</span><br><span class="line">  <span class="comment">// private function</span></span><br><span class="line">  <span class="keyword">var</span> init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> insideInit =<span class="string">&quot;variable inside init&quot;</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;inside init&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 回傳一個object</span></span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    <span class="comment">//public function</span></span><br><span class="line">    getInsideTest: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> insideTest;</span><br><span class="line">    &#125;,</span><br><span class="line">    setInsideTest: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        insideTest = insideTest;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br><span class="line">test.setInsideTest(<span class="string">&#x27;akb48&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(test.getInsideTest()); <span class="comment">//akb48</span></span><br></pre></td></tr></table></figure>
+<h2 id="安裝fancybox"><a href="#安裝fancybox" class="headerlink" title="安裝fancybox"></a>安裝fancybox</h2><p>我的版本的Next需要去把fnacybox clone下來，所以要先在next資料夾內執行下面的指令，就應該會在source/lib資料夾內出現fancybox資料夾</p>
+<figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">git clone <span class="symbol">https:</span>/<span class="regexp">/github.com/theme</span>-<span class="keyword">next</span>/theme-<span class="keyword">next</span>-fancybox3 source/<span class="class"><span class="keyword">lib</span>/<span class="title">fancybox</span></span></span><br></pre></td></tr></table></figure>
 
-<h2 id="Revealing-Module-Pattern"><a href="#Revealing-Module-Pattern" class="headerlink" title="Revealing Module Pattern"></a>Revealing Module Pattern</h2><p>揭示模組模式(Revealing Module Pattern)則是上面Module Pattern的改良版本，其實就是把所有函式或變數都在閉包中定義，返回值是不包含任何定義，提高程式碼的可讀性及結構性。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// private variable</span></span><br><span class="line">  <span class="keyword">var</span> insideTest = <span class="string">&quot;variable inside test&quot;</span>;</span><br><span class="line">  <span class="comment">// private function</span></span><br><span class="line">  <span class="keyword">var</span> setInsideTest = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    insideTest = insideTest;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> getInsideTest = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> insideTest;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// Return an object literal with no function definitions</span></span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    getInsideTest: getInsideTest,</span><br><span class="line">    setInsideTest: setInsideTest</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br><span class="line">test.setInsideTest(<span class="string">&#x27;tpe48&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(test.getInsideTest()); <span class="comment">//tpe48</span></span><br></pre></td></tr></table></figure>
+<p>接著在自己的next主題的<code>_config.yml</code>來將fancybox設為true，要注意不是在vendors底下的fancybox喔!!</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.</span></span><br><span class="line"><span class="comment"># For more information: https://fancyapps.com/fancybox</span></span><br><span class="line"><span class="attr">fancybox:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol>
-<li><a href="https://medium.com/@Rahulx1/revealing-module-pattern-tips-e3442d4e352">https://medium.com/@Rahulx1/revealing-module-pattern-tips-e3442d4e352</a></li>
-<li><a href="https://www.oreilly.com/library/view/learning-javascript-design/9781449334840/ch09s03.html">https://www.oreilly.com/library/view/learning-javascript-design/9781449334840/ch09s03.html</a></li>
-<li><a href="http://www.tastones.com/zh-tw/stackoverflow/javascript/creational-design-patterns/module_and_revealing_module_patterns/">http://www.tastones.com/zh-tw/stackoverflow/javascript/creational-design-patterns/module_and_revealing_module_patterns/</a></li>
-</ol>
+<p>如果要在vendors配置則是如下</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">vendors:</span><br><span class="line">  fancybox: <span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>fancyapps<span class="regexp">/fancybox@3/</span>dist/jquery.fancybox.min.js</span><br><span class="line">  fancybox_css: <span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>fancyapps<span class="regexp">/fancybox@3/</span>dist/jquery.fancybox.min.css</span><br></pre></td></tr></table></figure>
+
+<h2 id="鼠標顯示放大鏡icon"><a href="#鼠標顯示放大鏡icon" class="headerlink" title="鼠標顯示放大鏡icon"></a>鼠標顯示放大鏡icon</h2><p>可以在<code>next\source\css\_common\components\post</code>中的這<code>post.styl</code>檔案裡面配製下面css語法</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">.post-body img:hover &#123;</span><br><span class="line">    cursor: zoom-<span class="keyword">in</span>;<span class="regexp">//</span>鼠标样式：手势</span><br><span class="line">    <span class="regexp">//</span>transform: scale(<span class="number">1.4</span>); <span class="regexp">//</span>放大倍數：<span class="number">1.4</span>倍</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="結果圖"><a href="#結果圖" class="headerlink" title="結果圖"></a>結果圖</h3><p>可以點選放大</p>
+<img src="https://i.imgur.com/W4RoWAe.jpg" width=80%/>
+
+<h2 id="照片取消fancybox放大"><a href="#照片取消fancybox放大" class="headerlink" title="照片取消fancybox放大"></a>照片取消fancybox放大</h2><p>有些照片不想給人放大的話，就要自己改一些語法，如先在img標籤內給定一個自己定義的nofancybox屬性</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://i.imgur.com/W4RoWAe.jpg&quot;</span> <span class="attr">class</span>=<span class="string">&quot;nofancybox&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>接著在<code>source\js</code>裡面的<code>utils.js</code>中找出<code>var $image = $(element);</code>，在它的下面加入如下</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> ($(element).hasClass(<span class="string">&#x27;nofancybox&#x27;</span>))&#123;  <span class="comment">//是否有包含自己定義的nofancybox屬性，有就return true</span></span><br><span class="line">        $(element).css(<span class="string">&quot;cursor&quot;</span>,<span class="string">&quot;default&quot;</span>);    <span class="comment">//將碰到圖片的鼠標從放大鏡變成default模式</span></span><br><span class="line">        <span class="keyword">return</span>;    <span class="comment">//不進行下面的fancybox的配置</span></span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+
+<p>加入後會呈現如下</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">wrapImageWithFancyBox: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.post-body :not(a) &gt; img, .post-body &gt; img&#x27;</span>).forEach(<span class="function"><span class="params">element</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">var</span> $image = $(element);      </span><br><span class="line">      <span class="keyword">if</span> ($(element).hasClass(<span class="string">&#x27;nofancybox&#x27;</span>))&#123;</span><br><span class="line">        $(element).css(<span class="string">&quot;cursor&quot;</span>,<span class="string">&quot;default&quot;</span>); </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">var</span> imageLink = $image.attr(<span class="string">&#x27;data-src&#x27;</span>) || $image.attr(<span class="string">&#x27;src&#x27;</span>);</span><br><span class="line">      .....</span><br><span class="line">      .....</span><br></pre></td></tr></table></figure>
+
+<h3 id="結果圖-1"><a href="#結果圖-1" class="headerlink" title="結果圖"></a>結果圖</h3><img src="https://i.imgur.com/W4RoWAe.jpg" width=80% class="nofancybox"/>
+
+
 ]]></content>
       <categories>
-        <category>JavaScript</category>
+        <category>Hexo</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
-        <tag>Design Pattern</tag>
+        <tag>Hexo</tag>
+        <tag>fancybox照片放大</tag>
       </tags>
   </entry>
   <entry>
@@ -384,41 +352,35 @@
       </tags>
   </entry>
   <entry>
-    <title>Second Highest Salary 條件不符合回傳null</title>
-    <url>/blog/posts/SQL/ba33/</url>
-    <content><![CDATA[<h3 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h3><p>Write a SQL query to get the second highest salary from the Employee table.</p>
-<figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line"><span class="code">+----+</span>--------+</span><br><span class="line">| Id | Salary |</span><br><span class="line"><span class="code">+----+</span>--------+</span><br><span class="line">| 1  | 100    |</span><br><span class="line">| 2  | 200    |</span><br><span class="line">| 3  | 300    |</span><br><span class="line"><span class="code">+----+</span>--------+</span><br></pre></td></tr></table></figure>
-<p>For example, given the above Employee table, the query should return 200 as the second highest salary. If there is no second highest salary, then the query should return null.</p>
-<figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line"><span class="code">+---------------------+</span></span><br><span class="line">| SecondHighestSalary |</span><br><span class="line"><span class="code">+---------------------+</span></span><br><span class="line">| 200                 |</span><br><span class="line"><span class="code">+---------------------+</span></span><br></pre></td></tr></table></figure>
+    <title>Revealing Module Pattern (JS)</title>
+    <url>/blog/posts/JavaScript/45fd/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>看到在 stackoverflow 有人發問 <a href="https://stackoverflow.com/questions/43929098/why-do-i-need-to-return-init-to-execute-init-function">why do I need to return “init” to execute init function?
+</a> ，這是一個關於JS的design pattern的問題，其實我之前在其他地方就有看過類似的寫法，只是不知道它的一些概念和目的，因此這篇就來記錄一下這種設計模式的筆記。</p>
 <a id="more"></a>
-<h3 id="說明"><a href="#說明" class="headerlink" title="說明"></a>說明</h3><p>上面為Leetcode的176題，是要找出次高的Salary，其實看起來不難，但在題目中有強調如果沒有次高的Salary就回傳null，這邊想了一段時間，一開始寫如下</p>
-<figure class="highlight n1ql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> Salary</span><br><span class="line"><span class="keyword">FROM</span> Employee</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> Salary <span class="keyword">DESC</span></span><br><span class="line"><span class="keyword">LIMIT</span> <span class="number">1</span> <span class="keyword">OFFSET</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p>DISTINCT會先執行 所以比order by 和 limit offset都還要早，所以 “rows”: {“Employee”: [[1, 100], [2, 100]]}}時 ，在order by時就只有一個資料<br>但只要當測試資料是如下時，就會有問題</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;<span class="attr">&quot;headers&quot;</span>: &#123;<span class="attr">&quot;Employee&quot;</span>: [<span class="string">&quot;Id&quot;</span>, <span class="string">&quot;Salary&quot;</span>]&#125;, <span class="attr">&quot;rows&quot;</span>: &#123;<span class="attr">&quot;Employee&quot;</span>: [[<span class="number">1</span>, <span class="number">100</span>]]&#125;&#125;</span><br></pre></td></tr></table></figure>
-<p>However, this solution will be judged as ‘Wrong Answer’ if there is no such second highest salary since there might be only one record in this table. To overcome this issue, we can take this as a temp table.<br>因為我們的output會沒有任何回傳，題目要求沒有符合的條件時就要丟null回來</p>
-<h3 id="解決"><a href="#解決" class="headerlink" title="解決"></a>解決</h3><figure class="highlight n1ql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> (<span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> Salary</span><br><span class="line">        <span class="keyword">FROM</span> Employee</span><br><span class="line">        <span class="keyword">ORDER</span> <span class="keyword">BY</span> Salary <span class="keyword">DESC</span></span><br><span class="line">        <span class="keyword">LIMIT</span> <span class="number">1</span> <span class="keyword">OFFSET</span> <span class="number">1</span>) <span class="keyword">AS</span> SecondHighestSalary</span><br></pre></td></tr></table></figure>
 
-<p>只要在SELECT旁放一個子查詢，如果子查詢沒資料時候，就會回傳一個null了，如下範例</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> (<span class="keyword">SELECT</span> Salary</span><br><span class="line">        <span class="keyword">FROM</span> Employee</span><br><span class="line">        <span class="keyword">WHERE</span> <span class="keyword">Id</span> &gt; <span class="number">3</span>) <span class="keyword">AS</span> SecondHighestSalary</span><br><span class="line"><span class="comment">#如同</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="literal">null</span> <span class="keyword">AS</span> SecondHighestSalary</span><br></pre></td></tr></table></figure>
+<p>下面的code是網友發問貼上來的</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;kick off&quot;</span>);</span><br><span class="line">  <span class="keyword">var</span> insideTest = <span class="string">&quot;variable inside test&quot;</span>;</span><br><span class="line">  <span class="keyword">var</span> init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> insideInit =<span class="string">&quot;variable inside init&quot;</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;inside init&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    init:init</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">test().init();   <span class="comment">// exposing the private function</span></span><br><span class="line"><span class="comment">// ====Console====</span></span><br><span class="line"><span class="comment">// kick off</span></span><br><span class="line"><span class="comment">// inside init</span></span><br></pre></td></tr></table></figure>
+<p>主要是發問說為何不能直接呼叫test().init()，而一定要加上return inint:init，才能得到正確的結果。其實回答的網友就直接提到這是一個Revealing Module Pattern，另外說明因為function init是寫在function test裡面，所以init的存取權限就只限於test裡面，只要超出test的範圍(scope)就會存取不到(undefined)，所以才要在函式的最後加上<code>return init:init;</code>這一段，讓外部的範圍可以來存取到這一方法，其實就是間接達到Java中的封裝效果，讓外部範圍只能透過你所提供的公開方法來存取，像是給函式init加上Private一樣。其實標準習慣的方式會直接宣告function()那邊加上括號，如下</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;kick off&quot;</span>);</span><br><span class="line">  <span class="keyword">var</span> insideTest = <span class="string">&quot;variable inside test&quot;</span>;</span><br><span class="line">  <span class="keyword">var</span> init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> insideInit =<span class="string">&quot;variable inside init&quot;</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;inside init&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    init:init</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(test)); <span class="comment">//object</span></span><br><span class="line">test.init(); </span><br></pre></td></tr></table></figure>
+<p>這自動執行function並回傳，所以test會直接是一個物件，而不是一個函式，如此可以省去呼叫test時候還要加上()。下面將來紀錄這種設計模式的範例</p>
+<h2 id="Module-Pattern"><a href="#Module-Pattern" class="headerlink" title="Module Pattern"></a>Module Pattern</h2><p>透過閉包(closure)的特性(變數或函式可以存取的範圍)，來實作出一種可以呼叫的公共(public) 函式，同時能夠封裝私有成員的方法，滿足我們想要隱藏一些商業邏輯及讓程式碼更具結構化，下面則是以上面的例子來修改</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// private variable</span></span><br><span class="line">  <span class="keyword">var</span> insideTest = <span class="string">&quot;variable inside test&quot;</span>;</span><br><span class="line">  <span class="comment">// private function</span></span><br><span class="line">  <span class="keyword">var</span> init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> insideInit =<span class="string">&quot;variable inside init&quot;</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;inside init&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 回傳一個object</span></span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    <span class="comment">//public function</span></span><br><span class="line">    getInsideTest: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> insideTest;</span><br><span class="line">    &#125;,</span><br><span class="line">    setInsideTest: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        insideTest = insideTest;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br><span class="line">test.setInsideTest(<span class="string">&#x27;akb48&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(test.getInsideTest()); <span class="comment">//akb48</span></span><br></pre></td></tr></table></figure>
 
-<p>或是</p>
-<figure class="highlight n1ql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">Max</span>(e1.salary) <span class="keyword">AS</span> SecondHighestSalary</span><br><span class="line"><span class="keyword">FROM</span> Employee e1</span><br><span class="line"><span class="keyword">WHERE</span> e1.salary <span class="keyword">not</span> <span class="keyword">in</span> (<span class="keyword">SELECT</span> <span class="built_in">Max</span>(salary) <span class="keyword">FROM</span> Employee);</span><br></pre></td></tr></table></figure>
+<h2 id="Revealing-Module-Pattern"><a href="#Revealing-Module-Pattern" class="headerlink" title="Revealing Module Pattern"></a>Revealing Module Pattern</h2><p>揭示模組模式(Revealing Module Pattern)則是上面Module Pattern的改良版本，其實就是把所有函式或變數都在閉包中定義，返回值是不包含任何定義，提高程式碼的可讀性及結構性。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// private variable</span></span><br><span class="line">  <span class="keyword">var</span> insideTest = <span class="string">&quot;variable inside test&quot;</span>;</span><br><span class="line">  <span class="comment">// private function</span></span><br><span class="line">  <span class="keyword">var</span> setInsideTest = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    insideTest = insideTest;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> getInsideTest = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> insideTest;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// Return an object literal with no function definitions</span></span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    getInsideTest: getInsideTest,</span><br><span class="line">    setInsideTest: setInsideTest</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br><span class="line">test.setInsideTest(<span class="string">&#x27;tpe48&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(test.getInsideTest()); <span class="comment">//tpe48</span></span><br></pre></td></tr></table></figure>
 
-<p>回傳null</p>
-<ol>
-<li>我們輸入<br>SELECT Max(salary) AS MaxSalary<br>FROM Personal<br>WHERE age &lt; 20;</li>
+<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol>
+<li><a href="https://medium.com/@Rahulx1/revealing-module-pattern-tips-e3442d4e352">https://medium.com/@Rahulx1/revealing-module-pattern-tips-e3442d4e352</a></li>
+<li><a href="https://www.oreilly.com/library/view/learning-javascript-design/9781449334840/ch09s03.html">https://www.oreilly.com/library/view/learning-javascript-design/9781449334840/ch09s03.html</a></li>
+<li><a href="http://www.tastones.com/zh-tw/stackoverflow/javascript/creational-design-patterns/module_and_revealing_module_patterns/">http://www.tastones.com/zh-tw/stackoverflow/javascript/creational-design-patterns/module_and_revealing_module_patterns/</a></li>
 </ol>
-<p>當沒有欄位有 age 小於 20，就會回傳一個null，<br>如果想回傳數字-1的話，可以用就使用ISNULL函數，這個屬於ANSI標準,可以用在MS SQL或Oracle</p>
-<p>在Oralce還有找到一個他自已的用法NVL()</p>
-<p>SELECT NVL(FIELD,’<em>‘) FROM TABLE<br>SELECT COALESCE(FIELD,’</em>‘) FROM TABLE </p>
-<p>SELECT coalesce(MAX(salary), -1) AS MaxSalary<br>FROM Personal<br>WHERE age &lt; 20;</p>
-<p>就使用ISNULL()函數，以指定的取代值來取代 NULL，ISNULL是MS SQL特有的<br>如下<br>SELECT ISNULL(MAX(salary), -1) AS MaxSalary<br>FROM Personal<br>WHERE age &lt; 20;</p>
 ]]></content>
       <categories>
-        <category>SQL</category>
+        <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>SQL</tag>
+        <tag>JavaScript</tag>
+        <tag>Design Pattern</tag>
       </tags>
   </entry>
   <entry>
@@ -528,6 +490,44 @@ home: / || fa fa-home
       <tags>
         <tag>JavaScript</tag>
         <tag>var &amp; let</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Second Highest Salary 條件不符合回傳null</title>
+    <url>/blog/posts/SQL/ba33/</url>
+    <content><![CDATA[<h3 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h3><p>Write a SQL query to get the second highest salary from the Employee table.</p>
+<figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line"><span class="code">+----+</span>--------+</span><br><span class="line">| Id | Salary |</span><br><span class="line"><span class="code">+----+</span>--------+</span><br><span class="line">| 1  | 100    |</span><br><span class="line">| 2  | 200    |</span><br><span class="line">| 3  | 300    |</span><br><span class="line"><span class="code">+----+</span>--------+</span><br></pre></td></tr></table></figure>
+<p>For example, given the above Employee table, the query should return 200 as the second highest salary. If there is no second highest salary, then the query should return null.</p>
+<figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line"><span class="code">+---------------------+</span></span><br><span class="line">| SecondHighestSalary |</span><br><span class="line"><span class="code">+---------------------+</span></span><br><span class="line">| 200                 |</span><br><span class="line"><span class="code">+---------------------+</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="說明"><a href="#說明" class="headerlink" title="說明"></a>說明</h3><p>上面為Leetcode的176題，是要找出次高的Salary，其實看起來不難，但在題目中有強調如果沒有次高的Salary就回傳null，這邊想了一段時間，一開始寫如下</p>
+<figure class="highlight n1ql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> Salary</span><br><span class="line"><span class="keyword">FROM</span> Employee</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> Salary <span class="keyword">DESC</span></span><br><span class="line"><span class="keyword">LIMIT</span> <span class="number">1</span> <span class="keyword">OFFSET</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>DISTINCT會先執行 所以比order by 和 limit offset都還要早，所以 “rows”: {“Employee”: [[1, 100], [2, 100]]}}時 ，在order by時就只有一個資料<br>但只要當測試資料是如下時，就會有問題</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;<span class="attr">&quot;headers&quot;</span>: &#123;<span class="attr">&quot;Employee&quot;</span>: [<span class="string">&quot;Id&quot;</span>, <span class="string">&quot;Salary&quot;</span>]&#125;, <span class="attr">&quot;rows&quot;</span>: &#123;<span class="attr">&quot;Employee&quot;</span>: [[<span class="number">1</span>, <span class="number">100</span>]]&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>However, this solution will be judged as ‘Wrong Answer’ if there is no such second highest salary since there might be only one record in this table. To overcome this issue, we can take this as a temp table.<br>因為我們的output會沒有任何回傳，題目要求沒有符合的條件時就要丟null回來</p>
+<h3 id="解決"><a href="#解決" class="headerlink" title="解決"></a>解決</h3><figure class="highlight n1ql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> (<span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> Salary</span><br><span class="line">        <span class="keyword">FROM</span> Employee</span><br><span class="line">        <span class="keyword">ORDER</span> <span class="keyword">BY</span> Salary <span class="keyword">DESC</span></span><br><span class="line">        <span class="keyword">LIMIT</span> <span class="number">1</span> <span class="keyword">OFFSET</span> <span class="number">1</span>) <span class="keyword">AS</span> SecondHighestSalary</span><br></pre></td></tr></table></figure>
+
+<p>只要在SELECT旁放一個子查詢，如果子查詢沒資料時候，就會回傳一個null了，如下範例</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> (<span class="keyword">SELECT</span> Salary</span><br><span class="line">        <span class="keyword">FROM</span> Employee</span><br><span class="line">        <span class="keyword">WHERE</span> <span class="keyword">Id</span> &gt; <span class="number">3</span>) <span class="keyword">AS</span> SecondHighestSalary</span><br><span class="line"><span class="comment">#如同</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="literal">null</span> <span class="keyword">AS</span> SecondHighestSalary</span><br></pre></td></tr></table></figure>
+
+<p>或是</p>
+<figure class="highlight n1ql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">Max</span>(e1.salary) <span class="keyword">AS</span> SecondHighestSalary</span><br><span class="line"><span class="keyword">FROM</span> Employee e1</span><br><span class="line"><span class="keyword">WHERE</span> e1.salary <span class="keyword">not</span> <span class="keyword">in</span> (<span class="keyword">SELECT</span> <span class="built_in">Max</span>(salary) <span class="keyword">FROM</span> Employee);</span><br></pre></td></tr></table></figure>
+
+<p>回傳null</p>
+<ol>
+<li>我們輸入<br>SELECT Max(salary) AS MaxSalary<br>FROM Personal<br>WHERE age &lt; 20;</li>
+</ol>
+<p>當沒有欄位有 age 小於 20，就會回傳一個null，<br>如果想回傳數字-1的話，可以用就使用ISNULL函數，這個屬於ANSI標準,可以用在MS SQL或Oracle</p>
+<p>在Oralce還有找到一個他自已的用法NVL()</p>
+<p>SELECT NVL(FIELD,’<em>‘) FROM TABLE<br>SELECT COALESCE(FIELD,’</em>‘) FROM TABLE </p>
+<p>SELECT coalesce(MAX(salary), -1) AS MaxSalary<br>FROM Personal<br>WHERE age &lt; 20;</p>
+<p>就使用ISNULL()函數，以指定的取代值來取代 NULL，ISNULL是MS SQL特有的<br>如下<br>SELECT ISNULL(MAX(salary), -1) AS MaxSalary<br>FROM Personal<br>WHERE age &lt; 20;</p>
+]]></content>
+      <categories>
+        <category>SQL</category>
+      </categories>
+      <tags>
+        <tag>SQL</tag>
       </tags>
   </entry>
   <entry>
@@ -880,6 +880,39 @@ home: / || fa fa-home
       </tags>
   </entry>
   <entry>
+    <title>分類</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>about</title>
+    <url>/aboutKevin/contact.html</url>
+    <content><![CDATA[
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-16x16-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+   <body>   
+      <div>
+            <h1 class="mb-6"> class="404 -- 施工當中QQ</h1>
+      </div>
+     
+
+</body>
+</html>
+]]></content>
+  </entry>
+  <entry>
     <title>about</title>
     <url>/aboutKevin/certificate.html</url>
     <content><![CDATA[<!DOCTYPE html>
@@ -1095,39 +1128,6 @@ home: / || fa fa-home
 </div>
 
 ]]></content>
-  </entry>
-  <entry>
-    <title>about</title>
-    <url>/aboutKevin/contact.html</url>
-    <content><![CDATA[
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.0.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-16x16-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-</head>
-   <body>   
-      <div>
-            <h1 class="mb-6"> class="404 -- 施工當中QQ</h1>
-      </div>
-     
-
-</body>
-</html>
-]]></content>
-  </entry>
-  <entry>
-    <title>分類</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>關鍵字標籤</title>
@@ -1558,206 +1558,6 @@ html.lb-disable-scrolling {
   </entry>
   <entry>
     <title></title>
-    <url>/aboutKevin/css/responsive.css</url>
-    <content><![CDATA[
-/* ul li 一層一層 原本就是這樣子*/
-@media only screen and (max-width: 680px) {
-    header {
-        padding: 0px;
-        margin: 0;
-    }
-    .main-content {
-        padding: 15px;
-        position: relative;
-        font-size: 14pt;
-        border-bottom:  2px solid rgb(185, 185, 185);
-    }
-	.main_word{
-        font-size: 20pt;
-        font-family:fantasy;
-        font-weight: bold;
-    }
-    .main-content-index {
-        background: url("../img/3028.jpg") no-repeat;
-        background-size: 100% 100%;
-        height: 60vh;
-        padding: 0px;
-    }
-    .current-page {
-        color: 	#000000;
-    }
-    .gallery {    
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-column-gap: 15px;
-        row-gap: 20px;
-    }
-} 
-
-
-
-/* For screen width between 680px and 1024px 
-一般手機的螢幕寬度大多都小於480px
-意思是當螢幕小於768px，大於481px的情況。這是給平版適用的*/
-@media only screen and (min-width: 680px) {
-
-    header {
-        padding: 0em;
-        margin: 0;
-    }
-
-    nav ul {
-        text-align: center;
-        margin: 0;
-        padding: 0;
-    }
-
-    nav ul li {
-        display: inline-block;
-        border-top: 0;
-    }
-
-    nav ul li a {
-        font-weight: bold;
-        padding: 0.5em;
-    }
-    .main-content {
-        padding: 12px;
-        font-size: 12pt;
-        border-bottom:  2px solid rgb(185, 185, 185);
-    }
-    .current-page {
-        color: 	#000000;
-    }
-}
-
-
-/* For screen wider than 1024 px */
-@media only screen and (min-width:1024px) {
-
-    .current-page {
-        color: 	#000000;
-        border-bottom: 3px solid #000000;
-    }
-
-    .gallery {    
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-column-gap: 20px;
-        row-gap: 20px;
-    }
-
-    header {
-        padding: 0px;
-    }
-
-    /* navigation */
-
-    .logo {
-        float: left;
-        max-width: 30%;
-        margin: auto;
-        margin-top: -1em;
-        padding: .5em;
-        max-width: 90%;
-        display: block;
-    }
-
-    .logo img {
-        height: auto;
-        max-width: 100%;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    nav{
-        position: fixed;
-        left: 0;
-        top: 0;
-    }
-    nav ul{
-        padding: 5px 30px;
-        text-align: right;
-    }
-   
-
-    /* 選項碰到會有小動畫，不在手機顯示 */
-
-    nav ul li a:hover {/*接觸到btn的顏色*/
-        transition: 0.2s;
-        border-top: 3px solid #000000;
-        border-bottom: 3px solid #000000;
-        color: #000000;
-    }
-    
-    .social li img:hover {     
-        transition: 0.2s;
-        border-bottom: 2px solid #000000; 
-    }
-
-    /* About Page */
-    .main-content-about{
-        padding: 1%;
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        grid-gap: 1px;
-        border-bottom:  2px solid rgb(185, 185, 185);
-    }
-
-    .line_right{
-        border-right: 2px solid #c9c9c9; 
-    }
-
-    .first_item {
-        padding: 5px;
-        grid-column-start: 1;
-        grid-column-end: 4;
-        grid-row-start: 1;
-        grid-row-end: 2;
-    }
-
-    .first_content{
-        padding: 5px;
-        grid-column-start: 4;
-        grid-column-end: 13;
-        grid-row-start: 1;
-        grid-row-end: 2;
-    }
-
-
-    div .else_item{
-        padding: 5px;
-        grid-column-start: 1;
-        grid-column-end: 3;
-        grid-row-start: 1;
-        grid-row-end: 2;
-    }
-
-    div .else_content{
-        padding: 5px;
-        grid-column-start: 3;
-        grid-column-end: 13;
-        grid-row-start: 1;
-        grid-row-end: 2;
-    }
-
-    p{
-        font-size: 14pt;
-    }
-
-    /* fotowall */
-
-    .row-photo {
-        display: flex;
-        flex-wrap: wrap;
-        padding: 0 4px;
-    }
-
-}]]></content>
-  </entry>
-  <entry>
-    <title></title>
     <url>/aboutKevin/css/mystyle.css</url>
     <content><![CDATA[@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
 
@@ -2139,6 +1939,216 @@ footer a {
   </entry>
   <entry>
     <title></title>
+    <url>/aboutKevin/css/responsive.css</url>
+    <content><![CDATA[
+/* ul li 一層一層 原本就是這樣子*/
+@media only screen and (max-width: 680px) {
+    header {
+        padding: 0px;
+        margin: 0;
+    }
+    .main-content {
+        padding: 15px;
+        position: relative;
+        font-size: 14pt;
+        border-bottom:  2px solid rgb(185, 185, 185);
+    }
+	.main_word{
+        font-size: 20pt;
+        font-family:fantasy;
+        font-weight: bold;
+    }
+    .main-content-index {
+        background: url("../img/3028.jpg") no-repeat;
+        background-size: 100% 100%;
+        height: 60vh;
+        padding: 0px;
+    }
+    .current-page {
+        color: 	#000000;
+    }
+    .gallery {    
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-column-gap: 15px;
+        row-gap: 20px;
+    }
+} 
+
+
+
+/* For screen width between 680px and 1024px 
+一般手機的螢幕寬度大多都小於480px
+意思是當螢幕小於768px，大於481px的情況。這是給平版適用的*/
+@media only screen and (min-width: 680px) {
+
+    header {
+        padding: 0em;
+        margin: 0;
+    }
+
+    nav ul {
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul li {
+        display: inline-block;
+        border-top: 0;
+    }
+
+    nav ul li a {
+        font-weight: bold;
+        padding: 0.5em;
+    }
+    .main-content {
+        padding: 12px;
+        font-size: 12pt;
+        border-bottom:  2px solid rgb(185, 185, 185);
+    }
+    .current-page {
+        color: 	#000000;
+    }
+}
+
+
+/* For screen wider than 1024 px */
+@media only screen and (min-width:1024px) {
+
+    .current-page {
+        color: 	#000000;
+        border-bottom: 3px solid #000000;
+    }
+
+    .gallery {    
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 20px;
+        row-gap: 20px;
+    }
+
+    header {
+        padding: 0px;
+    }
+
+    /* navigation */
+
+    .logo {
+        float: left;
+        max-width: 30%;
+        margin: auto;
+        margin-top: -1em;
+        padding: .5em;
+        max-width: 90%;
+        display: block;
+    }
+
+    .logo img {
+        height: auto;
+        max-width: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    nav{
+        position: fixed;
+        left: 0;
+        top: 0;
+    }
+    nav ul{
+        padding: 5px 30px;
+        text-align: right;
+    }
+   
+
+    /* 選項碰到會有小動畫，不在手機顯示 */
+
+    nav ul li a:hover {/*接觸到btn的顏色*/
+        transition: 0.2s;
+        border-top: 3px solid #000000;
+        border-bottom: 3px solid #000000;
+        color: #000000;
+    }
+    
+    .social li img:hover {     
+        transition: 0.2s;
+        border-bottom: 2px solid #000000; 
+    }
+
+    /* About Page */
+    .main-content-about{
+        padding: 1%;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 1px;
+        border-bottom:  2px solid rgb(185, 185, 185);
+    }
+
+    .line_right{
+        border-right: 2px solid #c9c9c9; 
+    }
+
+    .first_item {
+        padding: 5px;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    .first_content{
+        padding: 5px;
+        grid-column-start: 4;
+        grid-column-end: 13;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+
+    div .else_item{
+        padding: 5px;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    div .else_content{
+        padding: 5px;
+        grid-column-start: 3;
+        grid-column-end: 13;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    p{
+        font-size: 14pt;
+    }
+
+    /* fotowall */
+
+    .row-photo {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 4px;
+    }
+
+}]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/aboutKevin/js/parallax.min.js</url>
+    <content><![CDATA[/*!
+ * parallax.js v1.5.0 (http://pixelcog.github.io/parallax.js/)
+ * @copyright 2016 PixelCog, Inc.
+ * @license MIT (https://github.com/pixelcog/parallax.js/blob/master/LICENSE)
+ */
+!function(t,i,e,s){function o(i,e){var h=this;"object"==typeof e&&(delete e.refresh,delete e.render,t.extend(this,e)),this.$element=t(i),!this.imageSrc&&this.$element.is("img")&&(this.imageSrc=this.$element.attr("src"));var r=(this.position+"").toLowerCase().match(/\S+/g)||[];if(r.length<1&&r.push("center"),1==r.length&&r.push(r[0]),"top"!=r[0]&&"bottom"!=r[0]&&"left"!=r[1]&&"right"!=r[1]||(r=[r[1],r[0]]),this.positionX!==s&&(r[0]=this.positionX.toLowerCase()),this.positionY!==s&&(r[1]=this.positionY.toLowerCase()),h.positionX=r[0],h.positionY=r[1],"left"!=this.positionX&&"right"!=this.positionX&&(isNaN(parseInt(this.positionX))?this.positionX="center":this.positionX=parseInt(this.positionX)),"top"!=this.positionY&&"bottom"!=this.positionY&&(isNaN(parseInt(this.positionY))?this.positionY="center":this.positionY=parseInt(this.positionY)),this.position=this.positionX+(isNaN(this.positionX)?"":"px")+" "+this.positionY+(isNaN(this.positionY)?"":"px"),navigator.userAgent.match(/(iPod|iPhone|iPad)/))return this.imageSrc&&this.iosFix&&!this.$element.is("img")&&this.$element.css({backgroundImage:"url("+this.imageSrc+")",backgroundSize:"cover",backgroundPosition:this.position}),this;if(navigator.userAgent.match(/(Android)/))return this.imageSrc&&this.androidFix&&!this.$element.is("img")&&this.$element.css({backgroundImage:"url("+this.imageSrc+")",backgroundSize:"cover",backgroundPosition:this.position}),this;this.$mirror=t("<div />").prependTo(this.mirrorContainer);var a=this.$element.find(">.parallax-slider"),n=!1;0==a.length?this.$slider=t("<img />").prependTo(this.$mirror):(this.$slider=a.prependTo(this.$mirror),n=!0),this.$mirror.addClass("parallax-mirror").css({visibility:"hidden",zIndex:this.zIndex,position:"fixed",top:0,left:0,overflow:"hidden"}),this.$slider.addClass("parallax-slider").one("load",function(){h.naturalHeight&&h.naturalWidth||(h.naturalHeight=this.naturalHeight||this.height||1,h.naturalWidth=this.naturalWidth||this.width||1),h.aspectRatio=h.naturalWidth/h.naturalHeight,o.isSetup||o.setup(),o.sliders.push(h),o.isFresh=!1,o.requestRender()}),n||(this.$slider[0].src=this.imageSrc),(this.naturalHeight&&this.naturalWidth||this.$slider[0].complete||a.length>0)&&this.$slider.trigger("load")}!function(){for(var t=0,e=["ms","moz","webkit","o"],s=0;s<e.length&&!i.requestAnimationFrame;++s)i.requestAnimationFrame=i[e[s]+"RequestAnimationFrame"],i.cancelAnimationFrame=i[e[s]+"CancelAnimationFrame"]||i[e[s]+"CancelRequestAnimationFrame"];i.requestAnimationFrame||(i.requestAnimationFrame=function(e){var s=(new Date).getTime(),o=Math.max(0,16-(s-t)),h=i.setTimeout(function(){e(s+o)},o);return t=s+o,h}),i.cancelAnimationFrame||(i.cancelAnimationFrame=function(t){clearTimeout(t)})}(),t.extend(o.prototype,{speed:.2,bleed:0,zIndex:-100,iosFix:!0,androidFix:!0,position:"center",overScrollFix:!1,mirrorContainer:"body",refresh:function(){this.boxWidth=this.$element.outerWidth(),this.boxHeight=this.$element.outerHeight()+2*this.bleed,this.boxOffsetTop=this.$element.offset().top-this.bleed,this.boxOffsetLeft=this.$element.offset().left,this.boxOffsetBottom=this.boxOffsetTop+this.boxHeight;var t,i=o.winHeight,e=o.docHeight,s=Math.min(this.boxOffsetTop,e-i),h=Math.max(this.boxOffsetTop+this.boxHeight-i,0),r=this.boxHeight+(s-h)*(1-this.speed)|0,a=(this.boxOffsetTop-s)*(1-this.speed)|0;r*this.aspectRatio>=this.boxWidth?(this.imageWidth=r*this.aspectRatio|0,this.imageHeight=r,this.offsetBaseTop=a,t=this.imageWidth-this.boxWidth,"left"==this.positionX?this.offsetLeft=0:"right"==this.positionX?this.offsetLeft=-t:isNaN(this.positionX)?this.offsetLeft=-t/2|0:this.offsetLeft=Math.max(this.positionX,-t)):(this.imageWidth=this.boxWidth,this.imageHeight=this.boxWidth/this.aspectRatio|0,this.offsetLeft=0,t=this.imageHeight-r,"top"==this.positionY?this.offsetBaseTop=a:"bottom"==this.positionY?this.offsetBaseTop=a-t:isNaN(this.positionY)?this.offsetBaseTop=a-t/2|0:this.offsetBaseTop=a+Math.max(this.positionY,-t))},render:function(){var t=o.scrollTop,i=o.scrollLeft,e=this.overScrollFix?o.overScroll:0,s=t+o.winHeight;this.boxOffsetBottom>t&&this.boxOffsetTop<=s?(this.visibility="visible",this.mirrorTop=this.boxOffsetTop-t,this.mirrorLeft=this.boxOffsetLeft-i,this.offsetTop=this.offsetBaseTop-this.mirrorTop*(1-this.speed)):this.visibility="hidden",this.$mirror.css({transform:"translate3d("+this.mirrorLeft+"px, "+(this.mirrorTop-e)+"px, 0px)",visibility:this.visibility,height:this.boxHeight,width:this.boxWidth}),this.$slider.css({transform:"translate3d("+this.offsetLeft+"px, "+this.offsetTop+"px, 0px)",position:"absolute",height:this.imageHeight,width:this.imageWidth,maxWidth:"none"})}}),t.extend(o,{scrollTop:0,scrollLeft:0,winHeight:0,winWidth:0,docHeight:1<<30,docWidth:1<<30,sliders:[],isReady:!1,isFresh:!1,isBusy:!1,setup:function(){function s(){if(p==i.pageYOffset)return i.requestAnimationFrame(s),!1;p=i.pageYOffset,h.render(),i.requestAnimationFrame(s)}if(!this.isReady){var h=this,r=t(e),a=t(i),n=function(){o.winHeight=a.height(),o.winWidth=a.width(),o.docHeight=r.height(),o.docWidth=r.width()},l=function(){var t=a.scrollTop(),i=o.docHeight-o.winHeight,e=o.docWidth-o.winWidth;o.scrollTop=Math.max(0,Math.min(i,t)),o.scrollLeft=Math.max(0,Math.min(e,a.scrollLeft())),o.overScroll=Math.max(t-i,Math.min(t,0))};a.on("resize.px.parallax load.px.parallax",function(){n(),h.refresh(),o.isFresh=!1,o.requestRender()}).on("scroll.px.parallax load.px.parallax",function(){l(),o.requestRender()}),n(),l(),this.isReady=!0;var p=-1;s()}},configure:function(i){"object"==typeof i&&(delete i.refresh,delete i.render,t.extend(this.prototype,i))},refresh:function(){t.each(this.sliders,function(){this.refresh()}),this.isFresh=!0},render:function(){this.isFresh||this.refresh(),t.each(this.sliders,function(){this.render()})},requestRender:function(){var t=this;t.render(),t.isBusy=!1},destroy:function(e){var s,h=t(e).data("px.parallax");for(h.$mirror.remove(),s=0;s<this.sliders.length;s+=1)this.sliders[s]==h&&this.sliders.splice(s,1);t(e).data("px.parallax",!1),0===this.sliders.length&&(t(i).off("scroll.px.parallax resize.px.parallax load.px.parallax"),this.isReady=!1,o.isSetup=!1)}});var h=t.fn.parallax;t.fn.parallax=function(s){return this.each(function(){var h=t(this),r="object"==typeof s&&s;this==i||this==e||h.is("body")?o.configure(r):h.data("px.parallax")?"object"==typeof s&&t.extend(h.data("px.parallax"),r):(r=t.extend({},h.data(),r),h.data("px.parallax",new o(this,r))),"string"==typeof s&&("destroy"==s?o.destroy(this):o[s]())})},t.fn.parallax.Constructor=o,t.fn.parallax.noConflict=function(){return t.fn.parallax=h,this},t(function(){t('[data-parallax="scroll"]').parallax()})}(jQuery,window,document);]]></content>
+  </entry>
+  <entry>
+    <title></title>
     <url>/aboutKevin/js/tooplate-script.js</url>
     <content><![CDATA[function calculateHeight(img, originalWidth, originalHeight) {
     const minHeight = 400;
@@ -2163,16 +2173,6 @@ $(document).ready(function () {
         resizeParallaxes();
     });
 });]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/aboutKevin/js/parallax.min.js</url>
-    <content><![CDATA[/*!
- * parallax.js v1.5.0 (http://pixelcog.github.io/parallax.js/)
- * @copyright 2016 PixelCog, Inc.
- * @license MIT (https://github.com/pixelcog/parallax.js/blob/master/LICENSE)
- */
-!function(t,i,e,s){function o(i,e){var h=this;"object"==typeof e&&(delete e.refresh,delete e.render,t.extend(this,e)),this.$element=t(i),!this.imageSrc&&this.$element.is("img")&&(this.imageSrc=this.$element.attr("src"));var r=(this.position+"").toLowerCase().match(/\S+/g)||[];if(r.length<1&&r.push("center"),1==r.length&&r.push(r[0]),"top"!=r[0]&&"bottom"!=r[0]&&"left"!=r[1]&&"right"!=r[1]||(r=[r[1],r[0]]),this.positionX!==s&&(r[0]=this.positionX.toLowerCase()),this.positionY!==s&&(r[1]=this.positionY.toLowerCase()),h.positionX=r[0],h.positionY=r[1],"left"!=this.positionX&&"right"!=this.positionX&&(isNaN(parseInt(this.positionX))?this.positionX="center":this.positionX=parseInt(this.positionX)),"top"!=this.positionY&&"bottom"!=this.positionY&&(isNaN(parseInt(this.positionY))?this.positionY="center":this.positionY=parseInt(this.positionY)),this.position=this.positionX+(isNaN(this.positionX)?"":"px")+" "+this.positionY+(isNaN(this.positionY)?"":"px"),navigator.userAgent.match(/(iPod|iPhone|iPad)/))return this.imageSrc&&this.iosFix&&!this.$element.is("img")&&this.$element.css({backgroundImage:"url("+this.imageSrc+")",backgroundSize:"cover",backgroundPosition:this.position}),this;if(navigator.userAgent.match(/(Android)/))return this.imageSrc&&this.androidFix&&!this.$element.is("img")&&this.$element.css({backgroundImage:"url("+this.imageSrc+")",backgroundSize:"cover",backgroundPosition:this.position}),this;this.$mirror=t("<div />").prependTo(this.mirrorContainer);var a=this.$element.find(">.parallax-slider"),n=!1;0==a.length?this.$slider=t("<img />").prependTo(this.$mirror):(this.$slider=a.prependTo(this.$mirror),n=!0),this.$mirror.addClass("parallax-mirror").css({visibility:"hidden",zIndex:this.zIndex,position:"fixed",top:0,left:0,overflow:"hidden"}),this.$slider.addClass("parallax-slider").one("load",function(){h.naturalHeight&&h.naturalWidth||(h.naturalHeight=this.naturalHeight||this.height||1,h.naturalWidth=this.naturalWidth||this.width||1),h.aspectRatio=h.naturalWidth/h.naturalHeight,o.isSetup||o.setup(),o.sliders.push(h),o.isFresh=!1,o.requestRender()}),n||(this.$slider[0].src=this.imageSrc),(this.naturalHeight&&this.naturalWidth||this.$slider[0].complete||a.length>0)&&this.$slider.trigger("load")}!function(){for(var t=0,e=["ms","moz","webkit","o"],s=0;s<e.length&&!i.requestAnimationFrame;++s)i.requestAnimationFrame=i[e[s]+"RequestAnimationFrame"],i.cancelAnimationFrame=i[e[s]+"CancelAnimationFrame"]||i[e[s]+"CancelRequestAnimationFrame"];i.requestAnimationFrame||(i.requestAnimationFrame=function(e){var s=(new Date).getTime(),o=Math.max(0,16-(s-t)),h=i.setTimeout(function(){e(s+o)},o);return t=s+o,h}),i.cancelAnimationFrame||(i.cancelAnimationFrame=function(t){clearTimeout(t)})}(),t.extend(o.prototype,{speed:.2,bleed:0,zIndex:-100,iosFix:!0,androidFix:!0,position:"center",overScrollFix:!1,mirrorContainer:"body",refresh:function(){this.boxWidth=this.$element.outerWidth(),this.boxHeight=this.$element.outerHeight()+2*this.bleed,this.boxOffsetTop=this.$element.offset().top-this.bleed,this.boxOffsetLeft=this.$element.offset().left,this.boxOffsetBottom=this.boxOffsetTop+this.boxHeight;var t,i=o.winHeight,e=o.docHeight,s=Math.min(this.boxOffsetTop,e-i),h=Math.max(this.boxOffsetTop+this.boxHeight-i,0),r=this.boxHeight+(s-h)*(1-this.speed)|0,a=(this.boxOffsetTop-s)*(1-this.speed)|0;r*this.aspectRatio>=this.boxWidth?(this.imageWidth=r*this.aspectRatio|0,this.imageHeight=r,this.offsetBaseTop=a,t=this.imageWidth-this.boxWidth,"left"==this.positionX?this.offsetLeft=0:"right"==this.positionX?this.offsetLeft=-t:isNaN(this.positionX)?this.offsetLeft=-t/2|0:this.offsetLeft=Math.max(this.positionX,-t)):(this.imageWidth=this.boxWidth,this.imageHeight=this.boxWidth/this.aspectRatio|0,this.offsetLeft=0,t=this.imageHeight-r,"top"==this.positionY?this.offsetBaseTop=a:"bottom"==this.positionY?this.offsetBaseTop=a-t:isNaN(this.positionY)?this.offsetBaseTop=a-t/2|0:this.offsetBaseTop=a+Math.max(this.positionY,-t))},render:function(){var t=o.scrollTop,i=o.scrollLeft,e=this.overScrollFix?o.overScroll:0,s=t+o.winHeight;this.boxOffsetBottom>t&&this.boxOffsetTop<=s?(this.visibility="visible",this.mirrorTop=this.boxOffsetTop-t,this.mirrorLeft=this.boxOffsetLeft-i,this.offsetTop=this.offsetBaseTop-this.mirrorTop*(1-this.speed)):this.visibility="hidden",this.$mirror.css({transform:"translate3d("+this.mirrorLeft+"px, "+(this.mirrorTop-e)+"px, 0px)",visibility:this.visibility,height:this.boxHeight,width:this.boxWidth}),this.$slider.css({transform:"translate3d("+this.offsetLeft+"px, "+this.offsetTop+"px, 0px)",position:"absolute",height:this.imageHeight,width:this.imageWidth,maxWidth:"none"})}}),t.extend(o,{scrollTop:0,scrollLeft:0,winHeight:0,winWidth:0,docHeight:1<<30,docWidth:1<<30,sliders:[],isReady:!1,isFresh:!1,isBusy:!1,setup:function(){function s(){if(p==i.pageYOffset)return i.requestAnimationFrame(s),!1;p=i.pageYOffset,h.render(),i.requestAnimationFrame(s)}if(!this.isReady){var h=this,r=t(e),a=t(i),n=function(){o.winHeight=a.height(),o.winWidth=a.width(),o.docHeight=r.height(),o.docWidth=r.width()},l=function(){var t=a.scrollTop(),i=o.docHeight-o.winHeight,e=o.docWidth-o.winWidth;o.scrollTop=Math.max(0,Math.min(i,t)),o.scrollLeft=Math.max(0,Math.min(e,a.scrollLeft())),o.overScroll=Math.max(t-i,Math.min(t,0))};a.on("resize.px.parallax load.px.parallax",function(){n(),h.refresh(),o.isFresh=!1,o.requestRender()}).on("scroll.px.parallax load.px.parallax",function(){l(),o.requestRender()}),n(),l(),this.isReady=!0;var p=-1;s()}},configure:function(i){"object"==typeof i&&(delete i.refresh,delete i.render,t.extend(this.prototype,i))},refresh:function(){t.each(this.sliders,function(){this.refresh()}),this.isFresh=!0},render:function(){this.isFresh||this.refresh(),t.each(this.sliders,function(){this.render()})},requestRender:function(){var t=this;t.render(),t.isBusy=!1},destroy:function(e){var s,h=t(e).data("px.parallax");for(h.$mirror.remove(),s=0;s<this.sliders.length;s+=1)this.sliders[s]==h&&this.sliders.splice(s,1);t(e).data("px.parallax",!1),0===this.sliders.length&&(t(i).off("scroll.px.parallax resize.px.parallax load.px.parallax"),this.isReady=!1,o.isSetup=!1)}});var h=t.fn.parallax;t.fn.parallax=function(s){return this.each(function(){var h=t(this),r="object"==typeof s&&s;this==i||this==e||h.is("body")?o.configure(r):h.data("px.parallax")?"object"==typeof s&&t.extend(h.data("px.parallax"),r):(r=t.extend({},h.data(),r),h.data("px.parallax",new o(this,r))),"string"==typeof s&&("destroy"==s?o.destroy(this):o[s]())})},t.fn.parallax.Constructor=o,t.fn.parallax.noConflict=function(){return t.fn.parallax=h,this},t(function(){t('[data-parallax="scroll"]').parallax()})}(jQuery,window,document);]]></content>
   </entry>
   <entry>
     <title></title>

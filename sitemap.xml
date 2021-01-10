@@ -158,13 +158,6 @@
   </url>
   
   <url>
-    <loc>https://kevin1061517.github.io/tags/fancybox%E7%85%A7%E7%89%87%E6%94%BE%E5%A4%A7/</loc>
-    <lastmod>2021-01-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://kevin1061517.github.io/tags/Java/</loc>
     <lastmod>2021-01-10</lastmod>
     <changefreq>daily</changefreq>
@@ -173,6 +166,20 @@
   
   <url>
     <loc>https://kevin1061517.github.io/tags/%E9%9B%86%E5%90%88%E7%89%A9%E4%BB%B6Collection/</loc>
+    <lastmod>2021-01-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://kevin1061517.github.io/tags/fancybox%E7%85%A7%E7%89%87%E6%94%BE%E5%A4%A7/</loc>
+    <lastmod>2021-01-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://kevin1061517.github.io/tags/Next/</loc>
     <lastmod>2021-01-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -193,7 +200,7 @@
   </url>
   
   <url>
-    <loc>https://kevin1061517.github.io/tags/Next/</loc>
+    <loc>https://kevin1061517.github.io/tags/var-let/</loc>
     <lastmod>2021-01-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -201,13 +208,6 @@
   
   <url>
     <loc>https://kevin1061517.github.io/tags/SQL/</loc>
-    <lastmod>2021-01-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://kevin1061517.github.io/tags/var-let/</loc>
     <lastmod>2021-01-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
