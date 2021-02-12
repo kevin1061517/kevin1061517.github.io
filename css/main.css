@@ -926,7 +926,6 @@ pre .javascript .function {
   }
 }
 .comments {
-  margin-top: 60px;
   overflow: hidden;
 }
 .comment-button-group {
@@ -1215,7 +1214,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #14c3ff;
+  background: #41ff83;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2736,6 +2735,7 @@ ul.breadcrumb li + li:last-child {
   margin-left: 18px;
   margin-top: 18px;
   padding: 40px;
+  padding-top: 3px;
 }
 .tabs-comment {
   margin-top: 1em;
