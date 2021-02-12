@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>ExtJS 製作 Banner</title>
+    <url>/blog/posts/ExtJS/c1113943/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="77b97b713d39272c176c98fc26cfbf3b6a8c0c3e740064c95e9ea413196fcafb">165d50f05814027fb7fe5e4ae8a088d8240dac90f2f2cc3be4b182594285803a7755a57ebe0bbcb597537d161d3d9bf2fa57fcf5908cbdb8fe4bd45ee3d44d0227904f20eba031ef9003d1a5e8a4ee51616636b4f2697804039d911e050b39e89d8c8c531225309b71041330b5f4180a53f69904b96f0fa7dc69dd089e47003601d7e96efeac95088ebce089f4795fc8df705034158b0ba8862ececfa7fcafb9</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>ExtJS</category>
+      </categories>
+      <tags>
+        <tag>ExtJS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo分類頁面部分項目連結404錯誤</title>
+    <url>/blog/posts/Hexo/7dce27be/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>原本分類(categories)和標籤(tags)頁面很正常，某天調整了Next主題的一些配置，接著就發現分類和標籤頁面的某些關鍵字點下去都直接爛掉(顯示404)如下圖，原本一直以為是哪邊配置沒有弄號，但越試越奇怪，明明localhost端的分類項目和標籤關鍵字連結開起來一切都正常，到Remote開起來就會有些顯示404。結果試了老半天，發現原來是Hexo有個小bug…因此這邊來記錄一下!</p>
+<a id="more"></a>
+
+<img src="https://i.imgur.com/r5Ttemw.png" width=70%/>
+
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>爬文後發現也有人遇到類似問題，但原因眾說紛紜，大部分推測是特定Hexo版本的小問題，聽說更新到最新版本就不會有此狀況，下面來記錄一下解決的方法。</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>我是先將Hexo根目錄的<code>.deploy_git</code>資料夾整個刪除，接著再重新佈署一次，結果就可以了!我猜應該是Hexo的某個地方咬到<code>.deploy_git</code>裡面的某個檔案，所以造成部分地方有衝突，才會再部屬到github後就會有些是404，這題真的是搞了我好幾天。</p>
+<h2 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h2><p>另外也有人建議把Hexo根目錄的<code>db.json</code>砍掉，再重新佈署一次，這邊對我是沒作用，但可能有些人也是這部分造成的錯誤。</p>
+<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol>
+<li><a href="https://github.com/iissnan/hexo-theme-next/issues/635">blog categories XXX 404 Error</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo &amp; Next 建構部落格</title>
     <url>/blog/posts/Hexo/5364/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Hexo是一個基於Node.js的部落格框架，加上沒有廣告的干擾，讓人看起來就十分舒服。因此，本篇記錄了HEXO搭配Next主題來製作部落格的相關筆記，並花了一些時間整理Hexo框架的重點和流程，有興趣可以參考一下這篇。</p>
@@ -101,28 +145,6 @@
       </tags>
   </entry>
   <entry>
-    <title>ExtJS 製作 Banner</title>
-    <url>/blog/posts/ExtJS/c1113943/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="77b97b713d39272c176c98fc26cfbf3b6a8c0c3e740064c95e9ea413196fcafb">165d50f05814027fb7fe5e4ae8a088d8240dac90f2f2cc3be4b182594285803a7755a57ebe0bbcb597537d161d3d9bf2fa57fcf5908cbdb8fe4bd45ee3d44d0227904f20eba031ef9003d1a5e8a4ee51616636b4f2697804039d911e050b39e89d8c8c531225309b71041330b5f4180a53f69904b96f0fa7dc69dd089e47003601d7e96efeac95088ebce089f4795fc8df705034158b0ba8862ececfa7fcafb9</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>ExtJS</category>
-      </categories>
-      <tags>
-        <tag>ExtJS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo圖片不套用fancybox</title>
     <url>/blog/posts/Hexo/2721/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>fancybox套件的功能是實現點開圖片，並可以放大顯示和左右切換圖片，還會隨版面的大小自動來調整跳出的版面範圍，而且手機端也可以直接實現。fancybox在Jquery中也有相關的套件，而Next主題自己在config有內建fancybox的配置，配製好以後就會在所有img標籤實作這功能，但如果有部分圖片不想要有放大顯示，則就需要做一些步驟。</p>
@@ -162,28 +184,6 @@
       <tags>
         <tag>Hexo</tag>
         <tag>fancybox照片放大</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo分類頁面部分項目連結404錯誤</title>
-    <url>/blog/posts/Hexo/7dce27be/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>原本分類(categories)和標籤(tags)頁面很正常，某天調整了Next主題的一些配置，接著就發現分類和標籤頁面的某些關鍵字點下去都直接爛掉(顯示404)如下圖，原本一直以為是哪邊配置沒有弄號，但越試越奇怪，明明localhost端的分類項目和標籤關鍵字連結開起來一切都正常，到Remote開起來就會有些顯示404。結果試了老半天，發現原來是Hexo有個小bug…因此這邊來記錄一下!</p>
-<a id="more"></a>
-
-<img src="https://i.imgur.com/r5Ttemw.png" width=70%/>
-
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>爬文後發現也有人遇到類似問題，但原因眾說紛紜，大部分推測是特定Hexo版本的小問題，聽說更新到最新版本就不會有此狀況，下面來記錄一下解決的方法。</p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>我是先將Hexo根目錄的<code>.deploy_git</code>資料夾整個刪除，接著再重新佈署一次，結果就可以了!我猜應該是Hexo的某個地方咬到<code>.deploy_git</code>裡面的某個檔案，所以造成部分地方有衝突，才會再部屬到github後就會有些是404，這題真的是搞了我好幾天。</p>
-<h2 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h2><p>另外也有人建議把Hexo根目錄的<code>db.json</code>砍掉，再重新佈署一次，這邊對我是沒作用，但可能有些人也是這部分造成的錯誤。</p>
-<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol>
-<li><a href="https://github.com/iissnan/hexo-theme-next/issues/635">blog categories XXX 404 Error</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -312,46 +312,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Next的CSS相關樣式配置</title>
-    <url>/blog/posts/Hexo/3f30/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在 <a href="https://kevin1061517.github.io/blog/posts/Hexo/5364/">Hexo &amp; Next 建構部落格</a> 這篇有說明到Next主題(theme)套用的方式，其實Hexo還有很多其他的 <a href="https://hexo.io/themes/">Theme</a> ，但目前Next的關注度及資源都比其他還要來的高，透過Hexo和Next主題套件能夠快速客製化和其他人不同的排版、字形、顏色等風格的部落格，因此這邊來記錄在使用Next主題的相關樣式配置，特別是針對Gemini這個外觀(Scheme)，但有可能版本不同會有所些微差異，所以有疑問都歡迎留言告知!</p>
-<a id="more"></a>
-
-<h2 id="基本樣式配置"><a href="#基本樣式配置" class="headerlink" title="基本樣式配置"></a>基本樣式配置</h2><p>Next主題的樣式配置主要是在 <code>next\source\css</code>裡面，其中在<code>next\source\css\_variables</code>資料夾有4個Scheme的樣式以及基本大家共用的base.styl，檔案結構如下圖</p>
-<figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line">├── _css</span><br><span class="line"><span class="string">|   ├── _common</span></span><br><span class="line"><span class="string">|   ├── _custom</span></span><br><span class="line"><span class="string">|   ├── _schemes</span></span><br><span class="line"><span class="string">|   ├── _variables</span></span><br><span class="line"><span class="string">|   ├── _colors.styl</span></span><br><span class="line"><span class="string">|   ├── _mixins.styl</span></span><br><span class="line"><span class="string">|   └── main.styl</span></span><br></pre></td></tr></table></figure>
-
-<p>下面將base.styl、Gemini.styl和Pisces.styl較重要的部份來做紀錄</p>
-<ul>
-<li><p>base.styl</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//文章h1 h2...用字的顏色</span></span><br><span class="line">$text-color                   = $black-light;</span><br><span class="line"><span class="comment">//超連結文字的顏色</span></span><br><span class="line">$link-color                   = $black-light;</span><br><span class="line"><span class="comment">//碰到超連結文字顏色</span></span><br><span class="line">$link-hover-color             = $black-deep;</span><br><span class="line"><span class="comment">// Global border color.</span></span><br><span class="line">$border-color                 = $grey-light;</span><br><span class="line"><span class="comment">// Background color for &lt;body&gt;</span></span><br><span class="line">$body-bg-color                = white;</span><br><span class="line"><span class="comment">//sidebar的背底色</span></span><br><span class="line">$content-bg-color             = white;</span><br><span class="line"><span class="comment">// Selection</span></span><br><span class="line">$selection-bg                 = $blue-deep;</span><br><span class="line"><span class="comment">// Dark mode color</span></span><br><span class="line">$card-bg-color                = $whitesmoke;</span><br><span class="line"><span class="comment">//導覽目錄地目前欄位及碰到背底色</span></span><br><span class="line">$menu-item-bg-color           = $black-light;</span><br><span class="line"><span class="comment">// Font size</span></span><br><span class="line">$font-size-smallest       = .<span class="number">5</span>em; <span class="comment">//每一篇文章標題下面的發表時間相關資訊的字型大小</span></span><br><span class="line">$font-size-smaller        = .<span class="number">8</span>em; <span class="comment">//Sidebar上半部的導覽目錄的字型大小</span></span><br><span class="line">$font-size-small          = .<span class="number">875</span>em; <span class="comment">//Sidebar下半部的文章目錄和本章概要的字型大小</span></span><br><span class="line">$font-size-medium         = <span class="number">1.3</span>em; <span class="comment">//Sidebar本站概要的文章、分類和標籤上面的數字字型大小</span></span><br><span class="line">$font-size-large          = <span class="number">1.125</span>em; <span class="comment">//文章文字的字型大小</span></span><br><span class="line">$font-size-largest        = <span class="number">1.75</span>em; <span class="comment">//文章標題的字型大小</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Gemini.styl</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@import</span> <span class="string">&quot;Pisces.styl&quot;</span>;</span><br><span class="line"><span class="comment">// Settings for some of the most global styles.</span></span><br><span class="line"><span class="comment">// --------------------------------------------------</span></span><br><span class="line">$body-bg-color           = #F0F0F0;</span><br><span class="line"><span class="comment">// Borders.</span></span><br><span class="line"><span class="comment">// --------------------------------------------------</span></span><br><span class="line">$box-shadow-inner        = <span class="number">0</span> <span class="number">2</span>px <span class="number">2</span>px <span class="number">0</span> rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">12</span>), <span class="number">0</span> <span class="number">3</span>px <span class="number">1</span>px -<span class="number">2</span><span class="function">px <span class="title">rgba</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">.06</span>)</span>, 0 1px 5px 0 <span class="title">rgba</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">.12</span>)</span></span>;</span><br><span class="line">$box-shadow              = <span class="number">0</span> <span class="number">2</span>px <span class="number">2</span>px <span class="number">0</span> rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">12</span>), <span class="number">0</span> <span class="number">3</span>px <span class="number">1</span>px -<span class="number">2</span><span class="function">px <span class="title">rgba</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">.06</span>)</span>, 0 1px 5px 0 <span class="title">rgba</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">.12</span>)</span>, 0 -1px .5px 0 <span class="title">rgba</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">.09</span>)</span></span>;</span><br><span class="line"><span class="comment">// 部落格通用文字的大小</span></span><br><span class="line">$font-size-base = <span class="number">15</span>px</span><br><span class="line"><span class="comment">// Code字體的大小</span></span><br><span class="line">$code-font-size = <span class="number">11</span>px</span><br><span class="line"><span class="comment">//依照不同尺寸的縮放比例</span></span><br><span class="line">$content-desktop         = <span class="number">85</span>%</span><br><span class="line">$content-desktop-large   = <span class="number">85</span>%</span><br><span class="line">$content-desktop-largest = <span class="number">85</span>%</span><br><span class="line"><span class="comment">// 設定目錄導覽(site-nav)的sidebar的圓角(回到首頁、關於作者...)</span></span><br><span class="line">$border-radius-inner = <span class="number">15</span>px</span><br><span class="line"><span class="comment">// 設定文章導覽(本站概要)的sidebar的圓角(文章目錄、本站概要...)</span></span><br><span class="line">$border-radius = <span class="number">15</span>px</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="自行客製化樣式"><a href="#自行客製化樣式" class="headerlink" title="自行客製化樣式"></a>自行客製化樣式</h2><p>Gemini有引用(import)Pisces的樣式配置，所以可以進一步對 <code>next\source\css\_schemes\Pisces</code> 裡面的檔案做修改，但自訂義的樣式可以在<code>next\source\css\_custom\custom.styl</code>做加入，有些版本的Next需要自己建立custom.styl檔案，一些可以美化的配置如下</p>
-<ul>
-<li>custom\custom.styl<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//副標題(Be brave to chase my dreams)的文字配置</span></span><br><span class="line">.site-subtitle &#123;</span><br><span class="line">    color: #fff;</span><br><span class="line">    font-family: Kosugi Maru;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sidebar文章導覽的超連結文字(前言...)在激活(active)時(就是目前停留的章節)的配置</span></span><br><span class="line">.post-toc .nav .active &gt; a &#123;</span><br><span class="line">  color: #06A2E4;</span><br><span class="line">  border-bottom-color: #06A2E4;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sidebar文章導覽的超連結文字(前言...)碰到的配置</span></span><br><span class="line">.post-toc ol a:hover &#123;</span><br><span class="line">  color: #06A2E4;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sidebar導覽目錄(回到首頁、關於...)在激活(active)時(就是目前停留的章節)的配置</span></span><br><span class="line">#menu &gt; li.menu-item-active &gt; a &#123;</span><br><span class="line">  color: black;</span><br><span class="line">  border: 3px #FFAC55 solid;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 碰到Sidebar導覽目錄(回到首頁、關於...)的配置</span></span><br><span class="line">#menu &gt; li :hover &#123;</span><br><span class="line">  color: black;</span><br><span class="line">  border: 3px #FFAC55 solid;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 碰到Sidebar導覽目錄(回到首頁、關於...)的超連結文字配置</span></span><br><span class="line">a:hover,</span><br><span class="line">span.exturl:hover &#123;</span><br><span class="line">  color: #06A2E4;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在Sidebar導覽目錄碰到顯示黑色小圓點</span></span><br><span class="line">.menu-item-active a:after,</span><br><span class="line">.menu .menu-item a:hover:after,</span><br><span class="line">.menu .menu-item span.exturl:hover:after &#123;</span><br><span class="line">  background-color: black;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 文章上面邊緣(margin)去掉</span></span><br><span class="line">.content &#123;</span><br><span class="line">    padding-top: <span class="number">0</span>px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//首頁的繼續閱讀按鈕下面空白去除</span></span><br><span class="line">.post-footer&#123;</span><br><span class="line">    display: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 部落格標題(Kevin blog)那邊的背景配置</span></span><br><span class="line">.site-brand-container &#123;</span><br><span class="line">    background: #00FF00;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 部落格標題(Kevin blog)碰到時候的配置</span></span><br><span class="line">.site-title:hover &#123;</span><br><span class="line">    letter-spacing: <span class="number">0.05</span>rem;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sidebar下面的文章目錄和本站概要 碰到的配置</span></span><br><span class="line">.sidebar-nav li:hover &#123;</span><br><span class="line">  color: #E800E8;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sidebar下面的文章目錄和本站概要在激活(active)時(就是目前停留的章節)的配置</span></span><br><span class="line">.sidebar-nav .sidebar-nav-active &#123;</span><br><span class="line">  color: #06A2E4;</span><br><span class="line">  border-bottom-color: #06A2E4;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sidebar本站概要的(文章、分類、標籤)上面的數字的配置</span></span><br><span class="line">.site-state-item-count &#123;</span><br><span class="line">  color: #06A2E4;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 碰到本站概要的(文章、分類、標籤)的配置</span></span><br><span class="line">.site-state div:hover,</span><br><span class="line">.links-of-author-item a:hover&#123;</span><br><span class="line">    color: black;</span><br><span class="line">    background: #F0F0F0;</span><br><span class="line">    letter-spacing: <span class="number">0.02</span>rem;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 碰到近期文章的配置</span></span><br><span class="line">.links-of-blogroll-list a:hover&#123;</span><br><span class="line">    color: black;</span><br><span class="line">    letter-spacing: <span class="number">0.03</span>rem;</span><br><span class="line">    border-bottom: 3px #FFAC55 solid;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// markdown寫的文章在h1、h2...前面加上編號</span></span><br><span class="line">body &#123;counter-reset: h2&#125;</span><br><span class="line">h2 &#123;counter-reset: h3&#125;</span><br><span class="line">h3 &#123;counter-reset: h4&#125;</span><br><span class="line">h4 &#123;counter-reset: h5&#125;</span><br><span class="line">h2:before &#123;counter-increment: h2; content: counter(h2) <span class="string">&quot; &quot;</span>&#125;</span><br><span class="line">h3:before &#123;counter-increment: h3; content: counter(h2) <span class="string">&quot;.&quot;</span> counter(h3) <span class="string">&quot;) &quot;</span>&#125;</span><br><span class="line">h4:before &#123;counter-increment: h4; content: counter(h2) <span class="string">&quot;.&quot;</span> counter(h3) <span class="string">&quot;.&quot;</span> counter(h4) <span class="string">&quot;) &quot;</span>&#125;</span><br><span class="line">h5:before &#123;counter-increment: h5; content: counter(h2) <span class="string">&quot;.&quot;</span> counter(h3) <span class="string">&quot;.&quot;</span> counter(h4) <span class="string">&quot;.&quot;</span> counter(h5) <span class="string">&quot;. &quot;</span>&#125;</span><br><span class="line">h2.nocount:before, h3.nocount:before, h4.nocount:before, h5.nocount:before, h6.nocount:before &#123; content: <span class="string">&quot;&quot;</span>; counter-increment: none &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取消首頁和分類頁面的h2編號</span></span><br><span class="line">.index, .collection-title &#123;</span><br><span class="line">    h2:before &#123;counter-increment: h2; content: <span class="string">&quot;&quot;</span>&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Next</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MavenNote</title>
     <url>/blog/posts/Maven/6add6839/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我們都知道Maven是一個幫助我們的Java專案做依賴管理及自動建構的工具，其實過去半年常寫的Java都是Maven專案，但對Maven還是有幾分陌生，所以這幾天花了點時間來釐清一下它的基本功能及概念。</p>
@@ -389,6 +349,46 @@
       <tags>
         <tag>Java</tag>
         <tag>Maven</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Next的CSS相關樣式配置</title>
+    <url>/blog/posts/Hexo/3f30/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在 <a href="https://kevin1061517.github.io/blog/posts/Hexo/5364/">Hexo &amp; Next 建構部落格</a> 這篇有說明到Next主題(theme)套用的方式，其實Hexo還有很多其他的 <a href="https://hexo.io/themes/">Theme</a> ，但目前Next的關注度及資源都比其他還要來的高，透過Hexo和Next主題套件能夠快速客製化和其他人不同的排版、字形、顏色等風格的部落格，因此這邊來記錄在使用Next主題的相關樣式配置，特別是針對Gemini這個外觀(Scheme)，但有可能版本不同會有所些微差異，所以有疑問都歡迎留言告知!</p>
+<a id="more"></a>
+
+<h2 id="基本樣式配置"><a href="#基本樣式配置" class="headerlink" title="基本樣式配置"></a>基本樣式配置</h2><p>Next主題的樣式配置主要是在 <code>next\source\css</code>裡面，其中在<code>next\source\css\_variables</code>資料夾有4個Scheme的樣式以及基本大家共用的base.styl，檔案結構如下圖</p>
+<figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line">├── _css</span><br><span class="line"><span class="string">|   ├── _common</span></span><br><span class="line"><span class="string">|   ├── _custom</span></span><br><span class="line"><span class="string">|   ├── _schemes</span></span><br><span class="line"><span class="string">|   ├── _variables</span></span><br><span class="line"><span class="string">|   ├── _colors.styl</span></span><br><span class="line"><span class="string">|   ├── _mixins.styl</span></span><br><span class="line"><span class="string">|   └── main.styl</span></span><br></pre></td></tr></table></figure>
+
+<p>下面將base.styl、Gemini.styl和Pisces.styl較重要的部份來做紀錄</p>
+<ul>
+<li><p>base.styl</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//文章h1 h2...用字的顏色</span></span><br><span class="line">$text-color                   = $black-light;</span><br><span class="line"><span class="comment">//超連結文字的顏色</span></span><br><span class="line">$link-color                   = $black-light;</span><br><span class="line"><span class="comment">//碰到超連結文字顏色</span></span><br><span class="line">$link-hover-color             = $black-deep;</span><br><span class="line"><span class="comment">// Global border color.</span></span><br><span class="line">$border-color                 = $grey-light;</span><br><span class="line"><span class="comment">// Background color for &lt;body&gt;</span></span><br><span class="line">$body-bg-color                = white;</span><br><span class="line"><span class="comment">//sidebar的背底色</span></span><br><span class="line">$content-bg-color             = white;</span><br><span class="line"><span class="comment">// Selection</span></span><br><span class="line">$selection-bg                 = $blue-deep;</span><br><span class="line"><span class="comment">// Dark mode color</span></span><br><span class="line">$card-bg-color                = $whitesmoke;</span><br><span class="line"><span class="comment">//導覽目錄地目前欄位及碰到背底色</span></span><br><span class="line">$menu-item-bg-color           = $black-light;</span><br><span class="line"><span class="comment">// Font size</span></span><br><span class="line">$font-size-smallest       = .<span class="number">5</span>em; <span class="comment">//每一篇文章標題下面的發表時間相關資訊的字型大小</span></span><br><span class="line">$font-size-smaller        = .<span class="number">8</span>em; <span class="comment">//Sidebar上半部的導覽目錄的字型大小</span></span><br><span class="line">$font-size-small          = .<span class="number">875</span>em; <span class="comment">//Sidebar下半部的文章目錄和本章概要的字型大小</span></span><br><span class="line">$font-size-medium         = <span class="number">1.3</span>em; <span class="comment">//Sidebar本站概要的文章、分類和標籤上面的數字字型大小</span></span><br><span class="line">$font-size-large          = <span class="number">1.125</span>em; <span class="comment">//文章文字的字型大小</span></span><br><span class="line">$font-size-largest        = <span class="number">1.75</span>em; <span class="comment">//文章標題的字型大小</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Gemini.styl</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@import</span> <span class="string">&quot;Pisces.styl&quot;</span>;</span><br><span class="line"><span class="comment">// Settings for some of the most global styles.</span></span><br><span class="line"><span class="comment">// --------------------------------------------------</span></span><br><span class="line">$body-bg-color           = #F0F0F0;</span><br><span class="line"><span class="comment">// Borders.</span></span><br><span class="line"><span class="comment">// --------------------------------------------------</span></span><br><span class="line">$box-shadow-inner        = <span class="number">0</span> <span class="number">2</span>px <span class="number">2</span>px <span class="number">0</span> rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">12</span>), <span class="number">0</span> <span class="number">3</span>px <span class="number">1</span>px -<span class="number">2</span><span class="function">px <span class="title">rgba</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">.06</span>)</span>, 0 1px 5px 0 <span class="title">rgba</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">.12</span>)</span></span>;</span><br><span class="line">$box-shadow              = <span class="number">0</span> <span class="number">2</span>px <span class="number">2</span>px <span class="number">0</span> rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">12</span>), <span class="number">0</span> <span class="number">3</span>px <span class="number">1</span>px -<span class="number">2</span><span class="function">px <span class="title">rgba</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">.06</span>)</span>, 0 1px 5px 0 <span class="title">rgba</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">.12</span>)</span>, 0 -1px .5px 0 <span class="title">rgba</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">.09</span>)</span></span>;</span><br><span class="line"><span class="comment">// 部落格通用文字的大小</span></span><br><span class="line">$font-size-base = <span class="number">15</span>px</span><br><span class="line"><span class="comment">// Code字體的大小</span></span><br><span class="line">$code-font-size = <span class="number">11</span>px</span><br><span class="line"><span class="comment">//依照不同尺寸的縮放比例</span></span><br><span class="line">$content-desktop         = <span class="number">85</span>%</span><br><span class="line">$content-desktop-large   = <span class="number">85</span>%</span><br><span class="line">$content-desktop-largest = <span class="number">85</span>%</span><br><span class="line"><span class="comment">// 設定目錄導覽(site-nav)的sidebar的圓角(回到首頁、關於作者...)</span></span><br><span class="line">$border-radius-inner = <span class="number">15</span>px</span><br><span class="line"><span class="comment">// 設定文章導覽(本站概要)的sidebar的圓角(文章目錄、本站概要...)</span></span><br><span class="line">$border-radius = <span class="number">15</span>px</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="自行客製化樣式"><a href="#自行客製化樣式" class="headerlink" title="自行客製化樣式"></a>自行客製化樣式</h2><p>Gemini有引用(import)Pisces的樣式配置，所以可以進一步對 <code>next\source\css\_schemes\Pisces</code> 裡面的檔案做修改，但自訂義的樣式可以在<code>next\source\css\_custom\custom.styl</code>做加入，有些版本的Next需要自己建立custom.styl檔案，一些可以美化的配置如下</p>
+<ul>
+<li>custom\custom.styl<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//副標題(Be brave to chase my dreams)的文字配置</span></span><br><span class="line">.site-subtitle &#123;</span><br><span class="line">    color: #fff;</span><br><span class="line">    font-family: Kosugi Maru;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sidebar文章導覽的超連結文字(前言...)在激活(active)時(就是目前停留的章節)的配置</span></span><br><span class="line">.post-toc .nav .active &gt; a &#123;</span><br><span class="line">  color: #06A2E4;</span><br><span class="line">  border-bottom-color: #06A2E4;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sidebar文章導覽的超連結文字(前言...)碰到的配置</span></span><br><span class="line">.post-toc ol a:hover &#123;</span><br><span class="line">  color: #06A2E4;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sidebar導覽目錄(回到首頁、關於...)在激活(active)時(就是目前停留的章節)的配置</span></span><br><span class="line">#menu &gt; li.menu-item-active &gt; a &#123;</span><br><span class="line">  color: black;</span><br><span class="line">  border: 3px #FFAC55 solid;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 碰到Sidebar導覽目錄(回到首頁、關於...)的配置</span></span><br><span class="line">#menu &gt; li :hover &#123;</span><br><span class="line">  color: black;</span><br><span class="line">  border: 3px #FFAC55 solid;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 碰到Sidebar導覽目錄(回到首頁、關於...)的超連結文字配置</span></span><br><span class="line">a:hover,</span><br><span class="line">span.exturl:hover &#123;</span><br><span class="line">  color: #06A2E4;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在Sidebar導覽目錄碰到顯示黑色小圓點</span></span><br><span class="line">.menu-item-active a:after,</span><br><span class="line">.menu .menu-item a:hover:after,</span><br><span class="line">.menu .menu-item span.exturl:hover:after &#123;</span><br><span class="line">  background-color: black;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 文章上面邊緣(margin)去掉</span></span><br><span class="line">.content &#123;</span><br><span class="line">    padding-top: <span class="number">0</span>px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//首頁的繼續閱讀按鈕下面空白去除</span></span><br><span class="line">.post-footer&#123;</span><br><span class="line">    display: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 部落格標題(Kevin blog)那邊的背景配置</span></span><br><span class="line">.site-brand-container &#123;</span><br><span class="line">    background: #00FF00;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 部落格標題(Kevin blog)碰到時候的配置</span></span><br><span class="line">.site-title:hover &#123;</span><br><span class="line">    letter-spacing: <span class="number">0.05</span>rem;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sidebar下面的文章目錄和本站概要 碰到的配置</span></span><br><span class="line">.sidebar-nav li:hover &#123;</span><br><span class="line">  color: #E800E8;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sidebar下面的文章目錄和本站概要在激活(active)時(就是目前停留的章節)的配置</span></span><br><span class="line">.sidebar-nav .sidebar-nav-active &#123;</span><br><span class="line">  color: #06A2E4;</span><br><span class="line">  border-bottom-color: #06A2E4;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sidebar本站概要的(文章、分類、標籤)上面的數字的配置</span></span><br><span class="line">.site-state-item-count &#123;</span><br><span class="line">  color: #06A2E4;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 碰到本站概要的(文章、分類、標籤)的配置</span></span><br><span class="line">.site-state div:hover,</span><br><span class="line">.links-of-author-item a:hover&#123;</span><br><span class="line">    color: black;</span><br><span class="line">    background: #F0F0F0;</span><br><span class="line">    letter-spacing: <span class="number">0.02</span>rem;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 碰到近期文章的配置</span></span><br><span class="line">.links-of-blogroll-list a:hover&#123;</span><br><span class="line">    color: black;</span><br><span class="line">    letter-spacing: <span class="number">0.03</span>rem;</span><br><span class="line">    border-bottom: 3px #FFAC55 solid;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// markdown寫的文章在h1、h2...前面加上編號</span></span><br><span class="line">body &#123;counter-reset: h2&#125;</span><br><span class="line">h2 &#123;counter-reset: h3&#125;</span><br><span class="line">h3 &#123;counter-reset: h4&#125;</span><br><span class="line">h4 &#123;counter-reset: h5&#125;</span><br><span class="line">h2:before &#123;counter-increment: h2; content: counter(h2) <span class="string">&quot; &quot;</span>&#125;</span><br><span class="line">h3:before &#123;counter-increment: h3; content: counter(h2) <span class="string">&quot;.&quot;</span> counter(h3) <span class="string">&quot;) &quot;</span>&#125;</span><br><span class="line">h4:before &#123;counter-increment: h4; content: counter(h2) <span class="string">&quot;.&quot;</span> counter(h3) <span class="string">&quot;.&quot;</span> counter(h4) <span class="string">&quot;) &quot;</span>&#125;</span><br><span class="line">h5:before &#123;counter-increment: h5; content: counter(h2) <span class="string">&quot;.&quot;</span> counter(h3) <span class="string">&quot;.&quot;</span> counter(h4) <span class="string">&quot;.&quot;</span> counter(h5) <span class="string">&quot;. &quot;</span>&#125;</span><br><span class="line">h2.nocount:before, h3.nocount:before, h4.nocount:before, h5.nocount:before, h6.nocount:before &#123; content: <span class="string">&quot;&quot;</span>; counter-increment: none &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取消首頁和分類頁面的h2編號</span></span><br><span class="line">.index, .collection-title &#123;</span><br><span class="line">    h2:before &#123;counter-increment: h2; content: <span class="string">&quot;&quot;</span>&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Next</tag>
       </tags>
   </entry>
   <entry>
@@ -921,34 +921,6 @@ home: / || fa fa-home
   </entry>
   <entry>
     <title>about</title>
-    <url>/aboutKevin/contact.html</url>
-    <content><![CDATA[
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.0.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-16x16-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-</head>
-   <body>   
-      <div>
-            <h1 class="mb-6"> class="404 -- 施工當中QQ</h1>
-      </div>
-     
-
-</body>
-</html>
-]]></content>
-  </entry>
-  <entry>
-    <title>about</title>
     <url>/aboutKevin/certificate.html</url>
     <content><![CDATA[<!DOCTYPE html>
 
@@ -1011,6 +983,34 @@ home: / || fa fa-home
 </body>
 
 </html>]]></content>
+  </entry>
+  <entry>
+    <title>about</title>
+    <url>/aboutKevin/contact.html</url>
+    <content><![CDATA[
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-16x16-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+   <body>   
+      <div>
+            <h1 class="mb-6"> class="404 -- 施工當中QQ</h1>
+      </div>
+     
+
+</body>
+</html>
+]]></content>
   </entry>
   <entry>
     <title>關於我</title>
@@ -1168,13 +1168,13 @@ home: / || fa fa-home
 ]]></content>
   </entry>
   <entry>
-    <title>分類</title>
-    <url>/categories/index.html</url>
+    <title>關鍵字標籤</title>
+    <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>關鍵字標籤</title>
-    <url>/tags/index.html</url>
+    <title>分類</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -1402,9 +1402,9 @@ html.lb-disable-scrolling {
 	padding: 25px; 
 }
 
+
 .post-block{
 	padding: 0;
-	margin: 0;
 }
 
 .post-title, .post-meta{
@@ -1542,7 +1542,7 @@ h3{
 @media (min-width: 768px){
 	.wrapper {
 		display: grid;
-		grid-template-columns: 40% 60%;
+		grid-template-columns: 35% 65%;
 	}
 	#gold ul li{
 		display: inline;
@@ -1598,206 +1598,6 @@ h3{
 }
 
 ]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/aboutKevin/css/responsive.css</url>
-    <content><![CDATA[
-/* ul li 一層一層 原本就是這樣子*/
-@media only screen and (max-width: 680px) {
-    header {
-        padding: 0px;
-        margin: 0;
-    }
-    .main-content {
-        padding: 15px;
-        position: relative;
-        font-size: 14pt;
-        border-bottom:  2px solid rgb(185, 185, 185);
-    }
-	.main_word{
-        font-size: 20pt;
-        font-family:fantasy;
-        font-weight: bold;
-    }
-    .main-content-index {
-        background: url("../img/3028.jpg") no-repeat;
-        background-size: 100% 100%;
-        height: 60vh;
-        padding: 0px;
-    }
-    .current-page {
-        color: 	#000000;
-    }
-    .gallery {    
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-column-gap: 15px;
-        row-gap: 20px;
-    }
-} 
-
-
-
-/* For screen width between 680px and 1024px 
-一般手機的螢幕寬度大多都小於480px
-意思是當螢幕小於768px，大於481px的情況。這是給平版適用的*/
-@media only screen and (min-width: 680px) {
-
-    header {
-        padding: 0em;
-        margin: 0;
-    }
-
-    nav ul {
-        text-align: center;
-        margin: 0;
-        padding: 0;
-    }
-
-    nav ul li {
-        display: inline-block;
-        border-top: 0;
-    }
-
-    nav ul li a {
-        font-weight: bold;
-        padding: 0.5em;
-    }
-    .main-content {
-        padding: 12px;
-        font-size: 12pt;
-        border-bottom:  2px solid rgb(185, 185, 185);
-    }
-    .current-page {
-        color: 	#000000;
-    }
-}
-
-
-/* For screen wider than 1024 px */
-@media only screen and (min-width:1024px) {
-
-    .current-page {
-        color: 	#000000;
-        border-bottom: 3px solid #000000;
-    }
-
-    .gallery {    
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-column-gap: 20px;
-        row-gap: 20px;
-    }
-
-    header {
-        padding: 0px;
-    }
-
-    /* navigation */
-
-    .logo {
-        float: left;
-        max-width: 30%;
-        margin: auto;
-        margin-top: -1em;
-        padding: .5em;
-        max-width: 90%;
-        display: block;
-    }
-
-    .logo img {
-        height: auto;
-        max-width: 100%;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    nav{
-        position: fixed;
-        left: 0;
-        top: 0;
-    }
-    nav ul{
-        padding: 5px 30px;
-        text-align: right;
-    }
-   
-
-    /* 選項碰到會有小動畫，不在手機顯示 */
-
-    nav ul li a:hover {/*接觸到btn的顏色*/
-        transition: 0.2s;
-        border-top: 3px solid #000000;
-        border-bottom: 3px solid #000000;
-        color: #000000;
-    }
-    
-    .social li img:hover {     
-        transition: 0.2s;
-        border-bottom: 2px solid #000000; 
-    }
-
-    /* About Page */
-    .main-content-about{
-        padding: 1%;
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        grid-gap: 1px;
-        border-bottom:  2px solid rgb(185, 185, 185);
-    }
-
-    .line_right{
-        border-right: 2px solid #c9c9c9; 
-    }
-
-    .first_item {
-        padding: 5px;
-        grid-column-start: 1;
-        grid-column-end: 4;
-        grid-row-start: 1;
-        grid-row-end: 2;
-    }
-
-    .first_content{
-        padding: 5px;
-        grid-column-start: 4;
-        grid-column-end: 13;
-        grid-row-start: 1;
-        grid-row-end: 2;
-    }
-
-
-    div .else_item{
-        padding: 5px;
-        grid-column-start: 1;
-        grid-column-end: 3;
-        grid-row-start: 1;
-        grid-row-end: 2;
-    }
-
-    div .else_content{
-        padding: 5px;
-        grid-column-start: 3;
-        grid-column-end: 13;
-        grid-row-start: 1;
-        grid-row-end: 2;
-    }
-
-    p{
-        font-size: 14pt;
-    }
-
-    /* fotowall */
-
-    .row-photo {
-        display: flex;
-        flex-wrap: wrap;
-        padding: 0 4px;
-    }
-
-}]]></content>
   </entry>
   <entry>
     <title></title>
@@ -2182,6 +1982,216 @@ footer a {
   </entry>
   <entry>
     <title></title>
+    <url>/aboutKevin/css/responsive.css</url>
+    <content><![CDATA[
+/* ul li 一層一層 原本就是這樣子*/
+@media only screen and (max-width: 680px) {
+    header {
+        padding: 0px;
+        margin: 0;
+    }
+    .main-content {
+        padding: 15px;
+        position: relative;
+        font-size: 14pt;
+        border-bottom:  2px solid rgb(185, 185, 185);
+    }
+	.main_word{
+        font-size: 20pt;
+        font-family:fantasy;
+        font-weight: bold;
+    }
+    .main-content-index {
+        background: url("../img/3028.jpg") no-repeat;
+        background-size: 100% 100%;
+        height: 60vh;
+        padding: 0px;
+    }
+    .current-page {
+        color: 	#000000;
+    }
+    .gallery {    
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-column-gap: 15px;
+        row-gap: 20px;
+    }
+} 
+
+
+
+/* For screen width between 680px and 1024px 
+一般手機的螢幕寬度大多都小於480px
+意思是當螢幕小於768px，大於481px的情況。這是給平版適用的*/
+@media only screen and (min-width: 680px) {
+
+    header {
+        padding: 0em;
+        margin: 0;
+    }
+
+    nav ul {
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul li {
+        display: inline-block;
+        border-top: 0;
+    }
+
+    nav ul li a {
+        font-weight: bold;
+        padding: 0.5em;
+    }
+    .main-content {
+        padding: 12px;
+        font-size: 12pt;
+        border-bottom:  2px solid rgb(185, 185, 185);
+    }
+    .current-page {
+        color: 	#000000;
+    }
+}
+
+
+/* For screen wider than 1024 px */
+@media only screen and (min-width:1024px) {
+
+    .current-page {
+        color: 	#000000;
+        border-bottom: 3px solid #000000;
+    }
+
+    .gallery {    
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 20px;
+        row-gap: 20px;
+    }
+
+    header {
+        padding: 0px;
+    }
+
+    /* navigation */
+
+    .logo {
+        float: left;
+        max-width: 30%;
+        margin: auto;
+        margin-top: -1em;
+        padding: .5em;
+        max-width: 90%;
+        display: block;
+    }
+
+    .logo img {
+        height: auto;
+        max-width: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    nav{
+        position: fixed;
+        left: 0;
+        top: 0;
+    }
+    nav ul{
+        padding: 5px 30px;
+        text-align: right;
+    }
+   
+
+    /* 選項碰到會有小動畫，不在手機顯示 */
+
+    nav ul li a:hover {/*接觸到btn的顏色*/
+        transition: 0.2s;
+        border-top: 3px solid #000000;
+        border-bottom: 3px solid #000000;
+        color: #000000;
+    }
+    
+    .social li img:hover {     
+        transition: 0.2s;
+        border-bottom: 2px solid #000000; 
+    }
+
+    /* About Page */
+    .main-content-about{
+        padding: 1%;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 1px;
+        border-bottom:  2px solid rgb(185, 185, 185);
+    }
+
+    .line_right{
+        border-right: 2px solid #c9c9c9; 
+    }
+
+    .first_item {
+        padding: 5px;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    .first_content{
+        padding: 5px;
+        grid-column-start: 4;
+        grid-column-end: 13;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+
+    div .else_item{
+        padding: 5px;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    div .else_content{
+        padding: 5px;
+        grid-column-start: 3;
+        grid-column-end: 13;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    p{
+        font-size: 14pt;
+    }
+
+    /* fotowall */
+
+    .row-photo {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 4px;
+    }
+
+}]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/aboutKevin/js/parallax.min.js</url>
+    <content><![CDATA[/*!
+ * parallax.js v1.5.0 (http://pixelcog.github.io/parallax.js/)
+ * @copyright 2016 PixelCog, Inc.
+ * @license MIT (https://github.com/pixelcog/parallax.js/blob/master/LICENSE)
+ */
+!function(t,i,e,s){function o(i,e){var h=this;"object"==typeof e&&(delete e.refresh,delete e.render,t.extend(this,e)),this.$element=t(i),!this.imageSrc&&this.$element.is("img")&&(this.imageSrc=this.$element.attr("src"));var r=(this.position+"").toLowerCase().match(/\S+/g)||[];if(r.length<1&&r.push("center"),1==r.length&&r.push(r[0]),"top"!=r[0]&&"bottom"!=r[0]&&"left"!=r[1]&&"right"!=r[1]||(r=[r[1],r[0]]),this.positionX!==s&&(r[0]=this.positionX.toLowerCase()),this.positionY!==s&&(r[1]=this.positionY.toLowerCase()),h.positionX=r[0],h.positionY=r[1],"left"!=this.positionX&&"right"!=this.positionX&&(isNaN(parseInt(this.positionX))?this.positionX="center":this.positionX=parseInt(this.positionX)),"top"!=this.positionY&&"bottom"!=this.positionY&&(isNaN(parseInt(this.positionY))?this.positionY="center":this.positionY=parseInt(this.positionY)),this.position=this.positionX+(isNaN(this.positionX)?"":"px")+" "+this.positionY+(isNaN(this.positionY)?"":"px"),navigator.userAgent.match(/(iPod|iPhone|iPad)/))return this.imageSrc&&this.iosFix&&!this.$element.is("img")&&this.$element.css({backgroundImage:"url("+this.imageSrc+")",backgroundSize:"cover",backgroundPosition:this.position}),this;if(navigator.userAgent.match(/(Android)/))return this.imageSrc&&this.androidFix&&!this.$element.is("img")&&this.$element.css({backgroundImage:"url("+this.imageSrc+")",backgroundSize:"cover",backgroundPosition:this.position}),this;this.$mirror=t("<div />").prependTo(this.mirrorContainer);var a=this.$element.find(">.parallax-slider"),n=!1;0==a.length?this.$slider=t("<img />").prependTo(this.$mirror):(this.$slider=a.prependTo(this.$mirror),n=!0),this.$mirror.addClass("parallax-mirror").css({visibility:"hidden",zIndex:this.zIndex,position:"fixed",top:0,left:0,overflow:"hidden"}),this.$slider.addClass("parallax-slider").one("load",function(){h.naturalHeight&&h.naturalWidth||(h.naturalHeight=this.naturalHeight||this.height||1,h.naturalWidth=this.naturalWidth||this.width||1),h.aspectRatio=h.naturalWidth/h.naturalHeight,o.isSetup||o.setup(),o.sliders.push(h),o.isFresh=!1,o.requestRender()}),n||(this.$slider[0].src=this.imageSrc),(this.naturalHeight&&this.naturalWidth||this.$slider[0].complete||a.length>0)&&this.$slider.trigger("load")}!function(){for(var t=0,e=["ms","moz","webkit","o"],s=0;s<e.length&&!i.requestAnimationFrame;++s)i.requestAnimationFrame=i[e[s]+"RequestAnimationFrame"],i.cancelAnimationFrame=i[e[s]+"CancelAnimationFrame"]||i[e[s]+"CancelRequestAnimationFrame"];i.requestAnimationFrame||(i.requestAnimationFrame=function(e){var s=(new Date).getTime(),o=Math.max(0,16-(s-t)),h=i.setTimeout(function(){e(s+o)},o);return t=s+o,h}),i.cancelAnimationFrame||(i.cancelAnimationFrame=function(t){clearTimeout(t)})}(),t.extend(o.prototype,{speed:.2,bleed:0,zIndex:-100,iosFix:!0,androidFix:!0,position:"center",overScrollFix:!1,mirrorContainer:"body",refresh:function(){this.boxWidth=this.$element.outerWidth(),this.boxHeight=this.$element.outerHeight()+2*this.bleed,this.boxOffsetTop=this.$element.offset().top-this.bleed,this.boxOffsetLeft=this.$element.offset().left,this.boxOffsetBottom=this.boxOffsetTop+this.boxHeight;var t,i=o.winHeight,e=o.docHeight,s=Math.min(this.boxOffsetTop,e-i),h=Math.max(this.boxOffsetTop+this.boxHeight-i,0),r=this.boxHeight+(s-h)*(1-this.speed)|0,a=(this.boxOffsetTop-s)*(1-this.speed)|0;r*this.aspectRatio>=this.boxWidth?(this.imageWidth=r*this.aspectRatio|0,this.imageHeight=r,this.offsetBaseTop=a,t=this.imageWidth-this.boxWidth,"left"==this.positionX?this.offsetLeft=0:"right"==this.positionX?this.offsetLeft=-t:isNaN(this.positionX)?this.offsetLeft=-t/2|0:this.offsetLeft=Math.max(this.positionX,-t)):(this.imageWidth=this.boxWidth,this.imageHeight=this.boxWidth/this.aspectRatio|0,this.offsetLeft=0,t=this.imageHeight-r,"top"==this.positionY?this.offsetBaseTop=a:"bottom"==this.positionY?this.offsetBaseTop=a-t:isNaN(this.positionY)?this.offsetBaseTop=a-t/2|0:this.offsetBaseTop=a+Math.max(this.positionY,-t))},render:function(){var t=o.scrollTop,i=o.scrollLeft,e=this.overScrollFix?o.overScroll:0,s=t+o.winHeight;this.boxOffsetBottom>t&&this.boxOffsetTop<=s?(this.visibility="visible",this.mirrorTop=this.boxOffsetTop-t,this.mirrorLeft=this.boxOffsetLeft-i,this.offsetTop=this.offsetBaseTop-this.mirrorTop*(1-this.speed)):this.visibility="hidden",this.$mirror.css({transform:"translate3d("+this.mirrorLeft+"px, "+(this.mirrorTop-e)+"px, 0px)",visibility:this.visibility,height:this.boxHeight,width:this.boxWidth}),this.$slider.css({transform:"translate3d("+this.offsetLeft+"px, "+this.offsetTop+"px, 0px)",position:"absolute",height:this.imageHeight,width:this.imageWidth,maxWidth:"none"})}}),t.extend(o,{scrollTop:0,scrollLeft:0,winHeight:0,winWidth:0,docHeight:1<<30,docWidth:1<<30,sliders:[],isReady:!1,isFresh:!1,isBusy:!1,setup:function(){function s(){if(p==i.pageYOffset)return i.requestAnimationFrame(s),!1;p=i.pageYOffset,h.render(),i.requestAnimationFrame(s)}if(!this.isReady){var h=this,r=t(e),a=t(i),n=function(){o.winHeight=a.height(),o.winWidth=a.width(),o.docHeight=r.height(),o.docWidth=r.width()},l=function(){var t=a.scrollTop(),i=o.docHeight-o.winHeight,e=o.docWidth-o.winWidth;o.scrollTop=Math.max(0,Math.min(i,t)),o.scrollLeft=Math.max(0,Math.min(e,a.scrollLeft())),o.overScroll=Math.max(t-i,Math.min(t,0))};a.on("resize.px.parallax load.px.parallax",function(){n(),h.refresh(),o.isFresh=!1,o.requestRender()}).on("scroll.px.parallax load.px.parallax",function(){l(),o.requestRender()}),n(),l(),this.isReady=!0;var p=-1;s()}},configure:function(i){"object"==typeof i&&(delete i.refresh,delete i.render,t.extend(this.prototype,i))},refresh:function(){t.each(this.sliders,function(){this.refresh()}),this.isFresh=!0},render:function(){this.isFresh||this.refresh(),t.each(this.sliders,function(){this.render()})},requestRender:function(){var t=this;t.render(),t.isBusy=!1},destroy:function(e){var s,h=t(e).data("px.parallax");for(h.$mirror.remove(),s=0;s<this.sliders.length;s+=1)this.sliders[s]==h&&this.sliders.splice(s,1);t(e).data("px.parallax",!1),0===this.sliders.length&&(t(i).off("scroll.px.parallax resize.px.parallax load.px.parallax"),this.isReady=!1,o.isSetup=!1)}});var h=t.fn.parallax;t.fn.parallax=function(s){return this.each(function(){var h=t(this),r="object"==typeof s&&s;this==i||this==e||h.is("body")?o.configure(r):h.data("px.parallax")?"object"==typeof s&&t.extend(h.data("px.parallax"),r):(r=t.extend({},h.data(),r),h.data("px.parallax",new o(this,r))),"string"==typeof s&&("destroy"==s?o.destroy(this):o[s]())})},t.fn.parallax.Constructor=o,t.fn.parallax.noConflict=function(){return t.fn.parallax=h,this},t(function(){t('[data-parallax="scroll"]').parallax()})}(jQuery,window,document);]]></content>
+  </entry>
+  <entry>
+    <title></title>
     <url>/aboutKevin/js/tooplate-script.js</url>
     <content><![CDATA[function calculateHeight(img, originalWidth, originalHeight) {
     const minHeight = 400;
@@ -2206,16 +2216,6 @@ $(document).ready(function () {
         resizeParallaxes();
     });
 });]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/aboutKevin/js/parallax.min.js</url>
-    <content><![CDATA[/*!
- * parallax.js v1.5.0 (http://pixelcog.github.io/parallax.js/)
- * @copyright 2016 PixelCog, Inc.
- * @license MIT (https://github.com/pixelcog/parallax.js/blob/master/LICENSE)
- */
-!function(t,i,e,s){function o(i,e){var h=this;"object"==typeof e&&(delete e.refresh,delete e.render,t.extend(this,e)),this.$element=t(i),!this.imageSrc&&this.$element.is("img")&&(this.imageSrc=this.$element.attr("src"));var r=(this.position+"").toLowerCase().match(/\S+/g)||[];if(r.length<1&&r.push("center"),1==r.length&&r.push(r[0]),"top"!=r[0]&&"bottom"!=r[0]&&"left"!=r[1]&&"right"!=r[1]||(r=[r[1],r[0]]),this.positionX!==s&&(r[0]=this.positionX.toLowerCase()),this.positionY!==s&&(r[1]=this.positionY.toLowerCase()),h.positionX=r[0],h.positionY=r[1],"left"!=this.positionX&&"right"!=this.positionX&&(isNaN(parseInt(this.positionX))?this.positionX="center":this.positionX=parseInt(this.positionX)),"top"!=this.positionY&&"bottom"!=this.positionY&&(isNaN(parseInt(this.positionY))?this.positionY="center":this.positionY=parseInt(this.positionY)),this.position=this.positionX+(isNaN(this.positionX)?"":"px")+" "+this.positionY+(isNaN(this.positionY)?"":"px"),navigator.userAgent.match(/(iPod|iPhone|iPad)/))return this.imageSrc&&this.iosFix&&!this.$element.is("img")&&this.$element.css({backgroundImage:"url("+this.imageSrc+")",backgroundSize:"cover",backgroundPosition:this.position}),this;if(navigator.userAgent.match(/(Android)/))return this.imageSrc&&this.androidFix&&!this.$element.is("img")&&this.$element.css({backgroundImage:"url("+this.imageSrc+")",backgroundSize:"cover",backgroundPosition:this.position}),this;this.$mirror=t("<div />").prependTo(this.mirrorContainer);var a=this.$element.find(">.parallax-slider"),n=!1;0==a.length?this.$slider=t("<img />").prependTo(this.$mirror):(this.$slider=a.prependTo(this.$mirror),n=!0),this.$mirror.addClass("parallax-mirror").css({visibility:"hidden",zIndex:this.zIndex,position:"fixed",top:0,left:0,overflow:"hidden"}),this.$slider.addClass("parallax-slider").one("load",function(){h.naturalHeight&&h.naturalWidth||(h.naturalHeight=this.naturalHeight||this.height||1,h.naturalWidth=this.naturalWidth||this.width||1),h.aspectRatio=h.naturalWidth/h.naturalHeight,o.isSetup||o.setup(),o.sliders.push(h),o.isFresh=!1,o.requestRender()}),n||(this.$slider[0].src=this.imageSrc),(this.naturalHeight&&this.naturalWidth||this.$slider[0].complete||a.length>0)&&this.$slider.trigger("load")}!function(){for(var t=0,e=["ms","moz","webkit","o"],s=0;s<e.length&&!i.requestAnimationFrame;++s)i.requestAnimationFrame=i[e[s]+"RequestAnimationFrame"],i.cancelAnimationFrame=i[e[s]+"CancelAnimationFrame"]||i[e[s]+"CancelRequestAnimationFrame"];i.requestAnimationFrame||(i.requestAnimationFrame=function(e){var s=(new Date).getTime(),o=Math.max(0,16-(s-t)),h=i.setTimeout(function(){e(s+o)},o);return t=s+o,h}),i.cancelAnimationFrame||(i.cancelAnimationFrame=function(t){clearTimeout(t)})}(),t.extend(o.prototype,{speed:.2,bleed:0,zIndex:-100,iosFix:!0,androidFix:!0,position:"center",overScrollFix:!1,mirrorContainer:"body",refresh:function(){this.boxWidth=this.$element.outerWidth(),this.boxHeight=this.$element.outerHeight()+2*this.bleed,this.boxOffsetTop=this.$element.offset().top-this.bleed,this.boxOffsetLeft=this.$element.offset().left,this.boxOffsetBottom=this.boxOffsetTop+this.boxHeight;var t,i=o.winHeight,e=o.docHeight,s=Math.min(this.boxOffsetTop,e-i),h=Math.max(this.boxOffsetTop+this.boxHeight-i,0),r=this.boxHeight+(s-h)*(1-this.speed)|0,a=(this.boxOffsetTop-s)*(1-this.speed)|0;r*this.aspectRatio>=this.boxWidth?(this.imageWidth=r*this.aspectRatio|0,this.imageHeight=r,this.offsetBaseTop=a,t=this.imageWidth-this.boxWidth,"left"==this.positionX?this.offsetLeft=0:"right"==this.positionX?this.offsetLeft=-t:isNaN(this.positionX)?this.offsetLeft=-t/2|0:this.offsetLeft=Math.max(this.positionX,-t)):(this.imageWidth=this.boxWidth,this.imageHeight=this.boxWidth/this.aspectRatio|0,this.offsetLeft=0,t=this.imageHeight-r,"top"==this.positionY?this.offsetBaseTop=a:"bottom"==this.positionY?this.offsetBaseTop=a-t:isNaN(this.positionY)?this.offsetBaseTop=a-t/2|0:this.offsetBaseTop=a+Math.max(this.positionY,-t))},render:function(){var t=o.scrollTop,i=o.scrollLeft,e=this.overScrollFix?o.overScroll:0,s=t+o.winHeight;this.boxOffsetBottom>t&&this.boxOffsetTop<=s?(this.visibility="visible",this.mirrorTop=this.boxOffsetTop-t,this.mirrorLeft=this.boxOffsetLeft-i,this.offsetTop=this.offsetBaseTop-this.mirrorTop*(1-this.speed)):this.visibility="hidden",this.$mirror.css({transform:"translate3d("+this.mirrorLeft+"px, "+(this.mirrorTop-e)+"px, 0px)",visibility:this.visibility,height:this.boxHeight,width:this.boxWidth}),this.$slider.css({transform:"translate3d("+this.offsetLeft+"px, "+this.offsetTop+"px, 0px)",position:"absolute",height:this.imageHeight,width:this.imageWidth,maxWidth:"none"})}}),t.extend(o,{scrollTop:0,scrollLeft:0,winHeight:0,winWidth:0,docHeight:1<<30,docWidth:1<<30,sliders:[],isReady:!1,isFresh:!1,isBusy:!1,setup:function(){function s(){if(p==i.pageYOffset)return i.requestAnimationFrame(s),!1;p=i.pageYOffset,h.render(),i.requestAnimationFrame(s)}if(!this.isReady){var h=this,r=t(e),a=t(i),n=function(){o.winHeight=a.height(),o.winWidth=a.width(),o.docHeight=r.height(),o.docWidth=r.width()},l=function(){var t=a.scrollTop(),i=o.docHeight-o.winHeight,e=o.docWidth-o.winWidth;o.scrollTop=Math.max(0,Math.min(i,t)),o.scrollLeft=Math.max(0,Math.min(e,a.scrollLeft())),o.overScroll=Math.max(t-i,Math.min(t,0))};a.on("resize.px.parallax load.px.parallax",function(){n(),h.refresh(),o.isFresh=!1,o.requestRender()}).on("scroll.px.parallax load.px.parallax",function(){l(),o.requestRender()}),n(),l(),this.isReady=!0;var p=-1;s()}},configure:function(i){"object"==typeof i&&(delete i.refresh,delete i.render,t.extend(this.prototype,i))},refresh:function(){t.each(this.sliders,function(){this.refresh()}),this.isFresh=!0},render:function(){this.isFresh||this.refresh(),t.each(this.sliders,function(){this.render()})},requestRender:function(){var t=this;t.render(),t.isBusy=!1},destroy:function(e){var s,h=t(e).data("px.parallax");for(h.$mirror.remove(),s=0;s<this.sliders.length;s+=1)this.sliders[s]==h&&this.sliders.splice(s,1);t(e).data("px.parallax",!1),0===this.sliders.length&&(t(i).off("scroll.px.parallax resize.px.parallax load.px.parallax"),this.isReady=!1,o.isSetup=!1)}});var h=t.fn.parallax;t.fn.parallax=function(s){return this.each(function(){var h=t(this),r="object"==typeof s&&s;this==i||this==e||h.is("body")?o.configure(r):h.data("px.parallax")?"object"==typeof s&&t.extend(h.data("px.parallax"),r):(r=t.extend({},h.data(),r),h.data("px.parallax",new o(this,r))),"string"==typeof s&&("destroy"==s?o.destroy(this):o[s]())})},t.fn.parallax.Constructor=o,t.fn.parallax.noConflict=function(){return t.fn.parallax=h,this},t(function(){t('[data-parallax="scroll"]').parallax()})}(jQuery,window,document);]]></content>
   </entry>
   <entry>
     <title></title>

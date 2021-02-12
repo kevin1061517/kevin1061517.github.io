@@ -1214,7 +1214,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #3af;
+  background: #ff406c;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2937,4 +2937,7 @@ h6.nocount:before {
 .sidebar-nav .sidebar-nav-active {
   font-weight: bold;
   border-bottom: 3px #ffac55 solid;
+}
+.pagination {
+  margin-left: 18px;
 }

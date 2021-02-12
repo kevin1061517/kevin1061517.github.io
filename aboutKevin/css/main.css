@@ -4,9 +4,9 @@
 	padding: 25px; 
 }
 
+
 .post-block{
 	padding: 0;
-	margin: 0;
 }
 
 .post-title, .post-meta{
@@ -144,7 +144,7 @@ h3{
 @media (min-width: 768px){
 	.wrapper {
 		display: grid;
-		grid-template-columns: 40% 60%;
+		grid-template-columns: 35% 65%;
 	}
 	#gold ul li{
 		display: inline;
