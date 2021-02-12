@@ -145,48 +145,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo圖片不套用fancybox</title>
-    <url>/blog/posts/Hexo/2721/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>fancybox套件的功能是實現點開圖片，並可以放大顯示和左右切換圖片，還會隨版面的大小自動來調整跳出的版面範圍，而且手機端也可以直接實現。fancybox在Jquery中也有相關的套件，而Next主題自己在config有內建fancybox的配置，配製好以後就會在所有img標籤實作這功能，但如果有部分圖片不想要有放大顯示，則就需要做一些步驟。</p>
-<a id="more"></a>
-
-<h2 id="安裝fancybox"><a href="#安裝fancybox" class="headerlink" title="安裝fancybox"></a>安裝fancybox</h2><p>我的版本的Next需要去把fnacybox clone下來，所以要先在next資料夾內執行下面的指令，就應該會在source/lib資料夾內出現fancybox資料夾</p>
-<figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">git clone <span class="symbol">https:</span>/<span class="regexp">/github.com/theme</span>-<span class="keyword">next</span>/theme-<span class="keyword">next</span>-fancybox3 source/<span class="class"><span class="keyword">lib</span>/<span class="title">fancybox</span></span></span><br></pre></td></tr></table></figure>
-
-<p>接著在自己的next主題的<code>_config.yml</code>來將fancybox設為true，要注意不是在vendors底下的fancybox喔!!</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.</span></span><br><span class="line"><span class="comment"># For more information: https://fancyapps.com/fancybox</span></span><br><span class="line"><span class="attr">fancybox:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<p>如果要在vendors配置則是如下</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">vendors:</span><br><span class="line">  fancybox: <span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>fancyapps<span class="regexp">/fancybox@3/</span>dist/jquery.fancybox.min.js</span><br><span class="line">  fancybox_css: <span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>fancyapps<span class="regexp">/fancybox@3/</span>dist/jquery.fancybox.min.css</span><br></pre></td></tr></table></figure>
-
-<h2 id="鼠標顯示放大鏡icon"><a href="#鼠標顯示放大鏡icon" class="headerlink" title="鼠標顯示放大鏡icon"></a>鼠標顯示放大鏡icon</h2><p>可以在<code>next\source\css\_common\components\post</code>中的這<code>post.styl</code>檔案裡面配製下面css語法</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">.post-body img:hover &#123;</span><br><span class="line">    cursor: zoom-<span class="keyword">in</span>;<span class="regexp">//</span>鼠标样式：手势</span><br><span class="line">    <span class="regexp">//</span>transform: scale(<span class="number">1.4</span>); <span class="regexp">//</span>放大倍數：<span class="number">1.4</span>倍</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="結果圖"><a href="#結果圖" class="headerlink" title="結果圖"></a>結果圖</h3><p>可以點選放大</p>
-<img src="https://i.imgur.com/W4RoWAe.jpg" width=80%/>
-
-<h2 id="照片取消fancybox放大"><a href="#照片取消fancybox放大" class="headerlink" title="照片取消fancybox放大"></a>照片取消fancybox放大</h2><p>有些照片不想給人放大的話，就要自己改一些語法，如先在img標籤內給定一個自己定義的nofancybox屬性</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://i.imgur.com/W4RoWAe.jpg&quot;</span> <span class="attr">class</span>=<span class="string">&quot;nofancybox&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>接著在<code>source\js</code>裡面的<code>utils.js</code>中找出<code>var $image = $(element);</code>，在它的下面加入如下</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> ($(element).hasClass(<span class="string">&#x27;nofancybox&#x27;</span>))&#123;  <span class="comment">//是否有包含自己定義的nofancybox屬性，有就return true</span></span><br><span class="line">        $(element).css(<span class="string">&quot;cursor&quot;</span>,<span class="string">&quot;default&quot;</span>);    <span class="comment">//將碰到圖片的鼠標從放大鏡變成default模式</span></span><br><span class="line">        <span class="keyword">return</span>;    <span class="comment">//不進行下面的fancybox的配置</span></span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
-
-<p>加入後會呈現如下</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">wrapImageWithFancyBox: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.post-body :not(a) &gt; img, .post-body &gt; img&#x27;</span>).forEach(<span class="function"><span class="params">element</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">var</span> $image = $(element);      </span><br><span class="line">      <span class="keyword">if</span> ($(element).hasClass(<span class="string">&#x27;nofancybox&#x27;</span>))&#123;</span><br><span class="line">        $(element).css(<span class="string">&quot;cursor&quot;</span>,<span class="string">&quot;default&quot;</span>); </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">var</span> imageLink = $image.attr(<span class="string">&#x27;data-src&#x27;</span>) || $image.attr(<span class="string">&#x27;src&#x27;</span>);</span><br><span class="line">      .....</span><br><span class="line">      .....</span><br></pre></td></tr></table></figure>
-
-<h3 id="結果圖-1"><a href="#結果圖-1" class="headerlink" title="結果圖"></a>結果圖</h3><img src="https://i.imgur.com/W4RoWAe.jpg" width=80% class="nofancybox"/>
-
-
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>fancybox照片放大</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>高頻率出現的Java Collections</title>
     <url>/blog/posts/Java/1d94/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在Leetcode刷個幾題，使用到集合(Collection)物件的頻率甚高，顧名思義就是把多個有關聯的資料存放在Collection裡面，而這些資料叫做元素(Elements)，同時也就是物件。因為常常會不小心忘記有一些集合的宣告方法或具有哪些方法，因此，這邊來記錄一下我在Leetcode上最常用到的幾個Collection。</p>
@@ -312,13 +270,78 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo圖片不套用fancybox</title>
+    <url>/blog/posts/Hexo/2721/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>fancybox套件的功能是實現點開圖片，並可以放大顯示和左右切換圖片，還會隨版面的大小自動來調整跳出的版面範圍，而且手機端也可以直接實現。fancybox在Jquery中也有相關的套件，而Next主題自己在config有內建fancybox的配置，配製好以後就會在所有img標籤實作這功能，但如果有部分圖片不想要有放大顯示，則就需要做一些步驟。</p>
+<a id="more"></a>
+
+<h2 id="安裝fancybox"><a href="#安裝fancybox" class="headerlink" title="安裝fancybox"></a>安裝fancybox</h2><p>我的版本的Next需要去把fnacybox clone下來，所以要先在next資料夾內執行下面的指令，就應該會在source/lib資料夾內出現fancybox資料夾</p>
+<figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">git clone <span class="symbol">https:</span>/<span class="regexp">/github.com/theme</span>-<span class="keyword">next</span>/theme-<span class="keyword">next</span>-fancybox3 source/<span class="class"><span class="keyword">lib</span>/<span class="title">fancybox</span></span></span><br></pre></td></tr></table></figure>
+
+<p>接著在自己的next主題的<code>_config.yml</code>來將fancybox設為true，要注意不是在vendors底下的fancybox喔!!</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.</span></span><br><span class="line"><span class="comment"># For more information: https://fancyapps.com/fancybox</span></span><br><span class="line"><span class="attr">fancybox:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>如果要在vendors配置則是如下</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">vendors:</span><br><span class="line">  fancybox: <span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>fancyapps<span class="regexp">/fancybox@3/</span>dist/jquery.fancybox.min.js</span><br><span class="line">  fancybox_css: <span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>fancyapps<span class="regexp">/fancybox@3/</span>dist/jquery.fancybox.min.css</span><br></pre></td></tr></table></figure>
+
+<h2 id="鼠標顯示放大鏡icon"><a href="#鼠標顯示放大鏡icon" class="headerlink" title="鼠標顯示放大鏡icon"></a>鼠標顯示放大鏡icon</h2><p>可以在<code>next\source\css\_common\components\post</code>中的這<code>post.styl</code>檔案裡面配製下面css語法</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">.post-body img:hover &#123;</span><br><span class="line">    cursor: zoom-<span class="keyword">in</span>;<span class="regexp">//</span>鼠标样式：手势</span><br><span class="line">    <span class="regexp">//</span>transform: scale(<span class="number">1.4</span>); <span class="regexp">//</span>放大倍數：<span class="number">1.4</span>倍</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="結果圖"><a href="#結果圖" class="headerlink" title="結果圖"></a>結果圖</h3><p>可以點選放大</p>
+<img src="https://i.imgur.com/W4RoWAe.jpg" width=80%/>
+
+<h2 id="照片取消fancybox放大"><a href="#照片取消fancybox放大" class="headerlink" title="照片取消fancybox放大"></a>照片取消fancybox放大</h2><p>有些照片不想給人放大的話，就要自己改一些語法，如先在img標籤內給定一個自己定義的nofancybox屬性</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://i.imgur.com/W4RoWAe.jpg&quot;</span> <span class="attr">class</span>=<span class="string">&quot;nofancybox&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>接著在<code>source\js</code>裡面的<code>utils.js</code>中找出<code>var $image = $(element);</code>，在它的下面加入如下</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> ($(element).hasClass(<span class="string">&#x27;nofancybox&#x27;</span>))&#123;  <span class="comment">//是否有包含自己定義的nofancybox屬性，有就return true</span></span><br><span class="line">        $(element).css(<span class="string">&quot;cursor&quot;</span>,<span class="string">&quot;default&quot;</span>);    <span class="comment">//將碰到圖片的鼠標從放大鏡變成default模式</span></span><br><span class="line">        <span class="keyword">return</span>;    <span class="comment">//不進行下面的fancybox的配置</span></span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+
+<p>加入後會呈現如下</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">wrapImageWithFancyBox: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.post-body :not(a) &gt; img, .post-body &gt; img&#x27;</span>).forEach(<span class="function"><span class="params">element</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">var</span> $image = $(element);      </span><br><span class="line">      <span class="keyword">if</span> ($(element).hasClass(<span class="string">&#x27;nofancybox&#x27;</span>))&#123;</span><br><span class="line">        $(element).css(<span class="string">&quot;cursor&quot;</span>,<span class="string">&quot;default&quot;</span>); </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">var</span> imageLink = $image.attr(<span class="string">&#x27;data-src&#x27;</span>) || $image.attr(<span class="string">&#x27;src&#x27;</span>);</span><br><span class="line">      .....</span><br><span class="line">      .....</span><br></pre></td></tr></table></figure>
+
+<h3 id="結果圖-1"><a href="#結果圖-1" class="headerlink" title="結果圖"></a>結果圖</h3><img src="https://i.imgur.com/W4RoWAe.jpg" width=80% class="nofancybox"/>
+
+
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>fancybox照片放大</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MavenNote</title>
     <url>/blog/posts/Maven/6add6839/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我們都知道Maven是一個幫助我們的Java專案做依賴管理及自動建構的工具，其實過去半年常使用到Maven，但對Maven還是有幾分陌生，所以這幾天花了點時間來釐清一下它的基本功能及概念。</p>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我們都知道Maven是一個幫助我們的Java專案做依賴管理及自動建構的工具，其實過去半年常寫的Java都是Maven專案，但對Maven還是有幾分陌生，所以這幾天花了點時間來釐清一下它的基本功能及概念。</p>
 <a id="more"></a>
+<h2 id="Maven初探"><a href="#Maven初探" class="headerlink" title="Maven初探"></a>Maven初探</h2><p>Maven提供一個簡單好操作的建構環境的框架（Framework），讓我們只要在根目錄中配置好pom.xml，Maven就會來讀取pom.xml的設定來建置專案。在良葛葛的文章中有提到Maven主要的精神如下</p>
+<ul>
+<li><p><strong>慣例先於設定（Convention over configuration）</strong><br>我們每一個專案一般都會遵循某種習慣，像是固定的檔案結構及建構生命周期等慣例，Maven希望我們不用每次建構新的專案都要花時間在這些事情上面</p>
+</li>
+<li><p><strong>集中管理相依性（Dependency management）</strong><br>舊的專案最麻煩的事情就是管理Jar之間的相依性問題，有時候依賴間的關係就像是一串肉粽，甚至還要顧及版本是不是正確的，所以Maven提供這種集中式的依賴管理，只要在pom.xml宣告我需要相依的Jar檔資訊，Maven就會幫我把這jar檔所依賴的其他Jar一起放進它的集中式的貯藏室（Central repository）</p>
+</li>
+<li><p><strong>plugin 為基礎的架構</strong><br>Maven 提供固定的建構生命周期，像是Default、Clean、Site等。在每個生命周期中，又會分作一些階段（Phase）， 像是Default生命周期中，會有Validate、Compile、Test、Package、Integration test、Verify、Install、Deploy等階段，每個階段會有一些相繫結的plugin，Maven本身會有一些預設的plugin，你也 可以在設定檔中依需求宣告想使用的plugin，Maven會自動取得plugin</p>
+</li>
+<li><p><strong>專案物件模型（Project Object Model）</strong><br>Maven專案中都會在根目錄(和src資料夾同一層)中出現一個pom.xml檔案，其內容通常會有專案的描述(像是專案名稱或組織名稱)、依賴資訊及使用的plugin等的配置，pom.xml的範例配置如下</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.kevin<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>example<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.poi<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>poi<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在pom.xml主要是有下面幾項配置，其中groupId、artifactId和version是一個專案的唯一識別名稱(如上就是com.kevin.example)</p>
+<ul>
+<li>modelVersion<br>表示目前這個POM所使用的模型版本</li>
+<li>groupId<br>表示這專案的組織名稱，會成為預設的套件名稱，例如:com.yahoo.it</li>
+<li>artifactId<br>表示專案的名稱</li>
+<li>version<br>表示這一專案的版本</li>
+<li>packaging<br>指出打包專案時所使用的格式，預設使用JAR。如要打包war則需要web.xml</li>
+<li>dependencies<br>設定這專案需要依賴的函式庫，一組dependency通常包含groupId、artifactId和version，而packaging預設為jar可以省略，需要設定的maven dependency資訊都能在<a href="https://mvnrepository.com/">MVN Repository</a>中找到</li>
+<li>properties<br>定義 pom.xml 檔案裡的「全域屬性」，例如定義一個 “project.build.sourceEncoding = UTF-8″的property，其它地方需要參照”UTF-8″這個設定，就可以直接呼叫 ${project.build.sourceEncoding} 這樣的表示方式</li>
+</ul>
+</li>
+</ul>
 <h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mvn</span> compile</span><br><span class="line"></span><br><span class="line"><span class="keyword">mvn</span> test</span><br><span class="line"></span><br><span class="line"><span class="keyword">mvn</span> package</span><br><span class="line"></span><br><span class="line"><span class="keyword">mvn</span> site</span><br><span class="line"></span><br><span class="line"><span class="keyword">mvn</span> clean compile</span><br><span class="line"></span><br><span class="line"><span class="keyword">mvn</span> clean package</span><br><span class="line"></span><br><span class="line"><span class="keyword">mvn</span> clean install</span><br><span class="line"></span><br><span class="line"><span class="keyword">mvn</span> clean deploy</span><br></pre></td></tr></table></figure>
-
+<p>mvn clean install會將打包好的jar或war放到local端的maven repository資料夾，例如我在org.example.test的專案中執行mvn install，則會在maven的repository中產生<code>org\example\test\1.0-SNAPSHOT</code>資料夾及相關檔案<br><img src='https://i.imgur.com/1x7Zavv.png' width="80%" height="75%" /></p>
 <p>筆記紀錄中…………</p>
+<p><a href="https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html">https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html</a><br><a href="https://kentyeh.github.io/mavenStartup/">https://kentyeh.github.io/mavenStartup/</a><br><a href="https://matthung0807.blogspot.com/2018/08/java-mavenpomxml.html">https://matthung0807.blogspot.com/2018/08/java-mavenpomxml.html</a><br><a href="https://segmentfault.com/a/1190000021609439">https://segmentfault.com/a/1190000021609439</a></p>
 ]]></content>
       <categories>
         <category>Maven</category>
@@ -897,69 +920,9 @@ home: / || fa fa-home
       </tags>
   </entry>
   <entry>
-    <title>about</title>
-    <url>/aboutKevin/certificate.html</url>
-    <content><![CDATA[<!DOCTYPE html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kevin | Resume</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" /> <!-- https://fonts.google.com/ -->
-    <link rel="stylesheet" href="css/mystyle.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/lightbox.css">
-	<link rel="shortcut icon" href="favicon.ico">
-</head>
-<body style="background-color: lightgray;">
-    <header id="top">
-        <!-- start navigation bar -->
-        <nav id="nav">
-            <div class="logo">
-                <img src="./img/logo.png" alt="image - Kevin">
-            </div>
-            <ul>
-                <li class="em_btn"><a href="index.html">Home</a></li>
-                <li class="em_btn"><a class="current-page" href="certificate.html">Certificate</a></li>
-                <li class="em_btn"><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main id="main">
-        <div class="heading">
-            <h1>相關證照 </h1>
-            <p>All certificate I earned are below.</p>
-        </div>
-        <!-- lightbox -->
-        <div class="gallery">
-            <a href="img/OCAJP.jpg" data-lightbox="photo-1"
-                data-title="Grampians National Park @ VIC, Australia"><img src="img/OCAJP.jpg"
-                    alt="Photography - Grampians National Park"></a>
-            <a href="img/OCPJP.jpg" data-lightbox="photo-1" data-title="Puffing Billy Train @ VIC, Australia"><img
-                    src="img/OCPJP.jpg" alt="Photography - Australian Puffing Billy train"></a>
-            <a href="img/java_cert.png" data-lightbox="photo-1" data-title="Gordon Dam @ TAS, Australia"><img
-                    src="img/java_cert.png" alt="Photography - Gordon Dam"></a>
-            <a href="img/MTA.png" data-lightbox="photo-1" data-title="Great Ocean Road @ VIC, Australia"><img
-                    src="img/MTA.png" alt="Photography - Great ocean road"></a>
-            <a href="img/word.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
-                    src="img/word.png" alt="Photography - lavender"></a>
-            <a href="img/elite.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
-                    src="img/elite.png" alt="Photography - lavender"></a>
-            <a href="img/contest.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
-                    src="img/contest.png" alt="Photography - lavender"></a>
-            <a href="img/iot.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
-                src="img/iot.png" alt="Photography - lavender"></a>
-        </div>
-        <script src="js/lightbox-plus-jquery.js"></script>
-    </main>
-    <!-- footer -->
-    <footer>
-        <p>This page is developed by Kevin.</p>
-        <p>All Rights Reserved&nbsp;&copy; 2020&nbsp;&nbsp;<a href="#top" class="top_btn">Back to Top👆</a></p>
-    </footer>
-</body>
-
-</html>]]></content>
+    <title>分類</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>關於我</title>
@@ -1115,6 +1078,71 @@ home: / || fa fa-home
   </entry>
   <entry>
     <title>about</title>
+    <url>/aboutKevin/certificate.html</url>
+    <content><![CDATA[<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin | Resume</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" /> <!-- https://fonts.google.com/ -->
+    <link rel="stylesheet" href="css/mystyle.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/lightbox.css">
+	<link rel="shortcut icon" href="favicon.ico">
+</head>
+<body style="background-color: lightgray;">
+    <header id="top">
+        <!-- start navigation bar -->
+        <nav id="nav">
+            <div class="logo">
+                <img src="./img/logo.png" alt="image - Kevin">
+            </div>
+            <ul>
+                <li class="em_btn"><a href="index.html">Home</a></li>
+                <li class="em_btn"><a class="current-page" href="certificate.html">Certificate</a></li>
+                <li class="em_btn"><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main">
+        <div class="heading">
+            <h1>相關證照 </h1>
+            <p>All certificate I earned are below.</p>
+        </div>
+        <!-- lightbox -->
+        <div class="gallery">
+            <a href="img/OCAJP.jpg" data-lightbox="photo-1"
+                data-title="Grampians National Park @ VIC, Australia"><img src="img/OCAJP.jpg"
+                    alt="Photography - Grampians National Park"></a>
+            <a href="img/OCPJP.jpg" data-lightbox="photo-1" data-title="Puffing Billy Train @ VIC, Australia"><img
+                    src="img/OCPJP.jpg" alt="Photography - Australian Puffing Billy train"></a>
+            <a href="img/java_cert.png" data-lightbox="photo-1" data-title="Gordon Dam @ TAS, Australia"><img
+                    src="img/java_cert.png" alt="Photography - Gordon Dam"></a>
+            <a href="img/MTA.png" data-lightbox="photo-1" data-title="Great Ocean Road @ VIC, Australia"><img
+                    src="img/MTA.png" alt="Photography - Great ocean road"></a>
+            <a href="img/word.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
+                    src="img/word.png" alt="Photography - lavender"></a>
+            <a href="img/elite.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
+                    src="img/elite.png" alt="Photography - lavender"></a>
+            <a href="img/contest.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
+                    src="img/contest.png" alt="Photography - lavender"></a>
+            <a href="img/iot.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
+                src="img/iot.png" alt="Photography - lavender"></a>
+        </div>
+        <script src="js/lightbox-plus-jquery.js"></script>
+    </main>
+    <!-- footer -->
+    <footer>
+        <p>This page is developed by Kevin.</p>
+        <p>All Rights Reserved&nbsp;&copy; 2020&nbsp;&nbsp;<a href="#top" class="top_btn">Back to Top👆</a></p>
+    </footer>
+</body>
+
+</html>]]></content>
+  </entry>
+  <entry>
+    <title>about</title>
     <url>/aboutKevin/contact.html</url>
     <content><![CDATA[
 <!DOCTYPE html>
@@ -1142,8 +1170,8 @@ home: / || fa fa-home
 ]]></content>
   </entry>
   <entry>
-    <title>分類</title>
-    <url>/categories/index.html</url>
+    <title>關鍵字標籤</title>
+    <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -1567,11 +1595,6 @@ h3{
 }
 
 ]]></content>
-  </entry>
-  <entry>
-    <title>關鍵字標籤</title>
-    <url>/tags/index.html</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title></title>
@@ -2156,16 +2179,6 @@ footer a {
   </entry>
   <entry>
     <title></title>
-    <url>/aboutKevin/js/parallax.min.js</url>
-    <content><![CDATA[/*!
- * parallax.js v1.5.0 (http://pixelcog.github.io/parallax.js/)
- * @copyright 2016 PixelCog, Inc.
- * @license MIT (https://github.com/pixelcog/parallax.js/blob/master/LICENSE)
- */
-!function(t,i,e,s){function o(i,e){var h=this;"object"==typeof e&&(delete e.refresh,delete e.render,t.extend(this,e)),this.$element=t(i),!this.imageSrc&&this.$element.is("img")&&(this.imageSrc=this.$element.attr("src"));var r=(this.position+"").toLowerCase().match(/\S+/g)||[];if(r.length<1&&r.push("center"),1==r.length&&r.push(r[0]),"top"!=r[0]&&"bottom"!=r[0]&&"left"!=r[1]&&"right"!=r[1]||(r=[r[1],r[0]]),this.positionX!==s&&(r[0]=this.positionX.toLowerCase()),this.positionY!==s&&(r[1]=this.positionY.toLowerCase()),h.positionX=r[0],h.positionY=r[1],"left"!=this.positionX&&"right"!=this.positionX&&(isNaN(parseInt(this.positionX))?this.positionX="center":this.positionX=parseInt(this.positionX)),"top"!=this.positionY&&"bottom"!=this.positionY&&(isNaN(parseInt(this.positionY))?this.positionY="center":this.positionY=parseInt(this.positionY)),this.position=this.positionX+(isNaN(this.positionX)?"":"px")+" "+this.positionY+(isNaN(this.positionY)?"":"px"),navigator.userAgent.match(/(iPod|iPhone|iPad)/))return this.imageSrc&&this.iosFix&&!this.$element.is("img")&&this.$element.css({backgroundImage:"url("+this.imageSrc+")",backgroundSize:"cover",backgroundPosition:this.position}),this;if(navigator.userAgent.match(/(Android)/))return this.imageSrc&&this.androidFix&&!this.$element.is("img")&&this.$element.css({backgroundImage:"url("+this.imageSrc+")",backgroundSize:"cover",backgroundPosition:this.position}),this;this.$mirror=t("<div />").prependTo(this.mirrorContainer);var a=this.$element.find(">.parallax-slider"),n=!1;0==a.length?this.$slider=t("<img />").prependTo(this.$mirror):(this.$slider=a.prependTo(this.$mirror),n=!0),this.$mirror.addClass("parallax-mirror").css({visibility:"hidden",zIndex:this.zIndex,position:"fixed",top:0,left:0,overflow:"hidden"}),this.$slider.addClass("parallax-slider").one("load",function(){h.naturalHeight&&h.naturalWidth||(h.naturalHeight=this.naturalHeight||this.height||1,h.naturalWidth=this.naturalWidth||this.width||1),h.aspectRatio=h.naturalWidth/h.naturalHeight,o.isSetup||o.setup(),o.sliders.push(h),o.isFresh=!1,o.requestRender()}),n||(this.$slider[0].src=this.imageSrc),(this.naturalHeight&&this.naturalWidth||this.$slider[0].complete||a.length>0)&&this.$slider.trigger("load")}!function(){for(var t=0,e=["ms","moz","webkit","o"],s=0;s<e.length&&!i.requestAnimationFrame;++s)i.requestAnimationFrame=i[e[s]+"RequestAnimationFrame"],i.cancelAnimationFrame=i[e[s]+"CancelAnimationFrame"]||i[e[s]+"CancelRequestAnimationFrame"];i.requestAnimationFrame||(i.requestAnimationFrame=function(e){var s=(new Date).getTime(),o=Math.max(0,16-(s-t)),h=i.setTimeout(function(){e(s+o)},o);return t=s+o,h}),i.cancelAnimationFrame||(i.cancelAnimationFrame=function(t){clearTimeout(t)})}(),t.extend(o.prototype,{speed:.2,bleed:0,zIndex:-100,iosFix:!0,androidFix:!0,position:"center",overScrollFix:!1,mirrorContainer:"body",refresh:function(){this.boxWidth=this.$element.outerWidth(),this.boxHeight=this.$element.outerHeight()+2*this.bleed,this.boxOffsetTop=this.$element.offset().top-this.bleed,this.boxOffsetLeft=this.$element.offset().left,this.boxOffsetBottom=this.boxOffsetTop+this.boxHeight;var t,i=o.winHeight,e=o.docHeight,s=Math.min(this.boxOffsetTop,e-i),h=Math.max(this.boxOffsetTop+this.boxHeight-i,0),r=this.boxHeight+(s-h)*(1-this.speed)|0,a=(this.boxOffsetTop-s)*(1-this.speed)|0;r*this.aspectRatio>=this.boxWidth?(this.imageWidth=r*this.aspectRatio|0,this.imageHeight=r,this.offsetBaseTop=a,t=this.imageWidth-this.boxWidth,"left"==this.positionX?this.offsetLeft=0:"right"==this.positionX?this.offsetLeft=-t:isNaN(this.positionX)?this.offsetLeft=-t/2|0:this.offsetLeft=Math.max(this.positionX,-t)):(this.imageWidth=this.boxWidth,this.imageHeight=this.boxWidth/this.aspectRatio|0,this.offsetLeft=0,t=this.imageHeight-r,"top"==this.positionY?this.offsetBaseTop=a:"bottom"==this.positionY?this.offsetBaseTop=a-t:isNaN(this.positionY)?this.offsetBaseTop=a-t/2|0:this.offsetBaseTop=a+Math.max(this.positionY,-t))},render:function(){var t=o.scrollTop,i=o.scrollLeft,e=this.overScrollFix?o.overScroll:0,s=t+o.winHeight;this.boxOffsetBottom>t&&this.boxOffsetTop<=s?(this.visibility="visible",this.mirrorTop=this.boxOffsetTop-t,this.mirrorLeft=this.boxOffsetLeft-i,this.offsetTop=this.offsetBaseTop-this.mirrorTop*(1-this.speed)):this.visibility="hidden",this.$mirror.css({transform:"translate3d("+this.mirrorLeft+"px, "+(this.mirrorTop-e)+"px, 0px)",visibility:this.visibility,height:this.boxHeight,width:this.boxWidth}),this.$slider.css({transform:"translate3d("+this.offsetLeft+"px, "+this.offsetTop+"px, 0px)",position:"absolute",height:this.imageHeight,width:this.imageWidth,maxWidth:"none"})}}),t.extend(o,{scrollTop:0,scrollLeft:0,winHeight:0,winWidth:0,docHeight:1<<30,docWidth:1<<30,sliders:[],isReady:!1,isFresh:!1,isBusy:!1,setup:function(){function s(){if(p==i.pageYOffset)return i.requestAnimationFrame(s),!1;p=i.pageYOffset,h.render(),i.requestAnimationFrame(s)}if(!this.isReady){var h=this,r=t(e),a=t(i),n=function(){o.winHeight=a.height(),o.winWidth=a.width(),o.docHeight=r.height(),o.docWidth=r.width()},l=function(){var t=a.scrollTop(),i=o.docHeight-o.winHeight,e=o.docWidth-o.winWidth;o.scrollTop=Math.max(0,Math.min(i,t)),o.scrollLeft=Math.max(0,Math.min(e,a.scrollLeft())),o.overScroll=Math.max(t-i,Math.min(t,0))};a.on("resize.px.parallax load.px.parallax",function(){n(),h.refresh(),o.isFresh=!1,o.requestRender()}).on("scroll.px.parallax load.px.parallax",function(){l(),o.requestRender()}),n(),l(),this.isReady=!0;var p=-1;s()}},configure:function(i){"object"==typeof i&&(delete i.refresh,delete i.render,t.extend(this.prototype,i))},refresh:function(){t.each(this.sliders,function(){this.refresh()}),this.isFresh=!0},render:function(){this.isFresh||this.refresh(),t.each(this.sliders,function(){this.render()})},requestRender:function(){var t=this;t.render(),t.isBusy=!1},destroy:function(e){var s,h=t(e).data("px.parallax");for(h.$mirror.remove(),s=0;s<this.sliders.length;s+=1)this.sliders[s]==h&&this.sliders.splice(s,1);t(e).data("px.parallax",!1),0===this.sliders.length&&(t(i).off("scroll.px.parallax resize.px.parallax load.px.parallax"),this.isReady=!1,o.isSetup=!1)}});var h=t.fn.parallax;t.fn.parallax=function(s){return this.each(function(){var h=t(this),r="object"==typeof s&&s;this==i||this==e||h.is("body")?o.configure(r):h.data("px.parallax")?"object"==typeof s&&t.extend(h.data("px.parallax"),r):(r=t.extend({},h.data(),r),h.data("px.parallax",new o(this,r))),"string"==typeof s&&("destroy"==s?o.destroy(this):o[s]())})},t.fn.parallax.Constructor=o,t.fn.parallax.noConflict=function(){return t.fn.parallax=h,this},t(function(){t('[data-parallax="scroll"]').parallax()})}(jQuery,window,document);]]></content>
-  </entry>
-  <entry>
-    <title></title>
     <url>/aboutKevin/js/tooplate-script.js</url>
     <content><![CDATA[function calculateHeight(img, originalWidth, originalHeight) {
     const minHeight = 400;
@@ -2190,6 +2203,16 @@ $(document).ready(function () {
         resizeParallaxes();
     });
 });]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/aboutKevin/js/parallax.min.js</url>
+    <content><![CDATA[/*!
+ * parallax.js v1.5.0 (http://pixelcog.github.io/parallax.js/)
+ * @copyright 2016 PixelCog, Inc.
+ * @license MIT (https://github.com/pixelcog/parallax.js/blob/master/LICENSE)
+ */
+!function(t,i,e,s){function o(i,e){var h=this;"object"==typeof e&&(delete e.refresh,delete e.render,t.extend(this,e)),this.$element=t(i),!this.imageSrc&&this.$element.is("img")&&(this.imageSrc=this.$element.attr("src"));var r=(this.position+"").toLowerCase().match(/\S+/g)||[];if(r.length<1&&r.push("center"),1==r.length&&r.push(r[0]),"top"!=r[0]&&"bottom"!=r[0]&&"left"!=r[1]&&"right"!=r[1]||(r=[r[1],r[0]]),this.positionX!==s&&(r[0]=this.positionX.toLowerCase()),this.positionY!==s&&(r[1]=this.positionY.toLowerCase()),h.positionX=r[0],h.positionY=r[1],"left"!=this.positionX&&"right"!=this.positionX&&(isNaN(parseInt(this.positionX))?this.positionX="center":this.positionX=parseInt(this.positionX)),"top"!=this.positionY&&"bottom"!=this.positionY&&(isNaN(parseInt(this.positionY))?this.positionY="center":this.positionY=parseInt(this.positionY)),this.position=this.positionX+(isNaN(this.positionX)?"":"px")+" "+this.positionY+(isNaN(this.positionY)?"":"px"),navigator.userAgent.match(/(iPod|iPhone|iPad)/))return this.imageSrc&&this.iosFix&&!this.$element.is("img")&&this.$element.css({backgroundImage:"url("+this.imageSrc+")",backgroundSize:"cover",backgroundPosition:this.position}),this;if(navigator.userAgent.match(/(Android)/))return this.imageSrc&&this.androidFix&&!this.$element.is("img")&&this.$element.css({backgroundImage:"url("+this.imageSrc+")",backgroundSize:"cover",backgroundPosition:this.position}),this;this.$mirror=t("<div />").prependTo(this.mirrorContainer);var a=this.$element.find(">.parallax-slider"),n=!1;0==a.length?this.$slider=t("<img />").prependTo(this.$mirror):(this.$slider=a.prependTo(this.$mirror),n=!0),this.$mirror.addClass("parallax-mirror").css({visibility:"hidden",zIndex:this.zIndex,position:"fixed",top:0,left:0,overflow:"hidden"}),this.$slider.addClass("parallax-slider").one("load",function(){h.naturalHeight&&h.naturalWidth||(h.naturalHeight=this.naturalHeight||this.height||1,h.naturalWidth=this.naturalWidth||this.width||1),h.aspectRatio=h.naturalWidth/h.naturalHeight,o.isSetup||o.setup(),o.sliders.push(h),o.isFresh=!1,o.requestRender()}),n||(this.$slider[0].src=this.imageSrc),(this.naturalHeight&&this.naturalWidth||this.$slider[0].complete||a.length>0)&&this.$slider.trigger("load")}!function(){for(var t=0,e=["ms","moz","webkit","o"],s=0;s<e.length&&!i.requestAnimationFrame;++s)i.requestAnimationFrame=i[e[s]+"RequestAnimationFrame"],i.cancelAnimationFrame=i[e[s]+"CancelAnimationFrame"]||i[e[s]+"CancelRequestAnimationFrame"];i.requestAnimationFrame||(i.requestAnimationFrame=function(e){var s=(new Date).getTime(),o=Math.max(0,16-(s-t)),h=i.setTimeout(function(){e(s+o)},o);return t=s+o,h}),i.cancelAnimationFrame||(i.cancelAnimationFrame=function(t){clearTimeout(t)})}(),t.extend(o.prototype,{speed:.2,bleed:0,zIndex:-100,iosFix:!0,androidFix:!0,position:"center",overScrollFix:!1,mirrorContainer:"body",refresh:function(){this.boxWidth=this.$element.outerWidth(),this.boxHeight=this.$element.outerHeight()+2*this.bleed,this.boxOffsetTop=this.$element.offset().top-this.bleed,this.boxOffsetLeft=this.$element.offset().left,this.boxOffsetBottom=this.boxOffsetTop+this.boxHeight;var t,i=o.winHeight,e=o.docHeight,s=Math.min(this.boxOffsetTop,e-i),h=Math.max(this.boxOffsetTop+this.boxHeight-i,0),r=this.boxHeight+(s-h)*(1-this.speed)|0,a=(this.boxOffsetTop-s)*(1-this.speed)|0;r*this.aspectRatio>=this.boxWidth?(this.imageWidth=r*this.aspectRatio|0,this.imageHeight=r,this.offsetBaseTop=a,t=this.imageWidth-this.boxWidth,"left"==this.positionX?this.offsetLeft=0:"right"==this.positionX?this.offsetLeft=-t:isNaN(this.positionX)?this.offsetLeft=-t/2|0:this.offsetLeft=Math.max(this.positionX,-t)):(this.imageWidth=this.boxWidth,this.imageHeight=this.boxWidth/this.aspectRatio|0,this.offsetLeft=0,t=this.imageHeight-r,"top"==this.positionY?this.offsetBaseTop=a:"bottom"==this.positionY?this.offsetBaseTop=a-t:isNaN(this.positionY)?this.offsetBaseTop=a-t/2|0:this.offsetBaseTop=a+Math.max(this.positionY,-t))},render:function(){var t=o.scrollTop,i=o.scrollLeft,e=this.overScrollFix?o.overScroll:0,s=t+o.winHeight;this.boxOffsetBottom>t&&this.boxOffsetTop<=s?(this.visibility="visible",this.mirrorTop=this.boxOffsetTop-t,this.mirrorLeft=this.boxOffsetLeft-i,this.offsetTop=this.offsetBaseTop-this.mirrorTop*(1-this.speed)):this.visibility="hidden",this.$mirror.css({transform:"translate3d("+this.mirrorLeft+"px, "+(this.mirrorTop-e)+"px, 0px)",visibility:this.visibility,height:this.boxHeight,width:this.boxWidth}),this.$slider.css({transform:"translate3d("+this.offsetLeft+"px, "+this.offsetTop+"px, 0px)",position:"absolute",height:this.imageHeight,width:this.imageWidth,maxWidth:"none"})}}),t.extend(o,{scrollTop:0,scrollLeft:0,winHeight:0,winWidth:0,docHeight:1<<30,docWidth:1<<30,sliders:[],isReady:!1,isFresh:!1,isBusy:!1,setup:function(){function s(){if(p==i.pageYOffset)return i.requestAnimationFrame(s),!1;p=i.pageYOffset,h.render(),i.requestAnimationFrame(s)}if(!this.isReady){var h=this,r=t(e),a=t(i),n=function(){o.winHeight=a.height(),o.winWidth=a.width(),o.docHeight=r.height(),o.docWidth=r.width()},l=function(){var t=a.scrollTop(),i=o.docHeight-o.winHeight,e=o.docWidth-o.winWidth;o.scrollTop=Math.max(0,Math.min(i,t)),o.scrollLeft=Math.max(0,Math.min(e,a.scrollLeft())),o.overScroll=Math.max(t-i,Math.min(t,0))};a.on("resize.px.parallax load.px.parallax",function(){n(),h.refresh(),o.isFresh=!1,o.requestRender()}).on("scroll.px.parallax load.px.parallax",function(){l(),o.requestRender()}),n(),l(),this.isReady=!0;var p=-1;s()}},configure:function(i){"object"==typeof i&&(delete i.refresh,delete i.render,t.extend(this.prototype,i))},refresh:function(){t.each(this.sliders,function(){this.refresh()}),this.isFresh=!0},render:function(){this.isFresh||this.refresh(),t.each(this.sliders,function(){this.render()})},requestRender:function(){var t=this;t.render(),t.isBusy=!1},destroy:function(e){var s,h=t(e).data("px.parallax");for(h.$mirror.remove(),s=0;s<this.sliders.length;s+=1)this.sliders[s]==h&&this.sliders.splice(s,1);t(e).data("px.parallax",!1),0===this.sliders.length&&(t(i).off("scroll.px.parallax resize.px.parallax load.px.parallax"),this.isReady=!1,o.isSetup=!1)}});var h=t.fn.parallax;t.fn.parallax=function(s){return this.each(function(){var h=t(this),r="object"==typeof s&&s;this==i||this==e||h.is("body")?o.configure(r):h.data("px.parallax")?"object"==typeof s&&t.extend(h.data("px.parallax"),r):(r=t.extend({},h.data(),r),h.data("px.parallax",new o(this,r))),"string"==typeof s&&("destroy"==s?o.destroy(this):o[s]())})},t.fn.parallax.Constructor=o,t.fn.parallax.noConflict=function(){return t.fn.parallax=h,this},t(function(){t('[data-parallax="scroll"]').parallax()})}(jQuery,window,document);]]></content>
   </entry>
   <entry>
     <title></title>

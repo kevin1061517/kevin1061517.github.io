@@ -23,19 +23,21 @@
     var CONFIG = {"hostname":"kevin1061517.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":230,"display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"perspectiveUpIn","sidebar":"shrinkIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="前言我們都知道Maven是一個幫助我們的Java專案做依賴管理及自動建構的工具，其實過去半年常使用到Maven，但對Maven還是有幾分陌生，所以這幾天花了點時間來釐清一下它的基本功能及概念。">
+  <meta name="description" content="前言我們都知道Maven是一個幫助我們的Java專案做依賴管理及自動建構的工具，其實過去半年常寫的Java都是Maven專案，但對Maven還是有幾分陌生，所以這幾天花了點時間來釐清一下它的基本功能及概念。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MavenNote">
 <meta property="og:url" content="https://kevin1061517.github.io/blog/posts/Maven/6add6839/index.html">
 <meta property="og:site_name" content="Kevin Blog">
-<meta property="og:description" content="前言我們都知道Maven是一個幫助我們的Java專案做依賴管理及自動建構的工具，其實過去半年常使用到Maven，但對Maven還是有幾分陌生，所以這幾天花了點時間來釐清一下它的基本功能及概念。">
+<meta property="og:description" content="前言我們都知道Maven是一個幫助我們的Java專案做依賴管理及自動建構的工具，其實過去半年常寫的Java都是Maven專案，但對Maven還是有幾分陌生，所以這幾天花了點時間來釐清一下它的基本功能及概念。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/1x7Zavv.png">
 <meta property="article:published_time" content="2021-02-12T06:50:29.000Z">
-<meta property="article:modified_time" content="2021-02-12T07:13:56.784Z">
+<meta property="article:modified_time" content="2021-02-12T14:35:00.142Z">
 <meta property="article:author" content="Kevin Fang">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="Maven">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/1x7Zavv.png">
 
 <link rel="canonical" href="https://kevin1061517.github.io/blog/posts/Maven/6add6839/">
 
@@ -230,7 +232,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2021-02-12 14:50:29 / 修改時間：15:13:56" itemprop="dateCreated datePublished" datetime="2021-02-12T14:50:29+08:00">2021-02-12</time>
+              <time title="創建時間：2021-02-12 14:50:29 / 修改時間：22:35:00" itemprop="dateCreated datePublished" datetime="2021-02-12T14:50:29+08:00">2021-02-12</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -267,11 +269,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我們都知道Maven是一個幫助我們的Java專案做依賴管理及自動建構的工具，其實過去半年常使用到Maven，但對Maven還是有幾分陌生，所以這幾天花了點時間來釐清一下它的基本功能及概念。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我們都知道Maven是一個幫助我們的Java專案做依賴管理及自動建構的工具，其實過去半年常寫的Java都是Maven專案，但對Maven還是有幾分陌生，所以這幾天花了點時間來釐清一下它的基本功能及概念。</p>
 <a id="more"></a>
+<h2 id="Maven初探"><a href="#Maven初探" class="headerlink" title="Maven初探"></a>Maven初探</h2><p>Maven提供一個簡單好操作的建構環境的框架（Framework），讓我們只要在根目錄中配置好pom.xml，Maven就會來讀取pom.xml的設定來建置專案。在良葛葛的文章中有提到Maven主要的精神如下</p>
+<ul>
+<li><p><strong>慣例先於設定（Convention over configuration）</strong><br>我們每一個專案一般都會遵循某種習慣，像是固定的檔案結構及建構生命周期等慣例，Maven希望我們不用每次建構新的專案都要花時間在這些事情上面</p>
+</li>
+<li><p><strong>集中管理相依性（Dependency management）</strong><br>舊的專案最麻煩的事情就是管理Jar之間的相依性問題，有時候依賴間的關係就像是一串肉粽，甚至還要顧及版本是不是正確的，所以Maven提供這種集中式的依賴管理，只要在pom.xml宣告我需要相依的Jar檔資訊，Maven就會幫我把這jar檔所依賴的其他Jar一起放進它的集中式的貯藏室（Central repository）</p>
+</li>
+<li><p><strong>plugin 為基礎的架構</strong><br>Maven 提供固定的建構生命周期，像是Default、Clean、Site等。在每個生命周期中，又會分作一些階段（Phase）， 像是Default生命周期中，會有Validate、Compile、Test、Package、Integration test、Verify、Install、Deploy等階段，每個階段會有一些相繫結的plugin，Maven本身會有一些預設的plugin，你也 可以在設定檔中依需求宣告想使用的plugin，Maven會自動取得plugin</p>
+</li>
+<li><p><strong>專案物件模型（Project Object Model）</strong><br>Maven專案中都會在根目錄(和src資料夾同一層)中出現一個pom.xml檔案，其內容通常會有專案的描述(像是專案名稱或組織名稱)、依賴資訊及使用的plugin等的配置，pom.xml的範例配置如下</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.kevin<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>example<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.poi<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>poi<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在pom.xml主要是有下面幾項配置，其中groupId、artifactId和version是一個專案的唯一識別名稱(如上就是com.kevin.example)</p>
+<ul>
+<li>modelVersion<br>表示目前這個POM所使用的模型版本</li>
+<li>groupId<br>表示這專案的組織名稱，會成為預設的套件名稱，例如:com.yahoo.it</li>
+<li>artifactId<br>表示專案的名稱</li>
+<li>version<br>表示這一專案的版本</li>
+<li>packaging<br>指出打包專案時所使用的格式，預設使用JAR。如要打包war則需要web.xml</li>
+<li>dependencies<br>設定這專案需要依賴的函式庫，一組dependency通常包含groupId、artifactId和version，而packaging預設為jar可以省略，需要設定的maven dependency資訊都能在<a target="_blank" rel="noopener" href="https://mvnrepository.com/">MVN Repository</a>中找到</li>
+<li>properties<br>定義 pom.xml 檔案裡的「全域屬性」，例如定義一個 “project.build.sourceEncoding = UTF-8″的property，其它地方需要參照”UTF-8″這個設定，就可以直接呼叫 ${project.build.sourceEncoding} 這樣的表示方式</li>
+</ul>
+</li>
+</ul>
 <h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">mvn</span> compile</span><br><span class="line"></span><br><span class="line"><span class="keyword">mvn</span> test</span><br><span class="line"></span><br><span class="line"><span class="keyword">mvn</span> package</span><br><span class="line"></span><br><span class="line"><span class="keyword">mvn</span> site</span><br><span class="line"></span><br><span class="line"><span class="keyword">mvn</span> clean compile</span><br><span class="line"></span><br><span class="line"><span class="keyword">mvn</span> clean package</span><br><span class="line"></span><br><span class="line"><span class="keyword">mvn</span> clean install</span><br><span class="line"></span><br><span class="line"><span class="keyword">mvn</span> clean deploy</span><br></pre></td></tr></table></figure>
-
+<p>mvn clean install會將打包好的jar或war放到local端的maven repository資料夾，例如我在org.example.test的專案中執行mvn install，則會在maven的repository中產生<code>org\example\test\1.0-SNAPSHOT</code>資料夾及相關檔案<br><img src='https://i.imgur.com/1x7Zavv.png' width="80%" height="75%" /></p>
 <p>筆記紀錄中…………</p>
+<p><a target="_blank" rel="noopener" href="https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html">https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html</a><br><a target="_blank" rel="noopener" href="https://kentyeh.github.io/mavenStartup/">https://kentyeh.github.io/mavenStartup/</a><br><a target="_blank" rel="noopener" href="https://matthung0807.blogspot.com/2018/08/java-mavenpomxml.html">https://matthung0807.blogspot.com/2018/08/java-mavenpomxml.html</a><br><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000021609439">https://segmentfault.com/a/1190000021609439</a></p>
 
     </div>
 
@@ -416,7 +441,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4"><span class="nav-number">2.</span> <span class="nav-text">指令</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven%E5%88%9D%E6%8E%A2"><span class="nav-number">2.</span> <span class="nav-text">Maven初探</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4"><span class="nav-number">3.</span> <span class="nav-text">指令</span></a></li></ol></div>
 
       </div>
       <!--/noindex-->
