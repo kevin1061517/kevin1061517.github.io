@@ -1,50 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>ExtJS 製作 Banner</title>
-    <url>/blog/posts/ExtJS/c1113943/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="77b97b713d39272c176c98fc26cfbf3b6a8c0c3e740064c95e9ea413196fcafb">165d50f05814027fb7fe5e4ae8a088d8240dac90f2f2cc3be4b182594285803a7755a57ebe0bbcb597537d161d3d9bf2fa57fcf5908cbdb8fe4bd45ee3d44d0227904f20eba031ef9003d1a5e8a4ee51616636b4f2697804039d911e050b39e89d8c8c531225309b71041330b5f4180a53f69904b96f0fa7dc69dd089e47003601d7e96efeac95088ebce089f4795fc8df705034158b0ba8862ececfa7fcafb9</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>ExtJS</category>
-      </categories>
-      <tags>
-        <tag>ExtJS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo分類頁面部分項目連結404錯誤</title>
-    <url>/blog/posts/Hexo/7dce27be/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>原本分類(categories)和標籤(tags)頁面很正常，某天調整了Next主題的一些配置，接著就發現分類和標籤頁面的某些關鍵字點下去都直接爛掉(顯示404)如下圖，原本一直以為是哪邊配置沒有弄號，但越試越奇怪，明明localhost端的分類項目和標籤關鍵字連結開起來一切都正常，到Remote開起來就會有些顯示404。結果試了老半天，發現原來是Hexo有個小bug…因此這邊來記錄一下!</p>
-<a id="more"></a>
-
-<img src="https://i.imgur.com/r5Ttemw.png" width=70%/>
-
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>爬文後發現也有人遇到類似問題，但原因眾說紛紜，大部分推測是特定Hexo版本的小問題，聽說更新到最新版本就不會有此狀況，下面來記錄一下解決的方法。</p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>我是先將Hexo根目錄的<code>.deploy_git</code>資料夾整個刪除，接著再重新佈署一次，結果就可以了!我猜應該是Hexo的某個地方咬到<code>.deploy_git</code>裡面的某個檔案，所以造成部分地方有衝突，才會再部屬到github後就會有些是404，這題真的是搞了我好幾天。</p>
-<h2 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h2><p>另外也有人建議把Hexo根目錄的<code>db.json</code>砍掉，再重新佈署一次，這邊對我是沒作用，但可能有些人也是這部分造成的錯誤。</p>
-<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol>
-<li><a href="https://github.com/iissnan/hexo-theme-next/issues/635">blog categories XXX 404 Error</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo &amp; Next 建構部落格</title>
     <url>/blog/posts/Hexo/5364/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Hexo是一個基於Node.js的部落格框架，加上沒有廣告的干擾，讓人看起來就十分舒服。因此，本篇記錄了HEXO搭配Next主題來製作部落格的相關筆記，並花了一些時間整理Hexo框架的重點和流程，有興趣可以參考一下這篇。</p>
@@ -145,6 +101,50 @@
       </tags>
   </entry>
   <entry>
+    <title>ExtJS 製作 Banner</title>
+    <url>/blog/posts/ExtJS/c1113943/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="77b97b713d39272c176c98fc26cfbf3b6a8c0c3e740064c95e9ea413196fcafb">165d50f05814027fb7fe5e4ae8a088d8240dac90f2f2cc3be4b182594285803a7755a57ebe0bbcb597537d161d3d9bf2fa57fcf5908cbdb8fe4bd45ee3d44d0227904f20eba031ef9003d1a5e8a4ee51616636b4f2697804039d911e050b39e89d8c8c531225309b71041330b5f4180a53f69904b96f0fa7dc69dd089e47003601d7e96efeac95088ebce089f4795fc8df705034158b0ba8862ececfa7fcafb9</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>ExtJS</category>
+      </categories>
+      <tags>
+        <tag>ExtJS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo分類頁面部分項目連結404錯誤</title>
+    <url>/blog/posts/Hexo/7dce27be/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>原本分類(categories)和標籤(tags)頁面很正常，某天調整了Next主題的一些配置，接著就發現分類和標籤頁面的某些關鍵字點下去都直接爛掉(顯示404)如下圖，原本一直以為是哪邊配置沒有弄號，但越試越奇怪，明明localhost端的分類項目和標籤關鍵字連結開起來一切都正常，到Remote開起來就會有些顯示404。結果試了老半天，發現原來是Hexo有個小bug…因此這邊來記錄一下!</p>
+<a id="more"></a>
+
+<img src="https://i.imgur.com/r5Ttemw.png" width=70%/>
+
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>爬文後發現也有人遇到類似問題，但原因眾說紛紜，大部分推測是特定Hexo版本的小問題，聽說更新到最新版本就不會有此狀況，下面來記錄一下解決的方法。</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>我是先將Hexo根目錄的<code>.deploy_git</code>資料夾整個刪除，接著再重新佈署一次，結果就可以了!我猜應該是Hexo的某個地方咬到<code>.deploy_git</code>裡面的某個檔案，所以造成部分地方有衝突，才會再部屬到github後就會有些是404，這題真的是搞了我好幾天。</p>
+<h2 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h2><p>另外也有人建議把Hexo根目錄的<code>db.json</code>砍掉，再重新佈署一次，這邊對我是沒作用，但可能有些人也是這部分造成的錯誤。</p>
+<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol>
+<li><a href="https://github.com/iissnan/hexo-theme-next/issues/635">blog categories XXX 404 Error</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo圖片不套用fancybox</title>
     <url>/blog/posts/Hexo/2721/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>fancybox套件的功能是實現點開圖片，並可以放大顯示和左右切換圖片，還會隨版面的大小自動來調整跳出的版面範圍，而且手機端也可以直接實現。fancybox在Jquery中也有相關的套件，而Next主題自己在config有內建fancybox的配置，配製好以後就會在所有img標籤實作這功能，但如果有部分圖片不想要有放大顯示，則就需要做一些步驟。</p>
@@ -184,6 +184,59 @@
       <tags>
         <tag>Hexo</tag>
         <tag>fancybox照片放大</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS 學習筆記</title>
+    <url>/blog/posts/Javascript/78072a22/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>這幾個禮拜花點時間把大神Kuro的<a href="https://ithelp.ithome.com.tw/users/20065504/ironman/1259">重新認識 JavaScript</a> 系列的文章讀完，過程中跟隨作者的每一篇文章練習編寫JS，自己認為補足了許多之前不熟悉的觀念和技術，因此我這篇就將自己學習遇到的問題和重點記錄下來吧!</p>
+<a id="more"></a>
+
+<h2 id="指定-this-方式"><a href="#指定-this-方式" class="headerlink" title="指定 this 方式"></a>指定 this 方式</h2><p>func使用apply函式將this.t = 100的新變數增加到obj物件，所以有點像是把func裡面<code>this指定的變數或方法</code>複製到obj裡面去</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    x: <span class="number">123</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">50</span>; <span class="comment">//有</span></span><br><span class="line">    <span class="built_in">this</span>.t = <span class="number">100</span>; <span class="comment">//沒有</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.x);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">func();           <span class="comment">// undefined</span></span><br><span class="line">func.apply(obj);  <span class="comment">// 123</span></span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// &#123;x: 123, t: 100&#125; </span></span><br></pre></td></tr></table></figure>
+
+<p>bind()也會有一樣的複製效果</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    x: <span class="number">123</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>);</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">50</span>; <span class="comment">//有</span></span><br><span class="line">    <span class="built_in">this</span>.t = <span class="number">100</span>; <span class="comment">//沒有</span></span><br><span class="line">&#125;.bind(obj);</span><br><span class="line"></span><br><span class="line">func(); <span class="comment">// &#123;x: 123&#125; </span></span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// &#123;x: 123, t: 100&#125; </span></span><br></pre></td></tr></table></figure>
+
+<h2 id="函式建構式"><a href="#函式建構式" class="headerlink" title="函式建構式"></a>函式建構式</h2><p>Cascade 也有人稱作 Fluent Interface，在function裡面使用this.變數或this.方法，<br>由於函式也是個物件，同時也可以將其視為 建構子(constructor)來建立其他物件<br>類似複製物件的功能=&gt;var a = {}; calNum.call(a, 100);</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> calNum = <span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.num = num;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.add = <span class="function"><span class="keyword">function</span>(<span class="params">newNum</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.num += newNum;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.sub = <span class="function"><span class="keyword">function</span>(<span class="params">newNum</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.num -= newNum;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.multi = <span class="function"><span class="keyword">function</span>(<span class="params">newNum</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.num *= newNum;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.division = <span class="function"><span class="keyword">function</span>(<span class="params">newNum</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.num /= newNum;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//var a = new calNum(100);</span></span><br><span class="line"><span class="comment">//new 如同下面兩個步驟</span></span><br><span class="line"><span class="comment">//-----------------</span></span><br><span class="line"><span class="keyword">var</span> a = &#123;&#125;;</span><br><span class="line">calNum.call(a, <span class="number">100</span>);</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// &#123;num: 100, add: ƒ, sub: ƒ, multi: ƒ, division: ƒ&#125;</span></span><br><span class="line">a.add(<span class="number">100</span>).sub(<span class="number">50</span>);</span><br><span class="line"><span class="built_in">console</span>.log( a.num );   <span class="comment">// 150</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"> name, age, gender </span>)</span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.name = name;</span><br><span class="line">  <span class="built_in">this</span>.age = age;</span><br><span class="line">  <span class="built_in">this</span>.gender = gender;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.greeting = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Hello! My name is &#x27;</span> + <span class="built_in">this</span>.name + <span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> kuro = <span class="keyword">new</span> Person( <span class="string">&#x27;Kuro&#x27;</span>, <span class="number">32</span>, <span class="string">&#x27;male&#x27;</span>);</span><br><span class="line">kuro.greeting();      <span class="comment">// &quot;Hello! My name is Kuro.&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> John = <span class="keyword">new</span> Person( <span class="string">&#x27;John&#x27;</span>, <span class="number">10</span>, <span class="string">&#x27;male&#x27;</span>);</span><br><span class="line">kuro.greeting();      <span class="comment">// &quot;Hello! My name is John.&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="defineProperty的get和set意義"><a href="#defineProperty的get和set意義" class="headerlink" title="defineProperty的get和set意義"></a>defineProperty的get和set意義</h2><p>如果你定義了 get 與 set 方法，表示你要自行控制屬性的存取，那麼就不能再去定義 value 或 writable 的屬性描述，<br>get和set只是定義在賦值與取值時候要做什麼行為而已</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    getName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(person, <span class="string">&#x27;name&#x27;</span>, &#123;</span><br><span class="line">    get: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;get&#x27;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>._name_;</span><br><span class="line">    &#125;,</span><br><span class="line">    set: <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;set&#x27;</span>);</span><br><span class="line">        <span class="built_in">this</span>._name_ = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(person);</span><br><span class="line">person.name = <span class="string">&#x27;kevin&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person.getName());</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">var person = &#123;</span><br><span class="line">    getName: <span class="keyword">function</span> () &#123;</span><br><span class="line">        console.log(this);</span><br><span class="line">        <span class="keyword">return</span> this.name;</span><br><span class="line">        //<span class="keyword">return</span> <span class="type">name</span>; //定義<span class="type">name</span>會往外開始找<span class="type">name</span>這一個變數</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">person.name = <span class="string">&#x27;kevin&#x27;</span>;</span><br><span class="line">var <span class="type">name</span> = <span class="string">&#x27;test&#x27;</span>;</span><br><span class="line">console.log(person.getName());</span><br><span class="line">//var <span class="type">name</span> = <span class="string">&#x27;test&#x27;</span>; //呼叫方法之後就看不到了</span><br></pre></td></tr></table></figure>
+
+
+<p>決定 this 的關鍵不在於它屬於哪個物件，而是在於 function「呼叫的時機點」<br>當你透過物件呼叫某個方法 (method) 的時候，此時 this 就是那個物件 (owner object)</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.count++;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">foo.count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>( <span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++ ) &#123;</span><br><span class="line">  foo(); <span class="comment">//undefined</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(foo.count) <span class="comment">//還是0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Array常用方法"><a href="#Array常用方法" class="headerlink" title="Array常用方法"></a>Array常用方法</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arrs = [<span class="number">1</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">0</span>];</span><br><span class="line"><span class="keyword">var</span> newArr = arrs.map(<span class="function"><span class="keyword">function</span> (<span class="params">v, index, arr</span>) </span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(index);</span><br><span class="line">     <span class="keyword">return</span> v * <span class="number">2</span>;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">var</span> newArr = arrs.map(<span class="function"><span class="params">v</span> =&gt;</span> v * <span class="number">2</span>)</span><br><span class="line"><span class="keyword">var</span> filterArr = arrs.filter(<span class="function"><span class="keyword">function</span> (<span class="params">val, index, arr</span>) </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> val &gt; <span class="number">1</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> filterArr = arrs.filter(<span class="function"><span class="params">val</span> =&gt;</span> val &gt; <span class="number">1</span>);</span><br><span class="line">   <span class="keyword">var</span> sortArr = arrs.sort(<span class="function"><span class="keyword">function</span> (<span class="params">a,b</span>) </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> sortArr = arrs.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a - b);</span><br><span class="line"><span class="built_in">console</span>.log(newArr); <span class="comment">// [2, 8, 4, 6, 0]</span></span><br><span class="line"><span class="built_in">console</span>.log(filterArr); <span class="comment">// [4, 2, 3]</span></span><br><span class="line"><span class="built_in">console</span>.log(sortArr); <span class="comment">//[0, 1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="布林值比較"><a href="#布林值比較" class="headerlink" title="布林值比較"></a>布林值比較</h2><figure class="highlight coffeescript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;true&#x27;</span> == <span class="literal">true</span>); <span class="regexp">//</span> <span class="literal">false</span>，因為等同於 <span class="string">&#x27;true&#x27;</span> == <span class="number">1</span>，但<span class="literal">true</span> == <span class="number">1</span>就會是<span class="literal">true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">100</span> == <span class="string">&#x27;100&#x27;</span>); <span class="regexp">//</span> 字串轉型成數字</span><br></pre></td></tr></table></figure>
+<ol>
+<li>比較的a 或 b其中一個為<code>boolean</code>，會在比較相等性之前將<code>false轉0 / true轉1</code>轉成數值型態</li>
+<li>比較的a 或 b其中一個為<code>String</code>，而另一個是數值，同樣會將字符串轉成數值型態</li>
+<li>比較的a 或 b其中一個是物件，另外一個不是，則會調用物件的valueOf()方法得到基本型別(如果其中一方是「物件」型別，而另一方是基本型別的情況下，則會先透過物件的 valueOf() 方法取得對應的基本型別的值，再進行後續的比較</li>
+</ol>
+<p>補充: </p>
+<ul>
+<li>null == undefined 會是true</li>
+<li>NaN 不等於 NaN，不管是兩個等號或三個等號都一樣</li>
+</ul>
+<h2 id="Regular-Expression"><a href="#Regular-Expression" class="headerlink" title="Regular Expression"></a>Regular Expression</h2><p>正規表達式都會包含兩個 <code>/</code>，後面的符號就會用跳脫字元<code>\</code>來表示，</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> text = <span class="string">&quot;A apple a day keeps the doctor away.I have pen , I have apple.Uh ! ApplePen!!&quot;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(text.match(<span class="regexp">/applezzs/ig</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;123abc123zz23&quot;</span>.match(<span class="regexp">/^\d.*3/g</span>));  <span class="comment">//123abc123zz23 greedy</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;123abc123zz23&quot;</span>.match(<span class="regexp">/^\d.*?3/g</span>)); <span class="comment">//123</span></span><br><span class="line"><span class="keyword">var</span> match = <span class="regexp">/(hello) (\S+)/</span>.exec(<span class="string">&#x27;This is a hello world!&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(match); <span class="comment">// [&#x27;hello world!&#x27;, &#x27;hello&#x27;, &#x27;world!&#x27;]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> text = <span class="string">&quot;has-a-text&quot;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">upper</span> (<span class="params">match,p1</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> p1.toUpperCase()</span><br><span class="line">&#125;</span><br><span class="line">text = text.replace(<span class="regexp">/-(\w)/g</span>, upper);<span class="comment">//&quot;hasAText&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol>
+<li><a href="https://medium.com/@rayshih771012/mvc-%E6%9E%B6%E6%A7%8B%E6%BC%94%E9%80%B2-single-source-of-truth-2720f5a5facd">MVC 架構演進 — Single Source of Truth</a></li>
+<li><a href="https://www.fooish.com/regex-regular-expression/groups-lookaround.html">Regex 正規表示法 - 群組與環顧</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Javascript</category>
+      </categories>
+      <tags>
+        <tag>Javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -349,6 +402,64 @@
       <tags>
         <tag>Java</tag>
         <tag>Maven</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>建置一個Spring Maven Project</title>
+    <url>/blog/posts/uncategorized/80b4317f/</url>
+    <content><![CDATA[<p>action沒反應可能原因</p>
+<ol>
+<li>logging.properties沒配置</li>
+<li>return success時，在struts.xml可能沒配置好，應該是要 <result name="success">jsp/index.jsp</result> 的success要小寫</li>
+</ol>
+<p>問題:</p>
+<ol>
+<li>啟動server時候，action method跑了兩次，其他狀況時候就正常</li>
+</ol>
+<a id="more"></a>
+
+
+<p>log4j配置</p>
+<ol>
+<li><p>log4j.rootLogger =[level],appenderName,appenderName2,…<br>Ex: log4j.rootLogger = debug, stdout, D, E<br>第一個為顯示的層級，优先级从低到高分别是DEBUG,INFO,WARN,ERROR，可以控制到应用程序中相应级别的日志信息的开关，像是這邊設INFO的話，DEBUG則就不會顯示出來，後面的appenderName則是log訊息文件輸出的地方，可以指定多個地方，病也是在log4j.properties裡面做配置，如果想在IDE的console中顯示，則就一定要加上stdout</p>
+</li>
+<li><p>Log4j提供的appender類型有</p>
+<ul>
+<li><p>org.apache.log4j.ConsoleAppender(输出到控制台)<br>Threshold = DEBUG:指定日志消息的输出最低层次<br>ImmediateFlush = TRUE:默认值是true,所有的消息都会被立即输出<br>Target = System.err:默认值System.out,输出到控制台(err为红色,out为黑色)</p>
+</li>
+<li><p>org.apache.log4j.FileAppender(输出到文件)<br>Threshold = INFO:指定日志消息的输出最低层次<br>ImmediateFlush = TRUE:默认值是true,所有的消息都会被立即输出<br>File = C:\log4j.log:指定消息输出到C:\log4j.log文件<br>Append = FALSE:默认值true,将消息追加到指定文件中，false指将消息覆盖指定的文件内容<br>Encoding = UTF-8:可以指定文件编码格式</p>
+</li>
+<li><p>org.apache.log4j.DailyRollingFileAppender(每天产生一个日志文件)<br>Threshold = WARN:指定日志消息的输出最低层次<br>ImmediateFlush = TRUE:默认值是true,所有的消息都会被立即输出<br>File =C:\log4j.log:指定消息输出到C:\log4j.log文件<br>Append= FALSE:默认值true,将消息追加到指定文件中，false指将消息覆盖指定的文件内容<br>DatePattern=’.’yyyy-ww:每周滚动一次文件,即每周产生一个新的文件。还可以按用以下参数:<br>Encoding = UTF-8:可以指定文件编码格式</p>
+</li>
+<li><p>org.apache.log4j.RollingFileAppender(文件大小到达指定尺寸的时候产生一个新的文件)<br>Threshold = ERROR:指定日志消息的输出最低层次</p>
+<p>ImmediateFlush = TRUE:默认值是true,所有的消息都会被立即输出</p>
+<p>File =C:/log4j.log:指定消息输出到C:/log4j.log文件</p>
+<p>Append= FALSE:默认值true,将消息追加到指定文件中，false指将消息覆盖指定的文件内容</p>
+<p>MaxFileSize = 100KB:后缀可以是KB,MB,GB.在日志文件到达该大小时,将会自动滚动.如:log4j.log.1</p>
+<p>MaxBackupIndex = 2:指定可以产生的滚动文件的最大数</p>
+<p>Encoding = UTF-8:可以指定文件编码格式</p>
+</li>
+<li><p>org.apache.log4j.WriterAppender(将日志信息以流格式发送到任意指定的地方)</p>
+</li>
+</ul>
+</li>
+<li><p>Log4j提供的layout有以下几种：</p>
+<ul>
+<li>org.apache.log4j.HTMLLayout(以HTML表格形式布局)</li>
+<li>org.apache.log4j.PatternLayout(可以灵活地指定布局模式)</li>
+<li>org.apache.log4j.SimpleLayout(包含日志信息的级别和信息字符串)</li>
+<li>org.apache.log4j.TTCCLayout(包含日志产生的时间、线程、类别等等信息)</li>
+<li>org.apache.log4j.xml.XMLLayout(以XML形式布局)<figure class="highlight roboconf"><table><tr><td class="code"><pre><span class="line"><span class="comment">### 设置 ###</span></span><br><span class="line"></span><br><span class="line">log4j.rootLogger = debug,stdout,D,E</span><br><span class="line"></span><br><span class="line"><span class="comment">#DEBUG,INFO,WARN,ERROR</span></span><br><span class="line"><span class="comment">### 输出信息到控制抬 ###</span></span><br><span class="line">log4j.appender.stdout = org.apache.log4j.ConsoleAppender</span><br><span class="line">log4j.appender.stdout.Target = System.out</span><br><span class="line">log4j.appender.stdout.layout = org.apache.log4j.PatternLayout</span><br><span class="line">log4j.appender.stdout.layout.ConversionPattern = [%-5p] %d&#123;<span class="attribute">yyyy-MM-dd HH</span>:mm:ss,SSS&#125; method:%l%n%m%n</span><br><span class="line"></span><br><span class="line">### 输出DEBUG 级别以上的日志到=C://logs/debug<span class="variable">.log</span> ###</span><br><span class="line"># 配置日志信息输出目的地 appender</span><br><span class="line">log4j<span class="variable">.appender</span><span class="variable">.D</span> = org<span class="variable">.apache</span><span class="variable">.log</span>4j<span class="variable">.DailyRollingFileAppender</span></span><br><span class="line"># 指定消息输出到 C://logs/debug<span class="variable">.log</span> 文件</span><br><span class="line">log4j<span class="variable">.appender</span><span class="variable">.D</span><span class="variable">.File</span> = C://logs/debug<span class="variable">.log</span></span><br><span class="line">#false指将消息覆盖指定的文件内容</span><br><span class="line">log4j<span class="variable">.appender</span><span class="variable">.D</span><span class="variable">.Append</span> = true</span><br><span class="line"># 指定日志消息的输出最低层次</span><br><span class="line">log4j<span class="variable">.appender</span><span class="variable">.D</span><span class="variable">.Threshold</span> = DEBUG</span><br><span class="line"># 灵活指定日志布局模式</span><br><span class="line">log4j<span class="variable">.appender</span><span class="variable">.D</span><span class="variable">.layout</span> = org<span class="variable">.apache</span><span class="variable">.log</span>4j<span class="variable">.PatternLayout</span></span><br><span class="line">log4j<span class="variable">.appender</span><span class="variable">.D</span><span class="variable">.layout</span><span class="variable">.ConversionPattern</span> = %-d&#123;yyyy-MM-dd HH:mm:ss&#125;  [ %t:%r ] - [ %p ]  %m%n</span><br><span class="line"></span><br><span class="line">### 输出ERROR 级别以上的日志到=C://logs/error<span class="variable">.log</span> ###</span><br><span class="line">log4j<span class="variable">.appender</span><span class="variable">.E</span> = org<span class="variable">.apache</span><span class="variable">.log</span>4j<span class="variable">.DailyRollingFileAppender</span></span><br><span class="line">log4j<span class="variable">.appender</span><span class="variable">.E</span><span class="variable">.File</span> =C://logs/error<span class="variable">.log</span></span><br><span class="line">log4j<span class="variable">.appender</span><span class="variable">.E</span><span class="variable">.Append</span> = true</span><br><span class="line">log4j<span class="variable">.appender</span><span class="variable">.E</span><span class="variable">.Threshold</span> = ERROR</span><br><span class="line">log4j<span class="variable">.appender</span><span class="variable">.E</span><span class="variable">.layout</span> = org<span class="variable">.apache</span><span class="variable">.log</span>4j<span class="variable">.PatternLayout</span></span><br><span class="line">log4j<span class="variable">.appender</span><span class="variable">.E</span><span class="variable">.layout</span><span class="variable">.ConversionPattern</span> = %-d&#123;yyyy-MM-dd HH:mm:ss&#125;  [ %t:%r ] - [ %p ]</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ol>
+<p>Reference:<br><a href="https://my.oschina.net/u/4308934/blog/3366170">https://my.oschina.net/u/4308934/blog/3366170</a></p>
+]]></content>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
       </tags>
   </entry>
   <entry>
@@ -921,71 +1032,6 @@ home: / || fa fa-home
   </entry>
   <entry>
     <title>about</title>
-    <url>/aboutKevin/certificate.html</url>
-    <content><![CDATA[<!DOCTYPE html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kevin | Resume</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" /> <!-- https://fonts.google.com/ -->
-    <link rel="stylesheet" href="css/mystyle.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/lightbox.css">
-	<link rel="shortcut icon" href="favicon.ico">
-</head>
-<body style="background-color: lightgray;">
-    <header id="top">
-        <!-- start navigation bar -->
-        <nav id="nav">
-            <div class="logo">
-                <img src="./img/logo.png" alt="image - Kevin">
-            </div>
-            <ul>
-                <li class="em_btn"><a href="index.html">Home</a></li>
-                <li class="em_btn"><a class="current-page" href="certificate.html">Certificate</a></li>
-                <li class="em_btn"><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main id="main">
-        <div class="heading">
-            <h1>相關證照 </h1>
-            <p>All certificate I earned are below.</p>
-        </div>
-        <!-- lightbox -->
-        <div class="gallery">
-            <a href="img/OCAJP.jpg" data-lightbox="photo-1"
-                data-title="Grampians National Park @ VIC, Australia"><img src="img/OCAJP.jpg"
-                    alt="Photography - Grampians National Park"></a>
-            <a href="img/OCPJP.jpg" data-lightbox="photo-1" data-title="Puffing Billy Train @ VIC, Australia"><img
-                    src="img/OCPJP.jpg" alt="Photography - Australian Puffing Billy train"></a>
-            <a href="img/java_cert.png" data-lightbox="photo-1" data-title="Gordon Dam @ TAS, Australia"><img
-                    src="img/java_cert.png" alt="Photography - Gordon Dam"></a>
-            <a href="img/MTA.png" data-lightbox="photo-1" data-title="Great Ocean Road @ VIC, Australia"><img
-                    src="img/MTA.png" alt="Photography - Great ocean road"></a>
-            <a href="img/word.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
-                    src="img/word.png" alt="Photography - lavender"></a>
-            <a href="img/elite.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
-                    src="img/elite.png" alt="Photography - lavender"></a>
-            <a href="img/contest.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
-                    src="img/contest.png" alt="Photography - lavender"></a>
-            <a href="img/iot.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
-                src="img/iot.png" alt="Photography - lavender"></a>
-        </div>
-        <script src="js/lightbox-plus-jquery.js"></script>
-    </main>
-    <!-- footer -->
-    <footer>
-        <p>This page is developed by Kevin.</p>
-        <p>All Rights Reserved&nbsp;&copy; 2020&nbsp;&nbsp;<a href="#top" class="top_btn">Back to Top👆</a></p>
-    </footer>
-</body>
-
-</html>]]></content>
-  </entry>
-  <entry>
-    <title>about</title>
     <url>/aboutKevin/contact.html</url>
     <content><![CDATA[
 <!DOCTYPE html>
@@ -1168,13 +1214,78 @@ home: / || fa fa-home
 ]]></content>
   </entry>
   <entry>
-    <title>關鍵字標籤</title>
-    <url>/tags/index.html</url>
-    <content><![CDATA[]]></content>
+    <title>about</title>
+    <url>/aboutKevin/certificate.html</url>
+    <content><![CDATA[<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin | Resume</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" /> <!-- https://fonts.google.com/ -->
+    <link rel="stylesheet" href="css/mystyle.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/lightbox.css">
+	<link rel="shortcut icon" href="favicon.ico">
+</head>
+<body style="background-color: lightgray;">
+    <header id="top">
+        <!-- start navigation bar -->
+        <nav id="nav">
+            <div class="logo">
+                <img src="./img/logo.png" alt="image - Kevin">
+            </div>
+            <ul>
+                <li class="em_btn"><a href="index.html">Home</a></li>
+                <li class="em_btn"><a class="current-page" href="certificate.html">Certificate</a></li>
+                <li class="em_btn"><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main">
+        <div class="heading">
+            <h1>相關證照 </h1>
+            <p>All certificate I earned are below.</p>
+        </div>
+        <!-- lightbox -->
+        <div class="gallery">
+            <a href="img/OCAJP.jpg" data-lightbox="photo-1"
+                data-title="Grampians National Park @ VIC, Australia"><img src="img/OCAJP.jpg"
+                    alt="Photography - Grampians National Park"></a>
+            <a href="img/OCPJP.jpg" data-lightbox="photo-1" data-title="Puffing Billy Train @ VIC, Australia"><img
+                    src="img/OCPJP.jpg" alt="Photography - Australian Puffing Billy train"></a>
+            <a href="img/java_cert.png" data-lightbox="photo-1" data-title="Gordon Dam @ TAS, Australia"><img
+                    src="img/java_cert.png" alt="Photography - Gordon Dam"></a>
+            <a href="img/MTA.png" data-lightbox="photo-1" data-title="Great Ocean Road @ VIC, Australia"><img
+                    src="img/MTA.png" alt="Photography - Great ocean road"></a>
+            <a href="img/word.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
+                    src="img/word.png" alt="Photography - lavender"></a>
+            <a href="img/elite.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
+                    src="img/elite.png" alt="Photography - lavender"></a>
+            <a href="img/contest.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
+                    src="img/contest.png" alt="Photography - lavender"></a>
+            <a href="img/iot.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
+                src="img/iot.png" alt="Photography - lavender"></a>
+        </div>
+        <script src="js/lightbox-plus-jquery.js"></script>
+    </main>
+    <!-- footer -->
+    <footer>
+        <p>This page is developed by Kevin.</p>
+        <p>All Rights Reserved&nbsp;&copy; 2020&nbsp;&nbsp;<a href="#top" class="top_btn">Back to Top👆</a></p>
+    </footer>
+</body>
+
+</html>]]></content>
   </entry>
   <entry>
     <title>分類</title>
     <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>關鍵字標籤</title>
+    <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>

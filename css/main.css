@@ -1214,7 +1214,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff406c;
+  background: #abb4bf;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1781,7 +1781,7 @@ var {
 .post-eof {
   background: #ccc;
   height: 1px;
-  margin: 80px auto 60px;
+  margin: 40px auto 15px;
   text-align: center;
   width: 8%;
 }
@@ -1928,7 +1928,7 @@ var {
   color: #999;
   font-family: 'Noto Sans HK', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 0.5em;
-  margin: 3px 0 60px 0;
+  margin: 3px 0 40px 0;
   text-align: center;
 }
 @media (max-width: 767px) {
@@ -2428,7 +2428,7 @@ ul.breadcrumb li + li:last-child {
   border-radius: 15px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
   box-sizing: border-box;
-  padding: 40px;
+  padding: 30px;
   width: calc(100% - 236px);
 }
 @media (max-width: 991px) {
@@ -2701,7 +2701,7 @@ ul.breadcrumb li + li:last-child {
   background: rgba(252,252,252,0.6);
   border-radius: 15px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
-  padding: 40px;
+  padding: 30px;
   margin-top: 6px;
   margin-left: 18px;
   margin-bottom: 15px;
@@ -2734,7 +2734,7 @@ ul.breadcrumb li + li:last-child {
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
   margin-left: 18px;
   margin-top: 18px;
-  padding: 40px;
+  padding: 30px;
   padding-top: 3px;
 }
 .tabs-comment {
@@ -2890,9 +2890,6 @@ ul.breadcrumb li + li:last-child {
 .content {
   padding-top: 0px;
 }
-.post-footer {
-  display: none;
-}
 body {
   counter-reset: h2;
 }
@@ -2940,4 +2937,30 @@ h6.nocount:before {
 }
 .pagination {
   margin-left: 18px;
+}
+.post-tags {
+  margin-top: 20px;
+  text-align: center;
+}
+.post-tags a {
+  display: inline-block;
+  font-size: 0.8em;
+  box-shadow: 2px 2px 3px 1px #757575;
+  border: 1px solid #000;
+  padding: 1px 10px;
+  border-radius: 15px;
+  transition: all 0.3s linear;
+}
+.post-tags a:not(:last-child) {
+  margin-right: 10px;
+}
+.post-tags a:hover {
+  transform: scale(1.1);
+  box-shadow: 3px 4px 5px 1px #757575;
+}
+code {
+  background: LightGray;
+  border-radius: 20px;
+  color: #f00;
+  font-weight: bold;
 }
