@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://kevin1061517.github.io/blog/posts/uncategorized/80b4317f/</loc>
+    <loc>https://kevin1061517.github.io/blog/posts/JavaScript/78072a22/</loc>
     
     <lastmod>2021-03-01</lastmod>
     
   </url>
   
   <url>
-    <loc>https://kevin1061517.github.io/blog/posts/Javascript/78072a22/</loc>
+    <loc>https://kevin1061517.github.io/blog/posts/uncategorized/80b4317f/</loc>
     
     <lastmod>2021-03-01</lastmod>
     
@@ -165,13 +165,6 @@
 
   
   <url>
-    <loc>https://kevin1061517.github.io/tags/Hexo/</loc>
-    <lastmod>2021-03-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://kevin1061517.github.io/tags/ExtJS/</loc>
     <lastmod>2021-03-01</lastmod>
     <changefreq>daily</changefreq>
@@ -179,14 +172,14 @@
   </url>
   
   <url>
-    <loc>https://kevin1061517.github.io/tags/fancybox%E7%85%A7%E7%89%87%E6%94%BE%E5%A4%A7/</loc>
+    <loc>https://kevin1061517.github.io/tags/Hexo/</loc>
     <lastmod>2021-03-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://kevin1061517.github.io/tags/Javascript/</loc>
+    <loc>https://kevin1061517.github.io/tags/JavaScript/</loc>
     <lastmod>2021-03-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -201,6 +194,13 @@
   
   <url>
     <loc>https://kevin1061517.github.io/tags/%E9%9B%86%E5%90%88%E7%89%A9%E4%BB%B6Collection/</loc>
+    <lastmod>2021-03-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://kevin1061517.github.io/tags/fancybox%E7%85%A7%E7%89%87%E6%94%BE%E5%A4%A7/</loc>
     <lastmod>2021-03-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -222,13 +222,6 @@
   
   <url>
     <loc>https://kevin1061517.github.io/tags/Next/</loc>
-    <lastmod>2021-03-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://kevin1061517.github.io/tags/JavaScript/</loc>
     <lastmod>2021-03-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -272,13 +265,6 @@
 
   
   <url>
-    <loc>https://kevin1061517.github.io/categories/Hexo/</loc>
-    <lastmod>2021-03-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://kevin1061517.github.io/categories/ExtJS/</loc>
     <lastmod>2021-03-01</lastmod>
     <changefreq>daily</changefreq>
@@ -286,7 +272,14 @@
   </url>
   
   <url>
-    <loc>https://kevin1061517.github.io/categories/Javascript/</loc>
+    <loc>https://kevin1061517.github.io/categories/Hexo/</loc>
+    <lastmod>2021-03-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://kevin1061517.github.io/categories/JavaScript/</loc>
     <lastmod>2021-03-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -301,13 +294,6 @@
   
   <url>
     <loc>https://kevin1061517.github.io/categories/Maven/</loc>
-    <lastmod>2021-03-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://kevin1061517.github.io/categories/JavaScript/</loc>
     <lastmod>2021-03-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

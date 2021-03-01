@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://kevin1061517.github.io/"/>
-  <updated>2021-03-01T12:04:47.509Z</updated>
+  <updated>2021-03-01T12:14:51.429Z</updated>
   <id>https://kevin1061517.github.io/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>JS 學習筆記</title>
-    <link href="https://kevin1061517.github.io/blog/posts/Javascript/78072a22/"/>
-    <id>https://kevin1061517.github.io/blog/posts/Javascript/78072a22/</id>
+    <link href="https://kevin1061517.github.io/blog/posts/JavaScript/78072a22/"/>
+    <id>https://kevin1061517.github.io/blog/posts/JavaScript/78072a22/</id>
     <published>2021-02-17T02:56:25.000Z</published>
-    <updated>2021-03-01T12:04:47.509Z</updated>
+    <updated>2021-03-01T12:14:51.429Z</updated>
     
     <summary type="html">
     
@@ -30,10 +30,10 @@
     </summary>
     
     
-      <category term="Javascript" scheme="https://kevin1061517.github.io/categories/Javascript/"/>
+      <category term="JavaScript" scheme="https://kevin1061517.github.io/categories/JavaScript/"/>
     
     
-      <category term="Javascript" scheme="https://kevin1061517.github.io/tags/Javascript/"/>
+      <category term="JavaScript" scheme="https://kevin1061517.github.io/tags/JavaScript/"/>
     
   </entry>
   
