@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://kevin1061517.github.io/"/>
-  <updated>2021-04-14T15:26:09.288Z</updated>
+  <updated>2021-05-30T07:18:42.188Z</updated>
   <id>https://kevin1061517.github.io/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>JS Array常用方法</title>
+    <link href="https://kevin1061517.github.io/blog/posts/JavaScript/f868cf93/"/>
+    <id>https://kevin1061517.github.io/blog/posts/JavaScript/f868cf93/</id>
+    <published>2021-05-23T00:48:30.000Z</published>
+    <updated>2021-05-30T07:18:42.188Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;JS的陣列(Array)是我認為最基本且常用的一個物件，所以善用JS提供的Array操作方法就顯得相當重要，過去在使用時每次都要查一下&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="https://kevin1061517.github.io/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="https://kevin1061517.github.io/tags/JavaScript/"/>
+    
+      <category term="Array" scheme="https://kevin1061517.github.io/tags/Array/"/>
+    
+  </entry>
+  
+  <entry>
     <title>用Base64儲存pdf等檔案類型</title>
     <link href="https://kevin1061517.github.io/blog/posts/Java/9eccf366/"/>
     <id>https://kevin1061517.github.io/blog/posts/Java/9eccf366/</id>
     <published>2021-04-14T15:17:00.000Z</published>
-    <updated>2021-04-14T15:26:09.288Z</updated>
+    <updated>2021-04-14T15:26:30.225Z</updated>
     
     <summary type="html">
     
