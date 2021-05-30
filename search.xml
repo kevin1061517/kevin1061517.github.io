@@ -123,6 +123,28 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo分類頁面部分項目連結404錯誤</title>
+    <url>/blog/posts/Hexo/7dce27be/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>原本分類(categories)和標籤(tags)頁面很正常，某天調整了Next主題的一些配置，接著就發現分類和標籤頁面的某些關鍵字點下去都直接爛掉(顯示404)如下圖，原本一直以為是哪邊配置沒有弄號，但越試越奇怪，明明localhost端的分類項目和標籤關鍵字連結開起來一切都正常，到Remote開起來就會有些顯示404。結果試了老半天，發現原來是Hexo有個小bug…因此這邊來記錄一下!</p>
+<a id="more"></a>
+
+<img src="https://i.imgur.com/r5Ttemw.png" width=70%/>
+
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>爬文後發現也有人遇到類似問題，但原因眾說紛紜，大部分推測是特定Hexo版本的小問題，聽說更新到最新版本就不會有此狀況，下面來記錄一下解決的方法。</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>我是先將Hexo根目錄的<code>.deploy_git</code>資料夾整個刪除，接著再重新佈署一次，結果就可以了!我猜應該是Hexo的某個地方咬到<code>.deploy_git</code>裡面的某個檔案，所以造成部分地方有衝突，才會再部屬到github後就會有些是404，這題真的是搞了我好幾天。</p>
+<h2 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h2><p>另外也有人建議把Hexo根目錄的<code>db.json</code>砍掉，再重新佈署一次，這邊對我是沒作用，但可能有些人也是這部分造成的錯誤。</p>
+<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol>
+<li><a href="https://github.com/iissnan/hexo-theme-next/issues/635">blog categories XXX 404 Error</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo圖片不套用fancybox</title>
     <url>/blog/posts/Hexo/2721/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>fancybox套件的功能是實現點開圖片，並可以放大顯示和左右切換圖片，還會隨版面的大小自動來調整跳出的版面範圍，而且手機端也可以直接實現。fancybox在Jquery中也有相關的套件，而Next主題自己在config有內建fancybox的配置，配製好以後就會在所有img標籤實作這功能，但如果有部分圖片不想要有放大顯示，則就需要做一些步驟。</p>
@@ -165,31 +187,11 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo分類頁面部分項目連結404錯誤</title>
-    <url>/blog/posts/Hexo/7dce27be/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>原本分類(categories)和標籤(tags)頁面很正常，某天調整了Next主題的一些配置，接著就發現分類和標籤頁面的某些關鍵字點下去都直接爛掉(顯示404)如下圖，原本一直以為是哪邊配置沒有弄號，但越試越奇怪，明明localhost端的分類項目和標籤關鍵字連結開起來一切都正常，到Remote開起來就會有些顯示404。結果試了老半天，發現原來是Hexo有個小bug…因此這邊來記錄一下!</p>
-<a id="more"></a>
-
-<img src="https://i.imgur.com/r5Ttemw.png" width=70%/>
-
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>爬文後發現也有人遇到類似問題，但原因眾說紛紜，大部分推測是特定Hexo版本的小問題，聽說更新到最新版本就不會有此狀況，下面來記錄一下解決的方法。</p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>我是先將Hexo根目錄的<code>.deploy_git</code>資料夾整個刪除，接著再重新佈署一次，結果就可以了!我猜應該是Hexo的某個地方咬到<code>.deploy_git</code>裡面的某個檔案，所以造成部分地方有衝突，才會再部屬到github後就會有些是404，這題真的是搞了我好幾天。</p>
-<h2 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h2><p>另外也有人建議把Hexo根目錄的<code>db.json</code>砍掉，再重新佈署一次，這邊對我是沒作用，但可能有些人也是這部分造成的錯誤。</p>
-<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol>
-<li><a href="https://github.com/iissnan/hexo-theme-next/issues/635">blog categories XXX 404 Error</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JS Array常用方法</title>
     <url>/blog/posts/JavaScript/f868cf93/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>JS的陣列(Array)是我認為最基本且常用的一個物件，所以善用JS提供的Array操作方法就顯得相當重要，過去在使用時每次都要查一下<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">MDN上的Array文件</a> ，因此這篇就來記錄最常使用的操作方法及過去用錯的地方，希望可以更熟悉來讓程式碼更加簡潔乾淨!</p>
+<a id="more"></a>
+
 <h2 id="陣列定義"><a href="#陣列定義" class="headerlink" title="陣列定義"></a>陣列定義</h2><p>JS中的陣列其實和Java的陣列差不多，兩者都可以當成是由資料所組成的一種資料結構，並且透過索引值(index)來存取裡面的資料，但JS的陣列有幾個特點，分別是:</p>
 <ol>
 <li>JS的陣列也算是一種物件(Object)</li>
@@ -237,6 +239,62 @@
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;d&#x27;</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr.indexOf(<span class="string">&#x27;b&#x27;</span>)); <span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.indexOf(<span class="string">&#x27;b&#x27;</span>, <span class="number">2</span>));<span class="comment">//從&#x27;c&#x27;開始往後看[&#x27;c&#x27;, &#x27;d&#x27;]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.lastIndexOf(<span class="string">&#x27;b&#x27;</span>)); <span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.lastIndexOf(<span class="string">&#x27;c&#x27;</span>, <span class="number">1</span>));<span class="comment">//從&#x27;b&#x27;開始往前看，只判斷[&#x27;a&#x27;, &#x27;b&#x27;]</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="ES6操作方法"><a href="#ES6操作方法" class="headerlink" title="ES6操作方法"></a>ES6操作方法</h2><h3 id="find-callbackFn"><a href="#find-callbackFn" class="headerlink" title="find(callbackFn)"></a>find(callbackFn)</h3><p>從陣列中的第一項元素開始放進參數傳入的functoin裡面，來去找出<code>第一個</code>符合判斷條件的元素，如全部都沒有則返回undefined</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr.find(<span class="function"><span class="params">e</span> =&gt;</span> e%<span class="number">2</span> === <span class="number">0</span>)); <span class="comment">//陣列中第一個偶數 2</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.find(<span class="function"><span class="params">e</span> =&gt;</span> e%<span class="number">2</span> === <span class="number">2</span>)); <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="findIndex-callbackFn"><a href="#findIndex-callbackFn" class="headerlink" title="findIndex(callbackFn)"></a>findIndex(callbackFn)</h3><p>和find其實差不多，只差在findIndex是回傳第一個找到元素的索引位置，沒有符合條件的元素一樣是回傳一個undefined</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr.findIndex(<span class="function"><span class="params">e</span> =&gt;</span> e%<span class="number">2</span> === <span class="number">0</span>)); <span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.find(<span class="function"><span class="params">e</span> =&gt;</span> e%<span class="number">2</span> === <span class="number">2</span>)); <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="filter-callbackFn"><a href="#filter-callbackFn" class="headerlink" title="filter(callbackFn)"></a>filter(callbackFn)</h3><p>將每一個元素代入callbackFn中，並將符合條件的元素回傳一個新的陣列</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr.filter(<span class="function"><span class="params">e</span> =&gt;</span> e%<span class="number">2</span> === <span class="number">0</span>)); <span class="comment">//[2,4,6]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">//原來陣列還是一樣[1,2,3,4,5,6]</span></span><br></pre></td></tr></table></figure>
+<h3 id="forEach-callbackFn"><a href="#forEach-callbackFn" class="headerlink" title="forEach(callbackFn)"></a>forEach(callbackFn)</h3><p>過去使用ExtJs裡面就有這種用法，顧名思義就是去迭代這個陣列的元素，針對元素來做一些處理，而callbackFn有三個元素</p>
+<ul>
+<li>第一個參數為目前迭代元素的值(必填)</li>
+<li>第二個參數為目前迭代的索引值</li>
+<li>第三個參數為呼叫該方法的陣列<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>];</span><br><span class="line">arr.forEach(<span class="function">(<span class="params">item, index, array</span>) =&gt;</span> &#123;</span><br><span class="line">  array[index] = item * <span class="number">10</span>;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">//[10,20,30,40,50,60]</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="join-separator"><a href="#join-separator" class="headerlink" title="join(separator)"></a>join(separator)</h3><p>join可以把陣列的元素組合再一起，並且使用參數符號來區隔每一個元素，如果放空預設會用「逗號」來進行合併</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]; <span class="comment">//console.log(arr.join()); //&quot;1,2,3,4,5,6&quot;</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.join(<span class="string">&#x27;-&#x27;</span>)); <span class="comment">//&quot;1-2-3-4-5-6&quot;</span></span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">//[1,2,3,4,5,6]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="concat-Array"><a href="#concat-Array" class="headerlink" title="concat(Array)"></a>concat(Array)</h3><p>concat()可將兩個陣列合併再一起， ES6語法則能夠用擴展運算符…來代替</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>];</span><br><span class="line"><span class="keyword">let</span> arr2 = [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr3 = arr.concat(arr2);</span><br><span class="line"><span class="keyword">let</span> arr4 = [...arr, ...arr2]; <span class="comment">// 使用 ...</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr3); <span class="comment">// [1,2,3,4,5,6,7,8,9]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr4); <span class="comment">// [1,2,3,4,5,6,7,8,9]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="slice-start-end"><a href="#slice-start-end" class="headerlink" title="slice(start, end)"></a>slice(start, end)</h3><p>如同英文字一樣，slice就是把陣列切一段出來，區段一樣也是不包含end自己本身</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr.slice(<span class="number">1</span>, <span class="number">3</span>)); <span class="comment">// [2, 3]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="map-callbackFn"><a href="#map-callbackFn" class="headerlink" title="map(callbackFn)"></a>map(callbackFn)</h3><p>map是我在學react時，最常會來使用到的一個方法，他可以針對每一個元素做處理，並回傳一個新的陣列，他的callbackFn和forEach有點類似，有三個元素</p>
+<ul>
+<li>第一個參數為目前迭代元素的值(必填)</li>
+<li>第二個參數為目前迭代的索引值</li>
+<li>第三個參數為呼叫該方法的陣列</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr.map(<span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> e*<span class="number">10</span>; <span class="comment">//[10,20,30,40,50]</span></span><br><span class="line">&#125;))</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="reduce-callbackFn-accumulator-currentValue-currentIndex-array-initialValue"><a href="#reduce-callbackFn-accumulator-currentValue-currentIndex-array-initialValue" class="headerlink" title="reduce(callbackFn[accumulator, currentValue, currentIndex, array], initialValue)"></a>reduce(callbackFn[accumulator, currentValue, currentIndex, array], initialValue)</h3><p>根據官方定義是<code>The reduce() method executes a reducer function (that you provide) on each member of the array resulting in a single output value.</code>，所以可以知道reduce會回傳一個值，他的參數可以分成</p>
+<ul>
+<li>accumulator：由 currentValue 加總的累計值</li>
+<li>currentValue：目前迭代的元素值</li>
+<li>currentIndex：目前迭代的索引值</li>
+<li>array：呼叫該方法的陣列</li>
+<li>initialValue：預設值，放在 function 的最後方，非必填</li>
+</ul>
+<p>有另外一個相對應的方法reduceRight，更多應用可參考<a href="https://w3c.hexschool.com/blog/a2cb755f">JavaScript reduce 在做什麼？</a> 這篇</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">let</span> reduceArr = arr.reduce(<span class="function">(<span class="params">accumulator, currentValue</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(accumulator); <span class="comment">// 1, 3, 6, 10</span></span><br><span class="line">  <span class="built_in">console</span>.log(currentValue); <span class="comment">// 2, 3, 4, 5</span></span><br><span class="line">  <span class="keyword">return</span> accumulator + currentValue</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//有給initialValue值0</span></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">let</span> reduceArr = arr.reduce(<span class="function">(<span class="params">accumulator, currentValue</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(accumulator); <span class="comment">// 0, 1, 3, 6, 10</span></span><br><span class="line">  <span class="built_in">console</span>.log(currentValue); <span class="comment">// 1, 2, 3, 4, 5</span></span><br><span class="line">  <span class="keyword">return</span> accumulator + currentValue</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="Array-from"><a href="#Array-from" class="headerlink" title="Array.from()"></a>Array.from()</h3><p>將「類陣列物件」或是「可迭代的物件」轉換成陣列</p>
+<ul>
+<li>第一個參數為「類陣列物件」或「可迭代的物件」( 必填 )</li>
+<li>第二個參數為改變轉換成陣列元素的函式，參數分別是(element, index)<br>其中根據MDN定義<code>array-like objects (objects with a length property and indexed elements); or iterable objects (objects such as Map and Set).</code>可以知道類陣列物件具有 length 屬性以及索引化 index 的元素，所以會有下面arr3的處理<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = <span class="built_in">Array</span>.from(<span class="string">&#x27;KEVIN&#x27;</span>, <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> e + <span class="string">&#x27;s&#x27;</span>; <span class="comment">//[10,20,30,40,50]</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">//[&quot;Ks&quot;,&quot;Es&quot;,&quot;Vs&quot;,&quot;Is&quot;,&quot;Ns&quot;]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr2 = <span class="built_in">Array</span>.from(<span class="string">&#x27;KEVIN&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr2); <span class="comment">// [&quot;K&quot;,&quot;E&quot;,&quot;V&quot;,&quot;I&quot;,&quot;N&quot;]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr = <span class="built_in">Array</span>.from(&#123;<span class="attr">length</span>: <span class="number">5</span>&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">//[undefined,undefined,undefined,undefined,undefined]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr = <span class="built_in">Array</span>.from(&#123;<span class="attr">length</span>: <span class="number">5</span>&#125;, <span class="function">(<span class="params">element, index</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> index;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">//[0,1,2,3,4]</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(arr)); <span class="comment">//true</span></span><br><span class="line">arr.length = <span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">//[1, 2]</span></span><br><span class="line">arr.length = <span class="number">4</span>;</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">// [1, 2, undefined, undefined]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr[<span class="number">2</span>]); <span class="comment">//undefined</span></span><br><span class="line">arr[<span class="number">5</span>] = <span class="number">7</span>;</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">// [1, 2, undefined, undefined, undefined, 7]</span></span><br></pre></td></tr></table></figure>
+<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from">MDN文件</a></li>
+<li><a href="https://www.oxxostudio.tw/articles/201908/js-array.html">JavaScript Array 陣列操作方法大全</a></li>
+</ul>
 ]]></content>
       <categories>
         <category>JavaScript</category>
@@ -1143,109 +1201,6 @@ home: / || fa fa-home
       </tags>
   </entry>
   <entry>
-    <title>分類</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>about</title>
-    <url>/aboutKevin/contact.html</url>
-    <content><![CDATA[
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.0.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-16x16-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-</head>
-   <body>   
-      <div>
-            <h1 class="mb-6"> class="404 -- 施工當中QQ</h1>
-      </div>
-     
-
-</body>
-</html>
-]]></content>
-  </entry>
-  <entry>
-    <title>about</title>
-    <url>/aboutKevin/certificate.html</url>
-    <content><![CDATA[<!DOCTYPE html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kevin | Resume</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" /> <!-- https://fonts.google.com/ -->
-    <link rel="stylesheet" href="css/mystyle.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/lightbox.css">
-	<link rel="shortcut icon" href="favicon.ico">
-</head>
-<body style="background-color: lightgray;">
-    <header id="top">
-        <!-- start navigation bar -->
-        <nav id="nav">
-            <div class="logo">
-                <img src="./img/logo.png" alt="image - Kevin">
-            </div>
-            <ul>
-                <li class="em_btn"><a href="index.html">Home</a></li>
-                <li class="em_btn"><a class="current-page" href="certificate.html">Certificate</a></li>
-                <li class="em_btn"><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main id="main">
-        <div class="heading">
-            <h1>相關證照 </h1>
-            <p>All certificate I earned are below.</p>
-        </div>
-        <!-- lightbox -->
-        <div class="gallery">
-            <a href="img/OCAJP.jpg" data-lightbox="photo-1"
-                data-title="Grampians National Park @ VIC, Australia"><img src="img/OCAJP.jpg"
-                    alt="Photography - Grampians National Park"></a>
-            <a href="img/OCPJP.jpg" data-lightbox="photo-1" data-title="Puffing Billy Train @ VIC, Australia"><img
-                    src="img/OCPJP.jpg" alt="Photography - Australian Puffing Billy train"></a>
-            <a href="img/java_cert.png" data-lightbox="photo-1" data-title="Gordon Dam @ TAS, Australia"><img
-                    src="img/java_cert.png" alt="Photography - Gordon Dam"></a>
-            <a href="img/MTA.png" data-lightbox="photo-1" data-title="Great Ocean Road @ VIC, Australia"><img
-                    src="img/MTA.png" alt="Photography - Great ocean road"></a>
-            <a href="img/word.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
-                    src="img/word.png" alt="Photography - lavender"></a>
-            <a href="img/elite.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
-                    src="img/elite.png" alt="Photography - lavender"></a>
-            <a href="img/contest.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
-                    src="img/contest.png" alt="Photography - lavender"></a>
-            <a href="img/iot.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
-                src="img/iot.png" alt="Photography - lavender"></a>
-        </div>
-        <script src="js/lightbox-plus-jquery.js"></script>
-    </main>
-    <!-- footer -->
-    <footer>
-        <p>This page is developed by Kevin.</p>
-        <p>All Rights Reserved&nbsp;&copy; 2020&nbsp;&nbsp;<a href="#top" class="top_btn">Back to Top👆</a></p>
-    </footer>
-</body>
-
-</html>]]></content>
-  </entry>
-  <entry>
-    <title>關鍵字標籤</title>
-    <url>/tags/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>關於我</title>
     <url>/aboutKevin/index.html</url>
     <content><![CDATA[
@@ -1398,6 +1353,104 @@ home: / || fa fa-home
 </div></div></div></div>
 </div>
 
+]]></content>
+  </entry>
+  <entry>
+    <title>about</title>
+    <url>/aboutKevin/certificate.html</url>
+    <content><![CDATA[<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin | Resume</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" /> <!-- https://fonts.google.com/ -->
+    <link rel="stylesheet" href="css/mystyle.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/lightbox.css">
+	<link rel="shortcut icon" href="favicon.ico">
+</head>
+<body style="background-color: lightgray;">
+    <header id="top">
+        <!-- start navigation bar -->
+        <nav id="nav">
+            <div class="logo">
+                <img src="./img/logo.png" alt="image - Kevin">
+            </div>
+            <ul>
+                <li class="em_btn"><a href="index.html">Home</a></li>
+                <li class="em_btn"><a class="current-page" href="certificate.html">Certificate</a></li>
+                <li class="em_btn"><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main">
+        <div class="heading">
+            <h1>相關證照 </h1>
+            <p>All certificate I earned are below.</p>
+        </div>
+        <!-- lightbox -->
+        <div class="gallery">
+            <a href="img/OCAJP.jpg" data-lightbox="photo-1"
+                data-title="Grampians National Park @ VIC, Australia"><img src="img/OCAJP.jpg"
+                    alt="Photography - Grampians National Park"></a>
+            <a href="img/OCPJP.jpg" data-lightbox="photo-1" data-title="Puffing Billy Train @ VIC, Australia"><img
+                    src="img/OCPJP.jpg" alt="Photography - Australian Puffing Billy train"></a>
+            <a href="img/java_cert.png" data-lightbox="photo-1" data-title="Gordon Dam @ TAS, Australia"><img
+                    src="img/java_cert.png" alt="Photography - Gordon Dam"></a>
+            <a href="img/MTA.png" data-lightbox="photo-1" data-title="Great Ocean Road @ VIC, Australia"><img
+                    src="img/MTA.png" alt="Photography - Great ocean road"></a>
+            <a href="img/word.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
+                    src="img/word.png" alt="Photography - lavender"></a>
+            <a href="img/elite.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
+                    src="img/elite.png" alt="Photography - lavender"></a>
+            <a href="img/contest.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
+                    src="img/contest.png" alt="Photography - lavender"></a>
+            <a href="img/iot.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
+                src="img/iot.png" alt="Photography - lavender"></a>
+        </div>
+        <script src="js/lightbox-plus-jquery.js"></script>
+    </main>
+    <!-- footer -->
+    <footer>
+        <p>This page is developed by Kevin.</p>
+        <p>All Rights Reserved&nbsp;&copy; 2020&nbsp;&nbsp;<a href="#top" class="top_btn">Back to Top👆</a></p>
+    </footer>
+</body>
+
+</html>]]></content>
+  </entry>
+  <entry>
+    <title>分類</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>about</title>
+    <url>/aboutKevin/contact.html</url>
+    <content><![CDATA[
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-16x16-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+   <body>   
+      <div>
+            <h1 class="mb-6"> class="404 -- 施工當中QQ</h1>
+      </div>
+     
+
+</body>
+</html>
 ]]></content>
   </entry>
   <entry>
@@ -1617,210 +1670,9 @@ html.lb-disable-scrolling {
 }]]></content>
   </entry>
   <entry>
-    <title></title>
-    <url>/aboutKevin/css/main.css</url>
-    <content><![CDATA[
-/* post padding  margin */
-.main-post{  /* tab那邊*/
-	padding: 25px; 
-}
-
-
-.post-block{
-	padding: 0;
-}
-
-.post-title, .post-meta{
-	display:none;
-}
-
-.wrapper{
-	padding: 35px;
-}
-
-hr{
-	margin: 15px;
-}
-
-
-/* kevin background */
- 
-.description {
-  padding: 35px;
-}
-
-.title{
-	font-size: 26px;
-	text-align: center;
-	font-weight: bold;
-}
-
-.slogan{
-	font-size: 1em;
-	text-align: center;
-}
-
-/* tabs 表格相關 */
-#aboutme{
-	border: 2px #7B7B7B solid;
-	background-color: rgb(255, 244, 194, 0.4);
-	padding-top: 2px;
-}
-
-.nav-tabs{
-	background-color: rgb(224, 224, 224, 0.6);
-}
-
-.nav-tabs li{
-	border-style:solid;
-}
-
-.nav-tabs .active{
-	font-weight: bold;
-	background-color: #FFE66F;
-}
-
-
-/* align setting */
-.center_div {    
-	display:  flex;
-	align-items: center;
-	justify-content:  center;
-}
-
-
-/* font setting */
-h3{ 
-	text-align: center; 
-	font-weight: bold; 
-	font-size: 24px; 
-	margin: 4px; 
-}
-
-.md{
-	font-size: 12pt;
-	font-weight: bold;
-}
-
-.sub_title{ 
-	font-size: 20px;
-	font-weight: bold;
-	margin-bottom: 15px;
-}
-
-/* introduction tag*/
-.gold_tag{
-	background-color: #272727;
-	color: white;
-	font-size: 8pt;
-	border-radius:10px;
-	padding: 3px 15px;
-	margin: 5px 10px;
-}
-
-
-/* related line height */
-.column{
-	line-height: 0.5;
-}
-
-/* icon  margin with right character */
-.icon {
-	margin-right: 11px;
-}
-
-/* author pic */
-.center_div img{		
-	width: 65%;
-}
-
-/* skill bar */
-
-.meter { 
-	height: 20px;
-	width: 70%;
-	background: #000000;
-	-moz-border-radius: 25px;
-	-webkit-border-radius: 25px;
-	border-radius: 20px;
-	margin: 2% 0% 2% 15%;
-}
-
-.meter > span {
-	display: block;
-	height: 100%;
-	border-top-right-radius: 8px;
-	border-bottom-right-radius: 8px;
-	border-top-left-radius: 20px;
-	border-bottom-left-radius: 20px;
-	background-color: #EAC100;
-	background-image: linear-gradient(
-	  center bottom,
-	  rgb(74, 238, 95) 37%,
-	  rgb(174, 253, 178) 69%
-	);
-}
-
-
-@media (min-width: 768px){
-	.wrapper {
-		display: grid;
-		grid-template-columns: 35% 65%;
-	}
-	#gold ul li{
-		display: inline;
-	}
-	.doitems ul{
-		font-size: 12pt;
-		list-style-type: square;
-   }
-	.content1 {
-		 background: url(../img/test2.png) no-repeat center center fixed;
-		 background-size: cover;
-		 height: 55vh;
-		 width: 100%;
-		 display: table;
-		 background-attachment: fixed;
-		 /* 邊緣圓角 and 淡化 */
-		 border-radius: 4px;
-		 box-shadow:0 0 30px 10px rgba(255,255,255,.7) inset;
-	}
-}
-
-@media (min-width: 320px) and (max-width: 767px) {
-	#gold ul li{
-		margin-top: 10px;
-	}
-   .center_div {
-		width: 100%;
-   }
-   .center_div img{
-		width: 100%;
-		display:block;
-		margin: 25 auto;
-   }
-   .main-post h3{
-		font-size: 18px;
-		margin: 5;
-   }
-
-   .doitems ul{
-		font-size: 10pt;
-		list-style-type: square;
-   }
-	
-   .content1 {
-		background: url(../img/coding.png) no-repeat center center fixed;
-		background-size: cover;
-		height: 25%;
-		width: 100%;
-		display: table;
-		background-attachment: fixed;
-   }
-	
-}
-
-]]></content>
+    <title>關鍵字標籤</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title></title>
@@ -2402,6 +2254,212 @@ footer a {
     }
 
 }]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/aboutKevin/css/main.css</url>
+    <content><![CDATA[
+/* post padding  margin */
+.main-post{  /* tab那邊*/
+	padding: 25px; 
+}
+
+
+.post-block{
+	padding: 0;
+}
+
+.post-title, .post-meta{
+	display:none;
+}
+
+.wrapper{
+	padding: 35px;
+}
+
+hr{
+	margin: 15px;
+}
+
+
+/* kevin background */
+ 
+.description {
+  padding: 35px;
+}
+
+.title{
+	font-size: 26px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.slogan{
+	font-size: 1em;
+	text-align: center;
+}
+
+/* tabs 表格相關 */
+#aboutme{
+	border: 2px #7B7B7B solid;
+	background-color: rgb(255, 244, 194, 0.4);
+	padding-top: 2px;
+}
+
+.nav-tabs{
+	background-color: rgb(224, 224, 224, 0.6);
+}
+
+.nav-tabs li{
+	border-style:solid;
+}
+
+.nav-tabs .active{
+	font-weight: bold;
+	background-color: #FFE66F;
+}
+
+
+/* align setting */
+.center_div {    
+	display:  flex;
+	align-items: center;
+	justify-content:  center;
+}
+
+
+/* font setting */
+h3{ 
+	text-align: center; 
+	font-weight: bold; 
+	font-size: 24px; 
+	margin: 4px; 
+}
+
+.md{
+	font-size: 12pt;
+	font-weight: bold;
+}
+
+.sub_title{ 
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+/* introduction tag*/
+.gold_tag{
+	background-color: #272727;
+	color: white;
+	font-size: 8pt;
+	border-radius:10px;
+	padding: 3px 15px;
+	margin: 5px 10px;
+}
+
+
+/* related line height */
+.column{
+	line-height: 0.5;
+}
+
+/* icon  margin with right character */
+.icon {
+	margin-right: 11px;
+}
+
+/* author pic */
+.center_div img{		
+	width: 65%;
+}
+
+/* skill bar */
+
+.meter { 
+	height: 20px;
+	width: 70%;
+	background: #000000;
+	-moz-border-radius: 25px;
+	-webkit-border-radius: 25px;
+	border-radius: 20px;
+	margin: 2% 0% 2% 15%;
+}
+
+.meter > span {
+	display: block;
+	height: 100%;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	background-color: #EAC100;
+	background-image: linear-gradient(
+	  center bottom,
+	  rgb(74, 238, 95) 37%,
+	  rgb(174, 253, 178) 69%
+	);
+}
+
+
+@media (min-width: 768px){
+	.wrapper {
+		display: grid;
+		grid-template-columns: 35% 65%;
+	}
+	#gold ul li{
+		display: inline;
+	}
+	.doitems ul{
+		font-size: 12pt;
+		list-style-type: square;
+   }
+	.content1 {
+		 background: url(../img/test2.png) no-repeat center center fixed;
+		 background-size: cover;
+		 height: 55vh;
+		 width: 100%;
+		 display: table;
+		 background-attachment: fixed;
+		 /* 邊緣圓角 and 淡化 */
+		 border-radius: 4px;
+		 box-shadow:0 0 30px 10px rgba(255,255,255,.7) inset;
+	}
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+	#gold ul li{
+		margin-top: 10px;
+	}
+   .center_div {
+		width: 100%;
+   }
+   .center_div img{
+		width: 100%;
+		display:block;
+		margin: 25 auto;
+   }
+   .main-post h3{
+		font-size: 18px;
+		margin: 5;
+   }
+
+   .doitems ul{
+		font-size: 10pt;
+		list-style-type: square;
+   }
+	
+   .content1 {
+		background: url(../img/coding.png) no-repeat center center fixed;
+		background-size: cover;
+		height: 25%;
+		width: 100%;
+		display: table;
+		background-attachment: fixed;
+   }
+	
+}
+
+]]></content>
   </entry>
   <entry>
     <title></title>
