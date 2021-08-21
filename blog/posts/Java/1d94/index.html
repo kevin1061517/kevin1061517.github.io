@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-16x16-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/favicon-16x16-next.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Sans HK:300,300italic,400,400italic,700,700italic|Secular One:300,300italic,400,400italic,700,700italic|Kosugi Maru:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flat-top.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kevin1061517.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":230,"display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"perspectiveUpIn","sidebar":"shrinkIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="前言最近在Leetcode刷個幾題，使用到集合(Collection)物件的頻率甚高，顧名思義就是把多個有關聯的資料存放在Collection裡面，而這些資料叫做元素(Elements)，同時也就是物件。因為常常會不小心忘記有一些集合的宣告方法或具有哪些方法，因此，這邊來記錄一下我在Leetcode上最常用到的幾個Collection。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高頻率出現的Java Collections">
+<meta property="og:url" content="https://kevin1061517.github.io/blog/posts/Java/1d94/index.html">
+<meta property="og:site_name" content="Kevin Blog">
+<meta property="og:description" content="前言最近在Leetcode刷個幾題，使用到集合(Collection)物件的頻率甚高，顧名思義就是把多個有關聯的資料存放在Collection裡面，而這些資料叫做元素(Elements)，同時也就是物件。因為常常會不小心忘記有一些集合的宣告方法或具有哪些方法，因此，這邊來記錄一下我在Leetcode上最常用到的幾個Collection。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/OOq4Umn.png">
+<meta property="article:published_time" content="2020-09-05T03:38:20.000Z">
+<meta property="article:modified_time" content="2020-12-27T15:50:49.513Z">
+<meta property="article:author" content="Kevin Fang">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="集合物件Collection">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/OOq4Umn.png">
+
+<link rel="canonical" href="https://kevin1061517.github.io/blog/posts/Java/1d94/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>高頻率出現的Java Collections | Kevin Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Kevin Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Kevin Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Be brave to chase my dreams</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>回到首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>文章分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>所有文章</a>
+
+  </li>
+	<!--<div style="padding: 5px 10px"> http://moxfive.xyz/2016/05/31/hexo-local-search/
+			<form id="search-form">
+				<i class="fa fa-search"><font>搜尋: </font></i>
+				<input type="text" id="local-search-input" name="q" results="0" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off"/>
+				<i class="fa fa-times" onclick="resetSearch()"></i>
+			</form>
+			<div id="local-search-result" class="local-search-result-cls"></div>
+			<p class='no-result'>No results found </p>
+	</div>-->
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li> 
+	
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <font>置頂</font>
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://kevin1061517.github.io/blog/posts/Java/1d94/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/42539369?s=460&u=39b9ef0ba8f701077a22689184ac5bcce289e9e4&v=4">
+      <meta itemprop="name" content="Kevin Fang">
+      <meta itemprop="description" content="Better late than never">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kevin Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          高頻率出現的Java Collections
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-09-05 11:38:20" itemprop="dateCreated datePublished" datetime="2020-09-05T11:38:20+08:00">2020-09-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-12-27 23:50:49" itemprop="dateModified" datetime="2020-12-27T23:50:49+08:00">2020-12-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/blog/posts/Java/1d94/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="blog/posts/Java/1d94/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在Leetcode刷個幾題，使用到集合(Collection)物件的頻率甚高，顧名思義就是把多個有關聯的資料存放在Collection裡面，而這些資料叫做元素(Elements)，同時也就是物件。因為常常會不小心忘記有一些集合的宣告方法或具有哪些方法，因此，這邊來記錄一下我在Leetcode上最常用到的幾個Collection。</p>
+<a id="more"></a>
+
+<h2 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h2><p>集合物件(Collections)是將一群相關的資料聚集在一個物件當中，且可以對這些資料做存放及排序等操作，其實就類似陣列，所以Collection也被人叫做動態陣列(dynamically array)，最重要的是它具備許多有效和方便的功能。下列為Collection的特色</p>
+<ul>
+<li>屬於Java的java.util.*套件</li>
+<li>在集合裡面的成員(Element)要是物件(Object)型態，如果要使用基本型別的話要用Wrapper class(但其實存放int宣告的變數還是可以，Java會幫你轉成Integer)</li>
+<li>可以搭配使用到泛型(genric)，讓編譯時就可以檢查元素的資料型態，所以會具有更彈性的型別安全(type safety)檢查機制，且同時可以減少轉型(Casting)的使用</li>
+<li>實作Collection的物件有許多都是常見的資料結構</li>
+</ul>
+<p>下面這張圖是集合物件之間的關係圖</p>
+<img src="https://i.imgur.com/OOq4Umn.png" width="90%" height="65%" />
+
+<h3 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h3><p>堆疊(Stack)繼承Vector類別，實現了一種資料結構為後進先出(LIFO)的類別。因為Stack繼承父類別Vector的的add(Element e)及isEmpty()等方法，但使用Stack類別自己實作的push(Element e)及empty()方法可以增加程式的<font color="#dd0000">可讀性及目的性</font> (引用<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/15989309/java-stack-push-vs-add">link</a> )。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">stack.push(<span class="number">10</span>);</span><br><span class="line">stack.push(<span class="keyword">null</span>); <span class="comment">//stack可以存放null</span></span><br><span class="line">stack.push(<span class="number">5</span>);</span><br><span class="line">stack.push(<span class="number">1</span>);</span><br><span class="line">System.out.println(stack); <span class="comment">//[10, null, 5, 1]</span></span><br><span class="line">System.out.println(stack.size()); <span class="comment">//4</span></span><br><span class="line">System.out.println(stack.indexOf(<span class="number">1</span>)); <span class="comment">//3</span></span><br><span class="line">System.out.println(stack.peek()); <span class="comment">//1，檢視為上層的物件(不移除)</span></span><br><span class="line"><span class="keyword">int</span> t = stack.pop(); <span class="comment">//移除Stack中的最上層的物件，並返回此物件，所以t=1</span></span><br><span class="line">System.out.println(stack); <span class="comment">//[10, null, 5]</span></span><br><span class="line">System.out.println(stack.search(<span class="number">10</span>)); <span class="comment">//3，search為返回目標物件在stack中到最上層的物件的距離，如果最上層是5，stack.search(5)就會返回1</span></span><br></pre></td></tr></table></figure>
+
+<p>另外還要注意當stack為空時，如果使用peek()和pop()會拋出<var><code>java.util.EmptyStackException</code></var></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    stack.peek();</span><br><span class="line">    stack.pop();</span><br><span class="line">&#125; <span class="keyword">catch</span> (EmptyStackException e) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;Stack為空&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h3><p>貯列(Queue)與Stack相反，資料型態為先進先出(FIFO)的類別，這邊要注意的地方是Queue為一個介面，要由LinkedList或PriorityQueue來實作，還有Queue因為繼承至Collection介面，所以也具備一些相同的等方法，但通常為了可讀性及安全性，還是會使用Queue自己的offer()及poll()等方法，而且官方文件有提到offer()、poll()和peek()遇到操作失敗時，<font color="#dd0000">不同於add()、remove()及element()會直接拋出Exception</font>，反而是會返回特定值，像是offer()會返回boolean值 ; poll()遇queue為空，則是會回傳null，否則就回傳最前面的那個物件，並再回傳後刪除此物件 ; peek()也是當queue為空時，即返回一個null，不然就回傳queue最前面那一個物件。Queue有自己的一個不放參數直接remove()方法，其表示移除最接近的元素，但要小心，如果遇到空的Queue，則會拋出<var><code>java.util.NoSuchElementException</code></var></p>
+<table>
+<thead>
+<tr>
+<th align="center">LinkedList</th>
+<th align="center">PriorityQueue</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">最常見實作Queue的類別，具備貯列(Queue)基本的原則(FIFO)，規則為每次都從尾端加入，並從前端來取出元素，來達到類似排隊的效果</td>
+<td align="center">從行為來看PriorityQueue已經沒有貯列(Queue)基本的原則(FIFO)，因為他的排列順序是根據元素的小到大，意思就是每次取出(poll)的元素都是Queue中數值為小的那一個</td>
+</tr>
+<tr>
+<td align="center">可存放null元素</td>
+<td align="center">不能存放null元素，會拋出<var><code>java.lang.NullPointerException</code></var></td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Queue&lt;Integer&gt; queue = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</span><br><span class="line">queue.offer(<span class="number">1</span>);</span><br><span class="line">queue.offer(<span class="number">5</span>);</span><br><span class="line">queue.offer(<span class="number">3</span>);</span><br><span class="line">queue.offer(<span class="number">2</span>);</span><br><span class="line">System.out.println(queue); <span class="comment">//[1, 5, 3, 2]</span></span><br><span class="line">System.out.println(queue.poll()); <span class="comment">//1</span></span><br><span class="line">System.out.println(queue); <span class="comment">//[5, 3, 2]</span></span><br><span class="line">System.out.println(queue.peek()); <span class="comment">//5</span></span><br><span class="line">        </span><br><span class="line">Queue&lt;Integer&gt; queue = <span class="keyword">new</span> PriorityQueue();</span><br><span class="line">queue.offer(<span class="number">1</span>);</span><br><span class="line">queue.offer(<span class="number">5</span>);</span><br><span class="line">queue.offer(<span class="number">3</span>);</span><br><span class="line">queue.offer(<span class="number">2</span>);</span><br><span class="line">System.out.println(queue); <span class="comment">//[1, 2, 3, 5]</span></span><br><span class="line">System.out.println(queue.poll()); <span class="comment">//1</span></span><br><span class="line">System.out.println(queue); <span class="comment">//[2, 5, 3]</span></span><br><span class="line">System.out.println(queue.peek()); <span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Dequeue"><a href="#Dequeue" class="headerlink" title="Dequeue"></a>Dequeue</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Deque deque = <span class="keyword">new</span> ArrayDeque();</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+<h2 id="通用方法"><a href="#通用方法" class="headerlink" title="通用方法"></a>通用方法</h2><h3 id="Iterable-介面"><a href="#Iterable-介面" class="headerlink" title="Iterable 介面"></a>Iterable 介面</h3><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">說明</th>
+<th align="center">回傳型態</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">hasNext()</td>
+<td align="center">判斷迭代器還有沒有元素，有的話就回傳true</td>
+<td align="center">boolean</td>
+</tr>
+<tr>
+<td align="center">next()</td>
+<td align="center">將迭代器的元素傳回，並指向下一個元素，只能從前往後取值(不可逆)</td>
+<td align="center">Object()</td>
+</tr>
+<tr>
+<td align="center">remove()</td>
+<td align="center">刪除iterator.next()方法目前指到的元素，所以可以在迴圈裏面放在next()的後面，就可以清空集合物件的元素了</td>
+<td align="center">void</td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">list.add(<span class="number">1</span>);</span><br><span class="line">list.add(<span class="number">2</span>);</span><br><span class="line">list.add(<span class="number">3</span>);</span><br><span class="line">Iterator&lt;Integer&gt; iterator = list.iterator();</span><br><span class="line"><span class="keyword">while</span>(iterator.hasNext()) &#123;</span><br><span class="line">    System.out.println(iterator.next());</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//System.out.println(iterator.next()); // 跳出java.util.NoSuchElementException</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Collection-介面"><a href="#Collection-介面" class="headerlink" title="Collection 介面"></a>Collection 介面</h3><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">說明</th>
+<th align="center">回傳型態</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><div style="width: 100pt">remove(Object o)</td>
+<td align="center">刪除放在參數的o物件，成功回傳true</td>
+<td align="center">boolean</td>
+</tr>
+<tr>
+<td align="center">remove(int i)</td>
+<td align="center">移除索引值為i的物件，成功則回傳此物件，若超出集合物件的索引時會拋出<var>java.lang.IndexOutOfBoundsException</var></td>
+<td align="center">泛型所宣告的物件型態&lt;E&gt;</td>
+</tr>
+<tr>
+<td align="center">indexOf(Object o)</td>
+<td align="center">指參數的物件在集合物件從前面數來第幾個索引(從0開始)，而還有一個是lastIndexOf(Object o)則是從後面來找尋，若都沒有符合的那一個物件就回傳一個-1，注意這是具有索引的集合物件才有的方法，像是Set或Map就沒有</td>
+<td align="center">int</td>
+</tr>
+<tr>
+<td align="center">size()</td>
+<td align="center">回傳集合的元素有多少個元素</td>
+<td align="center">int</td>
+</tr>
+<tr>
+<td align="center">iterator()</td>
+<td align="center">將Collection變成iterator物件，以便來取得集合內所有的值，通常會搭配一個迴圈，然後條件判斷呼叫已經iterator()的參考變數的hasNext()，來判斷是否還有元素可以迭代出來，迴圈裡面使用參考變數的next()來取集合內的值</td>
+<td align="center">Iterator<E></td>
+</tr>
+<tr>
+<td align="center">isEmpty()</td>
+<td align="center">檢視集合物件是否為空</td>
+<td align="center">boolean</td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>作者： </strong>Kevin Fang
+  </li>
+  <li class="post-copyright-link">
+    <strong>文章連結：</strong>
+    <a href="https://kevin1061517.github.io/blog/posts/Java/1d94/" title="高頻率出現的Java Collections">https://kevin1061517.github.io/blog/posts/Java/1d94/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 許可協議。轉載請註明出處！
+  </li>
+</ul>
+</div>
+
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag">Java</a>
+              <a href="/tags/%E9%9B%86%E5%90%88%E7%89%A9%E4%BB%B6Collection/" rel="tag">集合物件Collection</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/posts/ExtJS/c7fe/" rel="prev" title="初探var及let變數">
+      <i class="fa fa-chevron-left"></i> 初探var及let變數
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/blog/posts/Hexo/2721/" rel="next" title="Hexo圖片不套用fancybox">
+      Hexo圖片不套用fancybox <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+	
+	
+		<div class="recommended_posts" style="margin: 20px 0">
+			
+			
+			<i class="fas fa-globe" style="margin-right: 8px;"></i>
+			<span style="font-weight:bold;">其他相關文章</span>
+			
+			<ul>
+				
+					<li><a href="https://kevin1061517.github.io/blog/posts/Java/8f30/">Practical Java筆記</a></li>
+				
+					<li><a href="https://kevin1061517.github.io/blog/posts/Java/a3e5/">Python & Java 輸出n層三角形圖形</a></li>
+				
+			</ul>
+			 
+		</div>
+    
+	
+	
+	
+	
+       <div class="post-nav">
+         <div class="post-nav-next post-nav-item">
+           
+             <a href="/blog/posts/Hexo/2721/" rel="prev" title="Hexo圖片不套用fancybox">
+               <i class="fa fa-chevron-left"></i> Hexo圖片不套用fancybox
+             </a>
+           
+         </div>
+
+         <span class="post-nav-divider"></span>
+
+         <div class="post-nav-prev post-nav-item">
+           
+             <a href="/blog/posts/ExtJS/c7fe/" rel="next" title="初探var及let變數">
+               初探var及let變數 <i class="fa fa-chevron-right"></i>
+             </a>
+           
+         </div>
+       </div>
+     
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collection"><span class="nav-number">2.</span> <span class="nav-text">Collection</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stack"><span class="nav-number">2.1.</span> <span class="nav-text">Stack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Queue"><span class="nav-number">2.2.</span> <span class="nav-text">Queue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dequeue"><span class="nav-number">2.3.</span> <span class="nav-text">Dequeue</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">通用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Iterable-%E4%BB%8B%E9%9D%A2"><span class="nav-number">3.1.</span> <span class="nav-text">Iterable 介面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Collection-%E4%BB%8B%E9%9D%A2"><span class="nav-number">3.2.</span> <span class="nav-text">Collection 介面</span></a></li></ol></li></ol></div>
+
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kevin Fang"
+      src="https://avatars1.githubusercontent.com/u/42539369?s=460&u=39b9ef0ba8f701077a22689184ac5bcce289e9e4&v=4">
+  <p class="site-author-name" itemprop="name">Kevin Fang</p>
+  <div class="site-description" itemprop="description">Better late than never</div>
+  
+     <div class="feed-link motion-element">
+       <a href="/atom.xml" rel="alternate">
+         <i class="fa fa-rss"></i>
+           RSS
+       </a>
+     </div>
+  
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/kevin1061517" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;kevin1061517" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:kevin1061517@gmail.com" title="E-Mail → mailto:kevin1061517@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+	<div class="links-of-blogroll motion-element links-of-blogroll-block">
+	  <div class="links-of-blogroll-title">
+		<!-- 选择合适的icon -->
+		<i class="fa fa-history fa-" aria-hidden="true"></i>
+		<!-- 这里对应下文主题配置文件的recent_posts_title值 -->
+		近期文章
+	  </div>
+	  <ul class="links-of-blogroll-list"> 
+		 <!-- 设置排序规格，此处我采用按照文章更新时间排序 -updated -->
+		
+		<!-- 显示三条近期文章，请自信合理配置 -->
+		
+		  <li>
+			<a href="/blog/posts/Design-Pattern/6eb01663/" title="Singleton Design Pattern" target="_self">Singleton Design Pattern</a>
+		  </li>
+		
+		  <li>
+			<a href="/blog/posts/uncategorized/8a266b9a/" title="spring_one_to_one" target="_self">spring_one_to_one</a>
+		  </li>
+		
+		  <li>
+			<a href="/blog/posts/uncategorized/32b3d61b/" title="SpringMvcNote" target="_self">SpringMvcNote</a>
+		  </li>
+		
+	  </ul>
+	</div>
+
+
+		
+		<!--近期文章 這邊是首頁's siderbar-->
+		
+      </div>
+
+
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span style="color: #fc6423; margin: 0px 5px;">
+    <i class="fas fa-user-graduate"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kevin Fang</br>歡迎分享此文章，如有引用請保留作者名稱和網站連結</span>
+</div>
+  <!--<div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
+  </div>-->
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script color='61, 61, 61' opacity='1.5' zIndex='-1' count='50' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://kevin1061517.github.io/blog/posts/Java/1d94/',]
+      });
+      });
+  </script>
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://myblog-8bnj3lyur7.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://kevin1061517.github.io/blog/posts/Java/1d94/";
+    this.page.identifier = "blog/posts/Java/1d94/";
+    this.page.title = "高頻率出現的Java Collections";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://myblog-8bnj3lyur7.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+  
+  <!-- custom js from _layout.swig -->
+	<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+	<script type="text/javascript" src="/js/src/custom.js"></script>
+	<script type="text/javascript" src="/js/search.js"></script>
+</body>
+</html>
