@@ -31,7 +31,7 @@
 <meta property="og:description" content="前言JS的陣列(Array)是我認為最基本且常用的一個物件，所以善用JS提供的Array操作方法就顯得相當重要，過去在使用時每次都要查一下MDN上的Array文件 ，因此這篇就來記錄最常使用的操作方法及過去用錯的地方，希望可以更熟悉來讓程式碼更加簡潔乾淨!">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2021-05-23T00:48:30.000Z">
-<meta property="article:modified_time" content="2021-05-30T09:44:43.358Z">
+<meta property="article:modified_time" content="2021-06-27T09:24:55.872Z">
 <meta property="article:author" content="Kevin Fang">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="Array">
@@ -231,7 +231,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-05-30 17:44:43" itemprop="dateModified" datetime="2021-05-30T17:44:43+08:00">2021-05-30</time>
+                <time title="修改時間：2021-06-27 17:24:55" itemprop="dateModified" datetime="2021-06-27T17:24:55+08:00">2021-06-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -339,7 +339,7 @@
 <h3 id="concat-Array"><a href="#concat-Array" class="headerlink" title="concat(Array)"></a>concat(Array)</h3><p>concat()可將兩個陣列合併再一起， ES6語法則能夠用擴展運算符…來代替</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>];</span><br><span class="line"><span class="keyword">let</span> arr2 = [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr3 = arr.concat(arr2);</span><br><span class="line"><span class="keyword">let</span> arr4 = [...arr, ...arr2]; <span class="comment">// 使用 ...</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr3); <span class="comment">// [1,2,3,4,5,6,7,8,9]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr4); <span class="comment">// [1,2,3,4,5,6,7,8,9]</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="slice-start-end"><a href="#slice-start-end" class="headerlink" title="slice(start, end)"></a>slice(start, end)</h3><p>如同英文字一樣，slice就是把陣列切一段出來，區段一樣也是不包含end自己本身</p>
+<h3 id="slice-start-end"><a href="#slice-start-end" class="headerlink" title="slice(start, end)"></a>slice(start, end)</h3><p>如同英文字一樣，slice就是把陣列切一段出來，區段一樣也是不包含end自己本身，<br>類似用途的方法還有 substr() 和 substring()<br>在使用slice()的時候，如果不給參數，或只給零，那麼slice()就會把陣列從頭到尾複製一份給我們</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr.slice(<span class="number">1</span>, <span class="number">3</span>)); <span class="comment">// [2, 3]</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="map-callbackFn"><a href="#map-callbackFn" class="headerlink" title="map(callbackFn)"></a>map(callbackFn)</h3><p>map是我在學react時，最常會來使用到的一個方法，他可以針對每一個元素做處理，並回傳一個新的陣列，他的callbackFn和forEach有點類似，有三個元素</p>
@@ -374,6 +374,8 @@
 <li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from">MDN文件</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.oxxostudio.tw/articles/201908/js-array.html">JavaScript Array 陣列操作方法大全</a></li>
 </ul>
+<h2 id="補充-1"><a href="#補充-1" class="headerlink" title="補充"></a>補充</h2><p>HTMLCollection 或 NodeList 轉陣列方法</p>
+<p>var arr = Array.prototype.slice.call( htmlCollection )<br>var arr = [].slice.call(htmlCollection);<br>// es6<br>var arr = Array.from(htmlCollection);<br>var arr = […htmlCollection];</p>
 
     </div>
 
@@ -414,7 +416,10 @@
     <a href="/blog/posts/Java/9eccf366/" rel="prev" title="用Base64儲存pdf等檔案類型">
       <i class="fa fa-chevron-left"></i> 用Base64儲存pdf等檔案類型
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/blog/posts/uncategorized/32b3d61b/" rel="next" title="SpringMvcNote">
+      SpringMvcNote <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -428,9 +433,9 @@
 			
 			<ul>
 				
-					<li><a href="https://kevin1061517.github.io/blog/posts/Java/9eccf366/">用Base64儲存pdf等檔案類型</a></li>
+					<li><a href="https://kevin1061517.github.io/blog/posts/uncategorized/32b3d61b/">SpringMvcNote</a></li>
 				
-					<li><a href="https://kevin1061517.github.io/blog/posts/JavaScript/78072a22/">JS 學習筆記</a></li>
+					<li><a href="https://kevin1061517.github.io/blog/posts/Java/9eccf366/">用Base64儲存pdf等檔案類型</a></li>
 				
 			</ul>
 			 
@@ -442,6 +447,10 @@
 	
        <div class="post-nav">
          <div class="post-nav-next post-nav-item">
+           
+             <a href="/blog/posts/uncategorized/32b3d61b/" rel="prev" title="SpringMvcNote">
+               <i class="fa fa-chevron-left"></i> SpringMvcNote
+             </a>
            
          </div>
 
@@ -518,7 +527,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%A3%E5%88%97%E5%AE%9A%E7%BE%A9"><span class="nav-number">2.</span> <span class="nav-text">陣列定義</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES5%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">ES5操作方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#push-element%E2%80%A6"><span class="nav-number">3.1.</span> <span class="nav-text">push(element…)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pop"><span class="nav-number">3.2.</span> <span class="nav-text">pop()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unshift-element%E2%80%A6"><span class="nav-number">3.3.</span> <span class="nav-text">unshift(element…)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shift"><span class="nav-number">3.4.</span> <span class="nav-text">shift()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#splice-startIndex-deleteCount-item1%E2%80%A6"><span class="nav-number">3.5.</span> <span class="nav-text">splice(startIndex, deleteCount, item1…)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reverse"><span class="nav-number">3.6.</span> <span class="nav-text">reverse()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sort-compareFn"><span class="nav-number">3.7.</span> <span class="nav-text">sort(compareFn)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#copyWithin-target-start-end"><span class="nav-number">3.8.</span> <span class="nav-text">copyWithin(target, start, end)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fill-value-start-end"><span class="nav-number">3.9.</span> <span class="nav-text">fill(value, start, end)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#indexOf-searchElement-fromIndex"><span class="nav-number">3.10.</span> <span class="nav-text">indexOf(searchElement, fromIndex)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">ES6操作方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#find-callbackFn"><span class="nav-number">4.1.</span> <span class="nav-text">find(callbackFn)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#findIndex-callbackFn"><span class="nav-number">4.2.</span> <span class="nav-text">findIndex(callbackFn)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filter-callbackFn"><span class="nav-number">4.3.</span> <span class="nav-text">filter(callbackFn)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#forEach-callbackFn"><span class="nav-number">4.4.</span> <span class="nav-text">forEach(callbackFn)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#join-separator"><span class="nav-number">4.5.</span> <span class="nav-text">join(separator)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#concat-Array"><span class="nav-number">4.6.</span> <span class="nav-text">concat(Array)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#slice-start-end"><span class="nav-number">4.7.</span> <span class="nav-text">slice(start, end)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#map-callbackFn"><span class="nav-number">4.8.</span> <span class="nav-text">map(callbackFn)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reduce-callbackFn-accumulator-currentValue-currentIndex-array-initialValue"><span class="nav-number">4.9.</span> <span class="nav-text">reduce(callbackFn[accumulator, currentValue, currentIndex, array], initialValue)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-from"><span class="nav-number">4.10.</span> <span class="nav-text">Array.from()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A3%9C%E5%85%85"><span class="nav-number">5.</span> <span class="nav-text">補充</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83"><span class="nav-number">6.</span> <span class="nav-text">參考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%A3%E5%88%97%E5%AE%9A%E7%BE%A9"><span class="nav-number">2.</span> <span class="nav-text">陣列定義</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES5%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">ES5操作方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#push-element%E2%80%A6"><span class="nav-number">3.1.</span> <span class="nav-text">push(element…)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pop"><span class="nav-number">3.2.</span> <span class="nav-text">pop()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unshift-element%E2%80%A6"><span class="nav-number">3.3.</span> <span class="nav-text">unshift(element…)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shift"><span class="nav-number">3.4.</span> <span class="nav-text">shift()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#splice-startIndex-deleteCount-item1%E2%80%A6"><span class="nav-number">3.5.</span> <span class="nav-text">splice(startIndex, deleteCount, item1…)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reverse"><span class="nav-number">3.6.</span> <span class="nav-text">reverse()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sort-compareFn"><span class="nav-number">3.7.</span> <span class="nav-text">sort(compareFn)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#copyWithin-target-start-end"><span class="nav-number">3.8.</span> <span class="nav-text">copyWithin(target, start, end)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fill-value-start-end"><span class="nav-number">3.9.</span> <span class="nav-text">fill(value, start, end)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#indexOf-searchElement-fromIndex"><span class="nav-number">3.10.</span> <span class="nav-text">indexOf(searchElement, fromIndex)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">ES6操作方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#find-callbackFn"><span class="nav-number">4.1.</span> <span class="nav-text">find(callbackFn)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#findIndex-callbackFn"><span class="nav-number">4.2.</span> <span class="nav-text">findIndex(callbackFn)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filter-callbackFn"><span class="nav-number">4.3.</span> <span class="nav-text">filter(callbackFn)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#forEach-callbackFn"><span class="nav-number">4.4.</span> <span class="nav-text">forEach(callbackFn)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#join-separator"><span class="nav-number">4.5.</span> <span class="nav-text">join(separator)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#concat-Array"><span class="nav-number">4.6.</span> <span class="nav-text">concat(Array)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#slice-start-end"><span class="nav-number">4.7.</span> <span class="nav-text">slice(start, end)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#map-callbackFn"><span class="nav-number">4.8.</span> <span class="nav-text">map(callbackFn)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reduce-callbackFn-accumulator-currentValue-currentIndex-array-initialValue"><span class="nav-number">4.9.</span> <span class="nav-text">reduce(callbackFn[accumulator, currentValue, currentIndex, array], initialValue)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-from"><span class="nav-number">4.10.</span> <span class="nav-text">Array.from()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A3%9C%E5%85%85"><span class="nav-number">5.</span> <span class="nav-text">補充</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83"><span class="nav-number">6.</span> <span class="nav-text">參考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A3%9C%E5%85%85-1"><span class="nav-number">7.</span> <span class="nav-text">補充</span></a></li></ol></div>
 
       </div>
       <!--/noindex-->
@@ -543,14 +552,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -585,15 +594,15 @@
 		<!-- 显示三条近期文章，请自信合理配置 -->
 		
 		  <li>
-			<a href="/blog/posts/JavaScript/f868cf93/" title="JS Array常用方法" target="_self">JS Array常用方法</a>
+			<a href="/blog/posts/Design-Pattern/6eb01663/" title="Singleton Design Pattern" target="_self">Singleton Design Pattern</a>
 		  </li>
 		
 		  <li>
-			<a href="/blog/posts/Java/9eccf366/" title="用Base64儲存pdf等檔案類型" target="_self">用Base64儲存pdf等檔案類型</a>
+			<a href="/blog/posts/uncategorized/8a266b9a/" title="spring_one_to_one" target="_self">spring_one_to_one</a>
 		  </li>
 		
 		  <li>
-			<a href="/blog/posts/JavaScript/78072a22/" title="JS 學習筆記" target="_self">JS 學習筆記</a>
+			<a href="/blog/posts/uncategorized/32b3d61b/" title="SpringMvcNote" target="_self">SpringMvcNote</a>
 		  </li>
 		
 	  </ul>

@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Singleton Design Pattern</title>
+    <url>/blog/posts/Design-Pattern/6eb01663/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Singleton Design Pattern 是一種設計的模式，目的是確保執行環境(JVM)內只會有一個物件實例，有點類似於Bean在Spring容器管理的Singleton作用域，意思一個IOC容器中只會有唯一的物件。它們都是希望可以避免系統資源的浪費，且確定這一個物件是無狀態的(Stateless)，並能讓類別的腳色定義能更明確。常見Scope為Singleton的例子就是Spring boot專案裡的Service或是自己定義的Utility類別，我們並不需要每次都注入一個新的物件吧!</p>
+<a id="more"></a>
+
+<h2 id="獨體設計模式建構"><a href="#獨體設計模式建構" class="headerlink" title="獨體設計模式建構"></a>獨體設計模式建構</h2><p>Singleton Design Pattern有幾個關鍵步驟來實踐</p>
+<ol>
+<li>類別的建構子存取修飾子固定設為private <ul>
+<li>目的為不予許其他外部類別使用new關鍵字來建立物件，也就保證了只有單一的物件</li>
+</ul>
+</li>
+<li>使用private static final來實體化這一物件 <ul>
+<li>因為物件只需要一份就好，所以在類別內使用private static final來宣告實體化這一物件，並表示該物件不可由外部類別直接存取(private)，同時在JVM只會有一份(static)，且該物件參考永遠不能指向其他參考(final)</li>
+</ul>
+</li>
+<li>提供公開的Getter方法來存取此物件<ul>
+<li>最後需要一個公開的Getter方法來存取物件，慣例上會使用getInstance來返回此物件</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SingletonPattern</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Step 1</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">SingletonPattern</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    <span class="keyword">private</span> String text = <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line">    <span class="comment">// Step 2</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> SingletonPattern singletonPattern = <span class="keyword">new</span> SingletonPattern();</span><br><span class="line">    <span class="comment">// Step 3</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingletonPattern <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> singletonPattern;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getText</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> text;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="comment">// SingletonPattern singleton = SingletonPattern.getInstance();</span></span><br></pre></td></tr></table></figure>
+<h2 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h2><p>在使用static必須要十分小心，加上static的變數會讓類別變成一個有狀態(State)的類別，如果在多執行續的情況下，常會造成結果跟預期的不相同，如下就是一個錯誤的例子，之前某舊專案使用到分頁，當時使用static來存放第幾筆資料和抓取數量，想說可以在Controller設定好資料，再EBO那邊直接再取就好，但經前輩指導後，這在多執行緒時就會有嚴重問題，這就是為何static要盡可能使用再無狀態的類別裡面!</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pager</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> start;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> limit;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Pager</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Pager pager = <span class="keyword">new</span> Pager();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Pager <span class="title">getinstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> pager;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setPagerInfo</span><span class="params">(<span class="keyword">int</span> first, <span class="keyword">int</span> maxresult)</span> </span>&#123;</span><br><span class="line">        start = first;<span class="comment">//參數名稱要和static的成員變數不同，不然java預設會使用this.xxx</span></span><br><span class="line">        limit = maxresult;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getStart</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> start;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getLimit</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> limit;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>前言提到的Bean作用域有分為下列幾種，最常使用的就是Singleton和Prototype，兩者差別就是前者適用無狀態(Stateless)，後者適用有狀態的(Stateful)Bean</p>
+<ul>
+<li>Singleton<ul>
+<li>為預設的bean scope，整個IoC容器只會有唯一的實例</li>
+</ul>
+</li>
+<li>Prototype<ul>
+<li>每次被調用都是建構新的實例</li>
+</ul>
+</li>
+<li>Request <ul>
+<li>實例的scope為HTTP Request，同個request的實例才會相同 (Web環境才存在的scope)</li>
+</ul>
+</li>
+<li>Session<ul>
+<li>實例的scope為HTTP Session，同個session的實例才會相同 (Web環境才存在的scope)</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Design Pattern</category>
+      </categories>
+  </entry>
+  <entry>
     <title>ExtJS 製作 Banner</title>
     <url>/blog/posts/ExtJS/c1113943/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
@@ -123,28 +171,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo分類頁面部分項目連結404錯誤</title>
-    <url>/blog/posts/Hexo/7dce27be/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>原本分類(categories)和標籤(tags)頁面很正常，某天調整了Next主題的一些配置，接著就發現分類和標籤頁面的某些關鍵字點下去都直接爛掉(顯示404)如下圖，原本一直以為是哪邊配置沒有弄號，但越試越奇怪，明明localhost端的分類項目和標籤關鍵字連結開起來一切都正常，到Remote開起來就會有些顯示404。結果試了老半天，發現原來是Hexo有個小bug…因此這邊來記錄一下!</p>
-<a id="more"></a>
-
-<img src="https://i.imgur.com/r5Ttemw.png" width=70%/>
-
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>爬文後發現也有人遇到類似問題，但原因眾說紛紜，大部分推測是特定Hexo版本的小問題，聽說更新到最新版本就不會有此狀況，下面來記錄一下解決的方法。</p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>我是先將Hexo根目錄的<code>.deploy_git</code>資料夾整個刪除，接著再重新佈署一次，結果就可以了!我猜應該是Hexo的某個地方咬到<code>.deploy_git</code>裡面的某個檔案，所以造成部分地方有衝突，才會再部屬到github後就會有些是404，這題真的是搞了我好幾天。</p>
-<h2 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h2><p>另外也有人建議把Hexo根目錄的<code>db.json</code>砍掉，再重新佈署一次，這邊對我是沒作用，但可能有些人也是這部分造成的錯誤。</p>
-<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol>
-<li><a href="https://github.com/iissnan/hexo-theme-next/issues/635">blog categories XXX 404 Error</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo圖片不套用fancybox</title>
     <url>/blog/posts/Hexo/2721/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>fancybox套件的功能是實現點開圖片，並可以放大顯示和左右切換圖片，還會隨版面的大小自動來調整跳出的版面範圍，而且手機端也可以直接實現。fancybox在Jquery中也有相關的套件，而Next主題自己在config有內建fancybox的配置，配製好以後就會在所有img標籤實作這功能，但如果有部分圖片不想要有放大顯示，則就需要做一些步驟。</p>
@@ -184,6 +210,28 @@
       <tags>
         <tag>Hexo</tag>
         <tag>fancybox照片放大</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo分類頁面部分項目連結404錯誤</title>
+    <url>/blog/posts/Hexo/7dce27be/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>原本分類(categories)和標籤(tags)頁面很正常，某天調整了Next主題的一些配置，接著就發現分類和標籤頁面的某些關鍵字點下去都直接爛掉(顯示404)如下圖，原本一直以為是哪邊配置沒有弄號，但越試越奇怪，明明localhost端的分類項目和標籤關鍵字連結開起來一切都正常，到Remote開起來就會有些顯示404。結果試了老半天，發現原來是Hexo有個小bug…因此這邊來記錄一下!</p>
+<a id="more"></a>
+
+<img src="https://i.imgur.com/r5Ttemw.png" width=70%/>
+
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>爬文後發現也有人遇到類似問題，但原因眾說紛紜，大部分推測是特定Hexo版本的小問題，聽說更新到最新版本就不會有此狀況，下面來記錄一下解決的方法。</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>我是先將Hexo根目錄的<code>.deploy_git</code>資料夾整個刪除，接著再重新佈署一次，結果就可以了!我猜應該是Hexo的某個地方咬到<code>.deploy_git</code>裡面的某個檔案，所以造成部分地方有衝突，才會再部屬到github後就會有些是404，這題真的是搞了我好幾天。</p>
+<h2 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h2><p>另外也有人建議把Hexo根目錄的<code>db.json</code>砍掉，再重新佈署一次，這邊對我是沒作用，但可能有些人也是這部分造成的錯誤。</p>
+<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol>
+<li><a href="https://github.com/iissnan/hexo-theme-next/issues/635">blog categories XXX 404 Error</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -260,7 +308,7 @@
 <h3 id="concat-Array"><a href="#concat-Array" class="headerlink" title="concat(Array)"></a>concat(Array)</h3><p>concat()可將兩個陣列合併再一起， ES6語法則能夠用擴展運算符…來代替</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>];</span><br><span class="line"><span class="keyword">let</span> arr2 = [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr3 = arr.concat(arr2);</span><br><span class="line"><span class="keyword">let</span> arr4 = [...arr, ...arr2]; <span class="comment">// 使用 ...</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr3); <span class="comment">// [1,2,3,4,5,6,7,8,9]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr4); <span class="comment">// [1,2,3,4,5,6,7,8,9]</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="slice-start-end"><a href="#slice-start-end" class="headerlink" title="slice(start, end)"></a>slice(start, end)</h3><p>如同英文字一樣，slice就是把陣列切一段出來，區段一樣也是不包含end自己本身</p>
+<h3 id="slice-start-end"><a href="#slice-start-end" class="headerlink" title="slice(start, end)"></a>slice(start, end)</h3><p>如同英文字一樣，slice就是把陣列切一段出來，區段一樣也是不包含end自己本身，<br>類似用途的方法還有 substr() 和 substring()<br>在使用slice()的時候，如果不給參數，或只給零，那麼slice()就會把陣列從頭到尾複製一份給我們</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr.slice(<span class="number">1</span>, <span class="number">3</span>)); <span class="comment">// [2, 3]</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="map-callbackFn"><a href="#map-callbackFn" class="headerlink" title="map(callbackFn)"></a>map(callbackFn)</h3><p>map是我在學react時，最常會來使用到的一個方法，他可以針對每一個元素做處理，並回傳一個新的陣列，他的callbackFn和forEach有點類似，有三個元素</p>
@@ -295,6 +343,8 @@
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from">MDN文件</a></li>
 <li><a href="https://www.oxxostudio.tw/articles/201908/js-array.html">JavaScript Array 陣列操作方法大全</a></li>
 </ul>
+<h2 id="補充-1"><a href="#補充-1" class="headerlink" title="補充"></a>補充</h2><p>HTMLCollection 或 NodeList 轉陣列方法</p>
+<p>var arr = Array.prototype.slice.call( htmlCollection )<br>var arr = [].slice.call(htmlCollection);<br>// es6<br>var arr = Array.from(htmlCollection);<br>var arr = […htmlCollection];</p>
 ]]></content>
       <categories>
         <category>JavaScript</category>
@@ -302,92 +352,6 @@
       <tags>
         <tag>JavaScript</tag>
         <tag>Array</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JS 學習筆記</title>
-    <url>/blog/posts/JavaScript/78072a22/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>這幾個禮拜花點時間把大神Kuro的<a href="https://ithelp.ithome.com.tw/users/20065504/ironman/1259">重新認識 JavaScript</a> 系列的文章讀完，過程中跟隨作者的每一篇文章練習編寫JS，自己認為補足了許多之前不熟悉的觀念和技術，因此我這篇就將自己學習遇到的問題和重點記錄下來吧!</p>
-<a id="more"></a>
-
-<h2 id="指定-this-方式"><a href="#指定-this-方式" class="headerlink" title="指定 this 方式"></a>指定 this 方式</h2><p>func使用apply函式將this.t = 100的新變數增加到obj物件，有點像是把func裡面<code>this指定的變數或方法</code>複製到obj裡面去，因為在執行func.apply(obj)的時候，就會執行一次func裡面的code(func還回傳this.x的值123)，所以在func裡面的針對this屬性的賦值動作都會定義到參數obj裡面，最後才會有像是複製屬性的行為。<br>另外call和apply其實結果都相同，只是在傳遞參數的時，call()第二以後的參數會作為參數傳進目標函式中，而apply()第二參數必須是陣列，並將陣列中的每個元素作為參數傳進目標函式中</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    x: <span class="number">123</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">50</span>;</span><br><span class="line">    <span class="built_in">this</span>.t = <span class="number">100</span>;</span><br><span class="line">    <span class="built_in">this</span>.y = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.x;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(func.apply(obj)); <span class="comment">//123</span></span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// &#123;x: 123, t: 100, y: 10&#125; </span></span><br></pre></td></tr></table></figure>
-
-<p>bind()也會有一樣的複製效果</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    x: <span class="number">123</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>);</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">50</span>; <span class="comment">//有</span></span><br><span class="line">    <span class="built_in">this</span>.t = <span class="number">100</span>; <span class="comment">//沒有</span></span><br><span class="line">&#125;.bind(obj);</span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// &#123;x: 123&#125; 執行下面func後才會得到t: 100</span></span><br><span class="line">func(); <span class="comment">// &#123;x: 123&#125; </span></span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// &#123;x: 123, t: 100&#125; </span></span><br></pre></td></tr></table></figure>
-
-<h2 id="函式建構式"><a href="#函式建構式" class="headerlink" title="函式建構式"></a>函式建構式</h2><p>Cascade 也有人稱作 Fluent Interface，在function裡面會使用this.變數或this.方法，由於函式也是個物件，同時也可以將其視為 建構子(constructor)，透過關鍵字new來建構物件的行為<code>類似複製物件的功能</code></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> calNum = <span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.num = num;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.add = <span class="function"><span class="keyword">function</span>(<span class="params">newNum</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.num += newNum;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.sub = <span class="function"><span class="keyword">function</span>(<span class="params">newNum</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.num -= newNum;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.multi = <span class="function"><span class="keyword">function</span>(<span class="params">newNum</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.num *= newNum;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.division = <span class="function"><span class="keyword">function</span>(<span class="params">newNum</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.num /= newNum;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//var a = new calNum(100);</span></span><br><span class="line"><span class="comment">//new 如同下面兩個步驟</span></span><br><span class="line"><span class="comment">//-----------------</span></span><br><span class="line"><span class="keyword">var</span> a = &#123;&#125;;</span><br><span class="line">calNum.call(a, <span class="number">100</span>);</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// &#123;num: 100, add: ƒ, sub: ƒ, multi: ƒ, division: ƒ&#125;</span></span><br><span class="line">a.add(<span class="number">100</span>).sub(<span class="number">50</span>);</span><br><span class="line"><span class="built_in">console</span>.log( a.num );   <span class="comment">// 150</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"> name, age, gender </span>)</span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.name = name;</span><br><span class="line">  <span class="built_in">this</span>.age = age;</span><br><span class="line">  <span class="built_in">this</span>.gender = gender;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.greeting = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Hello! My name is &#x27;</span> + <span class="built_in">this</span>.name + <span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> kuro = <span class="keyword">new</span> Person( <span class="string">&#x27;Kuro&#x27;</span>, <span class="number">32</span>, <span class="string">&#x27;male&#x27;</span>);</span><br><span class="line">kuro.greeting();      <span class="comment">// &quot;Hello! My name is Kuro.&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> John = <span class="keyword">new</span> Person( <span class="string">&#x27;John&#x27;</span>, <span class="number">10</span>, <span class="string">&#x27;male&#x27;</span>);</span><br><span class="line">kuro.greeting();      <span class="comment">// &quot;Hello! My name is John.&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="defineProperty的get和set意義"><a href="#defineProperty的get和set意義" class="headerlink" title="defineProperty的get和set意義"></a>defineProperty的get和set意義</h2><p>如果你定義了 get 與 set 方法，表示你要自行控制屬性的存取，那麼就不能再去定義 value 或 writable 的屬性描述，<br>get和set只是定義在賦值與取值時候要做什麼行為而已</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    getName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(person, <span class="string">&#x27;name&#x27;</span>, &#123;</span><br><span class="line">    get: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;get&#x27;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>._name_;</span><br><span class="line">    &#125;,</span><br><span class="line">    set: <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;set&#x27;</span>);</span><br><span class="line">        <span class="built_in">this</span>._name_ = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(person);</span><br><span class="line">person.name = <span class="string">&#x27;kevin&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person.getName());</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">var person = &#123;</span><br><span class="line">    getName: <span class="keyword">function</span> () &#123;</span><br><span class="line">        console.log(this);</span><br><span class="line">        <span class="keyword">return</span> this.name;</span><br><span class="line">        //<span class="keyword">return</span> <span class="type">name</span>; //定義<span class="type">name</span>會往外開始找<span class="type">name</span>這一個變數</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">person.name = <span class="string">&#x27;kevin&#x27;</span>;</span><br><span class="line">var <span class="type">name</span> = <span class="string">&#x27;test&#x27;</span>;</span><br><span class="line">console.log(person.getName());</span><br><span class="line">//var <span class="type">name</span> = <span class="string">&#x27;test&#x27;</span>; //呼叫方法之後就看不到了</span><br></pre></td></tr></table></figure>
-
-
-<p>決定 this 的關鍵不在於它屬於哪個物件，而是在於 function「呼叫的時機點」<br>當你透過物件呼叫某個方法 (method) 的時候，此時 this 就是那個物件 (owner object)</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.count++;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">foo.count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>( <span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++ ) &#123;</span><br><span class="line">  foo(); <span class="comment">//undefined</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(foo.count) <span class="comment">//還是0</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Array常用方法"><a href="#Array常用方法" class="headerlink" title="Array常用方法"></a>Array常用方法</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arrs = [<span class="number">1</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">0</span>];</span><br><span class="line"><span class="comment">//var newArr = arrs.map(v =&gt; v * 2)</span></span><br><span class="line"><span class="keyword">var</span> newArr = arrs.map(<span class="function"><span class="keyword">function</span> (<span class="params">v, index, arr</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(index);</span><br><span class="line">    <span class="keyword">return</span> v * <span class="number">2</span>;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//var filterArr = arrs.filter(val =&gt; val &gt; 1);</span></span><br><span class="line"><span class="keyword">var</span> filterArr = arrs.filter(<span class="function"><span class="keyword">function</span> (<span class="params">val, index, arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> val &gt; <span class="number">1</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//var sortArr = arrs.sort((a, b) =&gt; a - b);</span></span><br><span class="line"><span class="keyword">var</span> sortArr = arrs.sort(<span class="function"><span class="keyword">function</span> (<span class="params">a,b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(newArr); <span class="comment">// [2, 8, 4, 6, 0]</span></span><br><span class="line"><span class="built_in">console</span>.log(filterArr); <span class="comment">// [4, 2, 3]</span></span><br><span class="line"><span class="built_in">console</span>.log(sortArr); <span class="comment">//[0, 1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure>
-<h2 id="浮點數轉整數"><a href="#浮點數轉整數" class="headerlink" title="浮點數轉整數"></a>浮點數轉整數</h2><p>根據定義在JS中的數字背後都是以浮點數的方式運行 <code>There is no such thing as an int in Javascript. All Numbers are actually doubles behind the scenes</code>，我們習慣上還是會把整數或浮點數方開來看。在stackoverflow有人發問如果要將浮點數轉型成整數，但不希望四捨五入可以怎麼做(<a href="https://stackoverflow.com/questions/8388440/converting-a-double-to-an-int-in-javascript-without-rounding/52872650">Converting a double to an int in Javascript without rounding
-</a> )，我們可以有下面的作法。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">1.85</span>;</span><br><span class="line"><span class="comment">//四捨五入</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.round(num));<span class="comment">// 2</span></span><br><span class="line"><span class="comment">//無視四捨五入</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.floor(num));<span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(num | <span class="number">0</span>); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(num));<span class="comment">// 1</span></span><br><span class="line"><span class="comment">//只取整數部分</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.trunc(<span class="number">1.6</span>)); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.trunc(<span class="number">-1.6</span>)); <span class="comment">// -1</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="布林值比較"><a href="#布林值比較" class="headerlink" title="布林值比較"></a>布林值比較</h2><figure class="highlight coffeescript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;true&#x27;</span> == <span class="literal">true</span>); <span class="regexp">//</span> <span class="literal">false</span>，因為等同於 <span class="string">&#x27;true&#x27;</span> == <span class="number">1</span>，但<span class="literal">true</span> == <span class="number">1</span>就會是<span class="literal">true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">100</span> == <span class="string">&#x27;100&#x27;</span>); <span class="regexp">//</span> 字串轉型成數字</span><br></pre></td></tr></table></figure>
-<ol>
-<li>比較的a 或 b其中一個為<code>boolean</code>，會在比較相等性之前將<code>false轉0 / true轉1</code>轉成數值型態</li>
-<li>比較的a 或 b其中一個為<code>String</code>，而另一個是數值，同樣會將字符串轉成數值型態</li>
-<li>比較的a 或 b其中一個是物件，另外一個不是，則會調用物件的valueOf()方法得到基本型別(如果其中一方是「物件」型別，而另一方是基本型別的情況下，則會先透過物件的 valueOf() 方法取得對應的基本型別的值，再進行後續的比較</li>
-</ol>
-<p>補充: </p>
-<ul>
-<li>null == undefined 會是true</li>
-<li>NaN 不等於 NaN，不管是兩個等號或三個等號都一樣</li>
-</ul>
-<h2 id="Regular-Expression"><a href="#Regular-Expression" class="headerlink" title="Regular Expression"></a>Regular Expression</h2><p>正規表達式都會包含兩個 <code>/</code>，後面的符號就會用跳脫字元<code>\</code>來表示，</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> text = <span class="string">&quot;A apple a day keeps the doctor away.I have pen , I have apple.Uh ! ApplePen!!&quot;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(text.match(<span class="regexp">/applezzs/ig</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;123abc123zz23&quot;</span>.match(<span class="regexp">/^\d.*3/g</span>));  <span class="comment">//123abc123zz23 greedy</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;123abc123zz23&quot;</span>.match(<span class="regexp">/^\d.*?3/g</span>)); <span class="comment">//123</span></span><br><span class="line"><span class="keyword">var</span> match = <span class="regexp">/(hello) (\S+)/</span>.exec(<span class="string">&#x27;This is a hello world!&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(match); <span class="comment">// [&#x27;hello world!&#x27;, &#x27;hello&#x27;, &#x27;world!&#x27;]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> text = <span class="string">&quot;has-a-text&quot;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">upper</span> (<span class="params">match,p1</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> p1.toUpperCase()</span><br><span class="line">&#125;</span><br><span class="line">text = text.replace(<span class="regexp">/-(\w)/g</span>, upper);<span class="comment">//&quot;hasAText&quot;</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>function funcAs()&#123;
-    return new Promise(function(resolve, reject)&#123;
-        window.setTimeout(function()&#123;
-            console.log(&#39;A&#39;);
-            resolve(&#39;A_print&#39;);
-        &#125;, (Math.random() + 1) * 1000);
-    &#125;);
-&#125;
-
-function funcBs(b)&#123;
-    return new Promise(function(resolve, reject)&#123;
-        window.setTimeout(function()&#123;
-            console.log(&#39;B&#39;);
-            console.log(b);
-            resolve(&#39;B_print&#39;);//成功傳到下一個參數
-        &#125;, (Math.random() + 1) * 1000);
-    &#125;);
-&#125;
-
-function funcCs(c)&#123;
-    return new Promise(function(resolve, reject)&#123;
-        window.setTimeout(function()&#123;
-            console.log(&#39;C&#39;);
-            console.log(c);
-            resolve(&#39;C_print&#39;);
-        &#125;, (Math.random() + 1) * 1000);
-    &#125;);
-&#125;
-
-var v = funcAs().then(funcBs).then(funcCs);</code></pre>
-<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol>
-<li><a href="https://medium.com/@rayshih771012/mvc-%E6%9E%B6%E6%A7%8B%E6%BC%94%E9%80%B2-single-source-of-truth-2720f5a5facd">MVC 架構演進 — Single Source of Truth</a></li>
-<li><a href="https://www.fooish.com/regex-regular-expression/groups-lookaround.html">Regex 正規表示法 - 群組與環顧</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -513,6 +477,92 @@ var v = funcAs().then(funcBs).then(funcCs);</code></pre>
       <tags>
         <tag>Java</tag>
         <tag>集合物件Collection</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS 學習筆記</title>
+    <url>/blog/posts/JavaScript/78072a22/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>這幾個禮拜花點時間把大神Kuro的<a href="https://ithelp.ithome.com.tw/users/20065504/ironman/1259">重新認識 JavaScript</a> 系列的文章讀完，過程中跟隨作者的每一篇文章練習編寫JS，自己認為補足了許多之前不熟悉的觀念和技術，因此我這篇就將自己學習遇到的問題和重點記錄下來吧!</p>
+<a id="more"></a>
+
+<h2 id="指定-this-方式"><a href="#指定-this-方式" class="headerlink" title="指定 this 方式"></a>指定 this 方式</h2><p>func使用apply函式將this.t = 100的新變數增加到obj物件，有點像是把func裡面<code>this指定的變數或方法</code>複製到obj裡面去，因為在執行func.apply(obj)的時候，就會執行一次func裡面的code(func還回傳this.x的值123)，所以在func裡面的針對this屬性的賦值動作都會定義到參數obj裡面，最後才會有像是複製屬性的行為。<br>另外call和apply其實結果都相同，只是在傳遞參數的時，call()第二以後的參數會作為參數傳進目標函式中，而apply()第二參數必須是陣列，並將陣列中的每個元素作為參數傳進目標函式中</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    x: <span class="number">123</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">50</span>;</span><br><span class="line">    <span class="built_in">this</span>.t = <span class="number">100</span>;</span><br><span class="line">    <span class="built_in">this</span>.y = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.x;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(func.apply(obj)); <span class="comment">//123</span></span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// &#123;x: 123, t: 100, y: 10&#125; </span></span><br></pre></td></tr></table></figure>
+
+<p>bind()也會有一樣的複製效果</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    x: <span class="number">123</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>);</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">50</span>; <span class="comment">//有</span></span><br><span class="line">    <span class="built_in">this</span>.t = <span class="number">100</span>; <span class="comment">//沒有</span></span><br><span class="line">&#125;.bind(obj);</span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// &#123;x: 123&#125; 執行下面func後才會得到t: 100</span></span><br><span class="line">func(); <span class="comment">// &#123;x: 123&#125; </span></span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// &#123;x: 123, t: 100&#125; </span></span><br></pre></td></tr></table></figure>
+
+<h2 id="函式建構式"><a href="#函式建構式" class="headerlink" title="函式建構式"></a>函式建構式</h2><p>Cascade 也有人稱作 Fluent Interface，在function裡面會使用this.變數或this.方法，由於函式也是個物件，同時也可以將其視為 建構子(constructor)，透過關鍵字new來建構物件的行為<code>類似複製物件的功能</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> calNum = <span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.num = num;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.add = <span class="function"><span class="keyword">function</span>(<span class="params">newNum</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.num += newNum;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.sub = <span class="function"><span class="keyword">function</span>(<span class="params">newNum</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.num -= newNum;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.multi = <span class="function"><span class="keyword">function</span>(<span class="params">newNum</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.num *= newNum;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.division = <span class="function"><span class="keyword">function</span>(<span class="params">newNum</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.num /= newNum;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//var a = new calNum(100);</span></span><br><span class="line"><span class="comment">//new 如同下面兩個步驟</span></span><br><span class="line"><span class="comment">//-----------------</span></span><br><span class="line"><span class="keyword">var</span> a = &#123;&#125;;</span><br><span class="line">calNum.call(a, <span class="number">100</span>);</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// &#123;num: 100, add: ƒ, sub: ƒ, multi: ƒ, division: ƒ&#125;</span></span><br><span class="line">a.add(<span class="number">100</span>).sub(<span class="number">50</span>);</span><br><span class="line"><span class="built_in">console</span>.log( a.num );   <span class="comment">// 150</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"> name, age, gender </span>)</span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.name = name;</span><br><span class="line">  <span class="built_in">this</span>.age = age;</span><br><span class="line">  <span class="built_in">this</span>.gender = gender;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.greeting = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Hello! My name is &#x27;</span> + <span class="built_in">this</span>.name + <span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> kuro = <span class="keyword">new</span> Person( <span class="string">&#x27;Kuro&#x27;</span>, <span class="number">32</span>, <span class="string">&#x27;male&#x27;</span>);</span><br><span class="line">kuro.greeting();      <span class="comment">// &quot;Hello! My name is Kuro.&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> John = <span class="keyword">new</span> Person( <span class="string">&#x27;John&#x27;</span>, <span class="number">10</span>, <span class="string">&#x27;male&#x27;</span>);</span><br><span class="line">kuro.greeting();      <span class="comment">// &quot;Hello! My name is John.&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="defineProperty的get和set意義"><a href="#defineProperty的get和set意義" class="headerlink" title="defineProperty的get和set意義"></a>defineProperty的get和set意義</h2><p>如果你定義了 get 與 set 方法，表示你要自行控制屬性的存取，那麼就不能再去定義 value 或 writable 的屬性描述，<br>get和set只是定義在賦值與取值時候要做什麼行為而已</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    getName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(person, <span class="string">&#x27;name&#x27;</span>, &#123;</span><br><span class="line">    get: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;get&#x27;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>._name_;</span><br><span class="line">    &#125;,</span><br><span class="line">    set: <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;set&#x27;</span>);</span><br><span class="line">        <span class="built_in">this</span>._name_ = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(person);</span><br><span class="line">person.name = <span class="string">&#x27;kevin&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person.getName());</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">var person = &#123;</span><br><span class="line">    getName: <span class="keyword">function</span> () &#123;</span><br><span class="line">        console.log(this);</span><br><span class="line">        <span class="keyword">return</span> this.name;</span><br><span class="line">        //<span class="keyword">return</span> <span class="type">name</span>; //定義<span class="type">name</span>會往外開始找<span class="type">name</span>這一個變數</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">person.name = <span class="string">&#x27;kevin&#x27;</span>;</span><br><span class="line">var <span class="type">name</span> = <span class="string">&#x27;test&#x27;</span>;</span><br><span class="line">console.log(person.getName());</span><br><span class="line">//var <span class="type">name</span> = <span class="string">&#x27;test&#x27;</span>; //呼叫方法之後就看不到了</span><br></pre></td></tr></table></figure>
+
+
+<p>決定 this 的關鍵不在於它屬於哪個物件，而是在於 function「呼叫的時機點」<br>當你透過物件呼叫某個方法 (method) 的時候，此時 this 就是那個物件 (owner object)</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.count++;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">foo.count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>( <span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++ ) &#123;</span><br><span class="line">  foo(); <span class="comment">//undefined</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(foo.count) <span class="comment">//還是0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Array常用方法"><a href="#Array常用方法" class="headerlink" title="Array常用方法"></a>Array常用方法</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arrs = [<span class="number">1</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">0</span>];</span><br><span class="line"><span class="comment">//var newArr = arrs.map(v =&gt; v * 2)</span></span><br><span class="line"><span class="keyword">var</span> newArr = arrs.map(<span class="function"><span class="keyword">function</span> (<span class="params">v, index, arr</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(index);</span><br><span class="line">    <span class="keyword">return</span> v * <span class="number">2</span>;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//var filterArr = arrs.filter(val =&gt; val &gt; 1);</span></span><br><span class="line"><span class="keyword">var</span> filterArr = arrs.filter(<span class="function"><span class="keyword">function</span> (<span class="params">val, index, arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> val &gt; <span class="number">1</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//var sortArr = arrs.sort((a, b) =&gt; a - b);</span></span><br><span class="line"><span class="keyword">var</span> sortArr = arrs.sort(<span class="function"><span class="keyword">function</span> (<span class="params">a,b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(newArr); <span class="comment">// [2, 8, 4, 6, 0]</span></span><br><span class="line"><span class="built_in">console</span>.log(filterArr); <span class="comment">// [4, 2, 3]</span></span><br><span class="line"><span class="built_in">console</span>.log(sortArr); <span class="comment">//[0, 1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure>
+<h2 id="浮點數轉整數"><a href="#浮點數轉整數" class="headerlink" title="浮點數轉整數"></a>浮點數轉整數</h2><p>根據定義在JS中的數字背後都是以浮點數的方式運行 <code>There is no such thing as an int in Javascript. All Numbers are actually doubles behind the scenes</code>，我們習慣上還是會把整數或浮點數方開來看。在stackoverflow有人發問如果要將浮點數轉型成整數，但不希望四捨五入可以怎麼做(<a href="https://stackoverflow.com/questions/8388440/converting-a-double-to-an-int-in-javascript-without-rounding/52872650">Converting a double to an int in Javascript without rounding
+</a> )，我們可以有下面的作法。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">1.85</span>;</span><br><span class="line"><span class="comment">//四捨五入</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.round(num));<span class="comment">// 2</span></span><br><span class="line"><span class="comment">//無視四捨五入</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.floor(num));<span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(num | <span class="number">0</span>); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(num));<span class="comment">// 1</span></span><br><span class="line"><span class="comment">//只取整數部分</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.trunc(<span class="number">1.6</span>)); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.trunc(<span class="number">-1.6</span>)); <span class="comment">// -1</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="布林值比較"><a href="#布林值比較" class="headerlink" title="布林值比較"></a>布林值比較</h2><figure class="highlight coffeescript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;true&#x27;</span> == <span class="literal">true</span>); <span class="regexp">//</span> <span class="literal">false</span>，因為等同於 <span class="string">&#x27;true&#x27;</span> == <span class="number">1</span>，但<span class="literal">true</span> == <span class="number">1</span>就會是<span class="literal">true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">100</span> == <span class="string">&#x27;100&#x27;</span>); <span class="regexp">//</span> 字串轉型成數字</span><br></pre></td></tr></table></figure>
+<ol>
+<li>比較的a 或 b其中一個為<code>boolean</code>，會在比較相等性之前將<code>false轉0 / true轉1</code>轉成數值型態</li>
+<li>比較的a 或 b其中一個為<code>String</code>，而另一個是數值，同樣會將字符串轉成數值型態</li>
+<li>比較的a 或 b其中一個是物件，另外一個不是，則會調用物件的valueOf()方法得到基本型別(如果其中一方是「物件」型別，而另一方是基本型別的情況下，則會先透過物件的 valueOf() 方法取得對應的基本型別的值，再進行後續的比較</li>
+</ol>
+<p>補充: </p>
+<ul>
+<li>null == undefined 會是true</li>
+<li>NaN 不等於 NaN，不管是兩個等號或三個等號都一樣</li>
+</ul>
+<h2 id="Regular-Expression"><a href="#Regular-Expression" class="headerlink" title="Regular Expression"></a>Regular Expression</h2><p>正規表達式都會包含兩個 <code>/</code>，後面的符號就會用跳脫字元<code>\</code>來表示，</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> text = <span class="string">&quot;A apple a day keeps the doctor away.I have pen , I have apple.Uh ! ApplePen!!&quot;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(text.match(<span class="regexp">/applezzs/ig</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;123abc123zz23&quot;</span>.match(<span class="regexp">/^\d.*3/g</span>));  <span class="comment">//123abc123zz23 greedy</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;123abc123zz23&quot;</span>.match(<span class="regexp">/^\d.*?3/g</span>)); <span class="comment">//123</span></span><br><span class="line"><span class="keyword">var</span> match = <span class="regexp">/(hello) (\S+)/</span>.exec(<span class="string">&#x27;This is a hello world!&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(match); <span class="comment">// [&#x27;hello world!&#x27;, &#x27;hello&#x27;, &#x27;world!&#x27;]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> text = <span class="string">&quot;has-a-text&quot;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">upper</span> (<span class="params">match,p1</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> p1.toUpperCase()</span><br><span class="line">&#125;</span><br><span class="line">text = text.replace(<span class="regexp">/-(\w)/g</span>, upper);<span class="comment">//&quot;hasAText&quot;</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>function funcAs()&#123;
+    return new Promise(function(resolve, reject)&#123;
+        window.setTimeout(function()&#123;
+            console.log(&#39;A&#39;);
+            resolve(&#39;A_print&#39;);
+        &#125;, (Math.random() + 1) * 1000);
+    &#125;);
+&#125;
+
+function funcBs(b)&#123;
+    return new Promise(function(resolve, reject)&#123;
+        window.setTimeout(function()&#123;
+            console.log(&#39;B&#39;);
+            console.log(b);
+            resolve(&#39;B_print&#39;);//成功傳到下一個參數
+        &#125;, (Math.random() + 1) * 1000);
+    &#125;);
+&#125;
+
+function funcCs(c)&#123;
+    return new Promise(function(resolve, reject)&#123;
+        window.setTimeout(function()&#123;
+            console.log(&#39;C&#39;);
+            console.log(c);
+            resolve(&#39;C_print&#39;);
+        &#125;, (Math.random() + 1) * 1000);
+    &#125;);
+&#125;
+
+var v = funcAs().then(funcBs).then(funcCs);</code></pre>
+<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol>
+<li><a href="https://medium.com/@rayshih771012/mvc-%E6%9E%B6%E6%A7%8B%E6%BC%94%E9%80%B2-single-source-of-truth-2720f5a5facd">MVC 架構演進 — Single Source of Truth</a></li>
+<li><a href="https://www.fooish.com/regex-regular-expression/groups-lookaround.html">Regex 正規表示法 - 群組與環顧</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -673,6 +723,78 @@ var v = funcAs().then(funcBs).then(funcCs);</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>Revealing Module Pattern (JS)</title>
+    <url>/blog/posts/JavaScript/45fd/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>看到在 stackoverflow 有人發問 <a href="https://stackoverflow.com/questions/43929098/why-do-i-need-to-return-init-to-execute-init-function">why do I need to return “init” to execute init function?
+</a> ，這是一個關於JS的design pattern的問題，其實我之前在其他地方就有看過類似的寫法，只是不知道它的一些概念和目的，因此這篇就來記錄一下這種設計模式的筆記。</p>
+<a id="more"></a>
+
+<p>下面的code是網友發問貼上來的</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;kick off&quot;</span>);</span><br><span class="line">  <span class="keyword">var</span> insideTest = <span class="string">&quot;variable inside test&quot;</span>;</span><br><span class="line">  <span class="keyword">var</span> init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> insideInit =<span class="string">&quot;variable inside init&quot;</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;inside init&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    init:init</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">test().init();   <span class="comment">// exposing the private function</span></span><br><span class="line"><span class="comment">// ====Console====</span></span><br><span class="line"><span class="comment">// kick off</span></span><br><span class="line"><span class="comment">// inside init</span></span><br></pre></td></tr></table></figure>
+<p>主要是發問說為何不能直接呼叫test().init()，而一定要加上return inint:init，才能得到正確的結果。其實回答的網友就直接提到這是一個Revealing Module Pattern，另外說明因為function init是寫在function test裡面，所以init的存取權限就只限於test裡面，只要超出test的範圍(scope)就會存取不到(undefined)，所以才要在函式的最後加上<code>return init:init;</code>這一段，讓外部的範圍可以來存取到這一方法，其實就是間接達到Java中的封裝效果，讓外部範圍只能透過你所提供的公開方法來存取，像是給函式init加上Private一樣。其實標準習慣的方式會直接宣告function()那邊加上括號，如下</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;kick off&quot;</span>);</span><br><span class="line">  <span class="keyword">var</span> insideTest = <span class="string">&quot;variable inside test&quot;</span>;</span><br><span class="line">  <span class="keyword">var</span> init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> insideInit =<span class="string">&quot;variable inside init&quot;</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;inside init&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    init:init</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(test)); <span class="comment">//object</span></span><br><span class="line">test.init(); </span><br></pre></td></tr></table></figure>
+<p>這自動執行function並回傳，所以test會直接是一個物件，而不是一個函式，如此可以省去呼叫test時候還要加上()。下面將來紀錄這種設計模式的範例</p>
+<h2 id="Module-Pattern"><a href="#Module-Pattern" class="headerlink" title="Module Pattern"></a>Module Pattern</h2><p>透過閉包(closure)的特性(變數或函式可以存取的範圍)，來實作出一種可以呼叫的公共(public) 函式，同時能夠封裝私有成員的方法，滿足我們想要隱藏一些商業邏輯及讓程式碼更具結構化，下面則是以上面的例子來修改</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// private variable</span></span><br><span class="line">  <span class="keyword">var</span> insideTest = <span class="string">&quot;variable inside test&quot;</span>;</span><br><span class="line">  <span class="comment">// private function</span></span><br><span class="line">  <span class="keyword">var</span> init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> insideInit =<span class="string">&quot;variable inside init&quot;</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;inside init&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 回傳一個object</span></span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    <span class="comment">//public function</span></span><br><span class="line">    getInsideTest: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> insideTest;</span><br><span class="line">    &#125;,</span><br><span class="line">    setInsideTest: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        insideTest = insideTest;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br><span class="line">test.setInsideTest(<span class="string">&#x27;akb48&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(test.getInsideTest()); <span class="comment">//akb48</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Revealing-Module-Pattern"><a href="#Revealing-Module-Pattern" class="headerlink" title="Revealing Module Pattern"></a>Revealing Module Pattern</h2><p>揭示模組模式(Revealing Module Pattern)則是上面Module Pattern的改良版本，其實就是把所有函式或變數都在閉包中定義，返回值是不包含任何定義，提高程式碼的可讀性及結構性。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// private variable</span></span><br><span class="line">  <span class="keyword">var</span> insideTest = <span class="string">&quot;variable inside test&quot;</span>;</span><br><span class="line">  <span class="comment">// private function</span></span><br><span class="line">  <span class="keyword">var</span> setInsideTest = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    insideTest = insideTest;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> getInsideTest = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> insideTest;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// Return an object literal with no function definitions</span></span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    getInsideTest: getInsideTest,</span><br><span class="line">    setInsideTest: setInsideTest</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br><span class="line">test.setInsideTest(<span class="string">&#x27;tpe48&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(test.getInsideTest()); <span class="comment">//tpe48</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol>
+<li><a href="https://medium.com/@Rahulx1/revealing-module-pattern-tips-e3442d4e352">https://medium.com/@Rahulx1/revealing-module-pattern-tips-e3442d4e352</a></li>
+<li><a href="https://www.oreilly.com/library/view/learning-javascript-design/9781449334840/ch09s03.html">https://www.oreilly.com/library/view/learning-javascript-design/9781449334840/ch09s03.html</a></li>
+<li><a href="http://www.tastones.com/zh-tw/stackoverflow/javascript/creational-design-patterns/module_and_revealing_module_patterns/">http://www.tastones.com/zh-tw/stackoverflow/javascript/creational-design-patterns/module_and_revealing_module_patterns/</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>Design Pattern</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringMvcNote</title>
+    <url>/blog/posts/uncategorized/32b3d61b/</url>
+    <content><![CDATA[<p>SSH SSM Spring SpringMvc<br>Spring是java EE領域中來實踐企業級應用的開發框架，能夠搭建複雜的網站後端服務<br>Spring 兩個特性(因此降低開發的複雜度)</p>
+<ol>
+<li><p>控制反轉(IOC)</p>
+<ul>
+<li>不是什麼新的技術，只是一個設計思想，IOC可以讓我們擺脫複雜的物件管理工作，像是在傳統開發時候常會用new來建立物件，每次在new都會創造物件之間的依賴關係，programmer必須去維護這些工作，所以可以將我們設計好的物件交給他這第三方的IOC容器來管控，總結就是IOC容器可以讓我們有效率的建立物件以及組裝物件之間的依賴關係=&gt;XML配bean</li>
+</ul>
+</li>
+<li><p>面相切面程式(AOP)</p>
+<ul>
+<li>實現代碼解偶的一個重要利器，使我們可以在不改變程式碼(功能流程)的狀況下，加入新的功能，這是一種況展性的表現，他的基本原理就是”動態代理技術”</li>
+</ul>
+</li>
+</ol>
+<p>Spring有個缺點就是隨著項目越來越複雜或龐大時候，就會需要引入很多配置文件(XML)，難以理解且容易出錯<br>Spring 開發一個web項目有幾個步驟</p>
+<ol>
+<li>配置maven依賴</li>
+<li>配置web.xml 加載Spring mvc</li>
+<li>配置DB連接或配置Spring Application</li>
+<li>配置加載文件的讀取 開啟註解</li>
+<li>配置日誌文件 接著配置一堆…</li>
+<li>最後部屬Tomcat調適</li>
+</ol>
+<p>=======================================<br>Spring boot不是為了取代Spring，而是為了讓開發者更方便簡化的使用Spring，首先就先將Spring裡面複雜的XML配Bean給砍掉。<br>Spring boot核心思想就是約定大於配置(Convention over Configuration, CoC)，表示developer只要定義應用中會有不符合Spring boot約定的部分來做調整就ok，其他大部分約定俗成的東西Spring boot都幫我們配置好了</p>
+<p>Spring boot搞一個web項目，只要把maven依賴都加進來，基本上就是可以直接啟動，XML複雜配置Spring boot全部幫我們搞定，<br>所以Spring booot有兩項優點</p>
+<ol>
+<li>Spring boot有很多開箱即用的套件(jar)，像是各式各樣的Starter (EX: spring-boot-starter-actuator)</li>
+<li>配置直接簡化</li>
+<li>部屬，內簽Tomcat容器，啟動和部屬變得相當容易</li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://medium.com/@ragunathrajasekaran/spring-boot-deep-dive-restcontroller-part3-3ccf1d6368c6">https://medium.com/@ragunathrajasekaran/spring-boot-deep-dive-restcontroller-part3-3ccf1d6368c6</a></li>
+<li><a href="https://www.tpisoftware.com/tpu/articleDetails/1303">https://www.tpisoftware.com/tpu/articleDetails/1303</a></li>
+<li><a href="http://pclevin.blogspot.com/2014/12/springmvc-annotation-project-hello-world.html">http://pclevin.blogspot.com/2014/12/springmvc-annotation-project-hello-world.html</a></li>
+<li><a href="https://mainul35.medium.com/spring-mvc-helloworld-application-eba3ef0468a3">https://mainul35.medium.com/spring-mvc-helloworld-application-eba3ef0468a3</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>Second Highest Salary 條件不符合回傳null</title>
     <url>/blog/posts/SQL/ba33/</url>
     <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p>Write a SQL query to get the second highest salary from the Employee table.</p>
@@ -711,38 +833,6 @@ var v = funcAs().then(funcBs).then(funcCs);</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>Revealing Module Pattern (JS)</title>
-    <url>/blog/posts/JavaScript/45fd/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>看到在 stackoverflow 有人發問 <a href="https://stackoverflow.com/questions/43929098/why-do-i-need-to-return-init-to-execute-init-function">why do I need to return “init” to execute init function?
-</a> ，這是一個關於JS的design pattern的問題，其實我之前在其他地方就有看過類似的寫法，只是不知道它的一些概念和目的，因此這篇就來記錄一下這種設計模式的筆記。</p>
-<a id="more"></a>
-
-<p>下面的code是網友發問貼上來的</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;kick off&quot;</span>);</span><br><span class="line">  <span class="keyword">var</span> insideTest = <span class="string">&quot;variable inside test&quot;</span>;</span><br><span class="line">  <span class="keyword">var</span> init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> insideInit =<span class="string">&quot;variable inside init&quot;</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;inside init&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    init:init</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">test().init();   <span class="comment">// exposing the private function</span></span><br><span class="line"><span class="comment">// ====Console====</span></span><br><span class="line"><span class="comment">// kick off</span></span><br><span class="line"><span class="comment">// inside init</span></span><br></pre></td></tr></table></figure>
-<p>主要是發問說為何不能直接呼叫test().init()，而一定要加上return inint:init，才能得到正確的結果。其實回答的網友就直接提到這是一個Revealing Module Pattern，另外說明因為function init是寫在function test裡面，所以init的存取權限就只限於test裡面，只要超出test的範圍(scope)就會存取不到(undefined)，所以才要在函式的最後加上<code>return init:init;</code>這一段，讓外部的範圍可以來存取到這一方法，其實就是間接達到Java中的封裝效果，讓外部範圍只能透過你所提供的公開方法來存取，像是給函式init加上Private一樣。其實標準習慣的方式會直接宣告function()那邊加上括號，如下</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;kick off&quot;</span>);</span><br><span class="line">  <span class="keyword">var</span> insideTest = <span class="string">&quot;variable inside test&quot;</span>;</span><br><span class="line">  <span class="keyword">var</span> init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> insideInit =<span class="string">&quot;variable inside init&quot;</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;inside init&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    init:init</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(test)); <span class="comment">//object</span></span><br><span class="line">test.init(); </span><br></pre></td></tr></table></figure>
-<p>這自動執行function並回傳，所以test會直接是一個物件，而不是一個函式，如此可以省去呼叫test時候還要加上()。下面將來紀錄這種設計模式的範例</p>
-<h2 id="Module-Pattern"><a href="#Module-Pattern" class="headerlink" title="Module Pattern"></a>Module Pattern</h2><p>透過閉包(closure)的特性(變數或函式可以存取的範圍)，來實作出一種可以呼叫的公共(public) 函式，同時能夠封裝私有成員的方法，滿足我們想要隱藏一些商業邏輯及讓程式碼更具結構化，下面則是以上面的例子來修改</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// private variable</span></span><br><span class="line">  <span class="keyword">var</span> insideTest = <span class="string">&quot;variable inside test&quot;</span>;</span><br><span class="line">  <span class="comment">// private function</span></span><br><span class="line">  <span class="keyword">var</span> init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> insideInit =<span class="string">&quot;variable inside init&quot;</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;inside init&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 回傳一個object</span></span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    <span class="comment">//public function</span></span><br><span class="line">    getInsideTest: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> insideTest;</span><br><span class="line">    &#125;,</span><br><span class="line">    setInsideTest: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        insideTest = insideTest;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br><span class="line">test.setInsideTest(<span class="string">&#x27;akb48&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(test.getInsideTest()); <span class="comment">//akb48</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Revealing-Module-Pattern"><a href="#Revealing-Module-Pattern" class="headerlink" title="Revealing Module Pattern"></a>Revealing Module Pattern</h2><p>揭示模組模式(Revealing Module Pattern)則是上面Module Pattern的改良版本，其實就是把所有函式或變數都在閉包中定義，返回值是不包含任何定義，提高程式碼的可讀性及結構性。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// private variable</span></span><br><span class="line">  <span class="keyword">var</span> insideTest = <span class="string">&quot;variable inside test&quot;</span>;</span><br><span class="line">  <span class="comment">// private function</span></span><br><span class="line">  <span class="keyword">var</span> setInsideTest = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    insideTest = insideTest;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> getInsideTest = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> insideTest;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// Return an object literal with no function definitions</span></span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    getInsideTest: getInsideTest,</span><br><span class="line">    setInsideTest: setInsideTest</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br><span class="line">test.setInsideTest(<span class="string">&#x27;tpe48&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(test.getInsideTest()); <span class="comment">//tpe48</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol>
-<li><a href="https://medium.com/@Rahulx1/revealing-module-pattern-tips-e3442d4e352">https://medium.com/@Rahulx1/revealing-module-pattern-tips-e3442d4e352</a></li>
-<li><a href="https://www.oreilly.com/library/view/learning-javascript-design/9781449334840/ch09s03.html">https://www.oreilly.com/library/view/learning-javascript-design/9781449334840/ch09s03.html</a></li>
-<li><a href="http://www.tastones.com/zh-tw/stackoverflow/javascript/creational-design-patterns/module_and_revealing_module_patterns/">http://www.tastones.com/zh-tw/stackoverflow/javascript/creational-design-patterns/module_and_revealing_module_patterns/</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>Design Pattern</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo出現 Template render error</title>
     <url>/blog/posts/Hexo/e5a2de66/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上次寫完上一篇文章筆記後，執行hexo g生成靜態文件後，就出現下面的錯誤了!導致後續的部屬根本進行不下去，google搜尋的問題大都是提到某個模板(swig)出現的字串符號跟 Hexo 產生衝突，把我之前修改的.swig檔案全部Run過一遍，結果看到眼睛爛掉也沒找出什麼，最後沒辦法只好重新佈署一個新的Next資料夾，在一個個檔案試哪邊錯，結果找到是主題目錄下的_config註解錯地方了…其實會導致Hexo編譯時出現 Template render error的原因有幾種，這篇就來記錄一下吧!</p>
@@ -776,6 +866,15 @@ home: / || fa fa-home
       <tags>
         <tag>Hexo</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>spring_one_to_one</title>
+    <url>/blog/posts/uncategorized/8a266b9a/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我們都知道物件關係對應(Object relational mapping)是指將物件狀態映射到資料庫的紀錄上，就可以透過與資料表映射的實體(Entity)來處理相關的資料庫操作(CRUD)。而最近工作上常會使用到表格之間的join，這種一對一或多對一之類的實體關係配置常搞不太清楚，因此，這篇來記錄一些相關研究的筆記。</p>
+<h2 id="複合鍵"><a href="#複合鍵" class="headerlink" title="複合鍵"></a><a href="https://www.baeldung.com/jpa-composite-primary-keys">複合鍵</a></h2><p>具体原因是 两个类都有toString(), 而两个类中同时使用了懒加载(默认)这样在A类toString的时候会发sql查询B类,而B类toString()又会发sql查A类这样会发生死循环最后导致java.lang.StackOverflowError.初用JPA 出现问题引以为鉴</p>
+<p>The annotation @JoinColumn indicates that this entity is the owner of the relationship (that is: the corresponding table has a column with a foreign key to the referenced table), whereas the attribute mappedBy indicates that the entity in this side is the inverse of the relationship, and the owner resides in the “other” entity. This also means that you can access the other table from the class which you’ve annotated with “mappedBy” (fully bidirectional relationship).</p>
+<p>In particular, for the code in the question the correct annotations would look like this:</p>
+]]></content>
   </entry>
   <entry>
     <title>初探var及let變數</title>
@@ -1201,6 +1300,71 @@ home: / || fa fa-home
       </tags>
   </entry>
   <entry>
+    <title>about</title>
+    <url>/aboutKevin/certificate.html</url>
+    <content><![CDATA[<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin | Resume</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" /> <!-- https://fonts.google.com/ -->
+    <link rel="stylesheet" href="css/mystyle.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/lightbox.css">
+	<link rel="shortcut icon" href="favicon.ico">
+</head>
+<body style="background-color: lightgray;">
+    <header id="top">
+        <!-- start navigation bar -->
+        <nav id="nav">
+            <div class="logo">
+                <img src="./img/logo.png" alt="image - Kevin">
+            </div>
+            <ul>
+                <li class="em_btn"><a href="index.html">Home</a></li>
+                <li class="em_btn"><a class="current-page" href="certificate.html">Certificate</a></li>
+                <li class="em_btn"><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main">
+        <div class="heading">
+            <h1>相關證照 </h1>
+            <p>All certificate I earned are below.</p>
+        </div>
+        <!-- lightbox -->
+        <div class="gallery">
+            <a href="img/OCAJP.jpg" data-lightbox="photo-1"
+                data-title="Grampians National Park @ VIC, Australia"><img src="img/OCAJP.jpg"
+                    alt="Photography - Grampians National Park"></a>
+            <a href="img/OCPJP.jpg" data-lightbox="photo-1" data-title="Puffing Billy Train @ VIC, Australia"><img
+                    src="img/OCPJP.jpg" alt="Photography - Australian Puffing Billy train"></a>
+            <a href="img/java_cert.png" data-lightbox="photo-1" data-title="Gordon Dam @ TAS, Australia"><img
+                    src="img/java_cert.png" alt="Photography - Gordon Dam"></a>
+            <a href="img/MTA.png" data-lightbox="photo-1" data-title="Great Ocean Road @ VIC, Australia"><img
+                    src="img/MTA.png" alt="Photography - Great ocean road"></a>
+            <a href="img/word.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
+                    src="img/word.png" alt="Photography - lavender"></a>
+            <a href="img/elite.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
+                    src="img/elite.png" alt="Photography - lavender"></a>
+            <a href="img/contest.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
+                    src="img/contest.png" alt="Photography - lavender"></a>
+            <a href="img/iot.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
+                src="img/iot.png" alt="Photography - lavender"></a>
+        </div>
+        <script src="js/lightbox-plus-jquery.js"></script>
+    </main>
+    <!-- footer -->
+    <footer>
+        <p>This page is developed by Kevin.</p>
+        <p>All Rights Reserved&nbsp;&copy; 2020&nbsp;&nbsp;<a href="#top" class="top_btn">Back to Top👆</a></p>
+    </footer>
+</body>
+
+</html>]]></content>
+  </entry>
+  <entry>
     <title>關於我</title>
     <url>/aboutKevin/index.html</url>
     <content><![CDATA[
@@ -1357,76 +1521,6 @@ home: / || fa fa-home
   </entry>
   <entry>
     <title>about</title>
-    <url>/aboutKevin/certificate.html</url>
-    <content><![CDATA[<!DOCTYPE html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kevin | Resume</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" /> <!-- https://fonts.google.com/ -->
-    <link rel="stylesheet" href="css/mystyle.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/lightbox.css">
-	<link rel="shortcut icon" href="favicon.ico">
-</head>
-<body style="background-color: lightgray;">
-    <header id="top">
-        <!-- start navigation bar -->
-        <nav id="nav">
-            <div class="logo">
-                <img src="./img/logo.png" alt="image - Kevin">
-            </div>
-            <ul>
-                <li class="em_btn"><a href="index.html">Home</a></li>
-                <li class="em_btn"><a class="current-page" href="certificate.html">Certificate</a></li>
-                <li class="em_btn"><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main id="main">
-        <div class="heading">
-            <h1>相關證照 </h1>
-            <p>All certificate I earned are below.</p>
-        </div>
-        <!-- lightbox -->
-        <div class="gallery">
-            <a href="img/OCAJP.jpg" data-lightbox="photo-1"
-                data-title="Grampians National Park @ VIC, Australia"><img src="img/OCAJP.jpg"
-                    alt="Photography - Grampians National Park"></a>
-            <a href="img/OCPJP.jpg" data-lightbox="photo-1" data-title="Puffing Billy Train @ VIC, Australia"><img
-                    src="img/OCPJP.jpg" alt="Photography - Australian Puffing Billy train"></a>
-            <a href="img/java_cert.png" data-lightbox="photo-1" data-title="Gordon Dam @ TAS, Australia"><img
-                    src="img/java_cert.png" alt="Photography - Gordon Dam"></a>
-            <a href="img/MTA.png" data-lightbox="photo-1" data-title="Great Ocean Road @ VIC, Australia"><img
-                    src="img/MTA.png" alt="Photography - Great ocean road"></a>
-            <a href="img/word.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
-                    src="img/word.png" alt="Photography - lavender"></a>
-            <a href="img/elite.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
-                    src="img/elite.png" alt="Photography - lavender"></a>
-            <a href="img/contest.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
-                    src="img/contest.png" alt="Photography - lavender"></a>
-            <a href="img/iot.png" data-lightbox="photo-1" data-title="Lavender Field @ TAS, Australia"><img
-                src="img/iot.png" alt="Photography - lavender"></a>
-        </div>
-        <script src="js/lightbox-plus-jquery.js"></script>
-    </main>
-    <!-- footer -->
-    <footer>
-        <p>This page is developed by Kevin.</p>
-        <p>All Rights Reserved&nbsp;&copy; 2020&nbsp;&nbsp;<a href="#top" class="top_btn">Back to Top👆</a></p>
-    </footer>
-</body>
-
-</html>]]></content>
-  </entry>
-  <entry>
-    <title>分類</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>about</title>
     <url>/aboutKevin/contact.html</url>
     <content><![CDATA[
 <!DOCTYPE html>
@@ -1452,6 +1546,11 @@ home: / || fa fa-home
 </body>
 </html>
 ]]></content>
+  </entry>
+  <entry>
+    <title>分類</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title></title>
@@ -1673,6 +1772,212 @@ html.lb-disable-scrolling {
     <title>關鍵字標籤</title>
     <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/aboutKevin/css/main.css</url>
+    <content><![CDATA[
+/* post padding  margin */
+.main-post{  /* tab那邊*/
+	padding: 25px; 
+}
+
+
+.post-block{
+	padding: 0;
+}
+
+.post-title, .post-meta{
+	display:none;
+}
+
+.wrapper{
+	padding: 35px;
+}
+
+hr{
+	margin: 15px;
+}
+
+
+/* kevin background */
+ 
+.description {
+  padding: 35px;
+}
+
+.title{
+	font-size: 26px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.slogan{
+	font-size: 1em;
+	text-align: center;
+}
+
+/* tabs 表格相關 */
+#aboutme{
+	border: 2px #7B7B7B solid;
+	background-color: rgb(255, 244, 194, 0.4);
+	padding-top: 2px;
+}
+
+.nav-tabs{
+	background-color: rgb(224, 224, 224, 0.6);
+}
+
+.nav-tabs li{
+	border-style:solid;
+}
+
+.nav-tabs .active{
+	font-weight: bold;
+	background-color: #FFE66F;
+}
+
+
+/* align setting */
+.center_div {    
+	display:  flex;
+	align-items: center;
+	justify-content:  center;
+}
+
+
+/* font setting */
+h3{ 
+	text-align: center; 
+	font-weight: bold; 
+	font-size: 24px; 
+	margin: 4px; 
+}
+
+.md{
+	font-size: 12pt;
+	font-weight: bold;
+}
+
+.sub_title{ 
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+/* introduction tag*/
+.gold_tag{
+	background-color: #272727;
+	color: white;
+	font-size: 8pt;
+	border-radius:10px;
+	padding: 3px 15px;
+	margin: 5px 10px;
+}
+
+
+/* related line height */
+.column{
+	line-height: 0.5;
+}
+
+/* icon  margin with right character */
+.icon {
+	margin-right: 11px;
+}
+
+/* author pic */
+.center_div img{		
+	width: 65%;
+}
+
+/* skill bar */
+
+.meter { 
+	height: 20px;
+	width: 70%;
+	background: #000000;
+	-moz-border-radius: 25px;
+	-webkit-border-radius: 25px;
+	border-radius: 20px;
+	margin: 2% 0% 2% 15%;
+}
+
+.meter > span {
+	display: block;
+	height: 100%;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	background-color: #EAC100;
+	background-image: linear-gradient(
+	  center bottom,
+	  rgb(74, 238, 95) 37%,
+	  rgb(174, 253, 178) 69%
+	);
+}
+
+
+@media (min-width: 768px){
+	.wrapper {
+		display: grid;
+		grid-template-columns: 35% 65%;
+	}
+	#gold ul li{
+		display: inline;
+	}
+	.doitems ul{
+		font-size: 12pt;
+		list-style-type: square;
+   }
+	.content1 {
+		 background: url(../img/test2.png) no-repeat center center fixed;
+		 background-size: cover;
+		 height: 55vh;
+		 width: 100%;
+		 display: table;
+		 background-attachment: fixed;
+		 /* 邊緣圓角 and 淡化 */
+		 border-radius: 4px;
+		 box-shadow:0 0 30px 10px rgba(255,255,255,.7) inset;
+	}
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+	#gold ul li{
+		margin-top: 10px;
+	}
+   .center_div {
+		width: 100%;
+   }
+   .center_div img{
+		width: 100%;
+		display:block;
+		margin: 25 auto;
+   }
+   .main-post h3{
+		font-size: 18px;
+		margin: 5;
+   }
+
+   .doitems ul{
+		font-size: 10pt;
+		list-style-type: square;
+   }
+	
+   .content1 {
+		background: url(../img/coding.png) no-repeat center center fixed;
+		background-size: cover;
+		height: 25%;
+		width: 100%;
+		display: table;
+		background-attachment: fixed;
+   }
+	
+}
+
+]]></content>
   </entry>
   <entry>
     <title></title>
@@ -2254,212 +2559,6 @@ footer a {
     }
 
 }]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/aboutKevin/css/main.css</url>
-    <content><![CDATA[
-/* post padding  margin */
-.main-post{  /* tab那邊*/
-	padding: 25px; 
-}
-
-
-.post-block{
-	padding: 0;
-}
-
-.post-title, .post-meta{
-	display:none;
-}
-
-.wrapper{
-	padding: 35px;
-}
-
-hr{
-	margin: 15px;
-}
-
-
-/* kevin background */
- 
-.description {
-  padding: 35px;
-}
-
-.title{
-	font-size: 26px;
-	text-align: center;
-	font-weight: bold;
-}
-
-.slogan{
-	font-size: 1em;
-	text-align: center;
-}
-
-/* tabs 表格相關 */
-#aboutme{
-	border: 2px #7B7B7B solid;
-	background-color: rgb(255, 244, 194, 0.4);
-	padding-top: 2px;
-}
-
-.nav-tabs{
-	background-color: rgb(224, 224, 224, 0.6);
-}
-
-.nav-tabs li{
-	border-style:solid;
-}
-
-.nav-tabs .active{
-	font-weight: bold;
-	background-color: #FFE66F;
-}
-
-
-/* align setting */
-.center_div {    
-	display:  flex;
-	align-items: center;
-	justify-content:  center;
-}
-
-
-/* font setting */
-h3{ 
-	text-align: center; 
-	font-weight: bold; 
-	font-size: 24px; 
-	margin: 4px; 
-}
-
-.md{
-	font-size: 12pt;
-	font-weight: bold;
-}
-
-.sub_title{ 
-	font-size: 20px;
-	font-weight: bold;
-	margin-bottom: 15px;
-}
-
-/* introduction tag*/
-.gold_tag{
-	background-color: #272727;
-	color: white;
-	font-size: 8pt;
-	border-radius:10px;
-	padding: 3px 15px;
-	margin: 5px 10px;
-}
-
-
-/* related line height */
-.column{
-	line-height: 0.5;
-}
-
-/* icon  margin with right character */
-.icon {
-	margin-right: 11px;
-}
-
-/* author pic */
-.center_div img{		
-	width: 65%;
-}
-
-/* skill bar */
-
-.meter { 
-	height: 20px;
-	width: 70%;
-	background: #000000;
-	-moz-border-radius: 25px;
-	-webkit-border-radius: 25px;
-	border-radius: 20px;
-	margin: 2% 0% 2% 15%;
-}
-
-.meter > span {
-	display: block;
-	height: 100%;
-	border-top-right-radius: 8px;
-	border-bottom-right-radius: 8px;
-	border-top-left-radius: 20px;
-	border-bottom-left-radius: 20px;
-	background-color: #EAC100;
-	background-image: linear-gradient(
-	  center bottom,
-	  rgb(74, 238, 95) 37%,
-	  rgb(174, 253, 178) 69%
-	);
-}
-
-
-@media (min-width: 768px){
-	.wrapper {
-		display: grid;
-		grid-template-columns: 35% 65%;
-	}
-	#gold ul li{
-		display: inline;
-	}
-	.doitems ul{
-		font-size: 12pt;
-		list-style-type: square;
-   }
-	.content1 {
-		 background: url(../img/test2.png) no-repeat center center fixed;
-		 background-size: cover;
-		 height: 55vh;
-		 width: 100%;
-		 display: table;
-		 background-attachment: fixed;
-		 /* 邊緣圓角 and 淡化 */
-		 border-radius: 4px;
-		 box-shadow:0 0 30px 10px rgba(255,255,255,.7) inset;
-	}
-}
-
-@media (min-width: 320px) and (max-width: 767px) {
-	#gold ul li{
-		margin-top: 10px;
-	}
-   .center_div {
-		width: 100%;
-   }
-   .center_div img{
-		width: 100%;
-		display:block;
-		margin: 25 auto;
-   }
-   .main-post h3{
-		font-size: 18px;
-		margin: 5;
-   }
-
-   .doitems ul{
-		font-size: 10pt;
-		list-style-type: square;
-   }
-	
-   .content1 {
-		background: url(../img/coding.png) no-repeat center center fixed;
-		background-size: cover;
-		height: 25%;
-		width: 100%;
-		display: table;
-		background-attachment: fixed;
-   }
-	
-}
-
-]]></content>
   </entry>
   <entry>
     <title></title>
