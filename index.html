@@ -292,213 +292,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://kevin1061517.github.io/blog/posts/uncategorized/8a266b9a/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/42539369?s=460&u=39b9ef0ba8f701077a22689184ac5bcce289e9e4&v=4">
-      <meta itemprop="name" content="Kevin Fang">
-      <meta itemprop="description" content="Better late than never">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kevin Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/posts/uncategorized/8a266b9a/" class="post-title-link" itemprop="url">spring_one_to_one</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2021-06-27 14:49:43" itemprop="dateCreated datePublished" datetime="2021-06-27T14:49:43+08:00">2021-06-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-06-28 00:11:31" itemprop="dateModified" datetime="2021-06-28T00:11:31+08:00">2021-06-28</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/blog/posts/uncategorized/8a266b9a/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="blog/posts/uncategorized/8a266b9a/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我們都知道物件關係對應(Object relational mapping)是指將物件狀態映射到資料庫的紀錄上，就可以透過與資料表映射的實體(Entity)來處理相關的資料庫操作(CRUD)。而最近工作上常會使用到表格之間的join，這種一對一或多對一之類的實體關係配置常搞不太清楚，因此，這篇來記錄一些相關研究的筆記。</p>
-<h2 id="複合鍵"><a href="#複合鍵" class="headerlink" title="複合鍵"></a><a target="_blank" rel="noopener" href="https://www.baeldung.com/jpa-composite-primary-keys">複合鍵</a></h2><p>具体原因是 两个类都有toString(), 而两个类中同时使用了懒加载(默认)这样在A类toString的时候会发sql查询B类,而B类toString()又会发sql查A类这样会发生死循环最后导致java.lang.StackOverflowError.初用JPA 出现问题引以为鉴</p>
-<p>The annotation @JoinColumn indicates that this entity is the owner of the relationship (that is: the corresponding table has a column with a foreign key to the referenced table), whereas the attribute mappedBy indicates that the entity in this side is the inverse of the relationship, and the owner resides in the “other” entity. This also means that you can access the other table from the class which you’ve annotated with “mappedBy” (fully bidirectional relationship).</p>
-<p>In particular, for the code in the question the correct annotations would look like this:</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-	
-	
-	
-	
-	
-	
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://kevin1061517.github.io/blog/posts/uncategorized/32b3d61b/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/42539369?s=460&u=39b9ef0ba8f701077a22689184ac5bcce289e9e4&v=4">
-      <meta itemprop="name" content="Kevin Fang">
-      <meta itemprop="description" content="Better late than never">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kevin Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/posts/uncategorized/32b3d61b/" class="post-title-link" itemprop="url">SpringMvcNote</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2021-06-06 00:25:54" itemprop="dateCreated datePublished" datetime="2021-06-06T00:25:54+08:00">2021-06-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-06-27 17:24:11" itemprop="dateModified" datetime="2021-06-27T17:24:11+08:00">2021-06-27</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/blog/posts/uncategorized/32b3d61b/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="blog/posts/uncategorized/32b3d61b/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>SSH SSM Spring SpringMvc<br>Spring是java EE領域中來實踐企業級應用的開發框架，能夠搭建複雜的網站後端服務<br>Spring 兩個特性(因此降低開發的複雜度)</p>
-<ol>
-<li><p>控制反轉(IOC)</p>
-<ul>
-<li>不是什麼新的技術，只是一個設計思想，IOC可以讓我們擺脫複雜的物件管理工作，像是在傳統開發時候常會用new來建立物件，每次在new都會創造物件之間的依賴關係，programmer必須去維護這些工作，所以可以將我們設計好的物件交給他這第三方的IOC容器來管控，總結就是IOC容器可以讓我們有效率的建立物件以及組裝物件之間的依賴關係=&gt;XML配bean</li>
-</ul>
-</li>
-<li><p>面相切面程式(AOP)</p>
-<ul>
-<li>實現代碼解偶的一個重要利器，使我們可以在不改變程式碼(功能流程)的狀況下，加入新的功能，這是一種況展性的表現，他的基本原理就是”動態代理技術”</li>
-</ul>
-</li>
-</ol>
-<p>Spring有個缺點就是隨著項目越來越複雜或龐大時候，就會需要引入很多配置文件(XML)，難以理解且容易出錯<br>Spring 開發一個web項目有幾個步驟</p>
-<ol>
-<li>配置maven依賴</li>
-<li>配置web.xml 加載Spring mvc</li>
-<li>配置DB連接或配置Spring Application</li>
-<li>配置加載文件的讀取 開啟註解</li>
-<li>配置日誌文件 接著配置一堆…</li>
-<li>最後部屬Tomcat調適</li>
-</ol>
-<p>=======================================<br>Spring boot不是為了取代Spring，而是為了讓開發者更方便簡化的使用Spring，首先就先將Spring裡面複雜的XML配Bean給砍掉。<br>Spring boot核心思想就是約定大於配置(Convention over Configuration, CoC)，表示developer只要定義應用中會有不符合Spring boot約定的部分來做調整就ok，其他大部分約定俗成的東西Spring boot都幫我們配置好了</p>
-<p>Spring boot搞一個web項目，只要把maven依賴都加進來，基本上就是可以直接啟動，XML複雜配置Spring boot全部幫我們搞定，<br>所以Spring booot有兩項優點</p>
-<ol>
-<li>Spring boot有很多開箱即用的套件(jar)，像是各式各樣的Starter (EX: spring-boot-starter-actuator)</li>
-<li>配置直接簡化</li>
-<li>部屬，內簽Tomcat容器，啟動和部屬變得相當容易</li>
-</ol>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://medium.com/@ragunathrajasekaran/spring-boot-deep-dive-restcontroller-part3-3ccf1d6368c6">https://medium.com/@ragunathrajasekaran/spring-boot-deep-dive-restcontroller-part3-3ccf1d6368c6</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.tpisoftware.com/tpu/articleDetails/1303">https://www.tpisoftware.com/tpu/articleDetails/1303</a></li>
-<li><a target="_blank" rel="noopener" href="http://pclevin.blogspot.com/2014/12/springmvc-annotation-project-hello-world.html">http://pclevin.blogspot.com/2014/12/springmvc-annotation-project-hello-world.html</a></li>
-<li><a target="_blank" rel="noopener" href="https://mainul35.medium.com/spring-mvc-helloworld-application-eba3ef0468a3">https://mainul35.medium.com/spring-mvc-helloworld-application-eba3ef0468a3</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-	
-	
-	
-	
-	
-	
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://kevin1061517.github.io/blog/posts/JavaScript/f868cf93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -691,10 +484,212 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://kevin1061517.github.io/blog/posts/JavaScript/78072a22/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/42539369?s=460&u=39b9ef0ba8f701077a22689184ac5bcce289e9e4&v=4">
+      <meta itemprop="name" content="Kevin Fang">
+      <meta itemprop="description" content="Better late than never">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kevin Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/posts/JavaScript/78072a22/" class="post-title-link" itemprop="url">JS 學習筆記</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2021-02-17 10:56:25" itemprop="dateCreated datePublished" datetime="2021-02-17T10:56:25+08:00">2021-02-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-04-14 23:22:20" itemprop="dateModified" datetime="2021-04-14T23:22:20+08:00">2021-04-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/blog/posts/JavaScript/78072a22/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="blog/posts/JavaScript/78072a22/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>這幾個禮拜花點時間把大神Kuro的<a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/users/20065504/ironman/1259">重新認識 JavaScript</a> 系列的文章讀完，過程中跟隨作者的每一篇文章練習編寫JS，自己認為補足了許多之前不熟悉的觀念和技術，因此我這篇就將自己學習遇到的問題和重點記錄下來吧!</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/posts/JavaScript/78072a22/" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+	
+	
+	
+	
+	
+	
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://kevin1061517.github.io/blog/posts/Hexo/e5a2de66/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/42539369?s=460&u=39b9ef0ba8f701077a22689184ac5bcce289e9e4&v=4">
+      <meta itemprop="name" content="Kevin Fang">
+      <meta itemprop="description" content="Better late than never">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kevin Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/posts/Hexo/e5a2de66/" class="post-title-link" itemprop="url">Hexo出現 Template render error</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2021-01-05 21:43:44" itemprop="dateCreated datePublished" datetime="2021-01-05T21:43:44+08:00">2021-01-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-01-10 20:05:15" itemprop="dateModified" datetime="2021-01-10T20:05:15+08:00">2021-01-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/blog/posts/Hexo/e5a2de66/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="blog/posts/Hexo/e5a2de66/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上次寫完上一篇文章筆記後，執行hexo g生成靜態文件後，就出現下面的錯誤了!導致後續的部屬根本進行不下去，google搜尋的問題大都是提到某個模板(swig)出現的字串符號跟 Hexo 產生衝突，把我之前修改的.swig檔案全部Run過一遍，結果看到眼睛爛掉也沒找出什麼，最後沒辦法只好重新佈署一個新的Next資料夾，在一個個檔案試哪邊錯，結果找到是主題目錄下的_config註解錯地方了…其實會導致Hexo編譯時出現 Template render error的原因有幾種，這篇就來記錄一下吧!</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/posts/Hexo/e5a2de66/" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+	
+	
+	
+	
+	
+	
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一頁"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一頁"></i></a>
   </nav>
 
 
@@ -771,20 +766,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
         
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -817,11 +812,11 @@
 		  </li>
 		
 		  <li>
-			<a href="/blog/posts/uncategorized/8a266b9a/" title="spring_one_to_one" target="_self">spring_one_to_one</a>
+			<a href="/blog/posts/JavaScript/f868cf93/" title="JS Array常用方法" target="_self">JS Array常用方法</a>
 		  </li>
 		
 		  <li>
-			<a href="/blog/posts/uncategorized/32b3d61b/" title="SpringMvcNote" target="_self">SpringMvcNote</a>
+			<a href="/blog/posts/Java/9eccf366/" title="用Base64儲存pdf等檔案類型" target="_self">用Base64儲存pdf等檔案類型</a>
 		  </li>
 		
 	  </ul>

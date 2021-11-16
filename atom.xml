@@ -36,52 +36,6 @@
   </entry>
   
   <entry>
-    <title>spring_one_to_one</title>
-    <link href="https://kevin1061517.github.io/blog/posts/uncategorized/8a266b9a/"/>
-    <id>https://kevin1061517.github.io/blog/posts/uncategorized/8a266b9a/</id>
-    <published>2021-06-27T06:49:43.000Z</published>
-    <updated>2021-06-27T16:11:31.660Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;我們都知道物件關係對應(Object relational
-        
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>SpringMvcNote</title>
-    <link href="https://kevin1061517.github.io/blog/posts/uncategorized/32b3d61b/"/>
-    <id>https://kevin1061517.github.io/blog/posts/uncategorized/32b3d61b/</id>
-    <published>2021-06-05T16:25:54.000Z</published>
-    <updated>2021-06-27T09:24:11.185Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;SSH SSM Spring SpringMvc&lt;br&gt;Spring是java EE領域中來實踐企業級應用的開發框架，能夠搭建複雜的網站後端服務&lt;br&gt;Spring
-        
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>JS Array常用方法</title>
     <link href="https://kevin1061517.github.io/blog/posts/JavaScript/f868cf93/"/>
     <id>https://kevin1061517.github.io/blog/posts/JavaScript/f868cf93/</id>
@@ -143,58 +97,6 @@
     
     
       <category term="JavaScript" scheme="https://kevin1061517.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>建置一個Spring Maven Project</title>
-    <link href="https://kevin1061517.github.io/blog/posts/uncategorized/80b4317f/"/>
-    <id>https://kevin1061517.github.io/blog/posts/uncategorized/80b4317f/</id>
-    <published>2021-02-17T02:56:25.000Z</published>
-    <updated>2021-03-01T12:06:33.697Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;action沒反應可能原因&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;logging.properties沒配置&lt;/li&gt;
-&lt;li&gt;return success時，在struts.xml可能沒配置好，應該是要 &lt;result name=&quot;success&quot;&gt;jsp/index.jsp&lt;/result&gt; 的success要小寫&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;問題:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;啟動server時候，action method跑了兩次，其他狀況時候就正常&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="Java" scheme="https://kevin1061517.github.io/tags/Java/"/>
-    
-      <category term="Spring" scheme="https://kevin1061517.github.io/tags/Spring/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MavenNote</title>
-    <link href="https://kevin1061517.github.io/blog/posts/Maven/6add6839/"/>
-    <id>https://kevin1061517.github.io/blog/posts/Maven/6add6839/</id>
-    <published>2021-02-12T06:50:29.000Z</published>
-    <updated>2021-02-12T14:35:00.142Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;我們都知道Maven是一個幫助我們的Java專案做依賴管理及自動建構的工具，其實過去半年常寫的Java都是Maven專案，但對Maven還是有幾分陌生，所以這幾天花了點時間來釐清一下它的基本功能及概念。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Maven" scheme="https://kevin1061517.github.io/categories/Maven/"/>
-    
-    
-      <category term="Java" scheme="https://kevin1061517.github.io/tags/Java/"/>
-    
-      <category term="Maven" scheme="https://kevin1061517.github.io/tags/Maven/"/>
     
   </entry>
   
@@ -357,7 +259,7 @@
     <link href="https://kevin1061517.github.io/blog/posts/Java/1d94/"/>
     <id>https://kevin1061517.github.io/blog/posts/Java/1d94/</id>
     <published>2020-09-05T03:38:20.000Z</published>
-    <updated>2020-12-27T15:50:49.513Z</updated>
+    <updated>2021-09-05T04:05:38.413Z</updated>
     
     <summary type="html">
     
@@ -371,7 +273,7 @@
     
       <category term="Java" scheme="https://kevin1061517.github.io/tags/Java/"/>
     
-      <category term="集合物件Collection" scheme="https://kevin1061517.github.io/tags/%E9%9B%86%E5%90%88%E7%89%A9%E4%BB%B6Collection/"/>
+      <category term="Collection" scheme="https://kevin1061517.github.io/tags/Collection/"/>
     
   </entry>
   
