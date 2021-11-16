@@ -1,28 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>ExtJS 製作 Banner</title>
-    <url>/blog/posts/ExtJS/c1113943/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="77b97b713d39272c176c98fc26cfbf3b6a8c0c3e740064c95e9ea413196fcafb">165d50f05814027fb7fe5e4ae8a088d8240dac90f2f2cc3be4b182594285803a7755a57ebe0bbcb597537d161d3d9bf2fa57fcf5908cbdb8fe4bd45ee3d44d0227904f20eba031ef9003d1a5e8a4ee51616636b4f2697804039d911e050b39e89d8c8c531225309b71041330b5f4180a53f69904b96f0fa7dc69dd089e47003601d7e96efeac95088ebce089f4795fc8df705034158b0ba8862ececfa7fcafb9</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>ExtJS</category>
-      </categories>
-      <tags>
-        <tag>ExtJS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Singleton Design Pattern</title>
     <url>/blog/posts/Design-Pattern/6eb01663/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Singleton Design Pattern 是一種設計的模式，目的是確保執行環境(JVM)內只會有一個物件實例，有點類似於Bean在Spring容器管理的Singleton作用域，意思一個IOC容器中只會有唯一的物件。它們都是希望可以避免系統資源的浪費，且確定這一個物件是無狀態的(Stateless)，並能讓類別的腳色定義能更明確。常見Scope為Singleton的例子就是Spring boot專案裡的Service或是自己定義的Utility類別，我們並不需要每次都注入一個新的物件吧!</p>
@@ -69,28 +47,6 @@
       <categories>
         <category>Design Pattern</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Hexo分類頁面部分項目連結404錯誤</title>
-    <url>/blog/posts/Hexo/7dce27be/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>原本分類(categories)和標籤(tags)頁面很正常，某天調整了Next主題的一些配置，接著就發現分類和標籤頁面的某些關鍵字點下去都直接爛掉(顯示404)如下圖，原本一直以為是哪邊配置沒有弄號，但越試越奇怪，明明localhost端的分類項目和標籤關鍵字連結開起來一切都正常，到Remote開起來就會有些顯示404。結果試了老半天，發現原來是Hexo有個小bug…因此這邊來記錄一下!</p>
-<a id="more"></a>
-
-<img src="https://i.imgur.com/r5Ttemw.png" width=70%/>
-
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>爬文後發現也有人遇到類似問題，但原因眾說紛紜，大部分推測是特定Hexo版本的小問題，聽說更新到最新版本就不會有此狀況，下面來記錄一下解決的方法。</p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>我是先將Hexo根目錄的<code>.deploy_git</code>資料夾整個刪除，接著再重新佈署一次，結果就可以了!我猜應該是Hexo的某個地方咬到<code>.deploy_git</code>裡面的某個檔案，所以造成部分地方有衝突，才會再部屬到github後就會有些是404，這題真的是搞了我好幾天。</p>
-<h2 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h2><p>另外也有人建議把Hexo根目錄的<code>db.json</code>砍掉，再重新佈署一次，這邊對我是沒作用，但可能有些人也是這部分造成的錯誤。</p>
-<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol>
-<li><a href="https://github.com/iissnan/hexo-theme-next/issues/635">blog categories XXX 404 Error</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
   </entry>
   <entry>
     <title>Hexo &amp; Next 建構部落格</title>
@@ -190,6 +146,50 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo分類頁面部分項目連結404錯誤</title>
+    <url>/blog/posts/Hexo/7dce27be/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>原本分類(categories)和標籤(tags)頁面很正常，某天調整了Next主題的一些配置，接著就發現分類和標籤頁面的某些關鍵字點下去都直接爛掉(顯示404)如下圖，原本一直以為是哪邊配置沒有弄號，但越試越奇怪，明明localhost端的分類項目和標籤關鍵字連結開起來一切都正常，到Remote開起來就會有些顯示404。結果試了老半天，發現原來是Hexo有個小bug…因此這邊來記錄一下!</p>
+<a id="more"></a>
+
+<img src="https://i.imgur.com/r5Ttemw.png" width=70%/>
+
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>爬文後發現也有人遇到類似問題，但原因眾說紛紜，大部分推測是特定Hexo版本的小問題，聽說更新到最新版本就不會有此狀況，下面來記錄一下解決的方法。</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>我是先將Hexo根目錄的<code>.deploy_git</code>資料夾整個刪除，接著再重新佈署一次，結果就可以了!我猜應該是Hexo的某個地方咬到<code>.deploy_git</code>裡面的某個檔案，所以造成部分地方有衝突，才會再部屬到github後就會有些是404，這題真的是搞了我好幾天。</p>
+<h2 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h2><p>另外也有人建議把Hexo根目錄的<code>db.json</code>砍掉，再重新佈署一次，這邊對我是沒作用，但可能有些人也是這部分造成的錯誤。</p>
+<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol>
+<li><a href="https://github.com/iissnan/hexo-theme-next/issues/635">blog categories XXX 404 Error</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ExtJS 製作 Banner</title>
+    <url>/blog/posts/ExtJS/c1113943/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="77b97b713d39272c176c98fc26cfbf3b6a8c0c3e740064c95e9ea413196fcafb">165d50f05814027fb7fe5e4ae8a088d8240dac90f2f2cc3be4b182594285803a7755a57ebe0bbcb597537d161d3d9bf2fa57fcf5908cbdb8fe4bd45ee3d44d0227904f20eba031ef9003d1a5e8a4ee51616636b4f2697804039d911e050b39e89d8c8c531225309b71041330b5f4180a53f69904b96f0fa7dc69dd089e47003601d7e96efeac95088ebce089f4795fc8df705034158b0ba8862ececfa7fcafb9</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>ExtJS</category>
+      </categories>
+      <tags>
+        <tag>ExtJS</tag>
       </tags>
   </entry>
   <entry>
@@ -355,92 +355,6 @@
       </tags>
   </entry>
   <entry>
-    <title>JS 學習筆記</title>
-    <url>/blog/posts/JavaScript/78072a22/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>這幾個禮拜花點時間把大神Kuro的<a href="https://ithelp.ithome.com.tw/users/20065504/ironman/1259">重新認識 JavaScript</a> 系列的文章讀完，過程中跟隨作者的每一篇文章練習編寫JS，自己認為補足了許多之前不熟悉的觀念和技術，因此我這篇就將自己學習遇到的問題和重點記錄下來吧!</p>
-<a id="more"></a>
-
-<h2 id="指定-this-方式"><a href="#指定-this-方式" class="headerlink" title="指定 this 方式"></a>指定 this 方式</h2><p>func使用apply函式將this.t = 100的新變數增加到obj物件，有點像是把func裡面<code>this指定的變數或方法</code>複製到obj裡面去，因為在執行func.apply(obj)的時候，就會執行一次func裡面的code(func還回傳this.x的值123)，所以在func裡面的針對this屬性的賦值動作都會定義到參數obj裡面，最後才會有像是複製屬性的行為。<br>另外call和apply其實結果都相同，只是在傳遞參數的時，call()第二以後的參數會作為參數傳進目標函式中，而apply()第二參數必須是陣列，並將陣列中的每個元素作為參數傳進目標函式中</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    x: <span class="number">123</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">50</span>;</span><br><span class="line">    <span class="built_in">this</span>.t = <span class="number">100</span>;</span><br><span class="line">    <span class="built_in">this</span>.y = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.x;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(func.apply(obj)); <span class="comment">//123</span></span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// &#123;x: 123, t: 100, y: 10&#125; </span></span><br></pre></td></tr></table></figure>
-
-<p>bind()也會有一樣的複製效果</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    x: <span class="number">123</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>);</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">50</span>; <span class="comment">//有</span></span><br><span class="line">    <span class="built_in">this</span>.t = <span class="number">100</span>; <span class="comment">//沒有</span></span><br><span class="line">&#125;.bind(obj);</span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// &#123;x: 123&#125; 執行下面func後才會得到t: 100</span></span><br><span class="line">func(); <span class="comment">// &#123;x: 123&#125; </span></span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// &#123;x: 123, t: 100&#125; </span></span><br></pre></td></tr></table></figure>
-
-<h2 id="函式建構式"><a href="#函式建構式" class="headerlink" title="函式建構式"></a>函式建構式</h2><p>Cascade 也有人稱作 Fluent Interface，在function裡面會使用this.變數或this.方法，由於函式也是個物件，同時也可以將其視為 建構子(constructor)，透過關鍵字new來建構物件的行為<code>類似複製物件的功能</code></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> calNum = <span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.num = num;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.add = <span class="function"><span class="keyword">function</span>(<span class="params">newNum</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.num += newNum;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.sub = <span class="function"><span class="keyword">function</span>(<span class="params">newNum</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.num -= newNum;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.multi = <span class="function"><span class="keyword">function</span>(<span class="params">newNum</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.num *= newNum;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.division = <span class="function"><span class="keyword">function</span>(<span class="params">newNum</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.num /= newNum;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//var a = new calNum(100);</span></span><br><span class="line"><span class="comment">//new 如同下面兩個步驟</span></span><br><span class="line"><span class="comment">//-----------------</span></span><br><span class="line"><span class="keyword">var</span> a = &#123;&#125;;</span><br><span class="line">calNum.call(a, <span class="number">100</span>);</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// &#123;num: 100, add: ƒ, sub: ƒ, multi: ƒ, division: ƒ&#125;</span></span><br><span class="line">a.add(<span class="number">100</span>).sub(<span class="number">50</span>);</span><br><span class="line"><span class="built_in">console</span>.log( a.num );   <span class="comment">// 150</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"> name, age, gender </span>)</span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.name = name;</span><br><span class="line">  <span class="built_in">this</span>.age = age;</span><br><span class="line">  <span class="built_in">this</span>.gender = gender;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.greeting = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Hello! My name is &#x27;</span> + <span class="built_in">this</span>.name + <span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> kuro = <span class="keyword">new</span> Person( <span class="string">&#x27;Kuro&#x27;</span>, <span class="number">32</span>, <span class="string">&#x27;male&#x27;</span>);</span><br><span class="line">kuro.greeting();      <span class="comment">// &quot;Hello! My name is Kuro.&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> John = <span class="keyword">new</span> Person( <span class="string">&#x27;John&#x27;</span>, <span class="number">10</span>, <span class="string">&#x27;male&#x27;</span>);</span><br><span class="line">kuro.greeting();      <span class="comment">// &quot;Hello! My name is John.&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="defineProperty的get和set意義"><a href="#defineProperty的get和set意義" class="headerlink" title="defineProperty的get和set意義"></a>defineProperty的get和set意義</h2><p>如果你定義了 get 與 set 方法，表示你要自行控制屬性的存取，那麼就不能再去定義 value 或 writable 的屬性描述，<br>get和set只是定義在賦值與取值時候要做什麼行為而已</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    getName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(person, <span class="string">&#x27;name&#x27;</span>, &#123;</span><br><span class="line">    get: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;get&#x27;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>._name_;</span><br><span class="line">    &#125;,</span><br><span class="line">    set: <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;set&#x27;</span>);</span><br><span class="line">        <span class="built_in">this</span>._name_ = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(person);</span><br><span class="line">person.name = <span class="string">&#x27;kevin&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person.getName());</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">var person = &#123;</span><br><span class="line">    getName: <span class="keyword">function</span> () &#123;</span><br><span class="line">        console.log(this);</span><br><span class="line">        <span class="keyword">return</span> this.name;</span><br><span class="line">        //<span class="keyword">return</span> <span class="type">name</span>; //定義<span class="type">name</span>會往外開始找<span class="type">name</span>這一個變數</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">person.name = <span class="string">&#x27;kevin&#x27;</span>;</span><br><span class="line">var <span class="type">name</span> = <span class="string">&#x27;test&#x27;</span>;</span><br><span class="line">console.log(person.getName());</span><br><span class="line">//var <span class="type">name</span> = <span class="string">&#x27;test&#x27;</span>; //呼叫方法之後就看不到了</span><br></pre></td></tr></table></figure>
-
-
-<p>決定 this 的關鍵不在於它屬於哪個物件，而是在於 function「呼叫的時機點」<br>當你透過物件呼叫某個方法 (method) 的時候，此時 this 就是那個物件 (owner object)</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.count++;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">foo.count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>( <span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++ ) &#123;</span><br><span class="line">  foo(); <span class="comment">//undefined</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(foo.count) <span class="comment">//還是0</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Array常用方法"><a href="#Array常用方法" class="headerlink" title="Array常用方法"></a>Array常用方法</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arrs = [<span class="number">1</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">0</span>];</span><br><span class="line"><span class="comment">//var newArr = arrs.map(v =&gt; v * 2)</span></span><br><span class="line"><span class="keyword">var</span> newArr = arrs.map(<span class="function"><span class="keyword">function</span> (<span class="params">v, index, arr</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(index);</span><br><span class="line">    <span class="keyword">return</span> v * <span class="number">2</span>;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//var filterArr = arrs.filter(val =&gt; val &gt; 1);</span></span><br><span class="line"><span class="keyword">var</span> filterArr = arrs.filter(<span class="function"><span class="keyword">function</span> (<span class="params">val, index, arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> val &gt; <span class="number">1</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//var sortArr = arrs.sort((a, b) =&gt; a - b);</span></span><br><span class="line"><span class="keyword">var</span> sortArr = arrs.sort(<span class="function"><span class="keyword">function</span> (<span class="params">a,b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(newArr); <span class="comment">// [2, 8, 4, 6, 0]</span></span><br><span class="line"><span class="built_in">console</span>.log(filterArr); <span class="comment">// [4, 2, 3]</span></span><br><span class="line"><span class="built_in">console</span>.log(sortArr); <span class="comment">//[0, 1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure>
-<h2 id="浮點數轉整數"><a href="#浮點數轉整數" class="headerlink" title="浮點數轉整數"></a>浮點數轉整數</h2><p>根據定義在JS中的數字背後都是以浮點數的方式運行 <code>There is no such thing as an int in Javascript. All Numbers are actually doubles behind the scenes</code>，我們習慣上還是會把整數或浮點數方開來看。在stackoverflow有人發問如果要將浮點數轉型成整數，但不希望四捨五入可以怎麼做(<a href="https://stackoverflow.com/questions/8388440/converting-a-double-to-an-int-in-javascript-without-rounding/52872650">Converting a double to an int in Javascript without rounding
-</a> )，我們可以有下面的作法。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">1.85</span>;</span><br><span class="line"><span class="comment">//四捨五入</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.round(num));<span class="comment">// 2</span></span><br><span class="line"><span class="comment">//無視四捨五入</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.floor(num));<span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(num | <span class="number">0</span>); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(num));<span class="comment">// 1</span></span><br><span class="line"><span class="comment">//只取整數部分</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.trunc(<span class="number">1.6</span>)); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.trunc(<span class="number">-1.6</span>)); <span class="comment">// -1</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="布林值比較"><a href="#布林值比較" class="headerlink" title="布林值比較"></a>布林值比較</h2><figure class="highlight coffeescript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;true&#x27;</span> == <span class="literal">true</span>); <span class="regexp">//</span> <span class="literal">false</span>，因為等同於 <span class="string">&#x27;true&#x27;</span> == <span class="number">1</span>，但<span class="literal">true</span> == <span class="number">1</span>就會是<span class="literal">true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">100</span> == <span class="string">&#x27;100&#x27;</span>); <span class="regexp">//</span> 字串轉型成數字</span><br></pre></td></tr></table></figure>
-<ol>
-<li>比較的a 或 b其中一個為<code>boolean</code>，會在比較相等性之前將<code>false轉0 / true轉1</code>轉成數值型態</li>
-<li>比較的a 或 b其中一個為<code>String</code>，而另一個是數值，同樣會將字符串轉成數值型態</li>
-<li>比較的a 或 b其中一個是物件，另外一個不是，則會調用物件的valueOf()方法得到基本型別(如果其中一方是「物件」型別，而另一方是基本型別的情況下，則會先透過物件的 valueOf() 方法取得對應的基本型別的值，再進行後續的比較</li>
-</ol>
-<p>補充: </p>
-<ul>
-<li>null == undefined 會是true</li>
-<li>NaN 不等於 NaN，不管是兩個等號或三個等號都一樣</li>
-</ul>
-<h2 id="Regular-Expression"><a href="#Regular-Expression" class="headerlink" title="Regular Expression"></a>Regular Expression</h2><p>正規表達式都會包含兩個 <code>/</code>，後面的符號就會用跳脫字元<code>\</code>來表示，</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> text = <span class="string">&quot;A apple a day keeps the doctor away.I have pen , I have apple.Uh ! ApplePen!!&quot;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(text.match(<span class="regexp">/applezzs/ig</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;123abc123zz23&quot;</span>.match(<span class="regexp">/^\d.*3/g</span>));  <span class="comment">//123abc123zz23 greedy</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;123abc123zz23&quot;</span>.match(<span class="regexp">/^\d.*?3/g</span>)); <span class="comment">//123</span></span><br><span class="line"><span class="keyword">var</span> match = <span class="regexp">/(hello) (\S+)/</span>.exec(<span class="string">&#x27;This is a hello world!&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(match); <span class="comment">// [&#x27;hello world!&#x27;, &#x27;hello&#x27;, &#x27;world!&#x27;]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> text = <span class="string">&quot;has-a-text&quot;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">upper</span> (<span class="params">match,p1</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> p1.toUpperCase()</span><br><span class="line">&#125;</span><br><span class="line">text = text.replace(<span class="regexp">/-(\w)/g</span>, upper);<span class="comment">//&quot;hasAText&quot;</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>function funcAs()&#123;
-    return new Promise(function(resolve, reject)&#123;
-        window.setTimeout(function()&#123;
-            console.log(&#39;A&#39;);
-            resolve(&#39;A_print&#39;);
-        &#125;, (Math.random() + 1) * 1000);
-    &#125;);
-&#125;
-
-function funcBs(b)&#123;
-    return new Promise(function(resolve, reject)&#123;
-        window.setTimeout(function()&#123;
-            console.log(&#39;B&#39;);
-            console.log(b);
-            resolve(&#39;B_print&#39;);//成功傳到下一個參數
-        &#125;, (Math.random() + 1) * 1000);
-    &#125;);
-&#125;
-
-function funcCs(c)&#123;
-    return new Promise(function(resolve, reject)&#123;
-        window.setTimeout(function()&#123;
-            console.log(&#39;C&#39;);
-            console.log(c);
-            resolve(&#39;C_print&#39;);
-        &#125;, (Math.random() + 1) * 1000);
-    &#125;);
-&#125;
-
-var v = funcAs().then(funcBs).then(funcCs);</code></pre>
-<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol>
-<li><a href="https://medium.com/@rayshih771012/mvc-%E6%9E%B6%E6%A7%8B%E6%BC%94%E9%80%B2-single-source-of-truth-2720f5a5facd">MVC 架構演進 — Single Source of Truth</a></li>
-<li><a href="https://www.fooish.com/regex-regular-expression/groups-lookaround.html">Regex 正規表示法 - 群組與環顧</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>高頻率出現的Java Collections</title>
     <url>/blog/posts/Java/1d94/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在Leetcode刷個幾題，使用到集合(Collection)物件的頻率甚高，顧名思義就是把多個有關聯的資料存放在Collection裡面，而這些資料叫做元素(Elements)，同時也就是物件。因為常常會不小心忘記有一些集合的宣告方法或具有哪些方法，因此，這邊來記錄一下我在Leetcode上最常用到的幾個Collection。</p>
@@ -566,22 +480,89 @@ var v = funcAs().then(funcBs).then(funcCs);</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>用Base64儲存pdf等檔案類型</title>
-    <url>/blog/posts/Java/9eccf366/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>紀錄使用Java串流類別來操作檔案，並用Base64來讀寫各種檔案類型(pdf/pptx/…)</p>
+    <title>JS 學習筆記</title>
+    <url>/blog/posts/JavaScript/78072a22/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>這幾個禮拜花點時間把大神Kuro的<a href="https://ithelp.ithome.com.tw/users/20065504/ironman/1259">重新認識 JavaScript</a> 系列的文章讀完，過程中跟隨作者的每一篇文章練習編寫JS，自己認為補足了許多之前不熟悉的觀念和技術，因此我這篇就將自己學習遇到的問題和重點記錄下來吧!</p>
 <a id="more"></a>
-<h2 id="壓縮檔包檔"><a href="#壓縮檔包檔" class="headerlink" title="壓縮檔包檔"></a>壓縮檔包檔</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.util.Base64;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.zip.ZipEntry;</span><br><span class="line"><span class="keyword">import</span> java.util.zip.ZipOutputStream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Base64Transformator</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">saveBase64ToFile</span><span class="params">(String name, String userFileName)</span> </span>&#123;</span><br><span class="line">        String defaultPath = String.format(<span class="string">&quot;D:\\%tF\\%s\\&quot;</span>, <span class="keyword">new</span> Date(), name);</span><br><span class="line">        File file = <span class="keyword">new</span> File(defaultPath);</span><br><span class="line">        <span class="keyword">if</span>(!file.exists()) &#123;</span><br><span class="line">            file.mkdirs();</span><br><span class="line">        &#125;</span><br><span class="line">        String base64String = <span class="string">&quot;UEsDBBQABg.......&quot;</span>;</span><br><span class="line">        String fileName = defaultPath + userFileName; <span class="comment">//&quot;test123.pptx&quot;;</span></span><br><span class="line">        <span class="keyword">byte</span> dearr[] = Base64.getDecoder().decode(base64String);</span><br><span class="line">        <span class="keyword">try</span>(FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(<span class="keyword">new</span> File(fileName))) &#123;</span><br><span class="line">            fos.write(dearr);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> fileName;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">zipMultipleFile</span><span class="params">(String path)</span> </span>&#123;</span><br><span class="line">        String zipFileName = path + <span class="string">&quot;result.zip&quot;</span>;</span><br><span class="line">        File folder = <span class="keyword">new</span> File(path);</span><br><span class="line">        File[] listOfFiles = folder.listFiles();</span><br><span class="line">        <span class="keyword">if</span>(listOfFiles != <span class="keyword">null</span> &amp;&amp; listOfFiles.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span>(ZipOutputStream zipOutputStream = <span class="keyword">new</span> ZipOutputStream(<span class="keyword">new</span> FileOutputStream(zipFileName))) &#123;</span><br><span class="line">                <span class="keyword">for</span> (File file : listOfFiles) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (file.isFile() &amp;&amp; !file.getName().equals(zipFileName)) &#123;</span><br><span class="line">                        zipOutputStream.putNextEntry(<span class="keyword">new</span> ZipEntry(file.getName()));</span><br><span class="line">                        BufferedInputStream bis = <span class="keyword">new</span> BufferedInputStream(<span class="keyword">new</span> FileInputStream(file));</span><br><span class="line">                        <span class="keyword">int</span> readLen;</span><br><span class="line">                        <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">                        <span class="keyword">while</span> ((readLen = bis.read(buffer)) != -<span class="number">1</span>) &#123;</span><br><span class="line">                            zipOutputStream.write(buffer, <span class="number">0</span>, readLen);</span><br><span class="line">                        &#125;</span><br><span class="line">                        System.out.println(file.getName());</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// saveBase64ToFile(&quot;Kevin&quot;, &quot;resmue.pptx&quot;);</span></span><br><span class="line">        <span class="comment">// saveBase64ToFile(&quot;Redick&quot;, &quot;resmue123.pptx&quot;);</span></span><br><span class="line">        <span class="comment">// saveBase64ToFile(&quot;Redick&quot;, &quot;resmue.pptx&quot;);</span></span><br><span class="line">        String defaultPath = String.format(<span class="string">&quot;D:\\%tF\\Redick\\&quot;</span>, <span class="keyword">new</span> Date());</span><br><span class="line">        zipMultipleFile(defaultPath);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h2 id="指定-this-方式"><a href="#指定-this-方式" class="headerlink" title="指定 this 方式"></a>指定 this 方式</h2><p>func使用apply函式將this.t = 100的新變數增加到obj物件，有點像是把func裡面<code>this指定的變數或方法</code>複製到obj裡面去，因為在執行func.apply(obj)的時候，就會執行一次func裡面的code(func還回傳this.x的值123)，所以在func裡面的針對this屬性的賦值動作都會定義到參數obj裡面，最後才會有像是複製屬性的行為。<br>另外call和apply其實結果都相同，只是在傳遞參數的時，call()第二以後的參數會作為參數傳進目標函式中，而apply()第二參數必須是陣列，並將陣列中的每個元素作為參數傳進目標函式中</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    x: <span class="number">123</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">50</span>;</span><br><span class="line">    <span class="built_in">this</span>.t = <span class="number">100</span>;</span><br><span class="line">    <span class="built_in">this</span>.y = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.x;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(func.apply(obj)); <span class="comment">//123</span></span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// &#123;x: 123, t: 100, y: 10&#125; </span></span><br></pre></td></tr></table></figure>
+
+<p>bind()也會有一樣的複製效果</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    x: <span class="number">123</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>);</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">50</span>; <span class="comment">//有</span></span><br><span class="line">    <span class="built_in">this</span>.t = <span class="number">100</span>; <span class="comment">//沒有</span></span><br><span class="line">&#125;.bind(obj);</span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// &#123;x: 123&#125; 執行下面func後才會得到t: 100</span></span><br><span class="line">func(); <span class="comment">// &#123;x: 123&#125; </span></span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// &#123;x: 123, t: 100&#125; </span></span><br></pre></td></tr></table></figure>
+
+<h2 id="函式建構式"><a href="#函式建構式" class="headerlink" title="函式建構式"></a>函式建構式</h2><p>Cascade 也有人稱作 Fluent Interface，在function裡面會使用this.變數或this.方法，由於函式也是個物件，同時也可以將其視為 建構子(constructor)，透過關鍵字new來建構物件的行為<code>類似複製物件的功能</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> calNum = <span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.num = num;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.add = <span class="function"><span class="keyword">function</span>(<span class="params">newNum</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.num += newNum;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.sub = <span class="function"><span class="keyword">function</span>(<span class="params">newNum</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.num -= newNum;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.multi = <span class="function"><span class="keyword">function</span>(<span class="params">newNum</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.num *= newNum;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.division = <span class="function"><span class="keyword">function</span>(<span class="params">newNum</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.num /= newNum;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//var a = new calNum(100);</span></span><br><span class="line"><span class="comment">//new 如同下面兩個步驟</span></span><br><span class="line"><span class="comment">//-----------------</span></span><br><span class="line"><span class="keyword">var</span> a = &#123;&#125;;</span><br><span class="line">calNum.call(a, <span class="number">100</span>);</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// &#123;num: 100, add: ƒ, sub: ƒ, multi: ƒ, division: ƒ&#125;</span></span><br><span class="line">a.add(<span class="number">100</span>).sub(<span class="number">50</span>);</span><br><span class="line"><span class="built_in">console</span>.log( a.num );   <span class="comment">// 150</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"> name, age, gender </span>)</span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.name = name;</span><br><span class="line">  <span class="built_in">this</span>.age = age;</span><br><span class="line">  <span class="built_in">this</span>.gender = gender;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.greeting = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Hello! My name is &#x27;</span> + <span class="built_in">this</span>.name + <span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> kuro = <span class="keyword">new</span> Person( <span class="string">&#x27;Kuro&#x27;</span>, <span class="number">32</span>, <span class="string">&#x27;male&#x27;</span>);</span><br><span class="line">kuro.greeting();      <span class="comment">// &quot;Hello! My name is Kuro.&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> John = <span class="keyword">new</span> Person( <span class="string">&#x27;John&#x27;</span>, <span class="number">10</span>, <span class="string">&#x27;male&#x27;</span>);</span><br><span class="line">kuro.greeting();      <span class="comment">// &quot;Hello! My name is John.&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="defineProperty的get和set意義"><a href="#defineProperty的get和set意義" class="headerlink" title="defineProperty的get和set意義"></a>defineProperty的get和set意義</h2><p>如果你定義了 get 與 set 方法，表示你要自行控制屬性的存取，那麼就不能再去定義 value 或 writable 的屬性描述，<br>get和set只是定義在賦值與取值時候要做什麼行為而已</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    getName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(person, <span class="string">&#x27;name&#x27;</span>, &#123;</span><br><span class="line">    get: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;get&#x27;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>._name_;</span><br><span class="line">    &#125;,</span><br><span class="line">    set: <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;set&#x27;</span>);</span><br><span class="line">        <span class="built_in">this</span>._name_ = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(person);</span><br><span class="line">person.name = <span class="string">&#x27;kevin&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person.getName());</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">var person = &#123;</span><br><span class="line">    getName: <span class="keyword">function</span> () &#123;</span><br><span class="line">        console.log(this);</span><br><span class="line">        <span class="keyword">return</span> this.name;</span><br><span class="line">        //<span class="keyword">return</span> <span class="type">name</span>; //定義<span class="type">name</span>會往外開始找<span class="type">name</span>這一個變數</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">person.name = <span class="string">&#x27;kevin&#x27;</span>;</span><br><span class="line">var <span class="type">name</span> = <span class="string">&#x27;test&#x27;</span>;</span><br><span class="line">console.log(person.getName());</span><br><span class="line">//var <span class="type">name</span> = <span class="string">&#x27;test&#x27;</span>; //呼叫方法之後就看不到了</span><br></pre></td></tr></table></figure>
+
+
+<p>決定 this 的關鍵不在於它屬於哪個物件，而是在於 function「呼叫的時機點」<br>當你透過物件呼叫某個方法 (method) 的時候，此時 this 就是那個物件 (owner object)</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.count++;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">foo.count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>( <span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++ ) &#123;</span><br><span class="line">  foo(); <span class="comment">//undefined</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(foo.count) <span class="comment">//還是0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Array常用方法"><a href="#Array常用方法" class="headerlink" title="Array常用方法"></a>Array常用方法</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arrs = [<span class="number">1</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">0</span>];</span><br><span class="line"><span class="comment">//var newArr = arrs.map(v =&gt; v * 2)</span></span><br><span class="line"><span class="keyword">var</span> newArr = arrs.map(<span class="function"><span class="keyword">function</span> (<span class="params">v, index, arr</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(index);</span><br><span class="line">    <span class="keyword">return</span> v * <span class="number">2</span>;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//var filterArr = arrs.filter(val =&gt; val &gt; 1);</span></span><br><span class="line"><span class="keyword">var</span> filterArr = arrs.filter(<span class="function"><span class="keyword">function</span> (<span class="params">val, index, arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> val &gt; <span class="number">1</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//var sortArr = arrs.sort((a, b) =&gt; a - b);</span></span><br><span class="line"><span class="keyword">var</span> sortArr = arrs.sort(<span class="function"><span class="keyword">function</span> (<span class="params">a,b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(newArr); <span class="comment">// [2, 8, 4, 6, 0]</span></span><br><span class="line"><span class="built_in">console</span>.log(filterArr); <span class="comment">// [4, 2, 3]</span></span><br><span class="line"><span class="built_in">console</span>.log(sortArr); <span class="comment">//[0, 1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure>
+<h2 id="浮點數轉整數"><a href="#浮點數轉整數" class="headerlink" title="浮點數轉整數"></a>浮點數轉整數</h2><p>根據定義在JS中的數字背後都是以浮點數的方式運行 <code>There is no such thing as an int in Javascript. All Numbers are actually doubles behind the scenes</code>，我們習慣上還是會把整數或浮點數方開來看。在stackoverflow有人發問如果要將浮點數轉型成整數，但不希望四捨五入可以怎麼做(<a href="https://stackoverflow.com/questions/8388440/converting-a-double-to-an-int-in-javascript-without-rounding/52872650">Converting a double to an int in Javascript without rounding
+</a> )，我們可以有下面的作法。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">1.85</span>;</span><br><span class="line"><span class="comment">//四捨五入</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.round(num));<span class="comment">// 2</span></span><br><span class="line"><span class="comment">//無視四捨五入</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.floor(num));<span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(num | <span class="number">0</span>); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(num));<span class="comment">// 1</span></span><br><span class="line"><span class="comment">//只取整數部分</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.trunc(<span class="number">1.6</span>)); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.trunc(<span class="number">-1.6</span>)); <span class="comment">// -1</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="布林值比較"><a href="#布林值比較" class="headerlink" title="布林值比較"></a>布林值比較</h2><figure class="highlight coffeescript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;true&#x27;</span> == <span class="literal">true</span>); <span class="regexp">//</span> <span class="literal">false</span>，因為等同於 <span class="string">&#x27;true&#x27;</span> == <span class="number">1</span>，但<span class="literal">true</span> == <span class="number">1</span>就會是<span class="literal">true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">100</span> == <span class="string">&#x27;100&#x27;</span>); <span class="regexp">//</span> 字串轉型成數字</span><br></pre></td></tr></table></figure>
+<ol>
+<li>比較的a 或 b其中一個為<code>boolean</code>，會在比較相等性之前將<code>false轉0 / true轉1</code>轉成數值型態</li>
+<li>比較的a 或 b其中一個為<code>String</code>，而另一個是數值，同樣會將字符串轉成數值型態</li>
+<li>比較的a 或 b其中一個是物件，另外一個不是，則會調用物件的valueOf()方法得到基本型別(如果其中一方是「物件」型別，而另一方是基本型別的情況下，則會先透過物件的 valueOf() 方法取得對應的基本型別的值，再進行後續的比較</li>
+</ol>
+<p>補充: </p>
+<ul>
+<li>null == undefined 會是true</li>
+<li>NaN 不等於 NaN，不管是兩個等號或三個等號都一樣</li>
+</ul>
+<h2 id="Regular-Expression"><a href="#Regular-Expression" class="headerlink" title="Regular Expression"></a>Regular Expression</h2><p>正規表達式都會包含兩個 <code>/</code>，後面的符號就會用跳脫字元<code>\</code>來表示，</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> text = <span class="string">&quot;A apple a day keeps the doctor away.I have pen , I have apple.Uh ! ApplePen!!&quot;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(text.match(<span class="regexp">/applezzs/ig</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;123abc123zz23&quot;</span>.match(<span class="regexp">/^\d.*3/g</span>));  <span class="comment">//123abc123zz23 greedy</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;123abc123zz23&quot;</span>.match(<span class="regexp">/^\d.*?3/g</span>)); <span class="comment">//123</span></span><br><span class="line"><span class="keyword">var</span> match = <span class="regexp">/(hello) (\S+)/</span>.exec(<span class="string">&#x27;This is a hello world!&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(match); <span class="comment">// [&#x27;hello world!&#x27;, &#x27;hello&#x27;, &#x27;world!&#x27;]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> text = <span class="string">&quot;has-a-text&quot;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">upper</span> (<span class="params">match,p1</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> p1.toUpperCase()</span><br><span class="line">&#125;</span><br><span class="line">text = text.replace(<span class="regexp">/-(\w)/g</span>, upper);<span class="comment">//&quot;hasAText&quot;</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>function funcAs()&#123;
+    return new Promise(function(resolve, reject)&#123;
+        window.setTimeout(function()&#123;
+            console.log(&#39;A&#39;);
+            resolve(&#39;A_print&#39;);
+        &#125;, (Math.random() + 1) * 1000);
+    &#125;);
+&#125;
+
+function funcBs(b)&#123;
+    return new Promise(function(resolve, reject)&#123;
+        window.setTimeout(function()&#123;
+            console.log(&#39;B&#39;);
+            console.log(b);
+            resolve(&#39;B_print&#39;);//成功傳到下一個參數
+        &#125;, (Math.random() + 1) * 1000);
+    &#125;);
+&#125;
+
+function funcCs(c)&#123;
+    return new Promise(function(resolve, reject)&#123;
+        window.setTimeout(function()&#123;
+            console.log(&#39;C&#39;);
+            console.log(c);
+            resolve(&#39;C_print&#39;);
+        &#125;, (Math.random() + 1) * 1000);
+    &#125;);
+&#125;
+
+var v = funcAs().then(funcBs).then(funcCs);</code></pre>
 <h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol>
-<li><a href="https://base64.guru/converter/encode/file">File to Base64</a></li>
-<li><a href="https://www.mdeditor.tw/pl/gxgA/zh-tw">https://www.mdeditor.tw/pl/gxgA/zh-tw</a></li>
+<li><a href="https://medium.com/@rayshih771012/mvc-%E6%9E%B6%E6%A7%8B%E6%BC%94%E9%80%B2-single-source-of-truth-2720f5a5facd">MVC 架構演進 — Single Source of Truth</a></li>
+<li><a href="https://www.fooish.com/regex-regular-expression/groups-lookaround.html">Regex 正規表示法 - 群組與環顧</a></li>
 </ol>
 ]]></content>
       <categories>
-        <category>Java</category>
+        <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>Java</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -625,6 +606,25 @@ var v = funcAs().then(funcBs).then(funcCs);</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>用Base64儲存pdf等檔案類型</title>
+    <url>/blog/posts/Java/9eccf366/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>紀錄使用Java串流類別來操作檔案，並用Base64來讀寫各種檔案類型(pdf/pptx/…)</p>
+<a id="more"></a>
+<h2 id="壓縮檔包檔"><a href="#壓縮檔包檔" class="headerlink" title="壓縮檔包檔"></a>壓縮檔包檔</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.util.Base64;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.zip.ZipEntry;</span><br><span class="line"><span class="keyword">import</span> java.util.zip.ZipOutputStream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Base64Transformator</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">saveBase64ToFile</span><span class="params">(String name, String userFileName)</span> </span>&#123;</span><br><span class="line">        String defaultPath = String.format(<span class="string">&quot;D:\\%tF\\%s\\&quot;</span>, <span class="keyword">new</span> Date(), name);</span><br><span class="line">        File file = <span class="keyword">new</span> File(defaultPath);</span><br><span class="line">        <span class="keyword">if</span>(!file.exists()) &#123;</span><br><span class="line">            file.mkdirs();</span><br><span class="line">        &#125;</span><br><span class="line">        String base64String = <span class="string">&quot;UEsDBBQABg.......&quot;</span>;</span><br><span class="line">        String fileName = defaultPath + userFileName; <span class="comment">//&quot;test123.pptx&quot;;</span></span><br><span class="line">        <span class="keyword">byte</span> dearr[] = Base64.getDecoder().decode(base64String);</span><br><span class="line">        <span class="keyword">try</span>(FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(<span class="keyword">new</span> File(fileName))) &#123;</span><br><span class="line">            fos.write(dearr);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> fileName;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">zipMultipleFile</span><span class="params">(String path)</span> </span>&#123;</span><br><span class="line">        String zipFileName = path + <span class="string">&quot;result.zip&quot;</span>;</span><br><span class="line">        File folder = <span class="keyword">new</span> File(path);</span><br><span class="line">        File[] listOfFiles = folder.listFiles();</span><br><span class="line">        <span class="keyword">if</span>(listOfFiles != <span class="keyword">null</span> &amp;&amp; listOfFiles.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span>(ZipOutputStream zipOutputStream = <span class="keyword">new</span> ZipOutputStream(<span class="keyword">new</span> FileOutputStream(zipFileName))) &#123;</span><br><span class="line">                <span class="keyword">for</span> (File file : listOfFiles) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (file.isFile() &amp;&amp; !file.getName().equals(zipFileName)) &#123;</span><br><span class="line">                        zipOutputStream.putNextEntry(<span class="keyword">new</span> ZipEntry(file.getName()));</span><br><span class="line">                        BufferedInputStream bis = <span class="keyword">new</span> BufferedInputStream(<span class="keyword">new</span> FileInputStream(file));</span><br><span class="line">                        <span class="keyword">int</span> readLen;</span><br><span class="line">                        <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">                        <span class="keyword">while</span> ((readLen = bis.read(buffer)) != -<span class="number">1</span>) &#123;</span><br><span class="line">                            zipOutputStream.write(buffer, <span class="number">0</span>, readLen);</span><br><span class="line">                        &#125;</span><br><span class="line">                        System.out.println(file.getName());</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// saveBase64ToFile(&quot;Kevin&quot;, &quot;resmue.pptx&quot;);</span></span><br><span class="line">        <span class="comment">// saveBase64ToFile(&quot;Redick&quot;, &quot;resmue123.pptx&quot;);</span></span><br><span class="line">        <span class="comment">// saveBase64ToFile(&quot;Redick&quot;, &quot;resmue.pptx&quot;);</span></span><br><span class="line">        String defaultPath = String.format(<span class="string">&quot;D:\\%tF\\Redick\\&quot;</span>, <span class="keyword">new</span> Date());</span><br><span class="line">        zipMultipleFile(defaultPath);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol>
+<li><a href="https://base64.guru/converter/encode/file">File to Base64</a></li>
+<li><a href="https://www.mdeditor.tw/pl/gxgA/zh-tw">https://www.mdeditor.tw/pl/gxgA/zh-tw</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Revealing Module Pattern (JS)</title>
     <url>/blog/posts/JavaScript/45fd/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>看到在 stackoverflow 有人發問 <a href="https://stackoverflow.com/questions/43929098/why-do-i-need-to-return-init-to-execute-init-function">why do I need to return “init” to execute init function?
@@ -654,6 +654,80 @@ var v = funcAs().then(funcBs).then(funcCs);</code></pre>
       <tags>
         <tag>JavaScript</tag>
         <tag>Design Pattern</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初探var及let變數</title>
+    <url>/blog/posts/ExtJS/c7fe/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>JavaScript中不同宣告變數的關鍵字會有不同的調用區域(也稱作用域)(Scope)，我自己剛接觸JavaScript時，曾經沒有使用var 關鍵字來宣告變數，所以導致宣告的變數無論在哪裡都會是全域變數，這會很容易造成後面誤用或干擾到區域變數，進而成為系統程式bug的原因。因此，對於變數的作用域範圍必須要有所掌握，才可以寫出具有穩定性的程式!</p>
+<a id="more"></a>
+<hr>
+<h2 id="關鍵字var-let-const-的比較"><a href="#關鍵字var-let-const-的比較" class="headerlink" title="關鍵字var let const 的比較"></a>關鍵字var let const 的比較</h2><table>
+<thead>
+<tr>
+<th align="center">var</th>
+<th align="center">let</th>
+<th align="center">const</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">變數宣告方式</td>
+<td align="center">變數宣告方式&nbsp;(來宣告在可能會有再次賦值的變數)</td>
+<td align="center">常數宣告方式&nbsp;(如同JAVA的關鍵字final)，像是<code>const PI = 3.14</code>，且const宣告變數時就會有初始化的動作，若之後再次賦值，就發生<code>Uncaught TypeError: Assignment to constant variable</code>的錯誤喔!</td>
+</tr>
+<tr>
+<td align="center">函式範圍來決定變數的作用域&nbsp;(function scope)，且要注意會有<a href="https://medium.com/@realdennis/%E4%B8%80%E6%AC%A1%E8%AA%AA%E6%B8%85%E6%A5%9A-javascript-%E4%B8%AD%E5%AE%A3%E5%91%8A%E7%9A%84%E5%90%84%E7%A8%AE%E6%8F%90%E5%8D%87%E8%A1%8C%E7%82%BA-var-function-let-const-dd9175d063f0">變數提升</a>(Variables Hoisting)的特性</td>
+<td align="center">有效作用域是根據以區塊(block)來決定，稱為block scope，區塊就是大括號<code>&#123;&#125;</code>或小括號<code>()</code>裡面的範圍 ，不會有 hoisting 的狀況</td>
+<td align="center">如同let的作用域一樣，也是透過區塊(block)來決定來決定作用域範圍，不會有 hoisting 的狀況</td>
+</tr>
+<tr>
+<td align="center">可以重複宣告</td>
+<td align="center">不可重複宣告</td>
+<td align="center">不可重複宣告</td>
+</tr>
+<tr>
+<td align="center">宣告前存取或覆值就會回傳undefined</td>
+<td align="center">宣告前存取或覆值會直接出現ReferenceError，並終止程式執行</td>
+<td align="center">宣告前存取或覆值會直接出現ReferenceError，並終止程式執行</td>
+</tr>
+<tr>
+<td align="center">ES6後比較少用</td>
+<td align="center">常用來宣告for迴圈中的循環變數</td>
+<td align="center">可以使用在陣列、物件或函式等參照類型的使用</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>ES6之後都漸漸使用let來宣告變數，主要是希望開發的專案能具有穩定性及可讀性</p>
+<ul>
+<li><p>let來宣告變數不會汙染到全域物件，而且可以避免<strong>區域變數覆蓋全域變數</strong>及<strong>循環變數洩漏為全域變數</strong>，下面的程式碼為用var來宣告變數可能會遇到的狀況</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//區域變數覆蓋全域變數</span></span><br><span class="line"><span class="keyword">var</span> tmp = <span class="string">&#x27;test&#x27;</span>;<span class="comment">//Global Variable</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    glo_tmp = <span class="string">&#x27;global&#x27;</span>;<span class="comment">//Global Variable</span></span><br><span class="line">    <span class="comment">//var glo_tmp = &#x27;global123&#x27;; //如果沒有這行var宣告變數，glo_tmp就是全域變數，可以透過window.glo_tmp取得</span></span><br><span class="line">    <span class="built_in">console</span>.log(tmp); <span class="comment">//undefined，下面宣告的var tmp = &#x27;new&#x27;;，var tmp;會自動提升到函式最上面做初始化的動作;</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">        <span class="keyword">var</span> tmp = <span class="string">&#x27;new&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(tmp);<span class="comment">//new</span></span><br><span class="line">&#125;;</span><br><span class="line">f();</span><br><span class="line"><span class="built_in">console</span>.log(tmp);<span class="comment">//test</span></span><br><span class="line"><span class="comment">//循環變數洩漏為全域變數</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.glo_tmp);</span><br><span class="line"><span class="keyword">var</span> s = <span class="string">&#x27;test&#x27;</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;s.length; i++)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(s[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i);<span class="comment">// 4 </span></span><br></pre></td></tr></table></figure></li>
+<li><p>如果var宣告變數不是在函數當中的話，就會成為全域物件的變數&nbsp;;&nbsp;let宣告的變數有效範圍則是在if的大括號裡面而已</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> v = <span class="string">&#x27;v&#x27;</span>;</span><br><span class="line">    <span class="keyword">let</span> a = <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(v);  <span class="comment">//v</span></span><br><span class="line"><span class="built_in">console</span>.log(a);  <span class="comment">//Uncaught ReferenceError: a is not defined</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>在沒有var宣告情況下都視為全域變數，像是下面的glo_tmp，同時也是wondow物件的一個屬性，所以可以透過window.glo_tmp取得值</p>
+<ul>
+<li>可以使用 delete glo_tmp來刪除物件屬性，並會return一個true</li>
+<li>盡可能避免此種宣告方式，很容易造成系統上面的bug</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    glo_tmp = <span class="string">&#x27;hello&#x27;</span>; <span class="comment">//Global Variable</span></span><br><span class="line">    <span class="built_in">console</span>.log(glo_tmp); <span class="comment">// 印出hello</span></span><br><span class="line">&#125;;</span><br><span class="line">f();</span><br><span class="line"><span class="built_in">console</span>.log(glo_tmp);<span class="comment">// 印出hello</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>只要存取的變數在函式當中有宣告，就算變數的存取比宣告早，也不會變成是全域變數的存取，但只要函式裡面都沒有做var宣告變數，最後印出來的tmp就會是hello</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> tmp = <span class="string">&#x27;test&#x27;</span>;<span class="comment">//Global Variable</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    tmp = <span class="string">&#x27;hello&#x27;</span>; <span class="comment">//這裡的變數tmp是區域變數的tmp</span></span><br><span class="line">    <span class="built_in">console</span>.log(tmp); <span class="comment">//hello</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">        <span class="keyword">var</span> tmp = <span class="string">&#x27;new&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(tmp);<span class="comment">//new</span></span><br><span class="line">&#125;;</span><br><span class="line">f();</span><br><span class="line"><span class="built_in">console</span>.log(tmp);<span class="comment">//test</span></span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>ExtJS</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>var &amp; let</tag>
       </tags>
   </entry>
   <entry>
@@ -739,80 +813,6 @@ home: / || fa fa-home
         <tag>Java</tag>
         <tag>Print pyramid using *</tag>
         <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>初探var及let變數</title>
-    <url>/blog/posts/ExtJS/c7fe/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>JavaScript中不同宣告變數的關鍵字會有不同的調用區域(也稱作用域)(Scope)，我自己剛接觸JavaScript時，曾經沒有使用var 關鍵字來宣告變數，所以導致宣告的變數無論在哪裡都會是全域變數，這會很容易造成後面誤用或干擾到區域變數，進而成為系統程式bug的原因。因此，對於變數的作用域範圍必須要有所掌握，才可以寫出具有穩定性的程式!</p>
-<a id="more"></a>
-<hr>
-<h2 id="關鍵字var-let-const-的比較"><a href="#關鍵字var-let-const-的比較" class="headerlink" title="關鍵字var let const 的比較"></a>關鍵字var let const 的比較</h2><table>
-<thead>
-<tr>
-<th align="center">var</th>
-<th align="center">let</th>
-<th align="center">const</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">變數宣告方式</td>
-<td align="center">變數宣告方式&nbsp;(來宣告在可能會有再次賦值的變數)</td>
-<td align="center">常數宣告方式&nbsp;(如同JAVA的關鍵字final)，像是<code>const PI = 3.14</code>，且const宣告變數時就會有初始化的動作，若之後再次賦值，就發生<code>Uncaught TypeError: Assignment to constant variable</code>的錯誤喔!</td>
-</tr>
-<tr>
-<td align="center">函式範圍來決定變數的作用域&nbsp;(function scope)，且要注意會有<a href="https://medium.com/@realdennis/%E4%B8%80%E6%AC%A1%E8%AA%AA%E6%B8%85%E6%A5%9A-javascript-%E4%B8%AD%E5%AE%A3%E5%91%8A%E7%9A%84%E5%90%84%E7%A8%AE%E6%8F%90%E5%8D%87%E8%A1%8C%E7%82%BA-var-function-let-const-dd9175d063f0">變數提升</a>(Variables Hoisting)的特性</td>
-<td align="center">有效作用域是根據以區塊(block)來決定，稱為block scope，區塊就是大括號<code>&#123;&#125;</code>或小括號<code>()</code>裡面的範圍 ，不會有 hoisting 的狀況</td>
-<td align="center">如同let的作用域一樣，也是透過區塊(block)來決定來決定作用域範圍，不會有 hoisting 的狀況</td>
-</tr>
-<tr>
-<td align="center">可以重複宣告</td>
-<td align="center">不可重複宣告</td>
-<td align="center">不可重複宣告</td>
-</tr>
-<tr>
-<td align="center">宣告前存取或覆值就會回傳undefined</td>
-<td align="center">宣告前存取或覆值會直接出現ReferenceError，並終止程式執行</td>
-<td align="center">宣告前存取或覆值會直接出現ReferenceError，並終止程式執行</td>
-</tr>
-<tr>
-<td align="center">ES6後比較少用</td>
-<td align="center">常用來宣告for迴圈中的循環變數</td>
-<td align="center">可以使用在陣列、物件或函式等參照類型的使用</td>
-</tr>
-</tbody></table>
-<ul>
-<li><p>ES6之後都漸漸使用let來宣告變數，主要是希望開發的專案能具有穩定性及可讀性</p>
-<ul>
-<li><p>let來宣告變數不會汙染到全域物件，而且可以避免<strong>區域變數覆蓋全域變數</strong>及<strong>循環變數洩漏為全域變數</strong>，下面的程式碼為用var來宣告變數可能會遇到的狀況</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//區域變數覆蓋全域變數</span></span><br><span class="line"><span class="keyword">var</span> tmp = <span class="string">&#x27;test&#x27;</span>;<span class="comment">//Global Variable</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    glo_tmp = <span class="string">&#x27;global&#x27;</span>;<span class="comment">//Global Variable</span></span><br><span class="line">    <span class="comment">//var glo_tmp = &#x27;global123&#x27;; //如果沒有這行var宣告變數，glo_tmp就是全域變數，可以透過window.glo_tmp取得</span></span><br><span class="line">    <span class="built_in">console</span>.log(tmp); <span class="comment">//undefined，下面宣告的var tmp = &#x27;new&#x27;;，var tmp;會自動提升到函式最上面做初始化的動作;</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">        <span class="keyword">var</span> tmp = <span class="string">&#x27;new&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(tmp);<span class="comment">//new</span></span><br><span class="line">&#125;;</span><br><span class="line">f();</span><br><span class="line"><span class="built_in">console</span>.log(tmp);<span class="comment">//test</span></span><br><span class="line"><span class="comment">//循環變數洩漏為全域變數</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.glo_tmp);</span><br><span class="line"><span class="keyword">var</span> s = <span class="string">&#x27;test&#x27;</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;s.length; i++)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(s[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i);<span class="comment">// 4 </span></span><br></pre></td></tr></table></figure></li>
-<li><p>如果var宣告變數不是在函數當中的話，就會成為全域物件的變數&nbsp;;&nbsp;let宣告的變數有效範圍則是在if的大括號裡面而已</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> v = <span class="string">&#x27;v&#x27;</span>;</span><br><span class="line">    <span class="keyword">let</span> a = <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(v);  <span class="comment">//v</span></span><br><span class="line"><span class="built_in">console</span>.log(a);  <span class="comment">//Uncaught ReferenceError: a is not defined</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>在沒有var宣告情況下都視為全域變數，像是下面的glo_tmp，同時也是wondow物件的一個屬性，所以可以透過window.glo_tmp取得值</p>
-<ul>
-<li>可以使用 delete glo_tmp來刪除物件屬性，並會return一個true</li>
-<li>盡可能避免此種宣告方式，很容易造成系統上面的bug</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    glo_tmp = <span class="string">&#x27;hello&#x27;</span>; <span class="comment">//Global Variable</span></span><br><span class="line">    <span class="built_in">console</span>.log(glo_tmp); <span class="comment">// 印出hello</span></span><br><span class="line">&#125;;</span><br><span class="line">f();</span><br><span class="line"><span class="built_in">console</span>.log(glo_tmp);<span class="comment">// 印出hello</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>只要存取的變數在函式當中有宣告，就算變數的存取比宣告早，也不會變成是全域變數的存取，但只要函式裡面都沒有做var宣告變數，最後印出來的tmp就會是hello</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> tmp = <span class="string">&#x27;test&#x27;</span>;<span class="comment">//Global Variable</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    tmp = <span class="string">&#x27;hello&#x27;</span>; <span class="comment">//這裡的變數tmp是區域變數的tmp</span></span><br><span class="line">    <span class="built_in">console</span>.log(tmp); <span class="comment">//hello</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">        <span class="keyword">var</span> tmp = <span class="string">&#x27;new&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(tmp);<span class="comment">//new</span></span><br><span class="line">&#125;;</span><br><span class="line">f();</span><br><span class="line"><span class="built_in">console</span>.log(tmp);<span class="comment">//test</span></span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-      <categories>
-        <category>ExtJS</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>var &amp; let</tag>
       </tags>
   </entry>
   <entry>
@@ -1180,34 +1180,6 @@ home: / || fa fa-home
 </html>]]></content>
   </entry>
   <entry>
-    <title>about</title>
-    <url>/aboutKevin/contact.html</url>
-    <content><![CDATA[
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.0.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-16x16-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-</head>
-   <body>   
-      <div>
-            <h1 class="mb-6"> class="404 -- 施工當中QQ</h1>
-      </div>
-     
-
-</body>
-</html>
-]]></content>
-  </entry>
-  <entry>
     <title>關於我</title>
     <url>/aboutKevin/index.html</url>
     <content><![CDATA[
@@ -1363,13 +1335,41 @@ home: / || fa fa-home
 ]]></content>
   </entry>
   <entry>
-    <title>分類</title>
-    <url>/categories/index.html</url>
+    <title>關鍵字標籤</title>
+    <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>關鍵字標籤</title>
-    <url>/tags/index.html</url>
+    <title>about</title>
+    <url>/aboutKevin/contact.html</url>
+    <content><![CDATA[
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-16x16-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+   <body>   
+      <div>
+            <h1 class="mb-6"> class="404 -- 施工當中QQ</h1>
+      </div>
+     
+
+</body>
+</html>
+]]></content>
+  </entry>
+  <entry>
+    <title>分類</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
