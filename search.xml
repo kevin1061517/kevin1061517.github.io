@@ -51,13 +51,13 @@
   <entry>
     <title>ExtJS 製作 Banner</title>
     <url>/blog/posts/ExtJS/c1113943/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="你的密碼不正確，有興趣可以找 Kevin 聊聊" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
   <script id="hbeData" type="hbeData" data-hmacdigest="77b97b713d39272c176c98fc26cfbf3b6a8c0c3e740064c95e9ea413196fcafb">165d50f05814027fb7fe5e4ae8a088d8240dac90f2f2cc3be4b182594285803a7755a57ebe0bbcb597537d161d3d9bf2fa57fcf5908cbdb8fe4bd45ee3d44d0227904f20eba031ef9003d1a5e8a4ee51616636b4f2697804039d911e050b39e89d8c8c531225309b71041330b5f4180a53f69904b96f0fa7dc69dd089e47003601d7e96efeac95088ebce089f4795fc8df705034158b0ba8862ececfa7fcafb9</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-default">
       <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
       <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">此篇為心情日記，請輸入密碼確認:</span>
       </label>
     </div>
   </div>
@@ -193,6 +193,48 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo圖片不套用fancybox</title>
+    <url>/blog/posts/Hexo/2721/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>fancybox套件的功能是實現點開圖片，並可以放大顯示和左右切換圖片，還會隨版面的大小自動來調整跳出的版面範圍，而且手機端也可以直接實現。fancybox在Jquery中也有相關的套件，而Next主題自己在config有內建fancybox的配置，配製好以後就會在所有img標籤實作這功能，但如果有部分圖片不想要有放大顯示，則就需要做一些步驟。</p>
+<a id="more"></a>
+
+<h2 id="安裝fancybox"><a href="#安裝fancybox" class="headerlink" title="安裝fancybox"></a>安裝fancybox</h2><p>我的版本的Next需要去把fnacybox clone下來，所以要先在next資料夾內執行下面的指令，就應該會在source/lib資料夾內出現fancybox資料夾</p>
+<figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">git clone <span class="symbol">https:</span>/<span class="regexp">/github.com/theme</span>-<span class="keyword">next</span>/theme-<span class="keyword">next</span>-fancybox3 source/<span class="class"><span class="keyword">lib</span>/<span class="title">fancybox</span></span></span><br></pre></td></tr></table></figure>
+
+<p>接著在自己的next主題的<code>_config.yml</code>來將fancybox設為true，要注意不是在vendors底下的fancybox喔!!</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.</span></span><br><span class="line"><span class="comment"># For more information: https://fancyapps.com/fancybox</span></span><br><span class="line"><span class="attr">fancybox:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>如果要在vendors配置則是如下</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">vendors:</span><br><span class="line">  fancybox: <span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>fancyapps<span class="regexp">/fancybox@3/</span>dist/jquery.fancybox.min.js</span><br><span class="line">  fancybox_css: <span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>fancyapps<span class="regexp">/fancybox@3/</span>dist/jquery.fancybox.min.css</span><br></pre></td></tr></table></figure>
+
+<h2 id="鼠標顯示放大鏡icon"><a href="#鼠標顯示放大鏡icon" class="headerlink" title="鼠標顯示放大鏡icon"></a>鼠標顯示放大鏡icon</h2><p>可以在<code>next\source\css\_common\components\post</code>中的這<code>post.styl</code>檔案裡面配製下面css語法</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">.post-body img:hover &#123;</span><br><span class="line">    cursor: zoom-<span class="keyword">in</span>;<span class="regexp">//</span>鼠标样式：手势</span><br><span class="line">    <span class="regexp">//</span>transform: scale(<span class="number">1.4</span>); <span class="regexp">//</span>放大倍數：<span class="number">1.4</span>倍</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="結果圖"><a href="#結果圖" class="headerlink" title="結果圖"></a>結果圖</h3><p>可以點選放大</p>
+<img src="https://i.imgur.com/W4RoWAe.jpg" width=80%/>
+
+<h2 id="照片取消fancybox放大"><a href="#照片取消fancybox放大" class="headerlink" title="照片取消fancybox放大"></a>照片取消fancybox放大</h2><p>有些照片不想給人放大的話，就要自己改一些語法，如先在img標籤內給定一個自己定義的nofancybox屬性</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://i.imgur.com/W4RoWAe.jpg&quot;</span> <span class="attr">class</span>=<span class="string">&quot;nofancybox&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>接著在<code>source\js</code>裡面的<code>utils.js</code>中找出<code>var $image = $(element);</code>，在它的下面加入如下</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> ($(element).hasClass(<span class="string">&#x27;nofancybox&#x27;</span>))&#123;  <span class="comment">//是否有包含自己定義的nofancybox屬性，有就return true</span></span><br><span class="line">        $(element).css(<span class="string">&quot;cursor&quot;</span>,<span class="string">&quot;default&quot;</span>);    <span class="comment">//將碰到圖片的鼠標從放大鏡變成default模式</span></span><br><span class="line">        <span class="keyword">return</span>;    <span class="comment">//不進行下面的fancybox的配置</span></span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+
+<p>加入後會呈現如下</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">wrapImageWithFancyBox: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.post-body :not(a) &gt; img, .post-body &gt; img&#x27;</span>).forEach(<span class="function"><span class="params">element</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">var</span> $image = $(element);      </span><br><span class="line">      <span class="keyword">if</span> ($(element).hasClass(<span class="string">&#x27;nofancybox&#x27;</span>))&#123;</span><br><span class="line">        $(element).css(<span class="string">&quot;cursor&quot;</span>,<span class="string">&quot;default&quot;</span>); </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">var</span> imageLink = $image.attr(<span class="string">&#x27;data-src&#x27;</span>) || $image.attr(<span class="string">&#x27;src&#x27;</span>);</span><br><span class="line">      .....</span><br><span class="line">      .....</span><br></pre></td></tr></table></figure>
+
+<h3 id="結果圖-1"><a href="#結果圖-1" class="headerlink" title="結果圖"></a>結果圖</h3><img src="https://i.imgur.com/W4RoWAe.jpg" width=80% class="nofancybox"/>
+
+
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>fancybox照片放大</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JS Array常用方法</title>
     <url>/blog/posts/JavaScript/f868cf93/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>JS的陣列(Array)是我認為最基本且常用的一個物件，所以善用JS提供的Array操作方法就顯得相當重要，過去在使用時每次都要查一下<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">MDN上的Array文件</a> ，因此這篇就來記錄最常使用的操作方法及過去用錯的地方，希望可以更熟悉來讓程式碼更加簡潔乾淨!</p>
@@ -310,48 +352,6 @@
       <tags>
         <tag>JavaScript</tag>
         <tag>Array</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo圖片不套用fancybox</title>
-    <url>/blog/posts/Hexo/2721/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>fancybox套件的功能是實現點開圖片，並可以放大顯示和左右切換圖片，還會隨版面的大小自動來調整跳出的版面範圍，而且手機端也可以直接實現。fancybox在Jquery中也有相關的套件，而Next主題自己在config有內建fancybox的配置，配製好以後就會在所有img標籤實作這功能，但如果有部分圖片不想要有放大顯示，則就需要做一些步驟。</p>
-<a id="more"></a>
-
-<h2 id="安裝fancybox"><a href="#安裝fancybox" class="headerlink" title="安裝fancybox"></a>安裝fancybox</h2><p>我的版本的Next需要去把fnacybox clone下來，所以要先在next資料夾內執行下面的指令，就應該會在source/lib資料夾內出現fancybox資料夾</p>
-<figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">git clone <span class="symbol">https:</span>/<span class="regexp">/github.com/theme</span>-<span class="keyword">next</span>/theme-<span class="keyword">next</span>-fancybox3 source/<span class="class"><span class="keyword">lib</span>/<span class="title">fancybox</span></span></span><br></pre></td></tr></table></figure>
-
-<p>接著在自己的next主題的<code>_config.yml</code>來將fancybox設為true，要注意不是在vendors底下的fancybox喔!!</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.</span></span><br><span class="line"><span class="comment"># For more information: https://fancyapps.com/fancybox</span></span><br><span class="line"><span class="attr">fancybox:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<p>如果要在vendors配置則是如下</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">vendors:</span><br><span class="line">  fancybox: <span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>fancyapps<span class="regexp">/fancybox@3/</span>dist/jquery.fancybox.min.js</span><br><span class="line">  fancybox_css: <span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>fancyapps<span class="regexp">/fancybox@3/</span>dist/jquery.fancybox.min.css</span><br></pre></td></tr></table></figure>
-
-<h2 id="鼠標顯示放大鏡icon"><a href="#鼠標顯示放大鏡icon" class="headerlink" title="鼠標顯示放大鏡icon"></a>鼠標顯示放大鏡icon</h2><p>可以在<code>next\source\css\_common\components\post</code>中的這<code>post.styl</code>檔案裡面配製下面css語法</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">.post-body img:hover &#123;</span><br><span class="line">    cursor: zoom-<span class="keyword">in</span>;<span class="regexp">//</span>鼠标样式：手势</span><br><span class="line">    <span class="regexp">//</span>transform: scale(<span class="number">1.4</span>); <span class="regexp">//</span>放大倍數：<span class="number">1.4</span>倍</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="結果圖"><a href="#結果圖" class="headerlink" title="結果圖"></a>結果圖</h3><p>可以點選放大</p>
-<img src="https://i.imgur.com/W4RoWAe.jpg" width=80%/>
-
-<h2 id="照片取消fancybox放大"><a href="#照片取消fancybox放大" class="headerlink" title="照片取消fancybox放大"></a>照片取消fancybox放大</h2><p>有些照片不想給人放大的話，就要自己改一些語法，如先在img標籤內給定一個自己定義的nofancybox屬性</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://i.imgur.com/W4RoWAe.jpg&quot;</span> <span class="attr">class</span>=<span class="string">&quot;nofancybox&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>接著在<code>source\js</code>裡面的<code>utils.js</code>中找出<code>var $image = $(element);</code>，在它的下面加入如下</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> ($(element).hasClass(<span class="string">&#x27;nofancybox&#x27;</span>))&#123;  <span class="comment">//是否有包含自己定義的nofancybox屬性，有就return true</span></span><br><span class="line">        $(element).css(<span class="string">&quot;cursor&quot;</span>,<span class="string">&quot;default&quot;</span>);    <span class="comment">//將碰到圖片的鼠標從放大鏡變成default模式</span></span><br><span class="line">        <span class="keyword">return</span>;    <span class="comment">//不進行下面的fancybox的配置</span></span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
-
-<p>加入後會呈現如下</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">wrapImageWithFancyBox: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.post-body :not(a) &gt; img, .post-body &gt; img&#x27;</span>).forEach(<span class="function"><span class="params">element</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">var</span> $image = $(element);      </span><br><span class="line">      <span class="keyword">if</span> ($(element).hasClass(<span class="string">&#x27;nofancybox&#x27;</span>))&#123;</span><br><span class="line">        $(element).css(<span class="string">&quot;cursor&quot;</span>,<span class="string">&quot;default&quot;</span>); </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">var</span> imageLink = $image.attr(<span class="string">&#x27;data-src&#x27;</span>) || $image.attr(<span class="string">&#x27;src&#x27;</span>);</span><br><span class="line">      .....</span><br><span class="line">      .....</span><br></pre></td></tr></table></figure>
-
-<h3 id="結果圖-1"><a href="#結果圖-1" class="headerlink" title="結果圖"></a>結果圖</h3><img src="https://i.imgur.com/W4RoWAe.jpg" width=80% class="nofancybox"/>
-
-
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>fancybox照片放大</tag>
       </tags>
   </entry>
   <entry>
@@ -657,6 +657,123 @@ var v = funcAs().then(funcBs).then(funcCs);</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>忐忑的心</title>
+    <url>/blog/posts/Diary/dafa8a5d/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>原本平淡生活因為她的一句「不來這邊走走順便來找我」點燃了我的希望，因此，決定雙十連假去宜蘭找她，也是我們第一次正式的約，雖然我用的理由是要學她一個人的旅行，然後順便找她玩。但我心裡明白這是我跟她的第一次約會，心理不由自主緊張起來…</p>
+<blockquote>
+<p>遇見你也許純粹是運氣<br>認識你用我很多的勇氣<br>終於找到機會約到你<br>我別無所求<br>只求<br>那天10/10<br>宜蘭天氣是晴天</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="心境"><a href="#心境" class="headerlink" title="心境"></a>心境</h2><p>印象很深刻那天是星期一，我們在Teams先聊起來，我順勢回答她Line提到那句話，說我想去宜蘭並找她，她熱情跟我講了很多個點，像是濱海、空ㄟ農場、景觀餐廳之類，當下真的很期待那天到來，之後的幾天把天氣預報查到爛掉，因為有個颱風外圍環流來亂，很怕那天下雨之類，心裡一直希望那天約可以建立好的印象，但可能是太過在意，那天之前的好幾天都睡得不是很好。</p>
+<p>到了當天起了一個大早，就騎上機車從台北衝到宜蘭，大概在下午1點多就到宜蘭了，先是到那天晚上住的 <a href="https://www.google.com/maps/place/%E5%A4%A7%E7%A4%81%E6%BA%AA%E5%B7%A6%E5%B2%B8%E6%B0%91%E5%AE%BF/@24.784508,121.679785,15z/data=!4m2!3m1!1s0x0:0xda82c7bead24233b?sa=X&ved=2ahUKEwienaa56Zf0AhV7sFYBHU9cCtoQ_BJ6BAhCEAU">民宿</a> 放行李，真她媽住的有夠深山，接著就到宜蘭市區晃晃，順便吃一下大學時常吃的東西，感覺時間差不多就直接騎到礁溪那附近晃晃，跟她約好時間後就吃個米粉八寶粥等待4點30的到來。在她家外面等待的時間，可以感覺到心跳的速度異常的快，她走出來之後更是有點緊張，後來我們決定去外澳附近的沙灘看海。到了那邊之後，沿路上雖然有邊走邊聊，但我的腦袋常常斷片，感覺這個不安已經影響到我的表現了…而在海邊拍風景時，還偷拍了一張她的背影，心中有個感覺..也許..這是我跟他第一次來邊，但也是最後一次了，得失心太重真的是害慘我了，幹</p>
+<img src="https://i.imgur.com/tYkOhEP.jpg" width="700" height="350"/>
+
+<img src="https://i.imgur.com/Id5qqi6.jpg" width="700" height="400"/>
+
+<p>因為被海浪濺到全身，所以她回家換一下衣服，這時我坐在路邊思考剛剛到底在幹嘛，剛好天空降下蠻大的雨，讓我清醒一下，得想著等下吃飯一定要放輕鬆點…後來她出來後雨居然就停了!接著我們就到之前查得一家在女中路上的餐廳，因為是預約7點，比預期的還要早到，大概還有一段時間要等，所以提議到附近走一走，附近剛好就是她之前讀的高中，過程中就都蠻有話可以聊的，在吃飯過程中我也放鬆不少，自己覺得氣氛都還不錯，總算是比較像平常的我了。吃完後我們還有去龍潭湖走一走，但其實我又覺得狀況都不是很好，靠北!我是真的比較慢熟的…希望她可以知道，總之就過完了這一天，隔一天因下大雨，所以我中午就先回台北了。</p>
+<p>我自己覺得，這次的約會讓我蠻扣分的，不只是表現緊張，聊天也沒有共鳴的頻率，但我喜歡她的感覺卻是越發強烈，我知道接下來的路會不太好走，希望我能夠越來越好，讓她能夠也喜歡我，辦公室的暗戀是最靠杯，尤其是每天都會看到，而且一不小心名聲還會黑掉。越想越靠北，吃飯的時候她有講一句話「方向感越好，越容易暈船」這句話不知道是不是雙關，還真的是這麼一回事，只希望未來的我能夠承受這些，讓自己的價值可以被他看到，能夠有機會能跟他進一步的發展。</p>
+]]></content>
+      <categories>
+        <category>Diary</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>黃金山城</title>
+    <url>/blog/posts/Diary/cd49170e/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>紀錄令我難忘無窮的一天，不知道已經多久沒有這種開心感覺，當然要來記錄一下啦!!</p>
+<blockquote>
+<p>自己已經習慣單身了，但那個人闖進了我的心裡</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="夜晚的九份-2021-9-3-五"><a href="#夜晚的九份-2021-9-3-五" class="headerlink" title="夜晚的九份 2021/9/3(五)"></a>夜晚的九份 2021/9/3(五)</h2><p>&emsp;&emsp;這一天是非常讓我難忘的一天，記得，當天早上太陽大到會熱死人的那種，一如往常到辦公室，打開電腦看到 Zoe 早上回覆我昨天 Teams 的訊息，後來回他<strong>今天感覺很早就來了</strong>就去 Daily Scrum ，結束後回到座位後，看到訊息他說他今天要去一個人的旅行，當下真的蠻佩服，畢竟對於我這邊緣人來說，自己吃飯或看電影也是都有做過的，只不過自己旅行這真的是完全沒有想像過的。接著我們繼續聊著這話題，並且得知她要去九份，印象我上一次去九份不知道是幾百年前的事情了，所以有種也想一起去的衝動，當下其實還是蠻多顧忌的，怕她覺得我煩或是感覺很怪之類的。後來記得這一個話題快到下午4點多，我知道我在不講就可能沒機會了，所以硬是打了一個很爛的理由，說是如果哪個經不對可以找他吃消夜，再來就是用什麼沒錢可以幫忙之類的理由加到 Zoe 的 Line ，現在回想有點慘不人睹，不過他的人真的很好，也順利的加到她的聯絡方式了!</p>
+<p>&emsp;&emsp;快到下午5點多Zoe已經先迫不及到的奔向九份了，本來想說弄一弄趕快閃回去準備，結果死 User 什麼時候不找偏這時候跟我要報表資料，最後給我拖到晚上6點多才走，跟 Zoe 說我現在才閃人，她是說下次再一起出去玩之類，但九份夜景和 Zoe 獨處機會難得，所以還是說我想去九份那邊看看，回家準備了一下就騎車出發了。至從離開大學後就真的很少晚上騎車夜遊，工作之後更是沒有，而且從內湖騎到九份大概要1個多小時，中間導航更是給我帶到沒有路燈的墳墓區，但當下幾乎都在想像等下跟 Zoe 見面的情況就也沒多在意了，反而是在享受這段路程。大約晚上9點多把機車停在餐酒館附近的一個小觀景平台，Zoe是說他要上英文課，所以就想說不吵他，等她上完10點的時候再去找他，這段時間就先在附近探勘一下，順便拍下當時的美景，不過心中也開始有點緊張會不會等下沒有話題冷場，畢竟自從跟前女友分手後一年多後的第一次跟其他女生出去，而且知道自己算是比較慢熟的，就這樣看著美麗的九份夜景想著這些發呆直到快到10點。</p>
+<img src="https://i.imgur.com/W9agpgP.jpg" width="700" height="400"/>
+
+<p>&emsp;&emsp;接近10點的時候從樓梯爬上去到那一家餐酒館，沿路的九份老街給人一種寂靜的氣氛(所有店家都關門XD)，走到了餐酒館的門口，店內的裝潢感覺超有氣氛的，接著走到旁邊的平台想說可不可以偷看到他，但映入眼簾就是一整片空座位，看了一下手錶9:55分，還有5分鐘她就會出來了，心中還是持續不安，只能看看蠟筆小新緩解一下心情。果然到了10點就從遠處看他走過來，但一開始還是有點太緊張，所以根本忘記自己講了什麼，只記得好像我們講到不厭亭是一個很好的看星星的點，就往下走到機車那邊，在樓梯那邊她還被採到枯掉的樹枝發出的聲音嚇到，當下只覺得這好笑又有點可愛。我們第一個去的點是靠近左邊的一個小平台，那邊往右看可以俯瞰整個九份黃金山城的樣貌，而往左看能夠欣賞海港的夜景，重點是跟他兩人在那邊聊天，可能因為還沒有很熟，所以聊的內容大概就是工作或是生活上面的一些事情，但其實我也已經覺得很棒了，就這樣子聊了大概10幾分鐘。</p>
+<p>&emsp;&emsp;之後我們就出發到不厭亭，因為網路上都推薦那邊的夜景和星空，剛好他的朋友也有提到那邊是萬籟俱寂，所以算是一個來夜晚的九份必去的地方。沿路上彎來彎去且風又不知怎樣超大，其實我中途想停車，然後把外套給他穿，但又覺得有點怪，怕他誤會什麼，現在想想感覺應該這麼做會比較體貼，到了目的地後，果然是一個看星空的好地方，完全沒有任何光害，一開始想說坐著欣賞星空，沒想到 Zoe 有個躺著看這一招，後來躺下來看上去真的是太美了，讓前幾個禮拜工作發生的鳥事都一掃而空，之後我們就這樣子邊聊天邊欣賞這浩瀚的晨星，當下的開心真的是無法言喻，多麼希望這一刻的時間能有多慢就有多慢，而這一個夜晚也成為我最美好的回憶。現在回想起來，很慶幸鼓起勇氣跟他要 Line ，並且來九份找他，雖然我也不知道他怎麼想，但真的對她有點好感… Zoe 她真的是一個很可愛又認真的女生，好煩啊!!</p>
+]]></content>
+      <categories>
+        <category>Diary</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>考慮離開</title>
+    <url>/blog/posts/Diary/8141fed6/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>經歷這一個月的暈船煎熬，不想再繼續下去，所以我想要抽離了，並加強自己價值…</p>
+<blockquote>
+<p>不要為那些不願在你身上花費時間的人而浪費你的時間</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="心境"><a href="#心境" class="headerlink" title="心境"></a>心境</h2><p>這幾個禮拜下來，我確定自己暈船了，也許就像 Zoe 之前講的，方向感越好越容易暈船，這感覺真的很不爽，每天幾乎每一刻都會想著他，注意他怎麼沒在座位和哪個男生講話之類，幹你娘，甚至有幾天的晚上幾乎徹夜未眠，我在那邊痛苦，他在那邊根本不知道。有點受夠，尤其他回我訊息速度已經明顯表示沒興趣了，方楷文你不要再煩他了，他根本沒有把你放在心上，我不想檢討自己有做錯什麼，我肯定我已經努力想拉近我們之間關係，從以前到現在最認真的一次，也是人生當中的第一次暈船，真他媽不爽。</p>
+<p>在這一個禮拜，他傳來他出遊照片，假日大太陽心情本來很好，但看到照片開始想說他是不是跟男生出去，為什麼不是我和她出去，幹，一整天心情都好差，晚上只能喝酒買醉。記得照片中的對聯:山如碧玉水如黛，雲想衣賞花想容，很適合形容他傳來他和風景的照片，他真的很漂亮，但我自己也不差，幹嘛一直好像非他不可….</p>
+<p>從今天(2021/11/08)開始，我決定在星期五前不會再回覆她或是找他了，這段期間我會專注做好自己的事情，不會再被他囚困了，幹林老師，暈船到底是沙小，我也不會跟她告白什麼，結果怎樣我也知道，總之，方楷文，我會變得更強，讓你後悔這段期間對我的冷淡，幹，我明明就是一個很好的男生，為何要搞成這樣子!</p>
+<p>如果有一天，你發現我不在主動找你了，不在煩你了<br>請你記住，這不是因為我不喜歡你了，而是我發現你的世界已經不需要我了</p>
+]]></content>
+      <categories>
+        <category>Diary</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>契機出現</title>
+    <url>/blog/posts/Diary/f86a98d2/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>原本不想再回覆她訊息，但她在我發出請飲料 Mail 後主動密我，我們又小聊了一下，而且她主動跟我分享她遇到的趣事，讓我再度踏回那艘殘破不堪的船了…</p>
+<blockquote>
+<p>你給的在乎，是我一整天開心的理由</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="心境"><a href="#心境" class="headerlink" title="心境"></a>心境</h2><p>小聊的過程中，他有提到 BPM 所有男生跟我是最好的，只能說她真的很會調動我情緒，也許每次都是我會錯意，但一次次又讓我更暈了。<br>只覺得暈船很痛苦，心情的起伏每次就像是坐雲霄飛車一樣，和她聊天或是看到她心情就會很好，但她冷淡或不理我的時候又會很難過，好怕自己越陷越深…讓我自己什麼事情都做不好，尤其這禮拜的年報根本沒什麼準備，一方面想說跟之前 Probation 差不多，另一方面暈到我空閒都在看大衛哥的影片來舒緩一下這些煩擾，所以這次報告狀況真的不太好…</p>
+<p>但下午裝水拿餅乾碰到 Zoe 和 Peter 及湯瑪士在那邊閒聊，我就默默打個招呼就去裝水，Zoe 居然主動過來找我講話，說實在，真的是很開心，後來我們也邊聊邊走回去辦公室，不過現在已經沒有上禮拜那麼暈了，也許是習慣，也或許是今天太累心情不太好。</p>
+<p>我決定從今天開始要對報告這個軟實力有所提升，<br>方楷文你要改變!!列出下面這些目標，希望你可以在這一個月有所改變，把口才和報告練好一點，你很強，但需要好的心態和練習，希望不要再被暈船搞得自己什麼事情都做不好，你能夠像是剛進來公司的時候，每天專注在應該要做的事情，這樣子自然也會吸引到她的注意。</p>
+<h2 id="目標"><a href="#目標" class="headerlink" title="目標"></a>目標</h2><p>下面幾個目標每天都至少要有實踐</p>
+<ol>
+<li>熟悉報告技巧 (找主題練習)</li>
+<li>程式語言精進</li>
+<li>LeetCode 刷題</li>
+<li>攝影</li>
+<li>健身</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Diary</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>加強自己</title>
+    <url>/blog/posts/Diary/e013061d/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>經歷上禮拜嚴重暈船，這禮拜有稍微好點了，本來想說這禮拜可以找他吃個飯，之後就盡量不要聯絡之類，但剛好他堂姊要結婚就沒約了，當下沒有太大情緒起伏，就回說沒差下次約，但之後她就消失了兩天…想不在意也很難，雖有不甘心，但還是很難過告訴自己要放手，不要再煩她了。</p>
+<blockquote>
+<p>上岸吧！別再暈船了！<br>將重心放在自己身上吧 !</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="心境"><a href="#心境" class="headerlink" title="心境"></a>心境</h2><p>這次回完沒空後就已經兩天沒訊息了，已經很明顯她是對我沒有興趣的，雖然還是會在意，但對他的熱情已經一點一滴的流失了，已經不再抱希望了，我也在此刻更加確定，我必須要豐富自己生活，加強自己內外在的實力，我就不相信我是那麼沒有吸引力的，我必須要切斷這關係，不讓自己囚禁在這牢籠裡面。但之前每次他給我一點希望，我都又會踏回要暈船的那一步，搞得自己心煩意亂，這一次真的是要停止了，這次要..已讀他或是不讀不回她，不想要有瓜葛了，也許他心裡只是想交朋友，但我沒有那個時間跟精力在那邊耗下去，從9/3到現在已經2個月了，沒有一天是沒有想到他的，這真的是太揪心了。</p>
+<p>心想到現在2個多月，我當初認識 Zoe 也只是抱著多認識不同生活圈的人也不錯，其實我也講不出為何會喜歡上她，說不定在一起也不會長久，但現在就是喜歡她，想更進一步的了解她的一切。之後，每天跟他 Line 文字聊天都很開心，雖然可能一天只有聊3到4次，但我們一次可能就都會回個7到8句，且每一次都會很認真的回覆訊息，他給我的感覺就是一個外向喜歡交朋友，而且不做作很自然又漂亮的女生，所以我想暈船應該也是意料之內的事情，但我不會後悔那次去九份找他，真的給我一個非常棒且浪漫的回憶。此刻，我要變得更有價值，並且不要在關注他了，同時盡可能跟他切斷聯繫，這樣子才能保留我的最後尊嚴，堅決不會做舔狗的!! 幹!</p>
+]]></content>
+      <categories>
+        <category>Diary</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>暈船解藥</title>
+    <url>/blog/posts/Diary/ca24d317/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>這周又是新的開始，早上看Line有瞄到她回覆的訊息，心情馬上不爭氣的開心起來，而且她的最後一句是說「這周再一起下去買東西」，每次情緒會起起伏伏就是被這種熱情或冷淡的回應左右，但這可能就是暈船的副作用吧，實在不知道這艘船的終點會是在哪裡，我必須要快點找到暈船藥!</p>
+<blockquote>
+<p>你的一句話，我很容易就淪陷</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="心境"><a href="#心境" class="headerlink" title="心境"></a>心境</h2><p>上週開始發現健身及專注自己的事情，能滿有效的緩解暈船痛苦，同時也不會一直糾結他有沒有回我或她到底在幹嘛，但這效用也是有一定期限，只要在空閒時暈船的觸手就會慢慢伸過來，試圖再度枷鎖我，讓我想起那天去九份的回憶及他的笑容，所以每當有這種感覺時，我就要瘋狂找事情做，不管是刷 LeetCode 或在家健身。其實認真想一想暈船原因，也許就是在遇見她前，我的生活過的糜爛，並且沒有自己興趣及目標，每天工作完就還是再工作，連休息時間都在看工作相關的框架或程式語言，也許是當時跟前女友分手，藉由這種方式轉移自己注意力所養成的習慣吧，但長時間下來已經有點不太健康，所以見到 Zoe 並和她相處過後，覺得他是很認真過生活，不只自己時間會上英文課程，還會持續嘗試像是衝浪浮淺之類的事情，這些是我內心渴望，但卻被塵封的想法。</p>
+<p>所以轉換個想法，雖然認識他讓我暈到快掉進海裡，但同時也讓我有更認真過生活的想法，開始會跟朋友騎車衝去北海岸這些比較遠的地方，以及最近的健身、攝影或英文學習等的事情，仔細思考一下，對我也是蠻有幫助，這應該就是古人常講的「水能載舟，亦能覆舟」，Zoe 就是像是水，我就像是那艘載浮載沉的小舟，希望我最後能夠駛離這片死水，同時把我這艘舟打造得更堅固更有價值，就算在陸地上，這些水也會自己被我吸引上來，尤其是那個我最愛讓我快翻船的水。</p>
+]]></content>
+      <categories>
+        <category>Diary</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Hexo出現 Template render error</title>
     <url>/blog/posts/Hexo/e5a2de66/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上次寫完上一篇文章筆記後，執行hexo g生成靜態文件後，就出現下面的錯誤了!導致後續的部屬根本進行不下去，google搜尋的問題大都是提到某個模板(swig)出現的字串符號跟 Hexo 產生衝突，把我之前修改的.swig檔案全部Run過一遍，結果看到眼睛爛掉也沒找出什麼，最後沒辦法只好重新佈署一個新的Next資料夾，在一個個檔案試哪邊錯，結果找到是主題目錄下的_config註解錯地方了…其實會導致Hexo編譯時出現 Template render error的原因有幾種，這篇就來記錄一下吧!</p>
@@ -690,6 +807,25 @@ home: / || fa fa-home
       <tags>
         <tag>Hexo</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>最後掙扎</title>
+    <url>/blog/posts/Diary/56b3f337/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="你的密碼不正確，有興趣可以找 Kevin 聊聊" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="832e382f213d2da0569a4e3fd73e8288f548e893596d62b91d50d0e9ac732031">10d79030e8222445804370796b90fca106f15dd47c03b7cc3ac7fb0590359f3750f123d5851899d931f092f4127a0a180084977a391f003468ccfa3e60f2c1e208cfa5bced86d78f20147bce0cfcd51ab4d521c75a3b6bf2cb22fd9d56ebd2f8814f2bf26f7bd68d0fa72b6b59dea8296d8199f4755f44c20a5296fb01ac54e3a85343f9c98d647c930f0c67fa80034e1343e801238bedd2d3b67e510625c448f5cc97d31b6c0e86babdddb0123820a0237fa97b262e2d2cf4d33b5f8cda47d62d50b3bee69eab77b3265d2756a52d97666eb36b685625ffa7a8f1449d746d3521b2931fbbe247610f37f5795f8bcb0611e05823a7c60a6d9aafcb6a48a2ab201c1fcd1a323c170343cc014174172bec55d94db352e2ca13a58f3fad40f3c78b95f5f5a87eccea9e027cc9a0c617e9af63e5039a3f83627f3463dd54136da188dff338e7c42e94efa2cffbde7db3054fd938b0a12307b524bd5f4191b06f5d879024c2c8f6189ded0a6ff5266d1b62829900ba44b7f474489a9a648fa8998b39c5478fa572e63f54d19572e1825469e3b356834caf4c25b440060cc25d3c2e0a48d182b68a44d6e9cd09d9a099c007d01affa9066b9c4c3b5c514c5db15203981473ede40cc7408b36910116ccf88cb1b3d261b2109c62fe1a83bdeb2a1f4ad8ee9b6212917587dd82a49ff2775a50045526e4fff6e0ec15da2f7ef27f0a7b51f766803c24bad70924c5900cfc3db645936fb141a35b83b653f5fb84a63a82557ef6e69ba8bf7bb5fd6ef4172668ec5b204848d1a0333c076022409df321ad6408c95ee9065d29173da821635d4264bec966c07675861430149d5246e6e93beec95e5c31431d846c3542ef3d611c4f467f080b9b3b7983e240a66c78922fd5aa5ddf6248d601c29c924d27e9c424113fec1d0c56ce9e782ee2c81c363e07127e27a620fed257a7e722174eae31b1fb7a0ecf074c3fdf86db0e666d5738aed2d32ebc3a28603093e6a840f4acd4eb8bc09e1629b076175f8eece2f8965c45094d7ffae55d981390e1d7cdccae33b8933884ddb0253c69f67b2c6ee40484e5a1ed6ca9bcfe545c72d5bac303c91b175248d829cb9a6334ace3d71d5392f30deb53f393745513eccbd62e6f7ebbc34347f0d508d934c92c999aca083244fa266624c9f9ee9098104a0a092ae6c197f80a2ebb277ff01bdaa26b2366fba5ba067801</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">此篇為心情日記，請輸入密碼確認:</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>Diary</category>
+      </categories>
   </entry>
   <entry>
     <title>初探var及let變數</title>
@@ -1371,222 +1507,6 @@ home: / || fa fa-home
     <title>關鍵字標籤</title>
     <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/aboutKevin/css/lightbox.css</url>
-    <content><![CDATA[body {
-  background-color: rgb(58, 58, 58);
-}
-
-html.lb-disable-scrolling {
-  overflow: hidden;
-  /* Position fixed required for iOS. Just putting overflow: hidden; on the body is not enough. */
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
-}
-
-.lightboxOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  background-color: black;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
-  opacity: 0.8;
-  display: none;
-}
-
-.lightbox {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  z-index: 10000;
-  text-align: center;
-  line-height: 0;
-  font-weight: normal;
-}
-
-.lightbox .lb-image {
-  display: block;
-  height: auto;
-  max-width: inherit;
-  max-height: none;
-  border-radius: 3px;
-
-  /* Image border */
-  border: 4px solid white;
-}
-
-.lightbox a img {
-  border: none;
-}
-
-.lb-outerContainer {
-  position: relative;
-  *zoom: 1;
-  width: 250px;
-  height: 250px;
-  margin: 0 auto;
-  border-radius: 4px;
-
-  /* Background color behind image.
-     This is visible during transitions. */
-  background-color: white;
-}
-
-.lb-outerContainer:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.lb-loader {
-  position: absolute;
-  top: 43%;
-  left: 0;
-  height: 25%;
-  width: 100%;
-  text-align: center;
-  line-height: 0;
-}
-
-.lb-cancel {
-  display: block;
-  width: 32px;
-  height: 32px;
-  margin: 0 auto;
-  background: url(../img/loading.gif) no-repeat;
-}
-
-.lb-nav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 10;
-}
-
-.lb-container>.nav {
-  left: 0;
-}
-
-.lb-nav a {
-  outline: none;
-  background-image: url('data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==');
-}
-
-.lb-prev,
-.lb-next {
-  height: 100%;
-  cursor: pointer;
-  display: block;
-}
-
-.lb-nav a.lb-prev {
-  width: 34%;
-  left: 0;
-  float: left;
-  background: url(../img/prev.png) left 48% no-repeat;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  -webkit-transition: opacity 0.6s;
-  -moz-transition: opacity 0.6s;
-  -o-transition: opacity 0.6s;
-  transition: opacity 0.6s;
-}
-
-.lb-nav a.lb-prev:hover {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
-}
-
-.lb-nav a.lb-next {
-  width: 64%;
-  right: 0;
-  float: right;
-  background: url(../img/next.png) right 48% no-repeat;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  -webkit-transition: opacity 0.6s;
-  -moz-transition: opacity 0.6s;
-  -o-transition: opacity 0.6s;
-  transition: opacity 0.6s;
-}
-
-.lb-nav a.lb-next:hover {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
-}
-
-.lb-dataContainer {
-  margin: 0 auto;
-  padding-top: 5px;
-  *zoom: 1;
-  width: 100%;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-
-.lb-dataContainer:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.lb-data {
-  padding: 0 4px;
-  color: white;
-}
-
-.lb-data .lb-details {
-  width: 85%;
-  float: left;
-  text-align: left;
-  line-height: 1.1em;
-}
-
-.lb-data .lb-caption {
-  font-size: 13px;
-  font-weight: bold;
-  line-height: 1em;
-}
-
-.lb-data .lb-caption a {
-  color: #4ae;
-}
-
-.lb-data .lb-number {
-  display: block;
-  clear: left;
-  padding-bottom: 1em;
-  font-size: 12px;
-  color: #999999;
-}
-
-.lb-data .lb-close {
-  display: block;
-  float: right;
-  width: 30px;
-  height: 30px;
-  background: url(../img/close.png) top right no-repeat;
-  text-align: right;
-  outline: none;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
-  opacity: 0.7;
-  -webkit-transition: opacity 0.2s;
-  -moz-transition: opacity 0.2s;
-  -o-transition: opacity 0.2s;
-  transition: opacity 0.2s;
-}
-
-.lb-data .lb-close:hover {
-  cursor: pointer;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
-}]]></content>
   </entry>
   <entry>
     <title></title>
@@ -2373,6 +2293,222 @@ footer a {
         padding: 0 4px;
     }
 
+}]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/aboutKevin/css/lightbox.css</url>
+    <content><![CDATA[body {
+  background-color: rgb(58, 58, 58);
+}
+
+html.lb-disable-scrolling {
+  overflow: hidden;
+  /* Position fixed required for iOS. Just putting overflow: hidden; on the body is not enough. */
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+}
+
+.lightboxOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background-color: black;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  opacity: 0.8;
+  display: none;
+}
+
+.lightbox {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
+  text-align: center;
+  line-height: 0;
+  font-weight: normal;
+}
+
+.lightbox .lb-image {
+  display: block;
+  height: auto;
+  max-width: inherit;
+  max-height: none;
+  border-radius: 3px;
+
+  /* Image border */
+  border: 4px solid white;
+}
+
+.lightbox a img {
+  border: none;
+}
+
+.lb-outerContainer {
+  position: relative;
+  *zoom: 1;
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+  border-radius: 4px;
+
+  /* Background color behind image.
+     This is visible during transitions. */
+  background-color: white;
+}
+
+.lb-outerContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.lb-loader {
+  position: absolute;
+  top: 43%;
+  left: 0;
+  height: 25%;
+  width: 100%;
+  text-align: center;
+  line-height: 0;
+}
+
+.lb-cancel {
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin: 0 auto;
+  background: url(../img/loading.gif) no-repeat;
+}
+
+.lb-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+
+.lb-container>.nav {
+  left: 0;
+}
+
+.lb-nav a {
+  outline: none;
+  background-image: url('data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==');
+}
+
+.lb-prev,
+.lb-next {
+  height: 100%;
+  cursor: pointer;
+  display: block;
+}
+
+.lb-nav a.lb-prev {
+  width: 34%;
+  left: 0;
+  float: left;
+  background: url(../img/prev.png) left 48% no-repeat;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition: opacity 0.6s;
+  -moz-transition: opacity 0.6s;
+  -o-transition: opacity 0.6s;
+  transition: opacity 0.6s;
+}
+
+.lb-nav a.lb-prev:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+
+.lb-nav a.lb-next {
+  width: 64%;
+  right: 0;
+  float: right;
+  background: url(../img/next.png) right 48% no-repeat;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition: opacity 0.6s;
+  -moz-transition: opacity 0.6s;
+  -o-transition: opacity 0.6s;
+  transition: opacity 0.6s;
+}
+
+.lb-nav a.lb-next:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+
+.lb-dataContainer {
+  margin: 0 auto;
+  padding-top: 5px;
+  *zoom: 1;
+  width: 100%;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.lb-dataContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.lb-data {
+  padding: 0 4px;
+  color: white;
+}
+
+.lb-data .lb-details {
+  width: 85%;
+  float: left;
+  text-align: left;
+  line-height: 1.1em;
+}
+
+.lb-data .lb-caption {
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1em;
+}
+
+.lb-data .lb-caption a {
+  color: #4ae;
+}
+
+.lb-data .lb-number {
+  display: block;
+  clear: left;
+  padding-bottom: 1em;
+  font-size: 12px;
+  color: #999999;
+}
+
+.lb-data .lb-close {
+  display: block;
+  float: right;
+  width: 30px;
+  height: 30px;
+  background: url(../img/close.png) top right no-repeat;
+  text-align: right;
+  outline: none;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+  opacity: 0.7;
+  -webkit-transition: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+
+.lb-data .lb-close:hover {
+  cursor: pointer;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
 }]]></content>
   </entry>
   <entry>
