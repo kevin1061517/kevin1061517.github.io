@@ -2,49 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://kevin1061517.github.io/blog/posts/Diary/ca24d317/</loc>
-    
-    <lastmod>2021-11-20</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://kevin1061517.github.io/blog/posts/Diary/e013061d/</loc>
-    
-    <lastmod>2021-11-20</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://kevin1061517.github.io/blog/posts/Diary/f86a98d2/</loc>
-    
-    <lastmod>2021-11-20</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://kevin1061517.github.io/blog/posts/Diary/8141fed6/</loc>
-    
-    <lastmod>2021-11-20</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://kevin1061517.github.io/blog/posts/Diary/dafa8a5d/</loc>
-    
-    <lastmod>2021-11-20</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://kevin1061517.github.io/blog/posts/Diary/cd49170e/</loc>
-    
-    <lastmod>2021-11-20</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://kevin1061517.github.io/blog/posts/Diary/56b3f337/</loc>
     
     <lastmod>2021-11-20</lastmod>
     
@@ -207,92 +165,92 @@
 
   <url>
     <loc>https://kevin1061517.github.io/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <lastmod>2021-11-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://kevin1061517.github.io/tags/Hexo/</loc>
-    <lastmod>2021-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://kevin1061517.github.io/tags/ExtJS/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <lastmod>2021-11-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://kevin1061517.github.io/tags/JavaScript/</loc>
-    <lastmod>2021-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://kevin1061517.github.io/tags/Array/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <loc>https://kevin1061517.github.io/tags/Hexo/</loc>
+    <lastmod>2021-11-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://kevin1061517.github.io/tags/fancybox%E7%85%A7%E7%89%87%E6%94%BE%E5%A4%A7/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <lastmod>2021-11-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://kevin1061517.github.io/tags/JavaScript/</loc>
+    <lastmod>2021-11-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://kevin1061517.github.io/tags/Array/</loc>
+    <lastmod>2021-11-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://kevin1061517.github.io/tags/Java/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <lastmod>2021-11-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://kevin1061517.github.io/tags/Collection/</loc>
-    <lastmod>2021-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://kevin1061517.github.io/tags/Next/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <lastmod>2021-11-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://kevin1061517.github.io/tags/Design-Pattern/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <lastmod>2021-11-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://kevin1061517.github.io/tags/var-let/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <loc>https://kevin1061517.github.io/tags/Next/</loc>
+    <lastmod>2021-11-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://kevin1061517.github.io/tags/Print-pyramid-using/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <lastmod>2021-11-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://kevin1061517.github.io/tags/python/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <lastmod>2021-11-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://kevin1061517.github.io/tags/var-let/</loc>
+    <lastmod>2021-11-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -301,42 +259,42 @@
   
   <url>
     <loc>https://kevin1061517.github.io/categories/Design-Pattern/</loc>
-    <lastmod>2021-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://kevin1061517.github.io/categories/Hexo/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <lastmod>2021-11-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://kevin1061517.github.io/categories/ExtJS/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <lastmod>2021-11-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://kevin1061517.github.io/categories/Hexo/</loc>
+    <lastmod>2021-11-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://kevin1061517.github.io/categories/JavaScript/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <lastmod>2021-11-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://kevin1061517.github.io/categories/Java/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <lastmod>2021-11-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://kevin1061517.github.io/categories/Diary/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <lastmod>2021-11-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

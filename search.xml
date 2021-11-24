@@ -49,6 +49,50 @@
       </categories>
   </entry>
   <entry>
+    <title>ExtJS 製作 Banner</title>
+    <url>/blog/posts/ExtJS/c1113943/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="你的密碼不正確，有興趣可以找 Kevin 聊聊" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="77b97b713d39272c176c98fc26cfbf3b6a8c0c3e740064c95e9ea413196fcafb">165d50f05814027fb7fe5e4ae8a088d8240dac90f2f2cc3be4b182594285803a7755a57ebe0bbcb597537d161d3d9bf2fa57fcf5908cbdb8fe4bd45ee3d44d0227904f20eba031ef9003d1a5e8a4ee51616636b4f2697804039d911e050b39e89d8c8c531225309b71041330b5f4180a53f69904b96f0fa7dc69dd089e47003601d7e96efeac95088ebce089f4795fc8df705034158b0ba8862ececfa7fcafb9</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">此篇為心情日記，請輸入密碼確認:</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>ExtJS</category>
+      </categories>
+      <tags>
+        <tag>ExtJS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo分類頁面部分項目連結404錯誤</title>
+    <url>/blog/posts/Hexo/7dce27be/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>原本分類(categories)和標籤(tags)頁面很正常，某天調整了Next主題的一些配置，接著就發現分類和標籤頁面的某些關鍵字點下去都直接爛掉(顯示404)如下圖，原本一直以為是哪邊配置沒有弄號，但越試越奇怪，明明localhost端的分類項目和標籤關鍵字連結開起來一切都正常，到Remote開起來就會有些顯示404。結果試了老半天，發現原來是Hexo有個小bug…因此這邊來記錄一下!</p>
+<a id="more"></a>
+
+<img src="https://i.imgur.com/r5Ttemw.png" width=70%/>
+
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>爬文後發現也有人遇到類似問題，但原因眾說紛紜，大部分推測是特定Hexo版本的小問題，聽說更新到最新版本就不會有此狀況，下面來記錄一下解決的方法。</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>我是先將Hexo根目錄的<code>.deploy_git</code>資料夾整個刪除，接著再重新佈署一次，結果就可以了!我猜應該是Hexo的某個地方咬到<code>.deploy_git</code>裡面的某個檔案，所以造成部分地方有衝突，才會再部屬到github後就會有些是404，這題真的是搞了我好幾天。</p>
+<h2 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h2><p>另外也有人建議把Hexo根目錄的<code>db.json</code>砍掉，再重新佈署一次，這邊對我是沒作用，但可能有些人也是這部分造成的錯誤。</p>
+<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol>
+<li><a href="https://github.com/iissnan/hexo-theme-next/issues/635">blog categories XXX 404 Error</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo &amp; Next 建構部落格</title>
     <url>/blog/posts/Hexo/5364/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Hexo是一個基於Node.js的部落格框架，加上沒有廣告的干擾，讓人看起來就十分舒服。因此，本篇記錄了HEXO搭配Next主題來製作部落格的相關筆記，並花了一些時間整理Hexo框架的重點和流程，有興趣可以參考一下這篇。</p>
@@ -149,47 +193,45 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo分類頁面部分項目連結404錯誤</title>
-    <url>/blog/posts/Hexo/7dce27be/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>原本分類(categories)和標籤(tags)頁面很正常，某天調整了Next主題的一些配置，接著就發現分類和標籤頁面的某些關鍵字點下去都直接爛掉(顯示404)如下圖，原本一直以為是哪邊配置沒有弄號，但越試越奇怪，明明localhost端的分類項目和標籤關鍵字連結開起來一切都正常，到Remote開起來就會有些顯示404。結果試了老半天，發現原來是Hexo有個小bug…因此這邊來記錄一下!</p>
+    <title>Hexo圖片不套用fancybox</title>
+    <url>/blog/posts/Hexo/2721/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>fancybox套件的功能是實現點開圖片，並可以放大顯示和左右切換圖片，還會隨版面的大小自動來調整跳出的版面範圍，而且手機端也可以直接實現。fancybox在Jquery中也有相關的套件，而Next主題自己在config有內建fancybox的配置，配製好以後就會在所有img標籤實作這功能，但如果有部分圖片不想要有放大顯示，則就需要做一些步驟。</p>
 <a id="more"></a>
 
-<img src="https://i.imgur.com/r5Ttemw.png" width=70%/>
+<h2 id="安裝fancybox"><a href="#安裝fancybox" class="headerlink" title="安裝fancybox"></a>安裝fancybox</h2><p>我的版本的Next需要去把fnacybox clone下來，所以要先在next資料夾內執行下面的指令，就應該會在source/lib資料夾內出現fancybox資料夾</p>
+<figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">git clone <span class="symbol">https:</span>/<span class="regexp">/github.com/theme</span>-<span class="keyword">next</span>/theme-<span class="keyword">next</span>-fancybox3 source/<span class="class"><span class="keyword">lib</span>/<span class="title">fancybox</span></span></span><br></pre></td></tr></table></figure>
 
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>爬文後發現也有人遇到類似問題，但原因眾說紛紜，大部分推測是特定Hexo版本的小問題，聽說更新到最新版本就不會有此狀況，下面來記錄一下解決的方法。</p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>我是先將Hexo根目錄的<code>.deploy_git</code>資料夾整個刪除，接著再重新佈署一次，結果就可以了!我猜應該是Hexo的某個地方咬到<code>.deploy_git</code>裡面的某個檔案，所以造成部分地方有衝突，才會再部屬到github後就會有些是404，這題真的是搞了我好幾天。</p>
-<h2 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h2><p>另外也有人建議把Hexo根目錄的<code>db.json</code>砍掉，再重新佈署一次，這邊對我是沒作用，但可能有些人也是這部分造成的錯誤。</p>
-<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol>
-<li><a href="https://github.com/iissnan/hexo-theme-next/issues/635">blog categories XXX 404 Error</a></li>
-</ol>
+<p>接著在自己的next主題的<code>_config.yml</code>來將fancybox設為true，要注意不是在vendors底下的fancybox喔!!</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.</span></span><br><span class="line"><span class="comment"># For more information: https://fancyapps.com/fancybox</span></span><br><span class="line"><span class="attr">fancybox:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>如果要在vendors配置則是如下</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">vendors:</span><br><span class="line">  fancybox: <span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>fancyapps<span class="regexp">/fancybox@3/</span>dist/jquery.fancybox.min.js</span><br><span class="line">  fancybox_css: <span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>fancyapps<span class="regexp">/fancybox@3/</span>dist/jquery.fancybox.min.css</span><br></pre></td></tr></table></figure>
+
+<h2 id="鼠標顯示放大鏡icon"><a href="#鼠標顯示放大鏡icon" class="headerlink" title="鼠標顯示放大鏡icon"></a>鼠標顯示放大鏡icon</h2><p>可以在<code>next\source\css\_common\components\post</code>中的這<code>post.styl</code>檔案裡面配製下面css語法</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">.post-body img:hover &#123;</span><br><span class="line">    cursor: zoom-<span class="keyword">in</span>;<span class="regexp">//</span>鼠标样式：手势</span><br><span class="line">    <span class="regexp">//</span>transform: scale(<span class="number">1.4</span>); <span class="regexp">//</span>放大倍數：<span class="number">1.4</span>倍</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="結果圖"><a href="#結果圖" class="headerlink" title="結果圖"></a>結果圖</h3><p>可以點選放大</p>
+<img src="https://i.imgur.com/W4RoWAe.jpg" width=80%/>
+
+<h2 id="照片取消fancybox放大"><a href="#照片取消fancybox放大" class="headerlink" title="照片取消fancybox放大"></a>照片取消fancybox放大</h2><p>有些照片不想給人放大的話，就要自己改一些語法，如先在img標籤內給定一個自己定義的nofancybox屬性</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://i.imgur.com/W4RoWAe.jpg&quot;</span> <span class="attr">class</span>=<span class="string">&quot;nofancybox&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>接著在<code>source\js</code>裡面的<code>utils.js</code>中找出<code>var $image = $(element);</code>，在它的下面加入如下</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> ($(element).hasClass(<span class="string">&#x27;nofancybox&#x27;</span>))&#123;  <span class="comment">//是否有包含自己定義的nofancybox屬性，有就return true</span></span><br><span class="line">        $(element).css(<span class="string">&quot;cursor&quot;</span>,<span class="string">&quot;default&quot;</span>);    <span class="comment">//將碰到圖片的鼠標從放大鏡變成default模式</span></span><br><span class="line">        <span class="keyword">return</span>;    <span class="comment">//不進行下面的fancybox的配置</span></span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+
+<p>加入後會呈現如下</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">wrapImageWithFancyBox: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.post-body :not(a) &gt; img, .post-body &gt; img&#x27;</span>).forEach(<span class="function"><span class="params">element</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">var</span> $image = $(element);      </span><br><span class="line">      <span class="keyword">if</span> ($(element).hasClass(<span class="string">&#x27;nofancybox&#x27;</span>))&#123;</span><br><span class="line">        $(element).css(<span class="string">&quot;cursor&quot;</span>,<span class="string">&quot;default&quot;</span>); </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">var</span> imageLink = $image.attr(<span class="string">&#x27;data-src&#x27;</span>) || $image.attr(<span class="string">&#x27;src&#x27;</span>);</span><br><span class="line">      .....</span><br><span class="line">      .....</span><br></pre></td></tr></table></figure>
+
+<h3 id="結果圖-1"><a href="#結果圖-1" class="headerlink" title="結果圖"></a>結果圖</h3><img src="https://i.imgur.com/W4RoWAe.jpg" width=80% class="nofancybox"/>
+
+
 ]]></content>
       <categories>
         <category>Hexo</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ExtJS 製作 Banner</title>
-    <url>/blog/posts/ExtJS/c1113943/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="你的密碼不正確，有興趣可以找 Kevin 聊聊" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="77b97b713d39272c176c98fc26cfbf3b6a8c0c3e740064c95e9ea413196fcafb">165d50f05814027fb7fe5e4ae8a088d8240dac90f2f2cc3be4b182594285803a7755a57ebe0bbcb597537d161d3d9bf2fa57fcf5908cbdb8fe4bd45ee3d44d0227904f20eba031ef9003d1a5e8a4ee51616636b4f2697804039d911e050b39e89d8c8c531225309b71041330b5f4180a53f69904b96f0fa7dc69dd089e47003601d7e96efeac95088ebce089f4795fc8df705034158b0ba8862ececfa7fcafb9</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">此篇為心情日記，請輸入密碼確認:</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>ExtJS</category>
-      </categories>
-      <tags>
-        <tag>ExtJS</tag>
+        <tag>fancybox照片放大</tag>
       </tags>
   </entry>
   <entry>
@@ -313,45 +355,22 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo圖片不套用fancybox</title>
-    <url>/blog/posts/Hexo/2721/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>fancybox套件的功能是實現點開圖片，並可以放大顯示和左右切換圖片，還會隨版面的大小自動來調整跳出的版面範圍，而且手機端也可以直接實現。fancybox在Jquery中也有相關的套件，而Next主題自己在config有內建fancybox的配置，配製好以後就會在所有img標籤實作這功能，但如果有部分圖片不想要有放大顯示，則就需要做一些步驟。</p>
+    <title>用Base64儲存pdf等檔案類型</title>
+    <url>/blog/posts/Java/9eccf366/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>紀錄使用Java串流類別來操作檔案，並用Base64來讀寫各種檔案類型(pdf/pptx/…)</p>
 <a id="more"></a>
+<h2 id="壓縮檔包檔"><a href="#壓縮檔包檔" class="headerlink" title="壓縮檔包檔"></a>壓縮檔包檔</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.util.Base64;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.zip.ZipEntry;</span><br><span class="line"><span class="keyword">import</span> java.util.zip.ZipOutputStream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Base64Transformator</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">saveBase64ToFile</span><span class="params">(String name, String userFileName)</span> </span>&#123;</span><br><span class="line">        String defaultPath = String.format(<span class="string">&quot;D:\\%tF\\%s\\&quot;</span>, <span class="keyword">new</span> Date(), name);</span><br><span class="line">        File file = <span class="keyword">new</span> File(defaultPath);</span><br><span class="line">        <span class="keyword">if</span>(!file.exists()) &#123;</span><br><span class="line">            file.mkdirs();</span><br><span class="line">        &#125;</span><br><span class="line">        String base64String = <span class="string">&quot;UEsDBBQABg.......&quot;</span>;</span><br><span class="line">        String fileName = defaultPath + userFileName; <span class="comment">//&quot;test123.pptx&quot;;</span></span><br><span class="line">        <span class="keyword">byte</span> dearr[] = Base64.getDecoder().decode(base64String);</span><br><span class="line">        <span class="keyword">try</span>(FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(<span class="keyword">new</span> File(fileName))) &#123;</span><br><span class="line">            fos.write(dearr);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> fileName;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">zipMultipleFile</span><span class="params">(String path)</span> </span>&#123;</span><br><span class="line">        String zipFileName = path + <span class="string">&quot;result.zip&quot;</span>;</span><br><span class="line">        File folder = <span class="keyword">new</span> File(path);</span><br><span class="line">        File[] listOfFiles = folder.listFiles();</span><br><span class="line">        <span class="keyword">if</span>(listOfFiles != <span class="keyword">null</span> &amp;&amp; listOfFiles.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span>(ZipOutputStream zipOutputStream = <span class="keyword">new</span> ZipOutputStream(<span class="keyword">new</span> FileOutputStream(zipFileName))) &#123;</span><br><span class="line">                <span class="keyword">for</span> (File file : listOfFiles) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (file.isFile() &amp;&amp; !file.getName().equals(zipFileName)) &#123;</span><br><span class="line">                        zipOutputStream.putNextEntry(<span class="keyword">new</span> ZipEntry(file.getName()));</span><br><span class="line">                        BufferedInputStream bis = <span class="keyword">new</span> BufferedInputStream(<span class="keyword">new</span> FileInputStream(file));</span><br><span class="line">                        <span class="keyword">int</span> readLen;</span><br><span class="line">                        <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">                        <span class="keyword">while</span> ((readLen = bis.read(buffer)) != -<span class="number">1</span>) &#123;</span><br><span class="line">                            zipOutputStream.write(buffer, <span class="number">0</span>, readLen);</span><br><span class="line">                        &#125;</span><br><span class="line">                        System.out.println(file.getName());</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// saveBase64ToFile(&quot;Kevin&quot;, &quot;resmue.pptx&quot;);</span></span><br><span class="line">        <span class="comment">// saveBase64ToFile(&quot;Redick&quot;, &quot;resmue123.pptx&quot;);</span></span><br><span class="line">        <span class="comment">// saveBase64ToFile(&quot;Redick&quot;, &quot;resmue.pptx&quot;);</span></span><br><span class="line">        String defaultPath = String.format(<span class="string">&quot;D:\\%tF\\Redick\\&quot;</span>, <span class="keyword">new</span> Date());</span><br><span class="line">        zipMultipleFile(defaultPath);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="安裝fancybox"><a href="#安裝fancybox" class="headerlink" title="安裝fancybox"></a>安裝fancybox</h2><p>我的版本的Next需要去把fnacybox clone下來，所以要先在next資料夾內執行下面的指令，就應該會在source/lib資料夾內出現fancybox資料夾</p>
-<figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">git clone <span class="symbol">https:</span>/<span class="regexp">/github.com/theme</span>-<span class="keyword">next</span>/theme-<span class="keyword">next</span>-fancybox3 source/<span class="class"><span class="keyword">lib</span>/<span class="title">fancybox</span></span></span><br></pre></td></tr></table></figure>
-
-<p>接著在自己的next主題的<code>_config.yml</code>來將fancybox設為true，要注意不是在vendors底下的fancybox喔!!</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.</span></span><br><span class="line"><span class="comment"># For more information: https://fancyapps.com/fancybox</span></span><br><span class="line"><span class="attr">fancybox:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<p>如果要在vendors配置則是如下</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">vendors:</span><br><span class="line">  fancybox: <span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>fancyapps<span class="regexp">/fancybox@3/</span>dist/jquery.fancybox.min.js</span><br><span class="line">  fancybox_css: <span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>fancyapps<span class="regexp">/fancybox@3/</span>dist/jquery.fancybox.min.css</span><br></pre></td></tr></table></figure>
-
-<h2 id="鼠標顯示放大鏡icon"><a href="#鼠標顯示放大鏡icon" class="headerlink" title="鼠標顯示放大鏡icon"></a>鼠標顯示放大鏡icon</h2><p>可以在<code>next\source\css\_common\components\post</code>中的這<code>post.styl</code>檔案裡面配製下面css語法</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">.post-body img:hover &#123;</span><br><span class="line">    cursor: zoom-<span class="keyword">in</span>;<span class="regexp">//</span>鼠标样式：手势</span><br><span class="line">    <span class="regexp">//</span>transform: scale(<span class="number">1.4</span>); <span class="regexp">//</span>放大倍數：<span class="number">1.4</span>倍</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="結果圖"><a href="#結果圖" class="headerlink" title="結果圖"></a>結果圖</h3><p>可以點選放大</p>
-<img src="https://i.imgur.com/W4RoWAe.jpg" width=80%/>
-
-<h2 id="照片取消fancybox放大"><a href="#照片取消fancybox放大" class="headerlink" title="照片取消fancybox放大"></a>照片取消fancybox放大</h2><p>有些照片不想給人放大的話，就要自己改一些語法，如先在img標籤內給定一個自己定義的nofancybox屬性</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://i.imgur.com/W4RoWAe.jpg&quot;</span> <span class="attr">class</span>=<span class="string">&quot;nofancybox&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>接著在<code>source\js</code>裡面的<code>utils.js</code>中找出<code>var $image = $(element);</code>，在它的下面加入如下</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> ($(element).hasClass(<span class="string">&#x27;nofancybox&#x27;</span>))&#123;  <span class="comment">//是否有包含自己定義的nofancybox屬性，有就return true</span></span><br><span class="line">        $(element).css(<span class="string">&quot;cursor&quot;</span>,<span class="string">&quot;default&quot;</span>);    <span class="comment">//將碰到圖片的鼠標從放大鏡變成default模式</span></span><br><span class="line">        <span class="keyword">return</span>;    <span class="comment">//不進行下面的fancybox的配置</span></span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
-
-<p>加入後會呈現如下</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">wrapImageWithFancyBox: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.post-body :not(a) &gt; img, .post-body &gt; img&#x27;</span>).forEach(<span class="function"><span class="params">element</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">var</span> $image = $(element);      </span><br><span class="line">      <span class="keyword">if</span> ($(element).hasClass(<span class="string">&#x27;nofancybox&#x27;</span>))&#123;</span><br><span class="line">        $(element).css(<span class="string">&quot;cursor&quot;</span>,<span class="string">&quot;default&quot;</span>); </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">var</span> imageLink = $image.attr(<span class="string">&#x27;data-src&#x27;</span>) || $image.attr(<span class="string">&#x27;src&#x27;</span>);</span><br><span class="line">      .....</span><br><span class="line">      .....</span><br></pre></td></tr></table></figure>
-
-<h3 id="結果圖-1"><a href="#結果圖-1" class="headerlink" title="結果圖"></a>結果圖</h3><img src="https://i.imgur.com/W4RoWAe.jpg" width=80% class="nofancybox"/>
-
-
+<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol>
+<li><a href="https://base64.guru/converter/encode/file">File to Base64</a></li>
+<li><a href="https://www.mdeditor.tw/pl/gxgA/zh-tw">https://www.mdeditor.tw/pl/gxgA/zh-tw</a></li>
+</ol>
 ]]></content>
       <categories>
-        <category>Hexo</category>
+        <category>Java</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
-        <tag>fancybox照片放大</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -566,22 +585,35 @@ var v = funcAs().then(funcBs).then(funcCs);</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>用Base64儲存pdf等檔案類型</title>
-    <url>/blog/posts/Java/9eccf366/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>紀錄使用Java串流類別來操作檔案，並用Base64來讀寫各種檔案類型(pdf/pptx/…)</p>
+    <title>Revealing Module Pattern (JS)</title>
+    <url>/blog/posts/JavaScript/45fd/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>看到在 stackoverflow 有人發問 <a href="https://stackoverflow.com/questions/43929098/why-do-i-need-to-return-init-to-execute-init-function">why do I need to return “init” to execute init function?
+</a> ，這是一個關於JS的design pattern的問題，其實我之前在其他地方就有看過類似的寫法，只是不知道它的一些概念和目的，因此這篇就來記錄一下這種設計模式的筆記。</p>
 <a id="more"></a>
-<h2 id="壓縮檔包檔"><a href="#壓縮檔包檔" class="headerlink" title="壓縮檔包檔"></a>壓縮檔包檔</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.util.Base64;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.zip.ZipEntry;</span><br><span class="line"><span class="keyword">import</span> java.util.zip.ZipOutputStream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Base64Transformator</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">saveBase64ToFile</span><span class="params">(String name, String userFileName)</span> </span>&#123;</span><br><span class="line">        String defaultPath = String.format(<span class="string">&quot;D:\\%tF\\%s\\&quot;</span>, <span class="keyword">new</span> Date(), name);</span><br><span class="line">        File file = <span class="keyword">new</span> File(defaultPath);</span><br><span class="line">        <span class="keyword">if</span>(!file.exists()) &#123;</span><br><span class="line">            file.mkdirs();</span><br><span class="line">        &#125;</span><br><span class="line">        String base64String = <span class="string">&quot;UEsDBBQABg.......&quot;</span>;</span><br><span class="line">        String fileName = defaultPath + userFileName; <span class="comment">//&quot;test123.pptx&quot;;</span></span><br><span class="line">        <span class="keyword">byte</span> dearr[] = Base64.getDecoder().decode(base64String);</span><br><span class="line">        <span class="keyword">try</span>(FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(<span class="keyword">new</span> File(fileName))) &#123;</span><br><span class="line">            fos.write(dearr);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> fileName;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">zipMultipleFile</span><span class="params">(String path)</span> </span>&#123;</span><br><span class="line">        String zipFileName = path + <span class="string">&quot;result.zip&quot;</span>;</span><br><span class="line">        File folder = <span class="keyword">new</span> File(path);</span><br><span class="line">        File[] listOfFiles = folder.listFiles();</span><br><span class="line">        <span class="keyword">if</span>(listOfFiles != <span class="keyword">null</span> &amp;&amp; listOfFiles.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span>(ZipOutputStream zipOutputStream = <span class="keyword">new</span> ZipOutputStream(<span class="keyword">new</span> FileOutputStream(zipFileName))) &#123;</span><br><span class="line">                <span class="keyword">for</span> (File file : listOfFiles) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (file.isFile() &amp;&amp; !file.getName().equals(zipFileName)) &#123;</span><br><span class="line">                        zipOutputStream.putNextEntry(<span class="keyword">new</span> ZipEntry(file.getName()));</span><br><span class="line">                        BufferedInputStream bis = <span class="keyword">new</span> BufferedInputStream(<span class="keyword">new</span> FileInputStream(file));</span><br><span class="line">                        <span class="keyword">int</span> readLen;</span><br><span class="line">                        <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">                        <span class="keyword">while</span> ((readLen = bis.read(buffer)) != -<span class="number">1</span>) &#123;</span><br><span class="line">                            zipOutputStream.write(buffer, <span class="number">0</span>, readLen);</span><br><span class="line">                        &#125;</span><br><span class="line">                        System.out.println(file.getName());</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// saveBase64ToFile(&quot;Kevin&quot;, &quot;resmue.pptx&quot;);</span></span><br><span class="line">        <span class="comment">// saveBase64ToFile(&quot;Redick&quot;, &quot;resmue123.pptx&quot;);</span></span><br><span class="line">        <span class="comment">// saveBase64ToFile(&quot;Redick&quot;, &quot;resmue.pptx&quot;);</span></span><br><span class="line">        String defaultPath = String.format(<span class="string">&quot;D:\\%tF\\Redick\\&quot;</span>, <span class="keyword">new</span> Date());</span><br><span class="line">        zipMultipleFile(defaultPath);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面的code是網友發問貼上來的</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;kick off&quot;</span>);</span><br><span class="line">  <span class="keyword">var</span> insideTest = <span class="string">&quot;variable inside test&quot;</span>;</span><br><span class="line">  <span class="keyword">var</span> init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> insideInit =<span class="string">&quot;variable inside init&quot;</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;inside init&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    init:init</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">test().init();   <span class="comment">// exposing the private function</span></span><br><span class="line"><span class="comment">// ====Console====</span></span><br><span class="line"><span class="comment">// kick off</span></span><br><span class="line"><span class="comment">// inside init</span></span><br></pre></td></tr></table></figure>
+<p>主要是發問說為何不能直接呼叫test().init()，而一定要加上return inint:init，才能得到正確的結果。其實回答的網友就直接提到這是一個Revealing Module Pattern，另外說明因為function init是寫在function test裡面，所以init的存取權限就只限於test裡面，只要超出test的範圍(scope)就會存取不到(undefined)，所以才要在函式的最後加上<code>return init:init;</code>這一段，讓外部的範圍可以來存取到這一方法，其實就是間接達到Java中的封裝效果，讓外部範圍只能透過你所提供的公開方法來存取，像是給函式init加上Private一樣。其實標準習慣的方式會直接宣告function()那邊加上括號，如下</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;kick off&quot;</span>);</span><br><span class="line">  <span class="keyword">var</span> insideTest = <span class="string">&quot;variable inside test&quot;</span>;</span><br><span class="line">  <span class="keyword">var</span> init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> insideInit =<span class="string">&quot;variable inside init&quot;</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;inside init&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    init:init</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(test)); <span class="comment">//object</span></span><br><span class="line">test.init(); </span><br></pre></td></tr></table></figure>
+<p>這自動執行function並回傳，所以test會直接是一個物件，而不是一個函式，如此可以省去呼叫test時候還要加上()。下面將來紀錄這種設計模式的範例</p>
+<h2 id="Module-Pattern"><a href="#Module-Pattern" class="headerlink" title="Module Pattern"></a>Module Pattern</h2><p>透過閉包(closure)的特性(變數或函式可以存取的範圍)，來實作出一種可以呼叫的公共(public) 函式，同時能夠封裝私有成員的方法，滿足我們想要隱藏一些商業邏輯及讓程式碼更具結構化，下面則是以上面的例子來修改</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// private variable</span></span><br><span class="line">  <span class="keyword">var</span> insideTest = <span class="string">&quot;variable inside test&quot;</span>;</span><br><span class="line">  <span class="comment">// private function</span></span><br><span class="line">  <span class="keyword">var</span> init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> insideInit =<span class="string">&quot;variable inside init&quot;</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;inside init&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 回傳一個object</span></span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    <span class="comment">//public function</span></span><br><span class="line">    getInsideTest: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> insideTest;</span><br><span class="line">    &#125;,</span><br><span class="line">    setInsideTest: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        insideTest = insideTest;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br><span class="line">test.setInsideTest(<span class="string">&#x27;akb48&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(test.getInsideTest()); <span class="comment">//akb48</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Revealing-Module-Pattern"><a href="#Revealing-Module-Pattern" class="headerlink" title="Revealing Module Pattern"></a>Revealing Module Pattern</h2><p>揭示模組模式(Revealing Module Pattern)則是上面Module Pattern的改良版本，其實就是把所有函式或變數都在閉包中定義，返回值是不包含任何定義，提高程式碼的可讀性及結構性。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// private variable</span></span><br><span class="line">  <span class="keyword">var</span> insideTest = <span class="string">&quot;variable inside test&quot;</span>;</span><br><span class="line">  <span class="comment">// private function</span></span><br><span class="line">  <span class="keyword">var</span> setInsideTest = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    insideTest = insideTest;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> getInsideTest = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> insideTest;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// Return an object literal with no function definitions</span></span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    getInsideTest: getInsideTest,</span><br><span class="line">    setInsideTest: setInsideTest</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br><span class="line">test.setInsideTest(<span class="string">&#x27;tpe48&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(test.getInsideTest()); <span class="comment">//tpe48</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol>
-<li><a href="https://base64.guru/converter/encode/file">File to Base64</a></li>
-<li><a href="https://www.mdeditor.tw/pl/gxgA/zh-tw">https://www.mdeditor.tw/pl/gxgA/zh-tw</a></li>
+<li><a href="https://medium.com/@Rahulx1/revealing-module-pattern-tips-e3442d4e352">https://medium.com/@Rahulx1/revealing-module-pattern-tips-e3442d4e352</a></li>
+<li><a href="https://www.oreilly.com/library/view/learning-javascript-design/9781449334840/ch09s03.html">https://www.oreilly.com/library/view/learning-javascript-design/9781449334840/ch09s03.html</a></li>
+<li><a href="http://www.tastones.com/zh-tw/stackoverflow/javascript/creational-design-patterns/module_and_revealing_module_patterns/">http://www.tastones.com/zh-tw/stackoverflow/javascript/creational-design-patterns/module_and_revealing_module_patterns/</a></li>
 </ol>
 ]]></content>
       <categories>
-        <category>Java</category>
+        <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>Java</tag>
+        <tag>JavaScript</tag>
+        <tag>Design Pattern</tag>
       </tags>
   </entry>
   <entry>
@@ -625,137 +657,10 @@ var v = funcAs().then(funcBs).then(funcCs);</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>Revealing Module Pattern (JS)</title>
-    <url>/blog/posts/JavaScript/45fd/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>看到在 stackoverflow 有人發問 <a href="https://stackoverflow.com/questions/43929098/why-do-i-need-to-return-init-to-execute-init-function">why do I need to return “init” to execute init function?
-</a> ，這是一個關於JS的design pattern的問題，其實我之前在其他地方就有看過類似的寫法，只是不知道它的一些概念和目的，因此這篇就來記錄一下這種設計模式的筆記。</p>
-<a id="more"></a>
-
-<p>下面的code是網友發問貼上來的</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;kick off&quot;</span>);</span><br><span class="line">  <span class="keyword">var</span> insideTest = <span class="string">&quot;variable inside test&quot;</span>;</span><br><span class="line">  <span class="keyword">var</span> init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> insideInit =<span class="string">&quot;variable inside init&quot;</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;inside init&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    init:init</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">test().init();   <span class="comment">// exposing the private function</span></span><br><span class="line"><span class="comment">// ====Console====</span></span><br><span class="line"><span class="comment">// kick off</span></span><br><span class="line"><span class="comment">// inside init</span></span><br></pre></td></tr></table></figure>
-<p>主要是發問說為何不能直接呼叫test().init()，而一定要加上return inint:init，才能得到正確的結果。其實回答的網友就直接提到這是一個Revealing Module Pattern，另外說明因為function init是寫在function test裡面，所以init的存取權限就只限於test裡面，只要超出test的範圍(scope)就會存取不到(undefined)，所以才要在函式的最後加上<code>return init:init;</code>這一段，讓外部的範圍可以來存取到這一方法，其實就是間接達到Java中的封裝效果，讓外部範圍只能透過你所提供的公開方法來存取，像是給函式init加上Private一樣。其實標準習慣的方式會直接宣告function()那邊加上括號，如下</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;kick off&quot;</span>);</span><br><span class="line">  <span class="keyword">var</span> insideTest = <span class="string">&quot;variable inside test&quot;</span>;</span><br><span class="line">  <span class="keyword">var</span> init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> insideInit =<span class="string">&quot;variable inside init&quot;</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;inside init&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    init:init</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(test)); <span class="comment">//object</span></span><br><span class="line">test.init(); </span><br></pre></td></tr></table></figure>
-<p>這自動執行function並回傳，所以test會直接是一個物件，而不是一個函式，如此可以省去呼叫test時候還要加上()。下面將來紀錄這種設計模式的範例</p>
-<h2 id="Module-Pattern"><a href="#Module-Pattern" class="headerlink" title="Module Pattern"></a>Module Pattern</h2><p>透過閉包(closure)的特性(變數或函式可以存取的範圍)，來實作出一種可以呼叫的公共(public) 函式，同時能夠封裝私有成員的方法，滿足我們想要隱藏一些商業邏輯及讓程式碼更具結構化，下面則是以上面的例子來修改</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// private variable</span></span><br><span class="line">  <span class="keyword">var</span> insideTest = <span class="string">&quot;variable inside test&quot;</span>;</span><br><span class="line">  <span class="comment">// private function</span></span><br><span class="line">  <span class="keyword">var</span> init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> insideInit =<span class="string">&quot;variable inside init&quot;</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;inside init&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 回傳一個object</span></span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    <span class="comment">//public function</span></span><br><span class="line">    getInsideTest: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> insideTest;</span><br><span class="line">    &#125;,</span><br><span class="line">    setInsideTest: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        insideTest = insideTest;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br><span class="line">test.setInsideTest(<span class="string">&#x27;akb48&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(test.getInsideTest()); <span class="comment">//akb48</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Revealing-Module-Pattern"><a href="#Revealing-Module-Pattern" class="headerlink" title="Revealing Module Pattern"></a>Revealing Module Pattern</h2><p>揭示模組模式(Revealing Module Pattern)則是上面Module Pattern的改良版本，其實就是把所有函式或變數都在閉包中定義，返回值是不包含任何定義，提高程式碼的可讀性及結構性。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// private variable</span></span><br><span class="line">  <span class="keyword">var</span> insideTest = <span class="string">&quot;variable inside test&quot;</span>;</span><br><span class="line">  <span class="comment">// private function</span></span><br><span class="line">  <span class="keyword">var</span> setInsideTest = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    insideTest = insideTest;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> getInsideTest = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> insideTest;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// Return an object literal with no function definitions</span></span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    getInsideTest: getInsideTest,</span><br><span class="line">    setInsideTest: setInsideTest</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br><span class="line">test.setInsideTest(<span class="string">&#x27;tpe48&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(test.getInsideTest()); <span class="comment">//tpe48</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol>
-<li><a href="https://medium.com/@Rahulx1/revealing-module-pattern-tips-e3442d4e352">https://medium.com/@Rahulx1/revealing-module-pattern-tips-e3442d4e352</a></li>
-<li><a href="https://www.oreilly.com/library/view/learning-javascript-design/9781449334840/ch09s03.html">https://www.oreilly.com/library/view/learning-javascript-design/9781449334840/ch09s03.html</a></li>
-<li><a href="http://www.tastones.com/zh-tw/stackoverflow/javascript/creational-design-patterns/module_and_revealing_module_patterns/">http://www.tastones.com/zh-tw/stackoverflow/javascript/creational-design-patterns/module_and_revealing_module_patterns/</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>Design Pattern</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>忐忑的心</title>
-    <url>/blog/posts/Diary/dafa8a5d/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="你的密碼不正確，有興趣可以找 Kevin 聊聊" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="f0b2b81ec4d37aebffc51b4ec4b3f1f268606975ee9ac92d7bed33e012db876b">061f0e67a7be421a7f2832e6c5d851b169513735b8d880792108333d0ece9533421a1136cc6e310a99e4b5c1d71f039180e4b213c89487efb3cb38dcb828144434c8af9417a0cbd18297becf6f9ed2de5c1f2e1e2c3f53a8efb3b5c3cb6d40d52fb131f2b232ee9a15138cb511949436b1ecdd3f563e1dfe3c1cf38ad50c9e35248e35ee708d701f508618dc71c1c4d7b948fa170b1316303f696c1610d6b538080e9fedf5711f60567acbe62a714a83331e4f6779a3c32da6370d77f1203b460e0b21ab67c609e5a43dc7ed128dac1339abf18b492651db86e9e9c58ec51e179e87ad350e7fc7a597c01b95c79de28898943bf48344ca46da5a6b41c1b800057370de970c08763aae5d0ea5e32853f0c33a186233ca0e5db153c2eff3689ec0866389ee09bcef8fcd53c24d215267d98a0da96d00fabf058584c5b646a4c2e99115086e60c2e7b77f73ddaa47b31372363ac48380f943e65b17512da1af67fecd324d6ca74bb9a02b9e2d4dd858ef1e1dc15c163460529bfd6737d9a887bd46bc693e7d3177331b93697c108bb5f4627343f40ad3c6b276c84772012b8cf7b00b94912a3241db78f8288c5cebd2cfbfe448cfe1a840d3e37d108cfa64d3dab8e9a2cf8dcb191441611db122739ce0181e762f12e96b0171a002d5c73a16460b841243f64d5ea72946e7a17d5f8b793b99787b089803756f56e1b8d361092d214bfe4c80bde28fc71fdb5570c0dc6596bab6c8cae3b22e45cc79325c034166e103eafaceef6a3bdfa12aea04c7a86ad2545e0a4c412b5030349270cd1cc2c4cfb00321e607ea28b486e573e108a01e42bb23b9532f06804dd1fc13be2952877921997655ff23b1345ade6028220cfd20b77e7d5df84c13d62141d15d1476180b0d0689c41e864f3a22b122bfc09522ae05801c800e2fe40157233bdae240d71f77d7266f4c5fa14a8c73562be40f66958596308332c07ebb0067b23032e0f962a73bd4ec78cb683404bcd760121ebd76ec0e554389e550ee54843a69d185ccf7b6f78052174a14039c78c9fa7d860850f665dc81db062027c67f26b8e9ec346521597ba4c3097552c7d574d6c6519276a9f493e77c26755bb97dd7ba548e7917d9fd80af7d84061717c59f1b25241868b3748a5d5a58fc778d467c53b9c9ccf8315917bd53aca096339e61b757ecbc28630b059005e77d4b434948f09a3c05eea2455ce72ebdc5d55b87d49c08e2228b0670c7136d945406a4fdf8018f9283e9660b25e12b31c4a58133f8d89699485893822623404084ec568d2e0fa9512619a3dc8c0629ed82ba1c56ce843901433a1ba2615e3ce6b24b6ef9c47e15163b1e4698162e36d813ec7c8bbac3962cfa9da3577b55dd199e415f911438cb7fab0c4dfeb906e3818381a6907b70794559f03120780fdda4c25ceba23e03629bbda1f86a72dd3dde64a6393dbfa1b809590404c6c5c0a6f3b31c2acdb601fffe76ea148f50a2974668603c8c4f7a4bea30c5b6f0072d2fe1445bf9cd82716b292f92b8a34f4c71e7e2fc3165fcb3437364600f4585db69c5bc90052c2b7421f6d4b0fae23e2a9e0edc67a8f69760a1f79fbacf6dcfe0a7272cf6a9fff16997d02e802107173f9cb788280bcd104f63bc7345ca3aa14e42079c371e3690e333efbda1d36d80de1cab2786c3a61c12d01c0ddce0e64a19ae4955d15305259e8f6f69da4e4ff2d13290dbe92aae41c40b33c9f072091450bd2184033df4fe787ec03e32051adcc832a3c210bf99e904d01126f4ca7cfc0c373227bf5bfddf2cb8607dd1b78b24021418fec0807121d13dd7765100a9c09c93474cf27775e8fbefc5313ff0fe5dc603c12aee933d7fecdee31c65498f9a989cd455b68b8d68c369c8c99d1a31ce1de7eb2363e004636de8d5e62d5473ff4ff94e1929af8ed385d1f38da01f54f03e04e219c529535cc0f9553694a47e36b6823533b61b8c5d014f2e5870831c342febe9de8275178c6935ef903414345be3c4fe0821a2727b7937d6ee7d67d11eb2661d353e8e44d29c11faf3b0024a793e970362f53882ca9a864c97559d7e68fc7043aad8f521cd037215161d70a906c1744e29cb39fda0574afd0db9edbdcf6c710e3046bc02888e1b3693945a598dd0856e8c7db8ac9de57693e07d235244abc3f157f370d45c765ec0c990d9ce775a2b4b434f452033196e17e5c02b37de3f05ef601bcfd27d6020980b676d9c6abdf8723510d59ba08ecb1c6dc304cf58a6199b3a1a05b0da8de51398c66289edc1eea1b2dea9bb4f5cdb064525d70e4fdd462b64634a23f0c015da67a549fa946e60c6baf0de11206a6b686d18f38317ba397005541d2430ab78ba06b46581d030006a6d9efb5dddb765221c2b9b3ea6be2fa72db2b25239880f7f43eb683a731bfd8d1373dab5e4e35e3b2ee2fe1740c87f95b365f0797578d55b795ab424f6e4e8305d0b12a737cf73fbf70290c800142eec6c182d68f474cae3b538cb95f037b62adae2c042cf88540f1670f37d69618682a85a20905e1362c2e81309358e03c23323a3cc61ab62f60d80c6ba309011ba5b0a9de26515296449f9324d4fe6051e5c19a0d7164f7725c432e1538ca7829177b3b1fa1afa0d259a09d62f5d0a12f98780154feb3ed8ae23d4f941410e2efcd90bcb9edd2281748eab6ca125d9527c5d3ef1cea642b2fb5062336529c15f110392858e3d9ca53237330bbc66f3df0138fe7cd1f66eeab4d5a992acf761cd57e281749c768c26a6e3c1bea6290b3214e3205669440636d01a951d47eebc84017771887815e523659af9a7ca8ad26c1dec809cdc5229a2214801015f12a4f2dac26d260fd740b1df66fa396d0990b5e463a73cf7167ae094976e4e9061acf23cb8f2f49cc378606d1361e54da786b425b381fa4fc4b48b031f1dd068478a1c3309ac5f083853440276918d980134de45c3b4db8d035510397a87a704104abcbadb2901a97bf2a9f8dc0e3a2712bc15fc8b23c6d8e288a60417ab122e9c9261e85ae6b2d459a1765b2e9d9e3ebdf41d253450c373c593231a627b2cb984e1f7f496761b37c474fe5f610abcbb17a290721a7a5691d4115ab44c4d891a62b83504522ffd20deaf5805fd2b258d1f99e57ef46008425f386e323fda4ed97c3b988a9151d016ed49c6bb211f713828b09147934aafafc85f62925a7153e799c4d62077ee36746c4b4ab7b9142da3c93af4e63d54da2927d9f6353e0f4c3b019d3e79998d9b3432146973caba6fcf0586950ce0ee6d2f3cb74e9a434509dd597b76811e2149acac9d11bffa3dbd1ff5e7af9f9e5b5e63f0793f97d9fd9636a21bb5069f20613baab27e5d9e7cd38db832945862b0e3f551731518c1fc7e0612f7916dd15189012096ee678a8df91e158f5852a7751ba4d2fab87393a6f39d8df9caac726c27621abf36ea1c391fb97f4ed159292304de5db1eab9fa5a94ef58d1dbcdcbd4321f3e277e13d03255d8ebabe62ec7aad6c53508550e6ac9abd86821eae123f1d9aea61757b474f449719e61dac1aad1b1f34116738fc435ed333e0a6fc98eefca6f266d9962ac03cf7edee6917cc02924e2f41d8211b7fac92629083afef54b0df3e42d568687b9623552f520371109ee04b16622d8d4436b172c5adb6b20fdf6707ba0c18b4c7933f56bc5199fa58ba9cbfb2f9007dcfeeebb6217431e6ac25fdbc57517afda05cc88008962266a3e46441fefe6ad0c0baced984c90805f7646a67163041e492fab94cf2e38dcac06adcf1e78d194de32cd3d53238537abb22dd8761bdb66dddabc6789ab02541bd3a5d1b09b36243ac83e7fc70571e39770cbd4761507fd4d45a1df5550afecea2859f109fdcee02f23006a0cbd1d654019f79dcacee8a67595558830bc57ee7a509c2ab46f1312923c33247c139ed727d4a20f797a5a5570df18fd2a0c8424894923ffb07cbd72e6be8ca78afb6078ff3ea6b758e6b0ca7a75c5e749394fd3ec2b233e5f0758f637002587d52e00b7117d3b1eca0c2413c0ec0b7053c2324d3bcddca8f7bd06fb54186ec0495f8a30ab0befc11d538f6392753e37b0643635b020670398c806368d02936dd60d43399c73a67b6d88effdff846a07a6a7bca36cfa888bb636c3cb182ff9ac20c54da2bf45e5f4b030024e97c9ac1f97cf6558df990b60130fb894d5c34a56ebf1208f01f840164607770f0249102179b8b690b54a190ab1d7eec75ebb981d568ea4af74117d98e0ed3f2b1b23b790c6c3c78befcc69a355a2287237a4a7ba02b4c08f0add13d3b7990613b66c2ae67f6c2ab2b8fa3010e34b553c451be0cf97ef2caf3a5e7a72f994507bb164570ad9caa334d41c1c63980b7b7ed70568f0516a909caaac70eee5747b769e42090bb36bfcd8c65df6d2e9e746ef0a763fdc1c08f11ec20b4499ee5b8bd5aa459d11ac4123664ede81066c6f7f6eb61d24707dac0e177d7e437f6a305a53e8e24c16519a10402854296fcd3e3448cf74a25224d758fa7b1a77ff55d1745f3fbfad48288aca1c6cf97060e02e93659dc7c9edee87ba2f5f5256cb3cb067e85f3f4d003b4172c79370379df6de855f3278d4183d181a3eb8a3c6a9f90ad8f66a542cb528be3854a5898eb0c107b905d00798d2ae058b2437e2cd164905007901816ece8a92f097ff262f35677994fe405f39b212f7993e51f8968246c7373bb8b2feecd7f1e3835d8015cf1dc6dbbcc107514c126a52627193cdf75ce17091a4c2a344e5aa49a5ed0c048cda6ab772bde55484ccc4479c4459c1a0c48f7cfdfe7cadeea57b66721c7f6080f7f0aec22d8f2291bd3877f82ebe673f17e12ca6ec37acff17a7468822f04db06f7abc198bc9403d68aab884d4de2b92eeac8e6c44dab65916f50502230a33fb97e4069995dd186a93f4f2dcf3f368e9012d4fcee38718f5b2836d139fc8d274ce9c97de66282e484e0b841707f6b779cb8f5157e28533cf4ef8c74b7a102dff927d52146dd091793511174e12bf12bcb6368ad77c7383fa86f6932ec0819f20febf3062ea36a0c0eb10a4220cf91c2b13237c08ab3c920bda9e7832722491baefe835f532ef68433240a4b618315b69b12341e9ed08a0ce835d0e4114b7f564be78d81a5589037a847d0a257627a927d7aa0113a2f9329c45159d1b920d7153a621ac2324d869dc94696c063d0dd430b7326a662d91dea800a330d7d0c35ca0c8a45fa1f8b107945f8a75c8e683b7cfb1b26ff19221af2a9d8f2e8b44121bbd492883cde9c5613004e2b4bcb8e73ebf9a75be7cd241e1b6a7a136643bcb4668f6bf2bdf0f7f22cf225391566e7b1aec459e8eec13c7ecb94a48dda1557cf2921285c86c0267733e09c55473e37992532a0a35905ebd341b692e9c8f1beb5da0230ffcd0248623fe6e566d5b049afc25bf61fb852862fa94579e8b4292451813945b6b67787db9bc1c17ac5f3cfb7957fff41f715e23f0e51029358265767725fd791ff585ed3125b6ce78ee4ddcd48cc8245edd52bce9542ff253e2e6703b5d3363bf9f0f5c2c40528df4b6b7621eb98128c2cab9d1adfc025dbad7c4b6bd17e9b68c5ff63367013f608fc4af475bef633f61c359d4545b7b1ce40ed526617600dd0cfdfae32b42226c60e135b1148c29b19bc2680b9260b67ba8bc5a143d76b277528312e03d107c8d31fcb2093a46706ce75fd98382</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">此篇為心情日記，請輸入密碼確認:</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>Diary</category>
-      </categories>
-  </entry>
-  <entry>
     <title>黃金山城</title>
     <url>/blog/posts/Diary/cd49170e/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="你的密碼不正確，有興趣可以找 Kevin 聊聊" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
   <script id="hbeData" type="hbeData" data-hmacdigest="79016bd9b1be3f05125428a1020939b99708d51e9df0c6db4073a3a82c7804eb">061f0e67a7be421a7f2832e6c5d851b169513735b8d880792108333d0ece9533421a1136cc6e310a99e4b5c1d71f039180e4b213c89487efb3cb38dcb828144434c8af9417a0cbd18297becf6f9ed2de5c1f2e1e2c3f53a8efb3b5c3cb6d40d57b7b4bf4affad64d067201aaf03d0ea2c64a672c693632b260c9a8403537c4a94f2f0eb459aaf04b99268abbc6b4e0782652a5883c0094e4d479373e80f4481c51be825e2e8c62c4cc1abaff9ee9feec5288c967d9709cd2d151d6abcdc6dcabac1140856e31748528c64079553f440401db7666afcd8c45e5dbf884eaecc8baec337422579220d2e71fa10f791d90f255c862285d118c6daede4cf048908dc372b54763b28f103e094df41b2753341baa49e3b6ecb25db46f07e502b356ef1af269b8bb87c886d074f42e0779919012b0926d22c7e50908f60d2b2880f397929b3f71d7d88b068a3ea2ad20b988d7231b214932c1add557839ac6b48869afa51061ce467bf01df29f6ca8d2752ec842c4459b7be1d99981ea870e9fcfece7a64080a3490347b0ce2e3c83684fa4add7e5fd3898c2db7b6fd69a02bbf01cf58a4b6e6b9bc29cf2fa45c2d439e1793276f233e4a3aa4b974bcd5827b085a6fe56d5f5ae873874bfb4e19ee5f40efc93eb5c9b0e8904e007ba4370bd9ccb1ab6a176830c1cd7827d8e9763f31c04124907f02a10213cf538def8f22a4f2722d73cfe4addf1bdb71e9066221d54a2fb4353cd74a2cc9480a8869a64c3276532e0ca8317eb99d094c3abc052d532be3dd1dd7e409bf9cb6d1d93b77f172992f1aacabba73ed721137734bc13597d0f460f0f7462d10364cadf82e0e8b7840ebddecf4d20e10b35b97a263674eea5d88bf42937387fe8aac52e5a43c15346ef21c1f905c5bcd1c71bb741c253f15b943e08af1f5d0ccfe2b03f97734f595749f05a7cc5c257f17b822935f738d2b28d06cb5066eba45dcc19235fd708ab51749993547dc0be096ae62d966c38fa2706f9a2c8c4816b6a485b8222686e965f2d8d5d31bcbf9e51a8d189e8ff867c0ee2ce7edcf24b689fc918895c75746a471a9b204d3c723e54ec95078e882b5195968726d12bbc896d6386f6ea181dd7e87a5e34e032d6fd6060e4445c2b1f624f6c8761dad07ca48965c184acd937b8509b45b218d6b2ce3326128e25c5deab78969c1d0b620b3ca4ad2539c7a7172d531eb715de07e24b1cc4beee284fc8051b443a2a19c0c26d49fa7b9cd58d5ac6f351036d8f74aea2d275d5074c6eadb5d9705b3a2b42f22f9409b6765bc338e947a716baa9c6f0edd5cffb2d91ea63821e76e0d71433edbf6e56b1eb6eeb3f3a6c040145fa4dbf943fe0e4c08a7ca090eec37cb2d9f62dddca0420494d054ded6db0d6b53e74147fa1fcc8aba34ac5b786438366335b6714ef22dab017bb033fe3aa19c831cb35c9076fd409968ae1d272d502c551162206a7adf1fe7f66aa050efce8515c746b764249c1df2aa597455c557a54caface4338f3a9b5c692666bcd68c0d0b70756eb078528301067e29ff0ba8b176b6af1e13990e5b72b4b2e619eb59f3b2cfb19838d2f9af62886893fc49832bccc411037cadfeb46ffe1e05042ce39e58e1c16df70734c15983247edcb928dd60e03ad70f47f3d02369833077bb9b8756c2dbcc5e451520d9f487427f068a57d31c4d4ac3ee6e5a396ffbb1323e3fccc49f7b7f57be4a6a65decc51c9ae245d6b3106599f7ceaa8a04c2e3fc8aad6db45111787d4e4e2630ac1306971e95d9522471f0749ac5514d68ef7b333d69ac3c400e29e876ce577c684c8c774574f5b501b135a3004eb92e5cc06b91661c37314927235c747cf9f3a072a23e42aef9d173bcdf9792e56413a3a6d81de21a4ee3304bcc365eeb9014acd8adc8f4f19dd340d2f44a5820d139a68c8f4ec29ca3f0809077553348b8eb8bb48ba86150c9687baa9b373641136f1fb04f125f928a322b92c6965dc51771013cba29dd527367eb1cb14b749c491a0eb93e5dee40b2d26459c603c0b903b053cee0f769e8d98bb9a2f239a565638ebb301ba411cd45911d371a06b0c87c5e3154d16c98509c993121317a0bc5dd8866a5b614045c364e6fe869898a26b356e552fe369e8b5f7a58b889eac706549659f039a0c0af77f5b57ff81f238cb0a23a00d9020d8430d88a0f6badffbb817edd001ad05c305266860b03843cbcd28e2f8a83dc25a1c6f1770cfac28377d5156d062bb3f194339dc62f1425a340e6e83ad93ff2b33bebdb0312a6a1c0b2fd82f8bf05f508ad80aa0a08b546fb89e80fc74a25b41dcaa1596f69c3adffda75a7c431e354b9b856fa1c58db86768ffa2c9c402b120c36fdeef0abea6d3076d2182a36e5e404f1d1804db9a92509fdf76ce65c75155f1756026567d65f79ab98b481f4c5e33fdd1388610f44cf9d2d0b9a42531c9c51af4dca41b5b80b8f97c1f8865840b61d942a10f5f0b88193c210a4fbf9f01660a1da4aa09d0cb1508b95dd57598420b2fba50bcd1805ebe9913e5b1d55d2a1cf1fefb421e4018a6db18a4d55341e3f04be4476ad25789730a0df144fe7885441b274ac1890c43c0ea2eba00e20b1ed120d1018752c50b826df409349f9841c4cc0bf11e38c65391274b0bd872f3ca451722e0b27fd0fe43359dbf7181f3b7713956f8ab0e11500309dca7e4a439bbe6f9600ebec2f34c33ef3f9792bf28484427a3745678b8ef985739107347b226e74108b527147a9b80f8f643f811575c98aa29f07907b7b1ed041bfd54564d25b446db1a12a39b15516921f64b799465ca2eea63fe4d420fe3740d6c7e9e6c5de8660c15dd2b1c4616abaac123ee09d5d0f7b6a19e4d33f2e145ea4f68e71f55aeae0cdf1e3afb80365c3ef9fb84cecb01cea1a7c873e4cf77826b99fae1fb1760250810a04861b9704b8047aecae26562e17ea4a203ec5ec2a75911aad59c6d75fc76b4a67923e470bd0c38049404ef0a511afb3a9ea4a93b81bbea2b4313abbaaf9233a86f5b541fb20dbca197417bb3b5984a60e2e6587dd32b540ee01ce77b4c82181aeb318599bc95b885655999e329f83f6cb8db93246ba790c6dd562d5e1d61e0cc65b9421d7b8200b62609c01d694fbec6b51d9a29c776053ce546538fa54b884aa80e24f22facda747db208f701f7a8838b800ab98d10553e1677a28e595fbd3fabf41e0b9e6a9a84a0a2f85ee2b702af896a640d436d752aede3c14e3efb46e64db148a37866351bea28120d4939171cccb7c1fac630d5987055435ca0df93e5654a6bf59fd7eacc3e0d6a546b63bd3a8233df111c0de3a162f6ae8465049814d03bf4a7f02a6292b8d19743dcdcc4634f2f738c998ba67b5ad6e8ebb64c916caa750fe4a74ea74ec369348f5c19d660347c8752fb1b770f304056cad6f78906b12cb32edba1df802774f41ca59b4d54ddca345f79fcd24f92624399b92adce72d9a40d6bc794678311dfa2ece029c483f91cf72bff3cc9cb4a7e011071953918570bdfde1238925e41a8101e798f9b1faa50de13bfd17818ff190ab7c27f66179ba6cf727e21699a49ba4b19b16c97bda7615acdf41ec9b2d4b450426c408f39fbc8efcf206c32d61e23a41c3eb3335030de08b2d97a2e5bd3f3fac5a6542ab015a9301dfb770e0975d0bb80d0c0e38b2f618351eb15823b42653c4d4796ad34b8256f10a4c3db037b2ac033cb76cbfeec39f689dda886660fb138603bcf5e3b2d5935200776d927482ac9d3bad5da94922ba327ee0e965a1247ea78c62cfdca6fd946bd361a214cf56a29d773034784f350337407b6bac09a39a5ab5ca3ff66318c99a9a51c68e731e6120f53b4aeea765e0e9514b9ad69cd505afe5aaffe0b1dea6fd590ba4711aa1bda9aa393847eab7fd589906b03bedba908503ff15e33322f44eab2ea41aab46360663886956d0100f65660bc0ad267d3e0eb34053b06b2963b0c5e5a2b8c23868872b74a933b374b591f4ea1b590bcadf11b53b3a6ac636ab38008dac08bdd3907c2733f9298e10643ef373c32ef0ed85125518220e3efc010aa3e4e29c8fb96f0d377fc6f5fd0bbbe1406f514498dfd7a2267e6aa02f014d126d23a2f096bccd37b5517b9d31bcce3c8e4e4801778f1a3adeeb016aa3b73aec79ecd8d2b138575292b01c1048f1794fdd83703e08d37a9c6e6ad87e001158ef10b1f47d437239cae933b9151f0bf0ad32a1b33fc9ad32a1173fd5a1ecf39af0e1f1350fc9bcb7c26899769ad9770d5bbea96b17f4d8346bbb6d705b5a521bb51ccd2d77cb5775add7302839662e59974c00ad73921810f2145338724b43bc2ff244bf4912938b70cac855cc0696f977a8dd13ab9261cfc185cdf42d94ef75aefd85cb9aae0c9ba7adbf5e632598f375956bbb67e044df059a54bbddc1ac246a0fd2c87491d3517588cd4195487b66d04cc76501ea36cf4df93385e7be32fab236c042e8bedefe981969ecc9e26a368725d8be31bfeeb779af0e87dc1ea7e2abd881e87eddf735dee47d184aea82ff6d3de2a9892dbff50ae4698ca21060d188440be7a144e5be086602b17278855e9cc17983fbc8280d007472005ad6a9667ffcd290214daa7604a47210173f7d67f8eefdca61ea1a00b3bb54f3d6bb98d03a1e8237c23b7051954ce3d56e94ed6b3c3b10d6417a810fb1eed446a4d01cb997e623e8bcca084840f04ecf87f0932ee24306bf9ce90c388154f178df5f1bcf1f10f6ccccbb467c430f332f8c91823af69e17bb98909449c84c03bf30f1dc2530235a80888b9dad460f56ac71982ce03fc17cf51e63f851b70ba0e97f164ce00556583b18c39d3451b13c212e2008486baf3ea94d8017c22d7eb20159c25c36def5405af4692ace8398ac1d5ece328c41b9e167ec60d502982c8ed3d56cc3e6968e260e87e7016c09727066de0ba7605021cad93b7df9ea05c94fcbaf20e952b948747b35c58ed49171121b3cb9e8a29fb86a68840253931beee6b1cd75741cc4f2a95d0ff9865ef1682c31b8aa8c791d74563790be4e1970cef5a7bbaa593f429d6d6d4348ffc9ecb50eb57b02b2ceab787e243f60be089b47b3dce0cece7aa8e5dc67538f2b9967a579df70e0aaaa8da53ef38205cbf3155ea63126fa978f564937abd70e7b0d65b3781f99268e41ebbdc584989a14193df85b67cfb6c2f60858bc9f0a40aa16c7689020a18aafa39a15370091db52cad4623b7bd674321b9db6216a4a91206364ea3ceed6ce12ac949ae58669bfe6f1f519b744e888568896b0fb66ca678aa03e531d14c5b565c3bc25c91565de8d333760baacf2ea1e542420d6f2471004cc14314951e39aeba599813e38eb285e1a134f7ab77f6b51650711e6b870b73fa9bace50b77bd09f3be6d8bab58c16319cc7c7846e554a349421220bf83ba11be480625ed5172b37dac88e1cfa7cc26ebb8e38877b90ceab4aedb9952c57a23a6b02474853e2d10d0fea50ec686c44c70080f1caf2aba850a9561d1a8a76f66d53e2db3da585a342677cd9268a270a8c41a96752addb2b17dbc2248a082cc95f28433a8374f5a785ac16bbb2094a3bc5b1a433eb5ac814258551f5e8dc6c686cab9dda2e5d33fc67b28349f036deadbbc76a36a4384797d46295de5fc244318ec222eda9564a71dea4a2272696003ee17af6e29514fea8bc5134c670b363c122005f9e6f21ae635d58090c2bd057b5e3f3ec53d8f238e4e8805bba93927931b931566b81d6711e8c1823a6a48b3141ad560207f674e1f0f3d742c5d5006e5e68d9fb304412d5716ec35aed9d4659d8caf3586fcf70abfd5a8cdf6646a0ce17aff5dedbf34fc90a9f05d73cde5e118f24dbf0f290bafb1874b082c541321c13bd084910c8d88efaa92ba614ff278aff79206e5a7254ca9f98742d5da13eb00746ff3e2d4f9f1f703319d19f5f432956db37ceeb8a3a740b22b3210b5a4640b804b92453422b78d4a23fb545706819f003b2b3f3622e6506233a38cc78e6c4f8ab53ddf7c44e9fac170cfa3bf9745a4660545239888a8d4bff351af0766155142a008ae95922fec61c5264d1db82299c8693eeb4a4d6d9e4f006ce2a2094b793ecc4f0481f2c701e6d7a0f68b84f4e5a029a27957ca1bb2d494edb43e116b133be719d57c583f44b8e5131ff68a969521692366cb5ba5f9f3e6dd8faa7a85e6d201b40d0dba61dc532045dc18742109ca991a57d8950446be1a8bdda698cf83f93cdbccee95767010c14ca5392f3d8d25f2ca068f9b82ec63722c4b94ac65858e79dbd6eea8ccf8a48861630ab23ca7ba86ac1cff5edc05ddf41798577ce104dba81f5cfdda6d3153cc7c25ce539d0b285f3c06767ad75a7a01c5dd5b78f1677482533cb8f67e08a268e439a403cfb4cffdee0e6b46051f4fff334a254fcf289741ccfd882369dd011dc2522c89354ca2b80fa3e0b07c510cd8045a219b442f12e6ff91891a8e5857aa97b167e830449f03ab8d5b3c31e8d5c75cbe793d9f5e41f6c960d9010e7b2405e370484ebfceb5699ecd63b11d3eb00890fe2b03eb411f9a7e82d4d9d4202a2f55a1b52f010bea0129e16309d08c78cf1ea1aa47b624a8e20c3c9c2253ec27e4f10f1b1adc9f62608a3d0bd899e384b45ab9d86105f83883e6752f1f52e7a1118178707c27b0643a864d789b6100af5587ea75d15722bd0503e1094231c642b3d1c4619356b71e349d1c8d4dee7643dcb07133c3b6ac0df76d8dc822f5ac5e70fe95e9ddeec74cb04666ea5f1532be6e2fff37ea5e996ce2d19f72d077c843f0be20488a3a77667076b169c273b179edf374156bb145fcda3b77a52dd8318009c0278d8c806b823a8911edd1fe91cfebe428056d106de3d6da761978b5b9afde60f8f314eefbbc280ac0a5e372da36952ab0622dac20c6baa6242bf5ad1131c47edbc4517ce4514b602ad4625745764e1e6fd1b3c9e088c6e60a672ee33c34b68f154c211890362b216b13892f7fe8e721646785ecc5243b990042c649fc8efc50ba1db952e6f4211d0abb8e836a2520fe6611bd7f2dc545f9700c59ad9949e9e733c38d1efcc8bc6d1ceee99a20341f6dcd2efc999741253356d2952eafb61c8d608d355d649dd4fb38684d8ebb02c459ec4347f40221b1c1c1ab078a1f7b5ec156f52b4dd64ff6ed0b6e018c5f2ee402879ddcccb4802c9c59c19af903c7562e7345e1edff084e393b93fa7cabcb84f693bfd94683c853710c34864728cf73884610ebd6f5a12ed60f60a14a2abdcc7b49a4694cfabdef5507a19ffe176d76ee461bef56f34277e1b3a137f58b9c218662d341e9ba95cce57b0788e8ca2ed2636f1f2172a10383fd20d3945c4dcb36ac8de6725242aef1247ed4257d4ba7c247bb64cbb366f07d92b690da0b7c3306b20e0ab0b7adf654f88459674260ca5dffd9a3239b2ddce69e7add35a9c46f7531791f73c55624aaa51d8f81f788</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">此篇為心情日記，請輸入密碼確認:</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>Diary</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>加強自己</title>
-    <url>/blog/posts/Diary/e013061d/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="你的密碼不正確，有興趣可以找 Kevin 聊聊" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="552ce3d0dee1f577baca9e74331f4758abf34f20d9def38100069b03492e28cf">061f0e67a7be421a7f2832e6c5d851b169513735b8d880792108333d0ece9533421a1136cc6e310a99e4b5c1d71f039180e4b213c89487efb3cb38dcb828144434c8af9417a0cbd18297becf6f9ed2de5c1f2e1e2c3f53a8efb3b5c3cb6d40d57b7b4bf4affad64d067201aaf03d0ea2af9987596f4fa6636ea1e739af4e39747cfe60f6a5a19bdd9b27576d4fac92c023803431eccaa665ff2ba6589d8d5bf114da0d6242b1d3c640219012aa78d17dc68333e5414bb50f3eb809185f7636058a4fd7815cc46da601f7df1c928627da963d0db9d93f3b68d431ea05c83ed0ef4235b5debf96d3c438b28702e65b6a425b91be461a855956326bfa93a210699c050107ae68b445b0f0bcdf34a9bee14a37be17655f49392297896b49f0210b84b389c935a1731202421ebcdcfeb2df07d0dba03b0ffcd31d3c97d739c6f51cd5b47b2a570838877114f37d7a76cdc7e7a27d20fd7e9d9335e521123efa61d309491d3c1933dd6ba036b1c3ade638bdb5f5c8447bd92c968b03bf09df84f8e4d57bda9e39affc7136fb42772efadce5eba1957d0c6d6ab9f1fd8de3ad221119ea0dfbdf85fd3f8a9705c5fedea87422b2468043c29e91314adadb798b457d2f748d2e304e754a573879749e515e6ecba19caa25d0b7e016f9abbb6f8e0ca4a0df2868f422aa29b233271f46fdfd95b511fb0689090316ced8832e7357c35a4b10c0ed64b7131bc4b6c59e3ef749c7b5894964092abe999f83d4743c389a0e6e67ee8cde1156c41d2727a91cd77b8568ec137529956712a458c0af8755404e4f1b3035f2bdf5890f5327ffbd58d342f422bb2a8337197fa95d406fefdf2f9a7dba7156876ebc6ab624202fa8136762f58fbbceb105f5aa454c8cd8873c95635aea4c03278254054b4bebb7f9178a9e63b29340a87553f2813010e22c2040ab999e35c59a63282098ce7be62880e8e2a23ea15e7e7751ec060b41fe7d2b03434e9c741ec3443506df8a173e607e0ba3552a06a42f0a06c324a25768fbbd54a5365e4a76b5fb9c6542debcfaa74fa650ebcdfaed1437628b4ca50b4c63f8525cbfea5a80757405b92abb755ae1ae1048870cea68070696883976b6dfae5d8e35c6f147ea85e4730c0db5abfe3de6242c822b14b47060723c5f4863352958c90fc62d9464b00f4f45c42843a7b4b164ae3b2828eda3c3ac10ae04985d765a2c22f2f108f3b49110c578ec6ae28422dae9352b3582c4ababc5a06c3f63c4ace1cb68ba10490896f8bab72281c444b9a00eb35a48776dd747e550e44aa73d06acfa3438f20d6232b7305a360f8cb4c500eb89c694e7dc9d103fcb758229c135714d44af8ee34b725c6c5481482c6a87f73d238b4dbb1c7986833927e450f2e1018cd0aa581691f2e218d57a6c77596b865663de37bb2876d7bf6441e4a3222447f7b784be34af8b5bde69ee8b23444c431776aa4e80b47f374e66b295720084c5cad7df72a32771fcbacaf0f69c29e2b4229cc024fcf3cdd26b9bf58e698a3d596189ed460b9941b4dd8229811dbbc226494733c92db7d6b3cb4b7c9cd97b048467fb7dff279eab3b57f7cd73b71f3034136b4015407c2052296f785736d4e25d49192237dfebf581ebec8be3c27f09b6435311bc2d6bf6080269c4e986fb559bd5310b21ac5aa3491561a289810889b75117367a2d26564b593fca99f75f5c40eed4a1b826bd324200737d66b725c77f9306424a1d070523a287a16b1e7fe3e083455b6d0c6531b6bbc5760f0b5e52c5a9a9b430961f76d9392380446527e225d8208e7aeaa00ab27c82a208cf7705d69da9dd9efdb20f984958c195449141bda07975105a53145fb78b98a75c1daa29319ece91d2e4e055042c5434e07db3564fab0000aeac05f27d1f9c9ed200cb15ce8f0e17b4160715b646d690dbd357ad6b8406bb15c24db200937e29d24e59b2a2524fa8887050c1c43505d17e831d1641ac2cbcda7feae23d3c04f61cca0304bfc05e028792de7b90471fc9f2a6f0599c5f81a68b21ab9872213f2d8d6793dd167b0da39d6b4e3423ba1151527e44960ca6145b20adbe40eafbce5756a68bf8f6e149f1102cc3bc783bf98b456cdcaeaa6b06730435e3b6967bbff025bd8cc9c24ad315b634f70d09f0816d83ba6a60d49b0af5ebffa1f904499356fece184c12eb5a269a95ef221b071f4395696569aa4dc6585708718dc7141f231e28096e599db2a2d7d70993c3276d6b46d3ff3d4661d345c1778da926c25b421f151459fac4cfa0e5eaa76867f6ff2bb2f0483c111b88877b6bc124a3c0588cb0e08b83e222ca2e7f03c968a39392e0957d1119cfaafa81dbebc384ee15a727144e178b9d767550ec2298d73157c3fa66b7fd173e37bf9f3dac0cbc45e8ef4642b197be2274bc812011405b9789cc8b90e75f9a3326f9fddb83bb87e01edd19e45aa410bc4f6eda6c9adfed422206155fe43afd8878a5d418e2e5ab59a29583f405ed45dd4166d5f2aa20fee7a5b8cb8cd8413837a7cc862f9dca2e68f976e53bf84aa1c2e72922ce7a7277d72066b6736263f2f0a55996e18a052a62d5e7bf6bf363c7a706ca5ea040bf44d5449cd85f04d046461ab374e465c814bca0587c5ab9f7d54a52cbbcab3d80f7ba5220f2a3cdf221f734994a574ca895384c9ac3e3a21df19cfde4dfbc3a678523165d3665c474296e4f8e5a8a259da3ec0f5cdec3deb2e1c9443033d661124750017c91c6d4d8577e48d58ed0188564f8770ba4cf611dce7a026e730d52c2eaf1f6b658328ed8102c967ce24f2b80ce4172bd9bfb000528ed5e6f28e66a3f0500afbb3c2b7353d3611b1a635409bca453877232eebddf57904996b18be17cea90789f15f18b2c4e7ed5539285d12d16abc0f5a744d56b9fea0624e67fd25705f0c0aa249dd239290a1e942c4ffb58efd01fe05dbad4b99e4e37848957413d60b2c8b7f985743539566dd39e085d0fb3ad843d232c8f5bae4f2043193353f3b81edd00ffb6a7539d1ebb7a0cc803b3d13e491c0b255dbccafbcdb31f7a0ec975cb85a20f1ef6cbca06e235b00d33f4e70b5b132957f2999b2ec39ea31025fec6762c4d2d19eba7bce80b4d8e50e5f689e96d2e3e5f558f6b63a714b778faa200d052feb5c019bbabe04818a50a52c7f4d797eb5e82129b9bfd017d61531dfaeb5c36941c60cbf5bdb4841916e6372e3ff506057744c8f9fb12f895430b0ccb483cb97cb7d4f3ed3d9a3037be241ce3bb23b298ba70b77a101d8e65f728f19325955502bc5ca38b1bb47db9212c7029293d474b60b0fa099a1c6e2d2e6b73d8cc2e21812aaa8422f2d4ddca1b28fc08d2242d90a4dd9002ef19bc7d</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">此篇為心情日記，請輸入密碼確認:</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>Diary</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>考慮離開</title>
-    <url>/blog/posts/Diary/8141fed6/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="你的密碼不正確，有興趣可以找 Kevin 聊聊" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="335158f78e999b04c5ecab89483b57c2460f0c9e363e57e9b2c5219432ec853b">061f0e67a7be421a7f2832e6c5d851b169513735b8d880792108333d0ece9533421a1136cc6e310a99e4b5c1d71f039180e4b213c89487efb3cb38dcb828144434c8af9417a0cbd18297becf6f9ed2de5c1f2e1e2c3f53a8efb3b5c3cb6d40d57b7b4bf4affad64d067201aaf03d0ea2d81603036a17e3b70b9a762410ea5be53176034e310422eac32a4e250bd02195e3fe8bec328c5b97243365b6b52e01c48cb985b16f8b2d193cc5351bd626539e1e2c86132a1661f96536110e43f1eebaeb13d2611fc3d00a0e563a6e74722b153927976f21e38ee12fe0031af5dd6df347b2d418964fb716f3ad5418ec2630997d4db6a26fd9ab1adacc26781acfdb6b0bfe9980e201438bef098fcfa00880f3e6c2b220a543f0c3ecc86682385669d57f36042d04ed3bc821d940873d2d8e083cf06017bcf1ba59a639df963a71a966dbd2b8f52ce37cad5a4575d49e02cd3fc6b64baceef94e65c99730c896bef1411fcd464d8539370c82f2f3811f4e2d8e26b6cd9dec995f67a9301c244995a1f9f3776949a84d63666084421f59877872562a48ae9b97753b0a49f6b78bae3644ac39248cd5ebe16ce9ad139242976d97436ef3ab89110a3c1acc4c65947af8bc505726188e9279c9b5deeec785f85ae3a750733bf7572ae5894919c5264b153a1031f6dffb86508e969af6407e39c49c745221adc971beb7c8cd08ec66b55e28bde51927b114e5e5277849d45b48d94525a9e8d0f0693c8018291483d1b79616eb9bb7cbe348f8b5687e0c411b812b6ad245ac141ed45327c4eee192149a50b5eed7448d36c63617ecf264d3b8b30adebfe8176416ec50458d04e833b3bbb68d1bfd1412778b184e1e4b816b19e19a8dee6c90d4d1a8bbcc33a1ab855bc1eb42e747ff7135f862b72031f29ad5a35c61e6fc82b34f29e12aa047be3d300bb891aeaf02513a9bbafb170811ee7c46f7a5dd70efc78908a936273727c33383941baca5d7ffea91f1afe370a4eefb220ca331ee574190736349e737ba0ab33859df9ff4a66a882681f6a2b5d018b2dae6fcb5c4ec2d0e0df58d4f547f8411e35c89088448ea5ebd3fd8cf9ee299f5859e29147f940cada917398d3392d0c238c58e6c08be54a9cb522f39b9367f7488bd425609359212123ec858893b62a9db4e764688dd9d2c2d46e9ff78295dfe9f1e58de84c148cc3b60608e342147bd9e2155446bc8c6643a27256bfeda28c3038814f9ec9cac387ce17ef3140a1805662c6f93dbf3f759cd93bb5eb3291588e7bb204a3ddddb7d58a68fb1380d508928e3b67ee0895670ece00e658ae097659d2c435137cb4a554e620c8354fecd358669742371e06478361d9a6c9f822c4c486162a761710214b7f6d6ae450a62676549d5872e3f3819bd1fdb4c94e605945e495762e82c8b72c6ed572daabeed07319216e5ccd07b35357bc99c101a0be1e7f24437654bf6f658011b69f0ed4e3e44d69a39e6adfd548d2cda48f676af71c727c410c3f1c817bc14b9787dcda4daac7ec406b66456c330a875983b5f7d5c7519846a327b1359cd3b65d35399de509650bfa6ce2f00c792581d12b9640b28a7a405f952418c3e76bdaa28ac8a34c271596f9ed486251c3ba8c02b36f5b995108773f0628eb498228beeb2059d89428e853863138762d92924e47aa96df5c872af8c370d99b0717bf4ad9487e142fd5e3e5bbdffbcd8e904e05333ec16ac1811edeb15ad172664e1c97071e5a839e5d6f361cbed6454fe39ed508e59bc8337f466219d8b311c4ff26ce84abac679ea4daed1264279988ccd74529affa2490b031356aeea46ebaffc4eeb2cbd69ad58f02822d04a986052668f783f2e67692cd067408eec4f2c05958dd54f9d8c89c615289d3ce454e9d773ee303e7b08b5e4508e6ed632754783d3193d920889c457667879b944fef673f186cc023e00bd07b3cfd6862fd27702abeab8cca6737bf31b4e14e489f4d7355e0a02eb0d34c4dc48a6e902e6c08ea975ba05dfbcc0a36447328d3d0c44c31978b65a2dcce25e1c60d1ff7faf2edb7f23ca03cc881b05423b1384c4c488434a5c4ddd8ae7d7da417d0d89334cdaf93926d8b0c48c7ad1ac2741073e92fed6dfce4a002693c4864bceca556795fdf6fa11aaa789a8c72560e6d3687a4d58c96fc4c3d02cddf99a305e7ea65a30af61070ce0a14f7f8bdb22cc834a2ab66d0f99b9b7788b22eb923dd27dc2ee3f77a54a039215eedbe9bea6d65e9fb5b9a51fe6ce6375d046c0ebfc65ab8eedbc7f5371ff8bac5c3f9c2d610574aa1306591c9a151bcf5ac8fb22a45220fadda3b61ea9c8082416a6ee70101775bbc56bc5abe8b29d3128046c1ccdf6caae0fb439d5f83017e0de14760a2cdb585e52baf8c890c783775993aee0d03621b81970a87b8d505c76dd000f0fc69a76ac30e731a92a159afddfc84c813dee54a930243ffae3a948deb7dcc44ac647a982654090833e4556c827612716e45811a1699d0ed41e656384b0819e0d6bfe882e80a0e5c1421c5da2daac61802395eb55b92027985638a53c71ca773933cd8bee8f864ad4c753d2521cef297b59551ed4d35c038311e0cb87fa2ca51bdd3eda9777f1d372265c31133dd9fce7d03dcc40ea1748f0aa8308dd1bb97f78e9237d457e93826993d87186e5f1ffadd5dba3d9b8b840dff104fcd7dfb22c351512199ef557b0970e54380b440a11490f9c53f48ffc8c5e4cdfbc8276502562a478cf362356bc93384ddf7e926923cde37fb5d754477d7b0bbf1c09e3f03b99b46301b59d1b3594a118678fa1c60aa212dfd85d28bae23303c1a1694970953a35f844ada3444fd2845cc7a5b2f28e6771fa3f975bda52133bb50317c7eb465701287a2a299e381910997da6270963e1a3cfbc4a6b1aa0cc7362a9fa669e91da083347e8f8ebef625fc8f3e65a255aa1081f60cad949f178ad8a17f1875637360899704b7c7fd36bbc110dc712c1b44dc5449116c79803795f8006b99ccf8f858bc320015838925795d32a8036c062b0a20696e57989a1bc61fd1a6b055bb220207a9058</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">此篇為心情日記，請輸入密碼確認:</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>Diary</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>契機出現</title>
-    <url>/blog/posts/Diary/f86a98d2/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="你的密碼不正確，有興趣可以找 Kevin 聊聊" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="6c9d6e00d4a590880fb046a284673725d3dff7fd3991aaa0bb2f836eef65f03b">061f0e67a7be421a7f2832e6c5d851b169513735b8d880792108333d0ece9533421a1136cc6e310a99e4b5c1d71f039180e4b213c89487efb3cb38dcb828144434c8af9417a0cbd18297becf6f9ed2de5c1f2e1e2c3f53a8efb3b5c3cb6d40d52fb131f2b232ee9a15138cb5119494360d7357a55f11f45bc0e455f5f0ec515a35d9e205845df8589d76f9cc0a6ef6525fa47d88b532e5f3bb3056f4b3f38d5109e6952179e16ea960cbdf570f265be79df7fa9e644edbf8f1ee67dd50670b83e495623c9b354a72ceea15f59352cdd955565a389902b0fae93feb9849a391508557fb885f94518fa473a0966ac4d88419bdab024e8d5aeae1740d8a773b21dfbf5641a23917f80de17b4c668717832c52f4097e559d09e94b7c4b11a6590e2218c1e00f008e2767e5194c0446746625c21662e947e406d2c45a22b771ab6707dee102c9191c3caf8b5d09147ba72e696785894910f2e8037655d7cce3e60c9b7de929d076fdaf0f999ecf735fb2e2936077acd9b25ba54048703cf29b8de486fa7798e80431747fc43a9ada9214af034ecb40456c1ee046a68a72d4fd71bd791038676d94c80d8fbeaa7fa3aa520d6ba861fee77df102e2938c1bbda6a6d0a36bd81c2c57fd54bc4a2e2ea0e12cc859465a000ceb3c399ff04b15eb7bbc17765178f9b99cc15fa5387c3df9716bf483a47bfa33a701988ea6621ecab7fae593c5deda8de5bc978de396ce056bf4b2b1c047f9566c8b5f605b3f446a96aad8ecc90c665375a372723842b49104c19b20ec5e67a1eabda739170d98538a932c7457fe8a3818fb16cf72e644d5738773b2369db4c286961ac1222664354df9d3bef7a007c8220f601b18974b54843ddfdbd3d2fd00ca37c8dad97fa91fa3c59009899c8fe548e4b632a89e353f54921b0f1f538d8c9bc12b53d6d28a445471c5571c0dab8f639a72bb1f9d707956d6d15acbf34fa5de9ecf0ee3fa568c79c10f65cdd8339ba03695fa34dc257d176005e27507588f9fdef0dc9c4ff228cb5b3a875f10dafb57b3d518380dd3c6ae1e23c78b381a2ec9a89907ca2d4579e18037fc13fc5015791cf93c61c648d37bc93184e02da31f17fd14f22e9d634370b62ee76f187d2995dfe7550d69452305c859ba623b6ba293e0dd25971e36217e9e682faa87ba2cf8b99043c66c623d3dc1ae40ba63ec4883a1f4c182b947ba61b409b48dfb34101520ae14052864faa6a7ae265740e102376d3f63b5aff0d525b6c899ec849e49cf8aa85d71f69df3d866462bacb1721365abc974ce8632fa27179939fee8e3490632e7014ec5beeb7f9fc9196baa4e623d06644cdf43c28b570767442e2376737711fb88d4d32317f7f4b515a0fcad0de261b9d14fde32accee849e826c3d8de0f1f0e286dabed6c92deabd5ca4b1eb856988f8c76945fb5da0046fa39d2482459d25df706f563805e70881de0b1e0529247cc34e706bf2b3519b74230583334fa2294560b03d131ebcd8fcd59981bc1ab587f4d06ba5b271b3350e57627741e937c9782487ff7283b22724caeecff2faed056846e578d808270d7d8bb099c7f966543f8069f39c3c3115713ffb521e3f0553024b1fc2a2a3391a1de474fd0d33d4fc1a9f083401cffd9ae88cea43f88f57b3162b3f57b91b593a1b77877783d30f68674befb37034121dc45463f23be7b23652c4e75c102b480384e3c600a00e40049b51eea05eb37f9c2a45392a85219bc53ae45a81ba7ab0141cd378865325ec6789a3d469e816653bd25e11a13ed370e627a308b32738c0e68a1d718295abc46327a1721af8eecd9af1d0692cb6c862f14004447786b2f9bd325d14af9fcf093202bf77b1083ec40fac091d13936230e665d86ee7b48e1d05032c11c333de8cbc24274c038ce3792c1e2e3631cc0000810a9a720435d0b73d52c86545b1483961e952f4c016a1f4f01113ce26859df9fc889d7a50066397972abb9a5fe850c372db0c23a2aca7179314b70b2225e3a401efc6541e25a080c0cf88393fabf832f38af2c5ea85400c48d1165cae9ff99ba1f421a6b1b167b1218e99105c9246cd6005dfc4544bc168bf91518ee1622bfecf7521227e27e5123fa2b2d1a008c3f503b22e7fad83b67b1d4ab0c6eb33152049d33bacd21f87013f4dbcb202d1e68d90ea39726fb7fa18f46fdffa57d88e6e776eed067a9a2e2dd5dabe99a33574a0f84aa161c9de79b02f8408e472a0fa3b03c0a6ea7a0cd6b0552bf56e5b466c4a75190dde95dd27f8580d2f7b4a035d00be6ba87ef63c580df64c9bb0772862d1c5f69a56370a265d5a8dd7fb237b400e4d1a4b8bab322283db8c2a565322a5036f0faa6b73c7ae7b6b2a5b052cd2d00135a0f28a49ab030cfa465d595dc2754e60911f99de16d8c3322524957b736af37f477574f057b91950792cf51e8ad2a09e5c62f1b0f574f57a619728437a5c4f3cd5ad125008d33af86425b9077096fcbcce38343bff5ee7534b08331cb7b41dff92363a2b8fc1a750d6de7a7d0d75a96331f1f9461147cbd85d22311547c3dbaaf527e39cf0fd70adc194699aadc60f2a6f7374936db758f7806792fd893d8ec0e82fc45166ca98174accbeffbc84138b1fdf19bffdec59bb270143129fc2e32886a2baae28f78376999eaec863cc3d757ab508b83b59a64c0cda7c63995e0fba376a62f0fce6acff19ac9b8e65364dc55ff4b3bb61ed6a7e3d9a4a405a7ddb5b6cd66de9ee9a49723600dd6434829c1163026359769468f7ae4473655c61f1d6f8e3c1a6eea9c898e28d64b421470bd0e9282e77cac966d41c95fee6889b13a601eacbf3291667f4735029f8fc5d1f27ff58304c9d3a1799b7471d8174317e3c784e03359eb383d066a5ec598f4bb5d8fc7006de146e9711aebbfe4e8017d77a5ee699fc11aee717ce103384ed6d0117d65e42cc09f5c24a93269e9765914edaa9105962b1a0ea20e8ee2cabc872f7e83f4388b566e598e8b687840cdb6ec0a01abaf27f4617cd630ab2cffdb51577654d56504e05777add55ed6548e8d174ca1a7efe16f0cfa1c21cb3933e615bc5a0b27e90f0914cb39e24f288162c8eff6f3a601ff026c7ce546cb2d9701494f5cbdf1f9af92cf5b5a80e496cf7b6a33a033e8139717c05250181a</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">此篇為心情日記，請輸入密碼確認:</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>Diary</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>暈船解藥</title>
-    <url>/blog/posts/Diary/ca24d317/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="你的密碼不正確，有興趣可以找 Kevin 聊聊" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="abaa97e47a84426f012262cae1de25ddfcf3ed1f4150085ac26b5c0890b3ceb3">061f0e67a7be421a7f2832e6c5d851b169513735b8d880792108333d0ece9533421a1136cc6e310a99e4b5c1d71f039180e4b213c89487efb3cb38dcb828144434c8af9417a0cbd18297becf6f9ed2de5c1f2e1e2c3f53a8efb3b5c3cb6d40d508ccdc014eb3a92039b7a136e2551fb3d942feb4650ef711683382cd791fe4adc5e3bfebd4407c4d29f3e0810e52f9afb635f29586c9ad099975384e8970a1a00e5bde170df832c80fd88003f866bd17221ac1c93547ba1ddb62d565188bed461963dcb7ce71ce56ea94788d51721d5f1c2708a4ea613f6d4d330015fa4c3bb925022018c436cd5ec2e881447f062d45ef0f7de2aff332488ddee018f65ae1dd78485ce25b1b2ad3611d4e7f0cb2bca3a1f3cbc733ff43ebcd09e3d9085c1ac70376a92c34a9c8346dece5cfeb6e9de2b08b4adb408ce743b8a21f2a831d54ba686afc4f13ece26a43843eed6032294e010bc6d0138582776d6f5abe371271d4a6b90f8c1e8a261f509a1b5a00aeaf71cd5a7beb0437ed3cff6b5ff89ad348051a5e7d5a54ccebce3fee896c1c53986799474373d14f4ec0d6fc40a618c56e820cc2b9369cef13ad1874fef2818009b45be9a461d22d7e5f1a518722b60ba94df80782eb538ba7f991ff298399dfc288b2dac5f98758a2679aba1d3586a50396ea51f1ad1f214dc604a39b43d72525474398507d0029df9f846f3f86dfb971330230046034aa8eb928f9668d44a796df010bf4c287b0e46c9d922fdd6aab2fd87df19a602450babe1ea2c0c1a362b424482e0d5718f35d202bbe44d8486af70e1cade190a90d31878caaa81049160f479f8066e77737b3bf2675c2406e7a2f8dcfc59ce5ff5481f885e5bceb876ba0d71620ccf2d58a3653d0ce5b71c5a28776958b905a237fc35cbdb44179d56583f192b8694b4aaa25b0fa6a77741142e409a476caf2a0b2f5059b3624320335f736c4851a76ab09489e2225e0e400cc5c58e84174541df09f695551260a28e795a3e21d5c9a78e6e6980bb996defb55d7024c72fa37c89021b99fdf065b34393a4f40e17ffaea02c21d899a1ef03826f4909348e9c2130d298a089bec26b91d20682b32136d82a6cb1f7fec8fc9d6d14797958d3f4cbbac4f5856d0e82a70262f083aa08ce26cf8744c9fb2931327839aefe917ac73d87050de753361225566db73dcd1f74920907deb4f583e89df119f8fa649d0e2f4bb16e4bb54b5b1dad7a23d8c46e96e1d92bd7e67ab08f7a53a12997384beefc509e13409073ba43a4ac992f36d206e43949094d77bcb5b0385b81e40eaee4b018ebebcf598ffee09204c0e671ff2037c4f629bbdd9417f9ce8d0043b7907dbace3f9ad76e4169f9dca0649ff7802df0c7c6e9aaa633cc3943a7d832edeeaf1784501851e099a36859bfcfa8b89724d4d6ba8e8acd421340f19cfbf7cc64ad9330f0155ebbf504848abafa829362ba90ae792797e528dd810a26907f570e97e36e867bb77db29c7688e5ae73c7e3a70014cd69ce6b54d28cc1fc4cffdef789f5f391baa3bbf479ab8c15516cfb310a20d8478da522abb9852ded60385efa2eb574712640e797443596ad083c7ccb7ab707f349ab663284d1aa27001ee8e79c8cb80d1440b4b57833ea2a0b9c6f31991c07424586859babda38bae26e8e5c81ce4ea8782021f2eacf3b872fe822e58e4f3a734d6627230cd44a8e1b63a3023d14b2769b0040a3e9feb8c70111eff28e4884245c238e56c5d8b5e68f9abd02d837832a06b66b517a69fb7c2afe3fb2663b176c9ac68b4bd32bf50fe9b82b36c34c2038203768b64f9f64599f4c76b4f0e712c7a4367777aeaa50b841b7707b58abf4a4b23d3deff33c6c7774538f8f6eac31176971b5788f163b2e826ad1fb62f4ec000e392a67c449341e04da52a234f9bb3170aff9898e22131e27672dc2b04a4557ba1e224df9de7fbc771cb6c17c55a70837a6f5a35f03ae376140437011be27b831ac50384868c8347796cfd44128e5d684ba994bc7addf578b06149bb05b599c6f4e7b2a466f5bc0e6715a15fc341abb42ea081c5e9ada5dbfb8aff2735ae7e868692edba51b63ec4fa1a400bea33da474034b3e36921dcc55af09175122a44006945cc9c71ff2504397d95a84a6d61be4fedd497cfe3f2aa19140e6f007fa3433ba1d11e6d2df72dbb17170d957150bc1b6f19a2d1b8287ea004ae870aa02a22191d4b169123d1675fd565b0886f8c6a3a2d117c95513674ba77d3f9882cd0d8826fd50c4af261bbe550cf043c25aab33a72a4268b006fe518366b3dbb80896aad682f049655d954287b656be06751c51b0f012a967bcc37d0eccba0ac1e0bd82626ca3956043dac69907350d8bddafdce9bbda9b40c4fe15d4ec5827d8723fd7f2bdc5a7bb7d92ab82188b01e6f8539fbbf2226717465995a2f993a0f28e2e0ceedfc4868877c1e10620fecd4bd6a2f1a2a5d40026d1b8569aed070311d35fbc476e4c3d806ae6f003114dc2b6102ca6299ec216e0bf11ccbd3e4d46d7cecd5ef943cfaf0c5542f31cd1d7f9bfd9d3df586254417c05c02a40ce2046122df7c11f3cde98cb74faa6af14814aa65a28953da6bee419483f1a0909459c41bfe9818d07e51fb471c844688269e076e60dffa5b76f9b0c599d9825cbb68f0ba39fe981b35c1ee3f3a2c5635098bde49a629713f3de9ab927e79a670dd9ba698be9b7e42bb908f105e7245492e3a489a1ed1a3d294e4e1b2aebb10d56bb6ac5b44aad46c30c58ba100043a14336f0b11894cb83c3e86ee90ed6ae0ed721c826d011c70d00bd0adc0c67e74529ee8e9feb24db0701c25f99c34a6182e232d686625be65870cdaf2b5b9ce87af01b17bc966d42b29714b70dc2495f064a59aac51598921986a19500b125f65542427681159493c2a5dd0e53e2f073c368ab40a27bca2edb80020447ff7f6e762fcc5b0f232985d76d53e7913923b76294218d2baeffe6262f4eeaec7f5e708e6ddc61d5e941906853997cfb0818ea44b5fbddd9d1804dc5610cc6b0c38183befab264d73b54346398f4c687254a6302d9d2e662dc19f7dfeb72dddccab21736e352c3ce86b75acee80ec64717a2e8b187d2aad51136fdef631a529b4777d5863f040fc5ec49fbf5194f52fd5ff928a82f712f5ccb2096bc28f3593e8c5ceacc81be479f5deb795a783ce200a0a00b19af963321630059d4e2f2ce52a1dd7831bfc094770e2f1642a4be3c0316dce035e55db2356829cf5347c2ad0a642ac80fe70f50073a27c39030b679a671b88da1cb487af312cd89b4f91410dc818270a</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-default">
       <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
@@ -803,6 +708,56 @@ home: / || fa fa-home
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python &amp; Java 輸出n層三角形圖形</title>
+    <url>/blog/posts/Java/a3e5/</url>
+    <content><![CDATA[<p>這邊來記錄一下使用Java和Python來輸出各個不同類型的三角形圖形</p>
+<ul>
+<li>通常這類型的題目都是將幾個階層利用參數傳進來，再看問題要求是什麼，有些題目是要求用print的，有些則是回覆String字串就好<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line"><span class="keyword">EX</span>:</span><br><span class="line"><span class="keyword">input</span>:   3</span><br><span class="line">output:  *</span><br><span class="line"><span class="comment">        ***</span></span><br><span class="line"><span class="comment">       *****</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
+</li>
+</ul>
+<h2 id="等腰三角形"><a href="#等腰三角形" class="headerlink" title="等腰三角形"></a>等腰三角形</h2><h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><figure class="highlight processing"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">String</span> getTri2(<span class="built_in">int</span> n) &#123; </span><br><span class="line">  StringBuilder res = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">  <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>;i&lt;n;i++) &#123;</span><br><span class="line">     <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;n-i<span class="number">-1</span>;j++) &#123;</span><br><span class="line">        res.<span class="built_in">append</span>(<span class="string">&quot; &quot;</span>);</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;<span class="number">2</span>*i+<span class="number">1</span>;j++) &#123;</span><br><span class="line">        res.<span class="built_in">append</span>(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">     &#125;</span><br><span class="line">     res.<span class="built_in">append</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res.toString();</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">// n=3    </span></span><br><span class="line"><span class="comment">//  *</span></span><br><span class="line"><span class="comment">// ***</span></span><br><span class="line"><span class="comment">//*****</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">String</span> getTri6(<span class="built_in">int</span> n) &#123;</span><br><span class="line">  StringBuilder res = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">  <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>;i&lt;n;i++) &#123;</span><br><span class="line">     <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;n-i<span class="number">-1</span>;j++) &#123;</span><br><span class="line">        res.<span class="built_in">append</span>(<span class="string">&quot;  &quot;</span>);</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;=<span class="number">4</span>*i;j++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(j%<span class="number">4</span>==<span class="number">0</span>)</span><br><span class="line">           res.<span class="built_in">append</span>(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">           res.<span class="built_in">append</span>(<span class="string">&quot; &quot;</span>);</span><br><span class="line">     &#125;</span><br><span class="line">        res.<span class="built_in">append</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res.toString();</span><br><span class="line">&#125;  </span><br><span class="line"><span class="comment">// n=5</span></span><br><span class="line"><span class="comment">//             *  </span></span><br><span class="line"><span class="comment">//           *   *  </span></span><br><span class="line"><span class="comment">//         *   *   *  </span></span><br><span class="line"><span class="comment">//       *   *   *   *  </span></span><br><span class="line"><span class="comment">//     *   *   *   *   * </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">String</span> getTri(<span class="built_in">int</span> n) &#123;</span><br><span class="line">    StringBuilder res = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>;i&lt;n;i++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;n-i<span class="number">-1</span>;j++) &#123;</span><br><span class="line">           res.<span class="built_in">append</span>(<span class="string">&quot;  &quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(i==n<span class="number">-1</span>) &#123;</span><br><span class="line">           <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;=<span class="number">4</span>*i;j++) </span><br><span class="line">              res.<span class="built_in">append</span>(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">           <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;=<span class="number">4</span>*i;j++) &#123;</span><br><span class="line">             <span class="keyword">if</span>(j%<span class="number">4</span>==<span class="number">0</span>)</span><br><span class="line">               res.<span class="built_in">append</span>(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">             <span class="keyword">else</span></span><br><span class="line">               res.<span class="built_in">append</span>(<span class="string">&quot; &quot;</span>);</span><br><span class="line">             &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        res.<span class="built_in">append</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res.toString();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// n=5</span></span><br><span class="line"><span class="comment">//             *  </span></span><br><span class="line"><span class="comment">//           *   *  </span></span><br><span class="line"><span class="comment">//         *       *  </span></span><br><span class="line"><span class="comment">//       *           *  </span></span><br><span class="line"><span class="comment">//     *****************</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="python"><a href="#python" class="headerlink" title="python"></a>python</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="comment">#等腰三角形</span></span><br><span class="line"><span class="comment">#解1</span></span><br><span class="line">n = eval(input())</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">    <span class="keyword">for</span> a <span class="keyword">in</span> range(n-i-1):</span><br><span class="line">        <span class="builtin-name">print</span>(<span class="string">&#x27; &#x27;</span>,<span class="attribute">end</span>=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> range(2*i+1):    </span><br><span class="line">        <span class="builtin-name">print</span>(<span class="string">&#x27;*&#x27;</span>,<span class="attribute">end</span>=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="builtin-name">print</span>(<span class="string">&#x27;\n&#x27;</span>,<span class="attribute">end</span>=<span class="string">&#x27;&#x27;</span>)  </span><br><span class="line"></span><br><span class="line"><span class="comment">#解2</span></span><br><span class="line">def pyramid(n):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n+1):</span><br><span class="line">        <span class="builtin-name">print</span>(<span class="string">&#x27; &#x27;</span>*(n-i)+<span class="string">&#x27;*&#x27;</span>*(2*i-1))</span><br><span class="line">n = eval(input())</span><br><span class="line">pyramid(n)</span><br><span class="line"></span><br><span class="line"><span class="comment">#輸出 </span></span><br><span class="line"><span class="comment">#  * </span></span><br><span class="line"><span class="comment"># *** </span></span><br><span class="line"><span class="comment">#***** </span></span><br><span class="line"><span class="comment">#-----------------------------------------------</span></span><br><span class="line">n = eval(input())</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(5):</span><br><span class="line">   <span class="builtin-name">print</span>(<span class="string">&quot;  &quot;</span>*(n-i),<span class="attribute">end</span>=<span class="string">&quot;&quot;</span>)</span><br><span class="line">   <span class="builtin-name">print</span>(<span class="string">&quot; *  &quot;</span>*(i+1))</span><br><span class="line"><span class="comment">#輸出</span></span><br><span class="line"><span class="comment">#         *  </span></span><br><span class="line"><span class="comment">#       *   *  </span></span><br><span class="line"><span class="comment">#     *   *   *  </span></span><br><span class="line"><span class="comment">#   *   *   *   *  </span></span><br><span class="line"><span class="comment"># *   *   *   *   *  </span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="倒等腰三角形"><a href="#倒等腰三角形" class="headerlink" title="倒等腰三角形"></a>倒等腰三角形</h2><h3 id="Java-1"><a href="#Java-1" class="headerlink" title="Java"></a>Java</h3><figure class="highlight processing"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">String</span> getTri7(<span class="built_in">int</span> n) &#123;</span><br><span class="line">   StringBuilder res = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">   <span class="keyword">for</span>(<span class="built_in">int</span> i=n;i&gt;<span class="number">0</span>;i--) &#123;</span><br><span class="line">      <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;n-i;j++) &#123;</span><br><span class="line">         res.<span class="built_in">append</span>(<span class="string">&quot; &quot;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;<span class="number">2</span>*i<span class="number">-1</span>;j++) &#123;</span><br><span class="line">         res.<span class="built_in">append</span>(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      res.<span class="built_in">append</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res.toString();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// n=3</span></span><br><span class="line"><span class="comment">//*****</span></span><br><span class="line"><span class="comment">// ***</span></span><br><span class="line"><span class="comment">//  *</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="python-1"><a href="#python-1" class="headerlink" title="python"></a>python</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reverse_pyramid</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n,<span class="number">0</span>,<span class="number">-1</span>):</span><br><span class="line">        print(<span class="string">&#x27; &#x27;</span>*(n-i)+<span class="string">&#x27;*&#x27;</span>*(<span class="number">2</span>*i<span class="number">-1</span>))</span><br><span class="line"></span><br><span class="line">n = eval(input())</span><br><span class="line">reverse_pyramid(n)</span><br><span class="line"></span><br><span class="line"><span class="comment">#輸出</span></span><br><span class="line"><span class="comment">#*****</span></span><br><span class="line"><span class="comment"># ***</span></span><br><span class="line"><span class="comment">#  *</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="直角三角形-直角左下"><a href="#直角三角形-直角左下" class="headerlink" title="直角三角形(直角左下)"></a>直角三角形(直角左下)</h2><h3 id="java"><a href="#java" class="headerlink" title="java"></a>java</h3><figure class="highlight processing"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">String</span> getTri2(<span class="built_in">int</span> n) &#123;</span><br><span class="line">  StringBuilder res = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">  <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>;i&lt;n;i++) &#123;</span><br><span class="line">     <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;i+<span class="number">1</span>;j++) &#123;</span><br><span class="line">        res.<span class="built_in">append</span>(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">     &#125;</span><br><span class="line">     res.<span class="built_in">append</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res.toString();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// n=3</span></span><br><span class="line"><span class="comment">//*</span></span><br><span class="line"><span class="comment">//**</span></span><br><span class="line"><span class="comment">//***</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="python-2"><a href="#python-2" class="headerlink" title="python"></a>python</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="comment">#直角三角形(直角左下)</span></span><br><span class="line"><span class="comment">#解1</span></span><br><span class="line">t = eval(input())</span><br><span class="line"><span class="keyword">for</span> v <span class="keyword">in</span> range(t):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(v+1):#根據外層行號，透過加1可以剛好等於星數</span><br><span class="line">         <span class="builtin-name">print</span>(<span class="string">&#x27;*&#x27;</span>,<span class="attribute">end</span>=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="builtin-name">print</span>(<span class="string">&#x27;\n&#x27;</span>,<span class="attribute">end</span>=<span class="string">&#x27;&#x27;</span>)  </span><br><span class="line"></span><br><span class="line"><span class="comment">#解2</span></span><br><span class="line">n = eval(input())</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n+1):</span><br><span class="line">    <span class="builtin-name">print</span>(i*<span class="string">&#x27;*&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#輸出</span></span><br><span class="line"><span class="comment">#*</span></span><br><span class="line"><span class="comment">#**</span></span><br><span class="line"><span class="comment">#***</span></span><br><span class="line"><span class="comment">#****  </span></span><br></pre></td></tr></table></figure>
+
+<h2 id="直角三角形-直角右下"><a href="#直角三角形-直角右下" class="headerlink" title="直角三角形(直角右下)"></a>直角三角形(直角右下)</h2><h3 id="java-1"><a href="#java-1" class="headerlink" title="java"></a>java</h3><figure class="highlight processing"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">String</span> getTri4(<span class="built_in">int</span> n) &#123;</span><br><span class="line">   StringBuilder res = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">   <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>;i&lt;n;i++) &#123;</span><br><span class="line">      <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;n-i<span class="number">-1</span>;j++) &#123;</span><br><span class="line">          res.<span class="built_in">append</span>(<span class="string">&quot; &quot;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;i+<span class="number">1</span>;j++) &#123;</span><br><span class="line">          res.<span class="built_in">append</span>(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      res.<span class="built_in">append</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> res.toString();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// n=3</span></span><br><span class="line"><span class="comment">//  *</span></span><br><span class="line"><span class="comment">// **</span></span><br><span class="line"><span class="comment">//*** </span></span><br></pre></td></tr></table></figure>
+
+<h3 id="python-3"><a href="#python-3" class="headerlink" title="python"></a>python</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="comment">#直角三角形(直角右下)</span></span><br><span class="line">a = eval(input())</span><br><span class="line"><span class="keyword">for</span> v <span class="keyword">in</span> range(a):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(a-v-1):</span><br><span class="line">        <span class="builtin-name">print</span>(<span class="string">&#x27; &#x27;</span>,<span class="attribute">end</span>=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(v+1):#根據外層行號，透過加1可以剛好等於星數</span><br><span class="line">        <span class="builtin-name">print</span>(<span class="string">&#x27;*&#x27;</span>,<span class="attribute">end</span>=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="builtin-name">print</span>(<span class="string">&#x27;\n&#x27;</span>,<span class="attribute">end</span>=<span class="string">&#x27;&#x27;</span>)  </span><br><span class="line"><span class="comment">#輸出</span></span><br><span class="line"><span class="comment">#   *</span></span><br><span class="line"><span class="comment">#  **</span></span><br><span class="line"><span class="comment"># ***</span></span><br><span class="line"><span class="comment">#****</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="直角三角形-直角左上"><a href="#直角三角形-直角左上" class="headerlink" title="直角三角形(直角左上)"></a>直角三角形(直角左上)</h2><h3 id="python-4"><a href="#python-4" class="headerlink" title="python"></a>python</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="comment">#直角三角形(直角左上)</span></span><br><span class="line"><span class="comment">#解1</span></span><br><span class="line">b = eval(input())</span><br><span class="line"><span class="keyword">for</span> v <span class="keyword">in</span> range(b):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(b-v):</span><br><span class="line">          <span class="builtin-name">print</span>(<span class="string">&#x27;*&#x27;</span>,<span class="attribute">end</span>=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="builtin-name">print</span>(<span class="string">&#x27;\n&#x27;</span>,<span class="attribute">end</span>=<span class="string">&#x27;&#x27;</span>)        </span><br><span class="line"></span><br><span class="line"><span class="comment">#解2</span></span><br><span class="line">n = eval(input())</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">    <span class="builtin-name">print</span>((n-i)*<span class="string">&#x27;*&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#輸出    </span></span><br><span class="line"><span class="comment">#****</span></span><br><span class="line"><span class="comment">#***</span></span><br><span class="line"><span class="comment">#**</span></span><br><span class="line"><span class="comment">#*    </span></span><br></pre></td></tr></table></figure>
+
+<h2 id="直角三角形-直角右上"><a href="#直角三角形-直角右上" class="headerlink" title="直角三角形(直角右上)"></a>直角三角形(直角右上)</h2><h3 id="java-2"><a href="#java-2" class="headerlink" title="java"></a>java</h3><figure class="highlight processing"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">String</span> getTri3(<span class="built_in">int</span> n) &#123;</span><br><span class="line">  StringBuilder res = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">  <span class="keyword">for</span>(<span class="built_in">int</span> i=n;i&gt;<span class="number">0</span>;i--) &#123;</span><br><span class="line">     <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;n-i;j++) &#123;</span><br><span class="line">        res.<span class="built_in">append</span>(<span class="string">&quot; &quot;</span>);</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;i;j++) &#123;</span><br><span class="line">        res.<span class="built_in">append</span>(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">     &#125;</span><br><span class="line">     res.<span class="built_in">append</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res.toString();</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">//***</span></span><br><span class="line"><span class="comment">// **</span></span><br><span class="line"><span class="comment">//  *</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="python-5"><a href="#python-5" class="headerlink" title="python"></a>python</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="comment">#直角三角形(直角右上)</span></span><br><span class="line">a = int(input())</span><br><span class="line"><span class="keyword">for</span> v <span class="keyword">in</span> range(a):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(v):</span><br><span class="line">         <span class="builtin-name">print</span>(<span class="string">&#x27; &#x27;</span>,<span class="attribute">end</span>=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(a-v) :    </span><br><span class="line">        <span class="builtin-name">print</span>(<span class="string">&#x27;*&#x27;</span>,<span class="attribute">end</span>=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="builtin-name">print</span>(<span class="string">&#x27;\n&#x27;</span>,<span class="attribute">end</span>=<span class="string">&#x27;&#x27;</span>)    </span><br><span class="line"></span><br><span class="line"><span class="comment">#輸出</span></span><br><span class="line"><span class="comment">#****</span></span><br><span class="line"><span class="comment"># ***</span></span><br><span class="line"><span class="comment">#  **</span></span><br><span class="line"><span class="comment">#   *</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="菱形"><a href="#菱形" class="headerlink" title="菱形"></a>菱形</h2><h3 id="python-6"><a href="#python-6" class="headerlink" title="python"></a>python</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">rows = eval(input())</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(1, rows):</span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> range(rows - i):</span><br><span class="line">        <span class="builtin-name">print</span>(<span class="string">&#x27; &#x27;</span>,end = <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(i<span class="number">*2</span>-1):</span><br><span class="line">        <span class="keyword">if</span> k ==0 <span class="keyword">or</span> <span class="attribute">k</span>==i*2-2:</span><br><span class="line">            <span class="builtin-name">print</span>(<span class="string">&#x27;*&#x27;</span>,end = <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="builtin-name">print</span>(<span class="string">&#x27; &#x27;</span>,end = <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="builtin-name">print</span>()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(rows):</span><br><span class="line">   <span class="keyword">for</span> b <span class="keyword">in</span> range(i):</span><br><span class="line">        <span class="builtin-name">print</span>(<span class="string">&#x27; &#x27;</span>,end = <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">   <span class="keyword">for</span> k <span class="keyword">in</span> range((rows-i)<span class="number">*2</span>-1):</span><br><span class="line">        <span class="keyword">if</span> k ==0 <span class="keyword">or</span> <span class="attribute">k</span>==(rows-i)*2-2:</span><br><span class="line">            <span class="builtin-name">print</span>(<span class="string">&#x27;*&#x27;</span>,end = <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="builtin-name">print</span>(<span class="string">&#x27; &#x27;</span>,end = <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">   <span class="builtin-name">print</span>() </span><br><span class="line"><span class="comment">#輸出</span></span><br><span class="line"><span class="comment">#      * </span></span><br><span class="line"><span class="comment">#    *   * </span></span><br><span class="line"><span class="comment">#  *       * </span></span><br><span class="line"><span class="comment">#*           * </span></span><br><span class="line"><span class="comment">#  *       * </span></span><br><span class="line"><span class="comment">#    *   * </span></span><br><span class="line"><span class="comment">#      *</span></span><br></pre></td></tr></table></figure>
+
+<p>參考:</p>
+<ol>
+<li><a href="https://www.programiz.com/java-programming/examples/pyramid-pattern">Java Code To Create Pyramid and Pattern</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Print pyramid using *</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -877,75 +832,6 @@ home: / || fa fa-home
       <tags>
         <tag>JavaScript</tag>
         <tag>var &amp; let</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>最後掙扎</title>
-    <url>/blog/posts/Diary/56b3f337/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="你的密碼不正確，有興趣可以找 Kevin 聊聊" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="decd913dd9ce4fbe8b3ece315a7e53bb7393549efa3f2f6328d9a27aff14401a">061f0e67a7be421a7f2832e6c5d851b169513735b8d880792108333d0ece9533421a1136cc6e310a99e4b5c1d71f039180e4b213c89487efb3cb38dcb828144434c8af9417a0cbd18297becf6f9ed2de5c1f2e1e2c3f53a8efb3b5c3cb6d40d508ccdc014eb3a92039b7a136e2551fb3280ed077d1bf5f9c3f4ad46e292ee37e6a9d52afa843e9020566806755eb57327fc3828b6ee971343e1f10d801ad64280bc0b63c2eea9df5d388e7a001b33da838de55a79b121f7775eb106c7a7f20318bfb3f1312f149641dd19f1d86e07a5757745c51364042121d69a676c61b516af9d3be70edf402b79efbc625d2fe426c39ab76ca4359a745a69951698331acee90a891fb6817545c787ce37de051874146489f44e47eeba2fc5b81b4113349b1eea258424892c8439903e93cdf53753a1e3b79a81a95218095acd692a9714835fab1fb2f59503384ce46f6334187054f6b203cc2485fc772a512870fd2e15990dd9243851051a77db142ba01fc57a9101bbaf8e86f4d7e22bebfe6ac852441f2e614688c688085eaf78f3ed3f4ead8f1a31f488eeda5ca373b4b783c415ce1a318e101168f92b22b6923a6c9f526450b052fc4eb888a86a544d0756a5585dcea123ab2f20d7fae544bd323139bdca7e9f6ec22b59369f6c1e208a5e03336cac26173242153e152937aeec69146d5696630d7dd8d5f8463d8615bdad515474ab289cfc4505c4d6116f092b8ed936b3f48723f32e8595604abb8762f5363e8a570b070c0f78e39833499c4e97ad6f61205684ac9c153d47f4f1240dfcdcf5ba3a6b43e93da3e31d9b0eab30b001cd40b82eec38955668a24b18b8ce046d841d909cc4948f034ca0a0bde9fde15708111ddef08bc2643793a04f064536eb1c012d76649ab565c53c9be68063f6c87c820d0137ed88cb0ecececb0f45a130d01890d315885fa29a06d503bf9a9c24b796441a91dc1a72097b710b2622c2c29d4a42c6a9b2c7d3d98a86bd7aa0a177918469c5247850fd41f3f09ee5fcfccca3b469719ae68053e371e598579d1ed4a031180e8e05572ae80a71bcdd3e3d86db48f7717500ec305af631c2408819faf85ca916c0c23f43631dff4afd5dadbd14bb9350f321c1951b77b72aa6a9eac7192cd6769fb99a75181467050fe68cdfd248c817ed541209de90a2f544b79ee7aab8fa14bd081e6353b10161dd9eea13bae165c</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">此篇為心情日記，請輸入密碼確認:</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>Diary</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Python &amp; Java 輸出n層三角形圖形</title>
-    <url>/blog/posts/Java/a3e5/</url>
-    <content><![CDATA[<p>這邊來記錄一下使用Java和Python來輸出各個不同類型的三角形圖形</p>
-<ul>
-<li>通常這類型的題目都是將幾個階層利用參數傳進來，再看問題要求是什麼，有些題目是要求用print的，有些則是回覆String字串就好<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line"><span class="keyword">EX</span>:</span><br><span class="line"><span class="keyword">input</span>:   3</span><br><span class="line">output:  *</span><br><span class="line"><span class="comment">        ***</span></span><br><span class="line"><span class="comment">       *****</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-
-</li>
-</ul>
-<h2 id="等腰三角形"><a href="#等腰三角形" class="headerlink" title="等腰三角形"></a>等腰三角形</h2><h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><figure class="highlight processing"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">String</span> getTri2(<span class="built_in">int</span> n) &#123; </span><br><span class="line">  StringBuilder res = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">  <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>;i&lt;n;i++) &#123;</span><br><span class="line">     <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;n-i<span class="number">-1</span>;j++) &#123;</span><br><span class="line">        res.<span class="built_in">append</span>(<span class="string">&quot; &quot;</span>);</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;<span class="number">2</span>*i+<span class="number">1</span>;j++) &#123;</span><br><span class="line">        res.<span class="built_in">append</span>(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">     &#125;</span><br><span class="line">     res.<span class="built_in">append</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res.toString();</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">// n=3    </span></span><br><span class="line"><span class="comment">//  *</span></span><br><span class="line"><span class="comment">// ***</span></span><br><span class="line"><span class="comment">//*****</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">String</span> getTri6(<span class="built_in">int</span> n) &#123;</span><br><span class="line">  StringBuilder res = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">  <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>;i&lt;n;i++) &#123;</span><br><span class="line">     <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;n-i<span class="number">-1</span>;j++) &#123;</span><br><span class="line">        res.<span class="built_in">append</span>(<span class="string">&quot;  &quot;</span>);</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;=<span class="number">4</span>*i;j++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(j%<span class="number">4</span>==<span class="number">0</span>)</span><br><span class="line">           res.<span class="built_in">append</span>(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">           res.<span class="built_in">append</span>(<span class="string">&quot; &quot;</span>);</span><br><span class="line">     &#125;</span><br><span class="line">        res.<span class="built_in">append</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res.toString();</span><br><span class="line">&#125;  </span><br><span class="line"><span class="comment">// n=5</span></span><br><span class="line"><span class="comment">//             *  </span></span><br><span class="line"><span class="comment">//           *   *  </span></span><br><span class="line"><span class="comment">//         *   *   *  </span></span><br><span class="line"><span class="comment">//       *   *   *   *  </span></span><br><span class="line"><span class="comment">//     *   *   *   *   * </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">String</span> getTri(<span class="built_in">int</span> n) &#123;</span><br><span class="line">    StringBuilder res = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>;i&lt;n;i++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;n-i<span class="number">-1</span>;j++) &#123;</span><br><span class="line">           res.<span class="built_in">append</span>(<span class="string">&quot;  &quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(i==n<span class="number">-1</span>) &#123;</span><br><span class="line">           <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;=<span class="number">4</span>*i;j++) </span><br><span class="line">              res.<span class="built_in">append</span>(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">           <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;=<span class="number">4</span>*i;j++) &#123;</span><br><span class="line">             <span class="keyword">if</span>(j%<span class="number">4</span>==<span class="number">0</span>)</span><br><span class="line">               res.<span class="built_in">append</span>(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">             <span class="keyword">else</span></span><br><span class="line">               res.<span class="built_in">append</span>(<span class="string">&quot; &quot;</span>);</span><br><span class="line">             &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        res.<span class="built_in">append</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res.toString();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// n=5</span></span><br><span class="line"><span class="comment">//             *  </span></span><br><span class="line"><span class="comment">//           *   *  </span></span><br><span class="line"><span class="comment">//         *       *  </span></span><br><span class="line"><span class="comment">//       *           *  </span></span><br><span class="line"><span class="comment">//     *****************</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="python"><a href="#python" class="headerlink" title="python"></a>python</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="comment">#等腰三角形</span></span><br><span class="line"><span class="comment">#解1</span></span><br><span class="line">n = eval(input())</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">    <span class="keyword">for</span> a <span class="keyword">in</span> range(n-i-1):</span><br><span class="line">        <span class="builtin-name">print</span>(<span class="string">&#x27; &#x27;</span>,<span class="attribute">end</span>=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> range(2*i+1):    </span><br><span class="line">        <span class="builtin-name">print</span>(<span class="string">&#x27;*&#x27;</span>,<span class="attribute">end</span>=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="builtin-name">print</span>(<span class="string">&#x27;\n&#x27;</span>,<span class="attribute">end</span>=<span class="string">&#x27;&#x27;</span>)  </span><br><span class="line"></span><br><span class="line"><span class="comment">#解2</span></span><br><span class="line">def pyramid(n):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n+1):</span><br><span class="line">        <span class="builtin-name">print</span>(<span class="string">&#x27; &#x27;</span>*(n-i)+<span class="string">&#x27;*&#x27;</span>*(2*i-1))</span><br><span class="line">n = eval(input())</span><br><span class="line">pyramid(n)</span><br><span class="line"></span><br><span class="line"><span class="comment">#輸出 </span></span><br><span class="line"><span class="comment">#  * </span></span><br><span class="line"><span class="comment"># *** </span></span><br><span class="line"><span class="comment">#***** </span></span><br><span class="line"><span class="comment">#-----------------------------------------------</span></span><br><span class="line">n = eval(input())</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(5):</span><br><span class="line">   <span class="builtin-name">print</span>(<span class="string">&quot;  &quot;</span>*(n-i),<span class="attribute">end</span>=<span class="string">&quot;&quot;</span>)</span><br><span class="line">   <span class="builtin-name">print</span>(<span class="string">&quot; *  &quot;</span>*(i+1))</span><br><span class="line"><span class="comment">#輸出</span></span><br><span class="line"><span class="comment">#         *  </span></span><br><span class="line"><span class="comment">#       *   *  </span></span><br><span class="line"><span class="comment">#     *   *   *  </span></span><br><span class="line"><span class="comment">#   *   *   *   *  </span></span><br><span class="line"><span class="comment"># *   *   *   *   *  </span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="倒等腰三角形"><a href="#倒等腰三角形" class="headerlink" title="倒等腰三角形"></a>倒等腰三角形</h2><h3 id="Java-1"><a href="#Java-1" class="headerlink" title="Java"></a>Java</h3><figure class="highlight processing"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">String</span> getTri7(<span class="built_in">int</span> n) &#123;</span><br><span class="line">   StringBuilder res = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">   <span class="keyword">for</span>(<span class="built_in">int</span> i=n;i&gt;<span class="number">0</span>;i--) &#123;</span><br><span class="line">      <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;n-i;j++) &#123;</span><br><span class="line">         res.<span class="built_in">append</span>(<span class="string">&quot; &quot;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;<span class="number">2</span>*i<span class="number">-1</span>;j++) &#123;</span><br><span class="line">         res.<span class="built_in">append</span>(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      res.<span class="built_in">append</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res.toString();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// n=3</span></span><br><span class="line"><span class="comment">//*****</span></span><br><span class="line"><span class="comment">// ***</span></span><br><span class="line"><span class="comment">//  *</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="python-1"><a href="#python-1" class="headerlink" title="python"></a>python</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reverse_pyramid</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n,<span class="number">0</span>,<span class="number">-1</span>):</span><br><span class="line">        print(<span class="string">&#x27; &#x27;</span>*(n-i)+<span class="string">&#x27;*&#x27;</span>*(<span class="number">2</span>*i<span class="number">-1</span>))</span><br><span class="line"></span><br><span class="line">n = eval(input())</span><br><span class="line">reverse_pyramid(n)</span><br><span class="line"></span><br><span class="line"><span class="comment">#輸出</span></span><br><span class="line"><span class="comment">#*****</span></span><br><span class="line"><span class="comment"># ***</span></span><br><span class="line"><span class="comment">#  *</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="直角三角形-直角左下"><a href="#直角三角形-直角左下" class="headerlink" title="直角三角形(直角左下)"></a>直角三角形(直角左下)</h2><h3 id="java"><a href="#java" class="headerlink" title="java"></a>java</h3><figure class="highlight processing"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">String</span> getTri2(<span class="built_in">int</span> n) &#123;</span><br><span class="line">  StringBuilder res = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">  <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>;i&lt;n;i++) &#123;</span><br><span class="line">     <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;i+<span class="number">1</span>;j++) &#123;</span><br><span class="line">        res.<span class="built_in">append</span>(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">     &#125;</span><br><span class="line">     res.<span class="built_in">append</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res.toString();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// n=3</span></span><br><span class="line"><span class="comment">//*</span></span><br><span class="line"><span class="comment">//**</span></span><br><span class="line"><span class="comment">//***</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="python-2"><a href="#python-2" class="headerlink" title="python"></a>python</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="comment">#直角三角形(直角左下)</span></span><br><span class="line"><span class="comment">#解1</span></span><br><span class="line">t = eval(input())</span><br><span class="line"><span class="keyword">for</span> v <span class="keyword">in</span> range(t):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(v+1):#根據外層行號，透過加1可以剛好等於星數</span><br><span class="line">         <span class="builtin-name">print</span>(<span class="string">&#x27;*&#x27;</span>,<span class="attribute">end</span>=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="builtin-name">print</span>(<span class="string">&#x27;\n&#x27;</span>,<span class="attribute">end</span>=<span class="string">&#x27;&#x27;</span>)  </span><br><span class="line"></span><br><span class="line"><span class="comment">#解2</span></span><br><span class="line">n = eval(input())</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n+1):</span><br><span class="line">    <span class="builtin-name">print</span>(i*<span class="string">&#x27;*&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#輸出</span></span><br><span class="line"><span class="comment">#*</span></span><br><span class="line"><span class="comment">#**</span></span><br><span class="line"><span class="comment">#***</span></span><br><span class="line"><span class="comment">#****  </span></span><br></pre></td></tr></table></figure>
-
-<h2 id="直角三角形-直角右下"><a href="#直角三角形-直角右下" class="headerlink" title="直角三角形(直角右下)"></a>直角三角形(直角右下)</h2><h3 id="java-1"><a href="#java-1" class="headerlink" title="java"></a>java</h3><figure class="highlight processing"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">String</span> getTri4(<span class="built_in">int</span> n) &#123;</span><br><span class="line">   StringBuilder res = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">   <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>;i&lt;n;i++) &#123;</span><br><span class="line">      <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;n-i<span class="number">-1</span>;j++) &#123;</span><br><span class="line">          res.<span class="built_in">append</span>(<span class="string">&quot; &quot;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;i+<span class="number">1</span>;j++) &#123;</span><br><span class="line">          res.<span class="built_in">append</span>(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      res.<span class="built_in">append</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> res.toString();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// n=3</span></span><br><span class="line"><span class="comment">//  *</span></span><br><span class="line"><span class="comment">// **</span></span><br><span class="line"><span class="comment">//*** </span></span><br></pre></td></tr></table></figure>
-
-<h3 id="python-3"><a href="#python-3" class="headerlink" title="python"></a>python</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="comment">#直角三角形(直角右下)</span></span><br><span class="line">a = eval(input())</span><br><span class="line"><span class="keyword">for</span> v <span class="keyword">in</span> range(a):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(a-v-1):</span><br><span class="line">        <span class="builtin-name">print</span>(<span class="string">&#x27; &#x27;</span>,<span class="attribute">end</span>=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(v+1):#根據外層行號，透過加1可以剛好等於星數</span><br><span class="line">        <span class="builtin-name">print</span>(<span class="string">&#x27;*&#x27;</span>,<span class="attribute">end</span>=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="builtin-name">print</span>(<span class="string">&#x27;\n&#x27;</span>,<span class="attribute">end</span>=<span class="string">&#x27;&#x27;</span>)  </span><br><span class="line"><span class="comment">#輸出</span></span><br><span class="line"><span class="comment">#   *</span></span><br><span class="line"><span class="comment">#  **</span></span><br><span class="line"><span class="comment"># ***</span></span><br><span class="line"><span class="comment">#****</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="直角三角形-直角左上"><a href="#直角三角形-直角左上" class="headerlink" title="直角三角形(直角左上)"></a>直角三角形(直角左上)</h2><h3 id="python-4"><a href="#python-4" class="headerlink" title="python"></a>python</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="comment">#直角三角形(直角左上)</span></span><br><span class="line"><span class="comment">#解1</span></span><br><span class="line">b = eval(input())</span><br><span class="line"><span class="keyword">for</span> v <span class="keyword">in</span> range(b):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(b-v):</span><br><span class="line">          <span class="builtin-name">print</span>(<span class="string">&#x27;*&#x27;</span>,<span class="attribute">end</span>=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="builtin-name">print</span>(<span class="string">&#x27;\n&#x27;</span>,<span class="attribute">end</span>=<span class="string">&#x27;&#x27;</span>)        </span><br><span class="line"></span><br><span class="line"><span class="comment">#解2</span></span><br><span class="line">n = eval(input())</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">    <span class="builtin-name">print</span>((n-i)*<span class="string">&#x27;*&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#輸出    </span></span><br><span class="line"><span class="comment">#****</span></span><br><span class="line"><span class="comment">#***</span></span><br><span class="line"><span class="comment">#**</span></span><br><span class="line"><span class="comment">#*    </span></span><br></pre></td></tr></table></figure>
-
-<h2 id="直角三角形-直角右上"><a href="#直角三角形-直角右上" class="headerlink" title="直角三角形(直角右上)"></a>直角三角形(直角右上)</h2><h3 id="java-2"><a href="#java-2" class="headerlink" title="java"></a>java</h3><figure class="highlight processing"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">String</span> getTri3(<span class="built_in">int</span> n) &#123;</span><br><span class="line">  StringBuilder res = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">  <span class="keyword">for</span>(<span class="built_in">int</span> i=n;i&gt;<span class="number">0</span>;i--) &#123;</span><br><span class="line">     <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;n-i;j++) &#123;</span><br><span class="line">        res.<span class="built_in">append</span>(<span class="string">&quot; &quot;</span>);</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;i;j++) &#123;</span><br><span class="line">        res.<span class="built_in">append</span>(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">     &#125;</span><br><span class="line">     res.<span class="built_in">append</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res.toString();</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">//***</span></span><br><span class="line"><span class="comment">// **</span></span><br><span class="line"><span class="comment">//  *</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="python-5"><a href="#python-5" class="headerlink" title="python"></a>python</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="comment">#直角三角形(直角右上)</span></span><br><span class="line">a = int(input())</span><br><span class="line"><span class="keyword">for</span> v <span class="keyword">in</span> range(a):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(v):</span><br><span class="line">         <span class="builtin-name">print</span>(<span class="string">&#x27; &#x27;</span>,<span class="attribute">end</span>=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(a-v) :    </span><br><span class="line">        <span class="builtin-name">print</span>(<span class="string">&#x27;*&#x27;</span>,<span class="attribute">end</span>=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="builtin-name">print</span>(<span class="string">&#x27;\n&#x27;</span>,<span class="attribute">end</span>=<span class="string">&#x27;&#x27;</span>)    </span><br><span class="line"></span><br><span class="line"><span class="comment">#輸出</span></span><br><span class="line"><span class="comment">#****</span></span><br><span class="line"><span class="comment"># ***</span></span><br><span class="line"><span class="comment">#  **</span></span><br><span class="line"><span class="comment">#   *</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="菱形"><a href="#菱形" class="headerlink" title="菱形"></a>菱形</h2><h3 id="python-6"><a href="#python-6" class="headerlink" title="python"></a>python</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">rows = eval(input())</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(1, rows):</span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> range(rows - i):</span><br><span class="line">        <span class="builtin-name">print</span>(<span class="string">&#x27; &#x27;</span>,end = <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(i<span class="number">*2</span>-1):</span><br><span class="line">        <span class="keyword">if</span> k ==0 <span class="keyword">or</span> <span class="attribute">k</span>==i*2-2:</span><br><span class="line">            <span class="builtin-name">print</span>(<span class="string">&#x27;*&#x27;</span>,end = <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="builtin-name">print</span>(<span class="string">&#x27; &#x27;</span>,end = <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="builtin-name">print</span>()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(rows):</span><br><span class="line">   <span class="keyword">for</span> b <span class="keyword">in</span> range(i):</span><br><span class="line">        <span class="builtin-name">print</span>(<span class="string">&#x27; &#x27;</span>,end = <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">   <span class="keyword">for</span> k <span class="keyword">in</span> range((rows-i)<span class="number">*2</span>-1):</span><br><span class="line">        <span class="keyword">if</span> k ==0 <span class="keyword">or</span> <span class="attribute">k</span>==(rows-i)*2-2:</span><br><span class="line">            <span class="builtin-name">print</span>(<span class="string">&#x27;*&#x27;</span>,end = <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="builtin-name">print</span>(<span class="string">&#x27; &#x27;</span>,end = <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">   <span class="builtin-name">print</span>() </span><br><span class="line"><span class="comment">#輸出</span></span><br><span class="line"><span class="comment">#      * </span></span><br><span class="line"><span class="comment">#    *   * </span></span><br><span class="line"><span class="comment">#  *       * </span></span><br><span class="line"><span class="comment">#*           * </span></span><br><span class="line"><span class="comment">#  *       * </span></span><br><span class="line"><span class="comment">#    *   * </span></span><br><span class="line"><span class="comment">#      *</span></span><br></pre></td></tr></table></figure>
-
-<p>參考:</p>
-<ol>
-<li><a href="https://www.programiz.com/java-programming/examples/pyramid-pattern">Java Code To Create Pyramid and Pattern</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Print pyramid using *</tag>
-        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -1248,39 +1134,6 @@ home: / || fa fa-home
       </tags>
   </entry>
   <entry>
-    <title>分類</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>about</title>
-    <url>/aboutKevin/contact.html</url>
-    <content><![CDATA[
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.0.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-16x16-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-</head>
-   <body>   
-      <div>
-            <h1 class="mb-6"> class="404 -- 施工當中QQ</h1>
-      </div>
-     
-
-</body>
-</html>
-]]></content>
-  </entry>
-  <entry>
     <title>about</title>
     <url>/aboutKevin/certificate.html</url>
     <content><![CDATA[<!DOCTYPE html>
@@ -1344,6 +1197,44 @@ home: / || fa fa-home
 </body>
 
 </html>]]></content>
+  </entry>
+  <entry>
+    <title>about</title>
+    <url>/aboutKevin/contact.html</url>
+    <content><![CDATA[
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-16x16-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+   <body>   
+      <div>
+            <h1 class="mb-6"> class="404 -- 施工當中QQ</h1>
+      </div>
+     
+
+</body>
+</html>
+]]></content>
+  </entry>
+  <entry>
+    <title>分類</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>關鍵字標籤</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>關於我</title>
@@ -1501,9 +1392,410 @@ home: / || fa fa-home
 ]]></content>
   </entry>
   <entry>
-    <title>關鍵字標籤</title>
-    <url>/tags/index.html</url>
-    <content><![CDATA[]]></content>
+    <title></title>
+    <url>/aboutKevin/css/responsive.css</url>
+    <content><![CDATA[
+/* ul li 一層一層 原本就是這樣子*/
+@media only screen and (max-width: 680px) {
+    header {
+        padding: 0px;
+        margin: 0;
+    }
+    .main-content {
+        padding: 15px;
+        position: relative;
+        font-size: 14pt;
+        border-bottom:  2px solid rgb(185, 185, 185);
+    }
+	.main_word{
+        font-size: 20pt;
+        font-family:fantasy;
+        font-weight: bold;
+    }
+    .main-content-index {
+        background: url("../img/3028.jpg") no-repeat;
+        background-size: 100% 100%;
+        height: 60vh;
+        padding: 0px;
+    }
+    .current-page {
+        color: 	#000000;
+    }
+    .gallery {    
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-column-gap: 15px;
+        row-gap: 20px;
+    }
+} 
+
+
+
+/* For screen width between 680px and 1024px 
+一般手機的螢幕寬度大多都小於480px
+意思是當螢幕小於768px，大於481px的情況。這是給平版適用的*/
+@media only screen and (min-width: 680px) {
+
+    header {
+        padding: 0em;
+        margin: 0;
+    }
+
+    nav ul {
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul li {
+        display: inline-block;
+        border-top: 0;
+    }
+
+    nav ul li a {
+        font-weight: bold;
+        padding: 0.5em;
+    }
+    .main-content {
+        padding: 12px;
+        font-size: 12pt;
+        border-bottom:  2px solid rgb(185, 185, 185);
+    }
+    .current-page {
+        color: 	#000000;
+    }
+}
+
+
+/* For screen wider than 1024 px */
+@media only screen and (min-width:1024px) {
+
+    .current-page {
+        color: 	#000000;
+        border-bottom: 3px solid #000000;
+    }
+
+    .gallery {    
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 20px;
+        row-gap: 20px;
+    }
+
+    header {
+        padding: 0px;
+    }
+
+    /* navigation */
+
+    .logo {
+        float: left;
+        max-width: 30%;
+        margin: auto;
+        margin-top: -1em;
+        padding: .5em;
+        max-width: 90%;
+        display: block;
+    }
+
+    .logo img {
+        height: auto;
+        max-width: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    nav{
+        position: fixed;
+        left: 0;
+        top: 0;
+    }
+    nav ul{
+        padding: 5px 30px;
+        text-align: right;
+    }
+   
+
+    /* 選項碰到會有小動畫，不在手機顯示 */
+
+    nav ul li a:hover {/*接觸到btn的顏色*/
+        transition: 0.2s;
+        border-top: 3px solid #000000;
+        border-bottom: 3px solid #000000;
+        color: #000000;
+    }
+    
+    .social li img:hover {     
+        transition: 0.2s;
+        border-bottom: 2px solid #000000; 
+    }
+
+    /* About Page */
+    .main-content-about{
+        padding: 1%;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 1px;
+        border-bottom:  2px solid rgb(185, 185, 185);
+    }
+
+    .line_right{
+        border-right: 2px solid #c9c9c9; 
+    }
+
+    .first_item {
+        padding: 5px;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    .first_content{
+        padding: 5px;
+        grid-column-start: 4;
+        grid-column-end: 13;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+
+    div .else_item{
+        padding: 5px;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    div .else_content{
+        padding: 5px;
+        grid-column-start: 3;
+        grid-column-end: 13;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    p{
+        font-size: 14pt;
+    }
+
+    /* fotowall */
+
+    .row-photo {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 4px;
+    }
+
+}]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/aboutKevin/css/main.css</url>
+    <content><![CDATA[
+/* post padding  margin */
+.main-post{  /* tab那邊*/
+	padding: 25px; 
+}
+
+
+.post-block{
+	padding: 0;
+}
+
+.post-title, .post-meta{
+	display:none;
+}
+
+.wrapper{
+	padding: 35px;
+}
+
+hr{
+	margin: 15px;
+}
+
+
+/* kevin background */
+ 
+.description {
+  padding: 35px;
+}
+
+.title{
+	font-size: 26px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.slogan{
+	font-size: 1em;
+	text-align: center;
+}
+
+/* tabs 表格相關 */
+#aboutme{
+	border: 2px #7B7B7B solid;
+	background-color: rgb(255, 244, 194, 0.4);
+	padding-top: 2px;
+}
+
+.nav-tabs{
+	background-color: rgb(224, 224, 224, 0.6);
+}
+
+.nav-tabs li{
+	border-style:solid;
+}
+
+.nav-tabs .active{
+	font-weight: bold;
+	background-color: #FFE66F;
+}
+
+
+/* align setting */
+.center_div {    
+	display:  flex;
+	align-items: center;
+	justify-content:  center;
+}
+
+
+/* font setting */
+h3{ 
+	text-align: center; 
+	font-weight: bold; 
+	font-size: 24px; 
+	margin: 4px; 
+}
+
+.md{
+	font-size: 12pt;
+	font-weight: bold;
+}
+
+.sub_title{ 
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+/* introduction tag*/
+.gold_tag{
+	background-color: #272727;
+	color: white;
+	font-size: 8pt;
+	border-radius:10px;
+	padding: 3px 15px;
+	margin: 5px 10px;
+}
+
+
+/* related line height */
+.column{
+	line-height: 0.5;
+}
+
+/* icon  margin with right character */
+.icon {
+	margin-right: 11px;
+}
+
+/* author pic */
+.center_div img{		
+	width: 65%;
+}
+
+/* skill bar */
+
+.meter { 
+	height: 20px;
+	width: 70%;
+	background: #000000;
+	-moz-border-radius: 25px;
+	-webkit-border-radius: 25px;
+	border-radius: 20px;
+	margin: 2% 0% 2% 15%;
+}
+
+.meter > span {
+	display: block;
+	height: 100%;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	background-color: #EAC100;
+	background-image: linear-gradient(
+	  center bottom,
+	  rgb(74, 238, 95) 37%,
+	  rgb(174, 253, 178) 69%
+	);
+}
+
+
+@media (min-width: 768px){
+	.wrapper {
+		display: grid;
+		grid-template-columns: 35% 65%;
+	}
+	#gold ul li{
+		display: inline;
+	}
+	.doitems ul{
+		font-size: 12pt;
+		list-style-type: square;
+   }
+	.content1 {
+		 background: url(../img/test2.png) no-repeat center center fixed;
+		 background-size: cover;
+		 height: 55vh;
+		 width: 100%;
+		 display: table;
+		 background-attachment: fixed;
+		 /* 邊緣圓角 and 淡化 */
+		 border-radius: 4px;
+		 box-shadow:0 0 30px 10px rgba(255,255,255,.7) inset;
+	}
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+	#gold ul li{
+		margin-top: 10px;
+	}
+   .center_div {
+		width: 100%;
+   }
+   .center_div img{
+		width: 100%;
+		display:block;
+		margin: 25 auto;
+   }
+   .main-post h3{
+		font-size: 18px;
+		margin: 5;
+   }
+
+   .doitems ul{
+		font-size: 10pt;
+		list-style-type: square;
+   }
+	
+   .content1 {
+		background: url(../img/coding.png) no-repeat center center fixed;
+		background-size: cover;
+		height: 25%;
+		width: 100%;
+		display: table;
+		background-attachment: fixed;
+   }
+	
+}
+
+]]></content>
   </entry>
   <entry>
     <title></title>
@@ -2101,412 +2393,6 @@ footer a {
     padding: 2px;
 }
 ]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/aboutKevin/css/main.css</url>
-    <content><![CDATA[
-/* post padding  margin */
-.main-post{  /* tab那邊*/
-	padding: 25px; 
-}
-
-
-.post-block{
-	padding: 0;
-}
-
-.post-title, .post-meta{
-	display:none;
-}
-
-.wrapper{
-	padding: 35px;
-}
-
-hr{
-	margin: 15px;
-}
-
-
-/* kevin background */
- 
-.description {
-  padding: 35px;
-}
-
-.title{
-	font-size: 26px;
-	text-align: center;
-	font-weight: bold;
-}
-
-.slogan{
-	font-size: 1em;
-	text-align: center;
-}
-
-/* tabs 表格相關 */
-#aboutme{
-	border: 2px #7B7B7B solid;
-	background-color: rgb(255, 244, 194, 0.4);
-	padding-top: 2px;
-}
-
-.nav-tabs{
-	background-color: rgb(224, 224, 224, 0.6);
-}
-
-.nav-tabs li{
-	border-style:solid;
-}
-
-.nav-tabs .active{
-	font-weight: bold;
-	background-color: #FFE66F;
-}
-
-
-/* align setting */
-.center_div {    
-	display:  flex;
-	align-items: center;
-	justify-content:  center;
-}
-
-
-/* font setting */
-h3{ 
-	text-align: center; 
-	font-weight: bold; 
-	font-size: 24px; 
-	margin: 4px; 
-}
-
-.md{
-	font-size: 12pt;
-	font-weight: bold;
-}
-
-.sub_title{ 
-	font-size: 20px;
-	font-weight: bold;
-	margin-bottom: 15px;
-}
-
-/* introduction tag*/
-.gold_tag{
-	background-color: #272727;
-	color: white;
-	font-size: 8pt;
-	border-radius:10px;
-	padding: 3px 15px;
-	margin: 5px 10px;
-}
-
-
-/* related line height */
-.column{
-	line-height: 0.5;
-}
-
-/* icon  margin with right character */
-.icon {
-	margin-right: 11px;
-}
-
-/* author pic */
-.center_div img{		
-	width: 65%;
-}
-
-/* skill bar */
-
-.meter { 
-	height: 20px;
-	width: 70%;
-	background: #000000;
-	-moz-border-radius: 25px;
-	-webkit-border-radius: 25px;
-	border-radius: 20px;
-	margin: 2% 0% 2% 15%;
-}
-
-.meter > span {
-	display: block;
-	height: 100%;
-	border-top-right-radius: 8px;
-	border-bottom-right-radius: 8px;
-	border-top-left-radius: 20px;
-	border-bottom-left-radius: 20px;
-	background-color: #EAC100;
-	background-image: linear-gradient(
-	  center bottom,
-	  rgb(74, 238, 95) 37%,
-	  rgb(174, 253, 178) 69%
-	);
-}
-
-
-@media (min-width: 768px){
-	.wrapper {
-		display: grid;
-		grid-template-columns: 35% 65%;
-	}
-	#gold ul li{
-		display: inline;
-	}
-	.doitems ul{
-		font-size: 12pt;
-		list-style-type: square;
-   }
-	.content1 {
-		 background: url(../img/test2.png) no-repeat center center fixed;
-		 background-size: cover;
-		 height: 55vh;
-		 width: 100%;
-		 display: table;
-		 background-attachment: fixed;
-		 /* 邊緣圓角 and 淡化 */
-		 border-radius: 4px;
-		 box-shadow:0 0 30px 10px rgba(255,255,255,.7) inset;
-	}
-}
-
-@media (min-width: 320px) and (max-width: 767px) {
-	#gold ul li{
-		margin-top: 10px;
-	}
-   .center_div {
-		width: 100%;
-   }
-   .center_div img{
-		width: 100%;
-		display:block;
-		margin: 25 auto;
-   }
-   .main-post h3{
-		font-size: 18px;
-		margin: 5;
-   }
-
-   .doitems ul{
-		font-size: 10pt;
-		list-style-type: square;
-   }
-	
-   .content1 {
-		background: url(../img/coding.png) no-repeat center center fixed;
-		background-size: cover;
-		height: 25%;
-		width: 100%;
-		display: table;
-		background-attachment: fixed;
-   }
-	
-}
-
-]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/aboutKevin/css/responsive.css</url>
-    <content><![CDATA[
-/* ul li 一層一層 原本就是這樣子*/
-@media only screen and (max-width: 680px) {
-    header {
-        padding: 0px;
-        margin: 0;
-    }
-    .main-content {
-        padding: 15px;
-        position: relative;
-        font-size: 14pt;
-        border-bottom:  2px solid rgb(185, 185, 185);
-    }
-	.main_word{
-        font-size: 20pt;
-        font-family:fantasy;
-        font-weight: bold;
-    }
-    .main-content-index {
-        background: url("../img/3028.jpg") no-repeat;
-        background-size: 100% 100%;
-        height: 60vh;
-        padding: 0px;
-    }
-    .current-page {
-        color: 	#000000;
-    }
-    .gallery {    
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-column-gap: 15px;
-        row-gap: 20px;
-    }
-} 
-
-
-
-/* For screen width between 680px and 1024px 
-一般手機的螢幕寬度大多都小於480px
-意思是當螢幕小於768px，大於481px的情況。這是給平版適用的*/
-@media only screen and (min-width: 680px) {
-
-    header {
-        padding: 0em;
-        margin: 0;
-    }
-
-    nav ul {
-        text-align: center;
-        margin: 0;
-        padding: 0;
-    }
-
-    nav ul li {
-        display: inline-block;
-        border-top: 0;
-    }
-
-    nav ul li a {
-        font-weight: bold;
-        padding: 0.5em;
-    }
-    .main-content {
-        padding: 12px;
-        font-size: 12pt;
-        border-bottom:  2px solid rgb(185, 185, 185);
-    }
-    .current-page {
-        color: 	#000000;
-    }
-}
-
-
-/* For screen wider than 1024 px */
-@media only screen and (min-width:1024px) {
-
-    .current-page {
-        color: 	#000000;
-        border-bottom: 3px solid #000000;
-    }
-
-    .gallery {    
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-column-gap: 20px;
-        row-gap: 20px;
-    }
-
-    header {
-        padding: 0px;
-    }
-
-    /* navigation */
-
-    .logo {
-        float: left;
-        max-width: 30%;
-        margin: auto;
-        margin-top: -1em;
-        padding: .5em;
-        max-width: 90%;
-        display: block;
-    }
-
-    .logo img {
-        height: auto;
-        max-width: 100%;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    nav{
-        position: fixed;
-        left: 0;
-        top: 0;
-    }
-    nav ul{
-        padding: 5px 30px;
-        text-align: right;
-    }
-   
-
-    /* 選項碰到會有小動畫，不在手機顯示 */
-
-    nav ul li a:hover {/*接觸到btn的顏色*/
-        transition: 0.2s;
-        border-top: 3px solid #000000;
-        border-bottom: 3px solid #000000;
-        color: #000000;
-    }
-    
-    .social li img:hover {     
-        transition: 0.2s;
-        border-bottom: 2px solid #000000; 
-    }
-
-    /* About Page */
-    .main-content-about{
-        padding: 1%;
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        grid-gap: 1px;
-        border-bottom:  2px solid rgb(185, 185, 185);
-    }
-
-    .line_right{
-        border-right: 2px solid #c9c9c9; 
-    }
-
-    .first_item {
-        padding: 5px;
-        grid-column-start: 1;
-        grid-column-end: 4;
-        grid-row-start: 1;
-        grid-row-end: 2;
-    }
-
-    .first_content{
-        padding: 5px;
-        grid-column-start: 4;
-        grid-column-end: 13;
-        grid-row-start: 1;
-        grid-row-end: 2;
-    }
-
-
-    div .else_item{
-        padding: 5px;
-        grid-column-start: 1;
-        grid-column-end: 3;
-        grid-row-start: 1;
-        grid-row-end: 2;
-    }
-
-    div .else_content{
-        padding: 5px;
-        grid-column-start: 3;
-        grid-column-end: 13;
-        grid-row-start: 1;
-        grid-row-end: 2;
-    }
-
-    p{
-        font-size: 14pt;
-    }
-
-    /* fotowall */
-
-    .row-photo {
-        display: flex;
-        flex-wrap: wrap;
-        padding: 0 4px;
-    }
-
-}]]></content>
   </entry>
   <entry>
     <title></title>
