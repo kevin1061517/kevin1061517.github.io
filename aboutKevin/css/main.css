@@ -1,9 +1,6 @@
-
-/* post padding  margin */
 .main-post{  /* tab那邊*/
 	padding: 25px; 
 }
-
 
 .post-block{
 	padding: 0;
@@ -20,9 +17,6 @@
 hr{
 	margin: 15px;
 }
-
-
-/* kevin background */
  
 .description {
   padding: 35px;
@@ -42,7 +36,6 @@ hr{
 /* tabs 表格相關 */
 #aboutme{
 	border: 2px #7B7B7B solid;
-	background-color: rgb(255, 244, 194, 0.4);
 	padding-top: 2px;
 }
 
@@ -56,7 +49,7 @@ hr{
 
 .nav-tabs .active{
 	font-weight: bold;
-	background-color: #FFE66F;
+	background-color: #ffffff;
 }
 
 
@@ -154,13 +147,12 @@ h3{
 		list-style-type: square;
    }
 	.content1 {
-		 background: url(../img/test2.png) no-repeat center center fixed;
+		 background: url(https://i.imgur.com/3T0tmCY.png) no-repeat center center fixed;
 		 background-size: cover;
-		 height: 55vh;
+		 height: 40vh;
 		 width: 100%;
 		 display: table;
 		 background-attachment: fixed;
-		 /* 邊緣圓角 and 淡化 */
 		 border-radius: 4px;
 		 box-shadow:0 0 30px 10px rgba(255,255,255,.7) inset;
 	}
