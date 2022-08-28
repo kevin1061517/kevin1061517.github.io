@@ -1,5 +1,5 @@
 .main-post{  /* tab那邊*/
-	padding: 25px; 
+	padding: 0 25px 25px;
 }
 
 .post-block{
@@ -52,6 +52,10 @@ hr{
 	background-color: #ffffff;
 }
 
+a, span.exturl {
+	border: none;
+}
+
 
 /* align setting */
 .center_div {    
@@ -70,7 +74,7 @@ h3{
 }
 
 .md{
-	font-size: 12px;
+	font-size: 15px;
 	font-weight: bold;
 }
 
@@ -199,8 +203,8 @@ h3{
         text-align: start;
 	    font-size: 12px;
    }
-   .main-post {
-        padding: 0 25px 25px;
+   .md{
+	    font-size: 12px;
    }
 }
 
