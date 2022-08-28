@@ -1208,7 +1208,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #0465bf;
+  background: #1fffe2;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2876,6 +2876,12 @@ ul.breadcrumb li + li:last-child {
 @media (max-width: 767px) {
   .toggle {
     cursor: pointer;
+  }
+  .site-nav-toggle .toggle .toggle-line {
+    background: var(--text-color);
+  }
+  .fa {
+    color: var(--text-color);
   }
 }
 .content {

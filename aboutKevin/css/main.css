@@ -70,7 +70,7 @@ h3{
 }
 
 .md{
-	font-size: 12pt;
+	font-size: 12px;
 	font-weight: bold;
 }
 
@@ -163,10 +163,10 @@ h3{
 		margin-top: 10px;
 	}
    .center_div {
-		width: 100%;
+	    width: 100%;
    }
    .center_div img{
-		width: 100%;
+		width: 60%;
 		display:block;
 		margin: 25 auto;
    }
@@ -174,20 +174,33 @@ h3{
 		font-size: 18px;
 		margin: 5;
    }
-
    .doitems ul{
 		font-size: 10pt;
 		list-style-type: square;
+		padding-left: 30px;
    }
 	
    .content1 {
-		background: url(../img/coding.png) no-repeat center center fixed;
+		background: url(https://i.imgur.com/3T0tmCY.png) no-repeat center center fixed;
 		background-size: cover;
-		height: 25%;
+		height: 45vh;
 		width: 100%;
 		display: table;
 		background-attachment: fixed;
    }
 	
+   li.tab.active {
+	    background-color: lightskyblue;
+   }
+   .sub_title{ 
+	    font-size: 15px;
+   }
+   .post-body {
+        text-align: start;
+	    font-size: 12px;
+   }
+   .main-post {
+        padding: 0 25px 25px;
+   }
 }
 
