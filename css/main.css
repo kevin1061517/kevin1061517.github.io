@@ -1208,7 +1208,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #38547c;
+  background: #8cf0e4;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2960,8 +2960,7 @@ h6.nocount:before {
   box-shadow: 3px 4px 5px 1px #757575;
 }
 code {
-  background: LightGray;
   border-radius: 20px;
-  color: #f00;
+  color: #ff8200;
   font-weight: bold;
 }

@@ -31,7 +31,7 @@
 <meta property="og:description" content="前言歷經好幾個月的風雨，最近終於靜下心來看完這本 Clean Coder 無暇的程式碼，與過去看的技術工具書不同，這本比較偏向在職場工程師需謹記的態度和處事的方法，從 Bob 大叔長年的親身經歷和過去踩過的雷，相信可以從他的經驗中學習，同時面對如瘋子般的 User，能夠保持專業的行為。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-08-27T13:58:30.000Z">
-<meta property="article:modified_time" content="2022-08-28T14:47:54.563Z">
+<meta property="article:modified_time" content="2022-09-12T16:00:12.098Z">
 <meta property="article:author" content="Kevin Fang">
 <meta property="article:tag" content="Study">
 <meta name="twitter:card" content="summary">
@@ -284,15 +284,40 @@
 </li>
 <li><p>說「不」的小技巧<br>工作的這些年來，堅守自己原則說「不」真的非常不簡單，首先如果老闆很自以為，可能會覺得這員工還沒試就再推拖，印象分數直接掉好幾分。所以我覺得說「不」之前一定要有些證據可以支撐我的判斷，可以準備不行的原因及替代的方案來協調，甚至能列出開發的先後順序如第三點提到的，可以先完成初步畫面，比較複雜再接著繼續做。</p>
 </li>
-</ol>
-<ol start="3">
 <li><p>堅守自己目標互相協調<br>Bob 有個故事說明這原則，主管 Mike 要求程式設計師 Paula 明天完成登入畫面，因為 User 隔天要來看 demo，最好情況是雙方都互相堅守自己原則，而不是有一方妥協，像是 Paula 回覆確定完成不了這功能，Mike 就妥協說「好，那再延期」，另一情況是 Paula 心理確定完成不了，但礙於主管拜託，就半撒謊的妥協說「好，我會試試看」，這些都是沒有協商的結果，運氣不好就會造成雙方的傷害。<br>最好情況是彼此了解對方的目標，互相協調達到雙方都可以接受的結果，Paula 可以回 「不，沒辦法這功能至少要兩周」，而 Mike 表達自己立場說「不行啦，明天 User 就要來看 demo，我必須給他展示基本登入使用畫面」，而他們最終的定案是只做前端的假登入畫面，沒有後端的驗證、權限或資料庫串接等功能。如此就完美解決這次遇到的難題，這也是我們在職場時常會遇到的狀況，謹記要堅守自己原則，並互相協調!</p>
 </li>
 <li><p>不必解釋太多「為什麼」<br>Bob 提到「為什麼」遠不如「事實」重要。當你在解釋為什麼時，沒有技術背景的老闆可能會指示說不要做這個，那個可以怎樣簡化，這就是一個不專業的行為，正確應該是解釋目前事實狀況，並用他們聽得懂的語言來說明。</p>
 </li>
-<li><p>避免說出「試試看」<br>會說「試試看」的情況，大多都是不太確定是否可完成，並可能需求照單全收加班熬夜犧牲自己，讓產出的品量變差。如果不確定就要說「不」或互相協商，而不是用說試試看來搪塞目前交辦的工作，同時也是一個不誠實的表現。</p>
+<li><p>避免說出「試試看」<br>會說「試試看」語言、平台、現有架構以及當前系統的所有問題的情況，大多都是不太確定是否可完成，並可能需求照單全收加班熬夜犧牲自己，讓產出的品量變差。如果不確定就要說「不」或互相協商，而不是用說試試看來搪塞目前交辦的工作，同時也是一個不誠實的表現。</p>
 </li>
-<li><p>給出承諾就盡可能達成<br>每次承諾都是對你這人的可靠度打分數，所以承諾的重要性非常重要。Bob 提到如果涉及其他團隊的專案，就會有比較多不確定因素，我們只能承諾自己的可控範圍，所以不能夠隨意承諾答應 User。<br>另外想到如果一起 cowork 的其他 team 同仁一直在裝死，這時候有幾個步驟，首先可以先工程師之間的 mail 通知，如沒反應再慢慢從自己 team 的 leader 到 Manger 來發信通知，這樣還繼續裝死就太佩服。</p>
+<li><p>給出承諾就盡可能達成<br>每次承諾都是對你這人的可靠度打分數，所以承諾的重要性非常重要。Bob 提到如果涉及其他團隊的專案，就會有比較多不確定因素，我們只能承諾自己的可控範圍，所以不能夠隨意承諾答應 User。<br>另外想到如果一起 co-work 的其他 team 同仁一直在裝死，這時候有幾個步驟，首先可以先工程師之間的 mail 通知，如沒反應再慢慢從自己 team 的 leader 到 Manger 來發信通知，這樣還繼續裝死就太佩服。</p>
+</li>
+</ol>
+<h2 id="寫程式"><a href="#寫程式" class="headerlink" title="寫程式"></a>寫程式</h2><ol>
+<li><p>先搞定測試再寫程式本體<br>我自己覺得測試的完整度決定產品程式的品質，但很多時候確實沒有那麼多時間…</p>
+</li>
+<li><p>寫程式時保持聚精會神<br>作者有提到寫程式有個步驟，首先需要知道<code>當前要解決什麼問題以及該如何解決</code>，接著對我們<code>使用的的語言、平台、架構以及當前問題</code>進行整合，目標是能夠<code>反映解決 User 真實的需求</code>，並且要隨時注意<code>程式碼不能讓現有系統更僵硬或破碎</code>，最好情況是<code>其他 Programmer 能夠讀懂你的 Code</code>，而且過程當中都保持良好精神狀態!</p>
+</li>
+<li><p>避免陷入心流區 (<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Flow_(psychology)#:~:text=In%20positive%20psychology%2C%20a%20flow%20state%2C%20also%20known,and%20enjoyment%20in%20the%20process%20of%20the%20activity.">Flow zone</a>)<br>聚精會神到極致時，可能會進入這種感覺效率極高，但可能會無法兼顧全局，會寫出意想不到的錯誤</p>
+</li>
+<li><p>寫程式不想被中斷<br>在開發的過程當中，難免會被 user 或同事打擾，Bob 鼓勵我們盡可能停止手邊工作來去幫助他們。但我認為可以先自己判斷輕重緩急，如果不急可以累積到一定的量在某個時間點來一次處理，這樣也會顯得較有效率點。</p>
+</li>
+<li><p>遇到解不開的問題<br>開發的過程難免會被問題卡住，Bob 有提供他過去使用的小方法，像是結對程式設計(Pair programming)，顧名思義就是找同事一起來看問題，這招我有試過，確實會有奇特的化學效應，感覺思緒會變得更清楚，我覺得就是不想在同事面前表現很爛，觸發我們自己的潛在實力。其他方法來有放下問題去做其他事，解法可能就會在通勤路上、洗澡或睡覺時想出來。</p>
+</li>
+</ol>
+<h2 id="測試驅動開發"><a href="#測試驅動開發" class="headerlink" title="測試驅動開發"></a>測試驅動開發</h2><p>不管怎樣先寫測試程式，接著在完成產品程式的軟體開發方式</p>
+<ol>
+<li>三大法則<ul>
+<li>單元測試前，絕對不可寫任何產品程式</li>
+<li>只寫剛好無法通過的單元測試之產品程式</li>
+<li>只寫剛好能通過當前測試的有問題之產品程式</li>
+</ul>
+</li>
+<li>三大工具<ul>
+<li>Junit</li>
+<li>Mockito</li>
+<li>AssertJ</li>
+</ul>
 </li>
 </ol>
 
@@ -438,7 +463,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%9D%E6%8C%81%E5%B0%88%E6%A5%AD%E4%B8%BB%E7%BE%A9"><span class="nav-number">2.</span> <span class="nav-text">保持專業主義</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E8%86%BD%E8%AA%AA%E3%80%8C%E6%98%AF%E3%80%8D-%E8%AA%AA%E3%80%8C%E4%B8%8D%E3%80%8D"><span class="nav-number">3.</span> <span class="nav-text">大膽說「是」&#x2F;說「不」</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%9D%E6%8C%81%E5%B0%88%E6%A5%AD%E4%B8%BB%E7%BE%A9"><span class="nav-number">2.</span> <span class="nav-text">保持專業主義</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E8%86%BD%E8%AA%AA%E3%80%8C%E6%98%AF%E3%80%8D-%E8%AA%AA%E3%80%8C%E4%B8%8D%E3%80%8D"><span class="nav-number">3.</span> <span class="nav-text">大膽說「是」&#x2F;說「不」</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%AB%E7%A8%8B%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">寫程式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%AC%E8%A9%A6%E9%A9%85%E5%8B%95%E9%96%8B%E7%99%BC"><span class="nav-number">5.</span> <span class="nav-text">測試驅動開發</span></a></li></ol></div>
 
       </div>
       <!--/noindex-->
