@@ -179,20 +179,6 @@
   </url>
   
   <url>
-    <loc>https://kevin1061517.github.io/tags/JavaScript/</loc>
-    <lastmod>2022-09-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://kevin1061517.github.io/tags/Array/</loc>
-    <lastmod>2022-09-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://kevin1061517.github.io/tags/Hexo/</loc>
     <lastmod>2022-09-12</lastmod>
     <changefreq>daily</changefreq>
@@ -207,6 +193,27 @@
   </url>
   
   <url>
+    <loc>https://kevin1061517.github.io/tags/JavaScript/</loc>
+    <lastmod>2022-09-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://kevin1061517.github.io/tags/Array/</loc>
+    <lastmod>2022-09-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://kevin1061517.github.io/tags/Next/</loc>
+    <lastmod>2022-09-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://kevin1061517.github.io/tags/Java/</loc>
     <lastmod>2022-09-12</lastmod>
     <changefreq>daily</changefreq>
@@ -215,13 +222,6 @@
   
   <url>
     <loc>https://kevin1061517.github.io/tags/Collection/</loc>
-    <lastmod>2022-09-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://kevin1061517.github.io/tags/Next/</loc>
     <lastmod>2022-09-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -265,13 +265,6 @@
 
   
   <url>
-    <loc>https://kevin1061517.github.io/categories/Design-Pattern/</loc>
-    <lastmod>2022-09-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://kevin1061517.github.io/categories/ExtJS/</loc>
     <lastmod>2022-09-12</lastmod>
     <changefreq>daily</changefreq>
@@ -279,7 +272,7 @@
   </url>
   
   <url>
-    <loc>https://kevin1061517.github.io/categories/JavaScript/</loc>
+    <loc>https://kevin1061517.github.io/categories/Design-Pattern/</loc>
     <lastmod>2022-09-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -293,6 +286,13 @@
   </url>
   
   <url>
+    <loc>https://kevin1061517.github.io/categories/JavaScript/</loc>
+    <lastmod>2022-09-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://kevin1061517.github.io/categories/Java/</loc>
     <lastmod>2022-09-12</lastmod>
     <changefreq>daily</changefreq>
@@ -300,14 +300,14 @@
   </url>
   
   <url>
-    <loc>https://kevin1061517.github.io/categories/Study/</loc>
+    <loc>https://kevin1061517.github.io/categories/Diary/</loc>
     <lastmod>2022-09-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://kevin1061517.github.io/categories/Diary/</loc>
+    <loc>https://kevin1061517.github.io/categories/Study/</loc>
     <lastmod>2022-09-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
