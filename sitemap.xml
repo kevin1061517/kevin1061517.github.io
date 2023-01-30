@@ -242,13 +242,6 @@
   </url>
   
   <url>
-    <loc>https://kevin1061517.github.io/tags/LeetCode/</loc>
-    <lastmod>2023-01-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://kevin1061517.github.io/tags/Next/</loc>
     <lastmod>2023-01-30</lastmod>
     <changefreq>daily</changefreq>
@@ -256,7 +249,21 @@
   </url>
   
   <url>
+    <loc>https://kevin1061517.github.io/tags/LeetCode/</loc>
+    <lastmod>2023-01-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://kevin1061517.github.io/tags/Study/</loc>
+    <lastmod>2023-01-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://kevin1061517.github.io/tags/var-let/</loc>
     <lastmod>2023-01-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -271,13 +278,6 @@
   
   <url>
     <loc>https://kevin1061517.github.io/tags/python/</loc>
-    <lastmod>2023-01-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://kevin1061517.github.io/tags/var-let/</loc>
     <lastmod>2023-01-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

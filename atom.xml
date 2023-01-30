@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://kevin1061517.github.io/"/>
-  <updated>2023-01-30T15:21:19.560Z</updated>
+  <updated>2023-01-30T15:29:46.692Z</updated>
   <id>https://kevin1061517.github.io/</id>
   
   <author>
@@ -21,11 +21,11 @@
     <link href="https://kevin1061517.github.io/blog/posts/LeetCode/5d26d1a2/"/>
     <id>https://kevin1061517.github.io/blog/posts/LeetCode/5d26d1a2/</id>
     <published>2023-01-29T07:49:38.000Z</published>
-    <updated>2023-01-30T15:21:19.560Z</updated>
+    <updated>2023-01-30T15:29:46.692Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;This &lt;a href=&quot;https://leetcode.com/problems/rotting-oranges&quot;&gt;problem&lt;/a&gt; on LeetCode has been bothering me for a couple of weeks. Therefore, I take a note to let me memorize the solution to this problem next time. The typical solution is to use BFS for the cases specified in the description of the problem.&lt;/p&gt;
+      &lt;p&gt;This &lt;a href=&quot;https://leetcode.com/problems/rotting-oranges&quot;&gt;problem&lt;/a&gt; on LeetCode has been bothering me for a couple of days and afterwards I understood that the typical solution is to use BFS for the cases specified in the description of the problem. Therefore, I take a note to let me memorize the solution to this problem next time.&lt;/p&gt;
     
     </summary>
     
