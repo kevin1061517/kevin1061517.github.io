@@ -23,24 +23,22 @@
     var CONFIG = {"hostname":"kevin1061517.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":230,"display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"perspectiveUpIn","sidebar":"shrinkIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="前言fancybox套件的功能是實現點開圖片，並可以放大顯示和左右切換圖片，還會隨版面的大小自動來調整跳出的版面範圍，而且手機端也可以直接實現。fancybox在Jquery中也有相關的套件，而Next主題自己在config有內建fancybox的配置，配製好以後就會在所有img標籤實作這功能，但如果有部分圖片不想要有放大顯示，則就需要做一些步驟。">
+  <meta name="description" content="This problem on LeetCode has been bothering me for a couple of weeks. Therefore, I take a note to let me memorize the solution to this problem next time. The typical solution is to use BFS for the cas">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo圖片不套用fancybox">
-<meta property="og:url" content="https://kevin1061517.github.io/blog/posts/Hexo/2721/index.html">
+<meta property="og:title" content="Rotting Orange">
+<meta property="og:url" content="https://kevin1061517.github.io/blog/posts/LeetCode/5d26d1a2/index.html">
 <meta property="og:site_name" content="Kevin Blog">
-<meta property="og:description" content="前言fancybox套件的功能是實現點開圖片，並可以放大顯示和左右切換圖片，還會隨版面的大小自動來調整跳出的版面範圍，而且手機端也可以直接實現。fancybox在Jquery中也有相關的套件，而Next主題自己在config有內建fancybox的配置，配製好以後就會在所有img標籤實作這功能，但如果有部分圖片不想要有放大顯示，則就需要做一些步驟。">
+<meta property="og:description" content="This problem on LeetCode has been bothering me for a couple of weeks. Therefore, I take a note to let me memorize the solution to this problem next time. The typical solution is to use BFS for the cas">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://i.imgur.com/W4RoWAe.jpg">
-<meta property="og:image" content="https://i.imgur.com/W4RoWAe.jpg">
-<meta property="article:published_time" content="2020-10-03T03:14:30.000Z">
-<meta property="article:modified_time" content="2020-12-28T12:14:33.146Z">
+<meta property="og:image" content="https://assets.leetcode.com/uploads/2019/02/16/oranges.png">
+<meta property="article:published_time" content="2023-01-29T07:49:38.000Z">
+<meta property="article:modified_time" content="2023-01-30T15:21:19.560Z">
 <meta property="article:author" content="Kevin Fang">
-<meta property="article:tag" content="Hexo">
-<meta property="article:tag" content="fancybox照片放大">
+<meta property="article:tag" content="LeetCode">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.imgur.com/W4RoWAe.jpg">
+<meta name="twitter:image" content="https://assets.leetcode.com/uploads/2019/02/16/oranges.png">
 
-<link rel="canonical" href="https://kevin1061517.github.io/blog/posts/Hexo/2721/">
+<link rel="canonical" href="https://kevin1061517.github.io/blog/posts/LeetCode/5d26d1a2/">
 
 
 <script id="page-configurations">
@@ -53,7 +51,7 @@
   };
 </script>
 
-  <title>Hexo圖片不套用fancybox | Kevin Blog</title>
+  <title>Rotting Orange | Kevin Blog</title>
   
 
 
@@ -209,7 +207,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://kevin1061517.github.io/blog/posts/Hexo/2721/">
+    <link itemprop="mainEntityOfPage" href="https://kevin1061517.github.io/blog/posts/LeetCode/5d26d1a2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.imgur.com/xSBjopS.jpg">
@@ -222,7 +220,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hexo圖片不套用fancybox
+          Rotting Orange
         </h1>
 
         <div class="post-meta">
@@ -232,7 +230,7 @@
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2020-10-03 11:14:30" itemprop="dateCreated datePublished" datetime="2020-10-03T11:14:30+08:00">2020-10-03</time>
+              <time title="創建時間：2023-01-29 15:49:38" itemprop="dateCreated datePublished" datetime="2023-01-29T15:49:38+08:00">2023-01-29</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -240,7 +238,7 @@
               </span>
               <span class="post-meta-item-text">分類於</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
                 </span>
             </span>
 
@@ -253,8 +251,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/blog/posts/Hexo/2721/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="blog/posts/Hexo/2721/" itemprop="commentCount"></span>
+    <a title="disqus" href="/blog/posts/LeetCode/5d26d1a2/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="blog/posts/LeetCode/5d26d1a2/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -269,36 +267,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>fancybox套件的功能是實現點開圖片，並可以放大顯示和左右切換圖片，還會隨版面的大小自動來調整跳出的版面範圍，而且手機端也可以直接實現。fancybox在Jquery中也有相關的套件，而Next主題自己在config有內建fancybox的配置，配製好以後就會在所有img標籤實作這功能，但如果有部分圖片不想要有放大顯示，則就需要做一些步驟。</p>
+        <p>This <a target="_blank" rel="noopener" href="https://leetcode.com/problems/rotting-oranges">problem</a> on LeetCode has been bothering me for a couple of weeks. Therefore, I take a note to let me memorize the solution to this problem next time. The typical solution is to use BFS for the cases specified in the description of the problem.</p>
 <a id="more"></a>
 
-<h2 id="安裝fancybox"><a href="#安裝fancybox" class="headerlink" title="安裝fancybox"></a>安裝fancybox</h2><p>我的版本的Next需要去把fnacybox clone下來，所以要先在next資料夾內執行下面的指令，就應該會在source/lib資料夾內出現fancybox資料夾</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone <span class="symbol">https:</span>/<span class="regexp">/github.com/theme</span>-<span class="keyword">next</span>/theme-<span class="keyword">next</span>-fancybox3 source/<span class="class"><span class="keyword">lib</span>/<span class="title">fancybox</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>You are given an <code>m x n</code> grid where each cell can have one of three values:</p>
+<ul>
+<li><code>0</code> representing an empty cell,</li>
+<li><code>1</code> representing a fresh orange, or</li>
+<li><code>2</code> representing a rotten orange.<br>Every minute, any fresh orange that is 4-directionally adjacent to a rotten orange becomes rotten.</li>
+</ul>
+<p>Return the minimum number of minutes that must elapse until no cell has a fresh orange. If this is impossible, return <code>-1</code>.<br>Example 1:<br><img src="https://assets.leetcode.com/uploads/2019/02/16/oranges.png"/></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Input:</span> <span class="string">grid</span> <span class="string">=</span> [[<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>]]</span><br><span class="line"><span class="attr">Output:</span> <span class="number">4</span></span><br></pre></td></tr></table></figure>
+<p>Example 2:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Input:</span> <span class="string">grid</span> <span class="string">=</span> [[<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>]]</span><br><span class="line"><span class="attr">Output:</span> <span class="number">-1</span></span><br><span class="line"><span class="attr">Explanation:</span> <span class="string">The</span> <span class="string">orange</span> <span class="string">in</span> <span class="string">the</span> <span class="string">bottom</span> <span class="string">left</span> <span class="string">corner</span> <span class="string">(row</span> <span class="number">2</span><span class="string">,</span> <span class="string">column</span> <span class="number">0</span><span class="string">)</span> <span class="string">is</span> <span class="string">never</span> <span class="string">rotten,</span> <span class="string">because</span> <span class="string">rotting</span> <span class="string">only</span> <span class="string">happens</span> <span class="number">4</span><span class="string">-directionally.</span></span><br></pre></td></tr></table></figure>
+<p>Example 3:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Input:</span> <span class="string">grid</span> <span class="string">=</span> [[<span class="number">0</span>,<span class="number">2</span>]]</span><br><span class="line"><span class="attr">Output:</span> <span class="number">0</span></span><br><span class="line"><span class="attr">Explanation:</span> <span class="string">Since</span> <span class="string">there</span> <span class="string">are</span> <span class="string">already</span> <span class="literal">no</span> <span class="string">fresh</span> <span class="string">oranges</span> <span class="string">at</span> <span class="string">minute</span> <span class="number">0</span><span class="string">,</span> <span class="string">the</span> <span class="string">answer</span> <span class="string">is</span> <span class="string">just</span> <span class="number">0</span><span class="string">.</span></span><br></pre></td></tr></table></figure>
 
-<p>接著在自己的next主題的<code>_config.yml</code>來將fancybox設為true，要注意不是在vendors底下的fancybox喔!!</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.</span></span><br><span class="line"><span class="comment"># For more information: https://fancyapps.com/fancybox</span></span><br><span class="line"><span class="attr">fancybox:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Time Complexity: O(M*N)</span></span><br><span class="line"><span class="comment">// Space Complexity: O(M*N)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">orangesRotting</span><span class="params">(<span class="keyword">int</span>[][] grid)</span> </span>&#123;</span><br><span class="line">         <span class="comment">// Initial Fresh Oranges</span></span><br><span class="line">        <span class="keyword">int</span> freshCount = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> rows = grid.length, cols = grid[<span class="number">0</span>].length;</span><br><span class="line">        Queue&lt;<span class="keyword">int</span>[]&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// This step is to put all the rotten oranges in queue and Count the number of Fresh Oranges</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; rows; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; cols; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (grid[i][j] == <span class="number">1</span>) &#123;</span><br><span class="line">                    freshCount++;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (grid[i][j] == <span class="number">2</span>) &#123;</span><br><span class="line">                    queue.offer(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;i, j&#125;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> step = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// For Movement Usage</span></span><br><span class="line">        <span class="keyword">int</span>[][] directions = &#123;&#123;-<span class="number">1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">0</span>, -<span class="number">1</span>&#125;, &#123;<span class="number">0</span>, <span class="number">1</span>&#125;&#125;;</span><br><span class="line">        <span class="comment">// BFS starting from initially rotten oranges</span></span><br><span class="line">        <span class="keyword">while</span> (!queue.isEmpty() &amp;&amp; freshCount &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> size = queue.size();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">                <span class="keyword">int</span>[] curr = queue.poll();</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span>[] dir : directions) &#123;</span><br><span class="line">                    <span class="keyword">int</span> nextX = curr[<span class="number">0</span>] + dir[<span class="number">0</span>];</span><br><span class="line">                    <span class="keyword">int</span> nextY = curr[<span class="number">1</span>] + dir[<span class="number">1</span>];</span><br><span class="line">                    <span class="keyword">if</span> (nextX &lt; <span class="number">0</span> || nextX &gt;= rows || nextY &lt; <span class="number">0</span> || nextY &gt;= cols || grid[nextX][nextY] != <span class="number">1</span>) &#123;</span><br><span class="line">                        <span class="keyword">continue</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    queue.offer(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;nextX, nextY&#125;);</span><br><span class="line">                    grid[nextX][nextY] = <span class="number">2</span>;</span><br><span class="line">                    freshCount--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            step++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> freshCount == <span class="number">0</span> ? step : -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>如果要在vendors配置則是如下</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vendors:</span><br><span class="line">  fancybox: <span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>fancyapps<span class="regexp">/fancybox@3/</span>dist/jquery.fancybox.min.js</span><br><span class="line">  fancybox_css: <span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>fancyapps<span class="regexp">/fancybox@3/</span>dist/jquery.fancybox.min.css</span><br></pre></td></tr></table></figure>
-
-<h2 id="鼠標顯示放大鏡icon"><a href="#鼠標顯示放大鏡icon" class="headerlink" title="鼠標顯示放大鏡icon"></a>鼠標顯示放大鏡icon</h2><p>可以在<code>next\source\css\_common\components\post</code>中的這<code>post.styl</code>檔案裡面配製下面css語法</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.post-body img:hover &#123;</span><br><span class="line">    cursor: zoom-<span class="keyword">in</span>;<span class="regexp">//</span>鼠标样式：手势</span><br><span class="line">    <span class="regexp">//</span>transform: scale(<span class="number">1.4</span>); <span class="regexp">//</span>放大倍數：<span class="number">1.4</span>倍</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="結果圖"><a href="#結果圖" class="headerlink" title="結果圖"></a>結果圖</h3><p>可以點選放大</p>
-<img src="https://i.imgur.com/W4RoWAe.jpg" width=80%/>
-
-<h2 id="照片取消fancybox放大"><a href="#照片取消fancybox放大" class="headerlink" title="照片取消fancybox放大"></a>照片取消fancybox放大</h2><p>有些照片不想給人放大的話，就要自己改一些語法，如先在img標籤內給定一個自己定義的nofancybox屬性</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://i.imgur.com/W4RoWAe.jpg&quot;</span> <span class="attr">class</span>=<span class="string">&quot;nofancybox&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>接著在<code>source\js</code>裡面的<code>utils.js</code>中找出<code>var $image = $(element);</code>，在它的下面加入如下</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ($(element).hasClass(<span class="string">&#x27;nofancybox&#x27;</span>))&#123;  <span class="comment">//是否有包含自己定義的nofancybox屬性，有就return true</span></span><br><span class="line">        $(element).css(<span class="string">&quot;cursor&quot;</span>,<span class="string">&quot;default&quot;</span>);    <span class="comment">//將碰到圖片的鼠標從放大鏡變成default模式</span></span><br><span class="line">        <span class="keyword">return</span>;    <span class="comment">//不進行下面的fancybox的配置</span></span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
-
-<p>加入後會呈現如下</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">wrapImageWithFancyBox: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.post-body :not(a) &gt; img, .post-body &gt; img&#x27;</span>).forEach(<span class="function"><span class="params">element</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">var</span> $image = $(element);      </span><br><span class="line">      <span class="keyword">if</span> ($(element).hasClass(<span class="string">&#x27;nofancybox&#x27;</span>))&#123;</span><br><span class="line">        $(element).css(<span class="string">&quot;cursor&quot;</span>,<span class="string">&quot;default&quot;</span>); </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">var</span> imageLink = $image.attr(<span class="string">&#x27;data-src&#x27;</span>) || $image.attr(<span class="string">&#x27;src&#x27;</span>);</span><br><span class="line">      .....</span><br><span class="line">      .....</span><br></pre></td></tr></table></figure>
-
-<h3 id="結果圖-1"><a href="#結果圖-1" class="headerlink" title="結果圖"></a>結果圖</h3><img src="https://i.imgur.com/W4RoWAe.jpg" width=80% class="nofancybox"/>
-
-
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eZLK3WmDWq8">https://www.youtube.com/watch?v=eZLK3WmDWq8</a></li>
+<li><a target="_blank" rel="noopener" href="https://medium.com/@choudharyarpit99/leetcode-994-rotting-oranges-6c63c7aeb6e8">https://medium.com/@choudharyarpit99/leetcode-994-rotting-oranges-6c63c7aeb6e8</a></li>
+</ul>
 
     </div>
 
@@ -314,7 +304,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>文章連結：</strong>
-    <a href="https://kevin1061517.github.io/blog/posts/Hexo/2721/" title="Hexo圖片不套用fancybox">https://kevin1061517.github.io/blog/posts/Hexo/2721/</a>
+    <a href="https://kevin1061517.github.io/blog/posts/LeetCode/5d26d1a2/" title="Rotting Orange">https://kevin1061517.github.io/blog/posts/LeetCode/5d26d1a2/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 許可協議。轉載請註明出處！
@@ -326,8 +316,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Hexo/" rel="tag">Hexo</a>
-              <a href="/tags/fancybox%E7%85%A7%E7%89%87%E6%94%BE%E5%A4%A7/" rel="tag">fancybox照片放大</a>
+              <a href="/tags/LeetCode/" rel="tag">LeetCode</a>
           </div>
 
         
@@ -336,13 +325,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/posts/ExtJS/8c39/" rel="prev" title="ExtJS 初探">
-      <i class="fa fa-chevron-left"></i> ExtJS 初探
+    <a href="/blog/posts/Diary/c4f37a/" rel="prev" title="My 2022 Look Back">
+      <i class="fa fa-chevron-left"></i> My 2022 Look Back
     </a></div>
-      <div class="post-nav-item">
-    <a href="/blog/posts/Java/8f30/" rel="next" title="Practical Java筆記">
-      Practical Java筆記 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -356,9 +342,9 @@
 			
 			<ul>
 				
-					<li><a href="https://kevin1061517.github.io/blog/posts/Hexo/e5a2de66/">Hexo出現 Template render error</a></li>
+					<li><a href="https://kevin1061517.github.io/blog/posts/Diary/c4f37a/">My 2022 Look Back</a></li>
 				
-					<li><a href="https://kevin1061517.github.io/blog/posts/Hexo/7dce27be/">Hexo分類頁面部分項目連結404錯誤</a></li>
+					<li><a href="https://kevin1061517.github.io/blog/posts/Study/1309b942/">Clean Coder 無暇的程式碼-番外篇</a></li>
 				
 			</ul>
 			 
@@ -371,18 +357,14 @@
        <div class="post-nav">
          <div class="post-nav-next post-nav-item">
            
-             <a href="/blog/posts/Java/8f30/" rel="prev" title="Practical Java筆記">
-               <i class="fa fa-chevron-left"></i> Practical Java筆記
-             </a>
-           
          </div>
 
          <span class="post-nav-divider"></span>
 
          <div class="post-nav-prev post-nav-item">
            
-             <a href="/blog/posts/ExtJS/8c39/" rel="next" title="ExtJS 初探">
-               ExtJS 初探 <i class="fa fa-chevron-right"></i>
+             <a href="/blog/posts/Diary/c4f37a/" rel="next" title="My 2022 Look Back">
+               My 2022 Look Back <i class="fa fa-chevron-right"></i>
              </a>
            
          </div>
@@ -450,7 +432,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%9Dfancybox"><span class="nav-number">2.</span> <span class="nav-text">安裝fancybox</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%BC%A0%E6%A8%99%E9%A1%AF%E7%A4%BA%E6%94%BE%E5%A4%A7%E9%8F%A1icon"><span class="nav-number">3.</span> <span class="nav-text">鼠標顯示放大鏡icon</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B5%90%E6%9E%9C%E5%9C%96"><span class="nav-number">3.1.</span> <span class="nav-text">結果圖</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%85%A7%E7%89%87%E5%8F%96%E6%B6%88fancybox%E6%94%BE%E5%A4%A7"><span class="nav-number">4.</span> <span class="nav-text">照片取消fancybox放大</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B5%90%E6%9E%9C%E5%9C%96-1"><span class="nav-number">4.1.</span> <span class="nav-text">結果圖</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Problem"><span class="nav-number">1.</span> <span class="nav-text">Problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">2.</span> <span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference:</span></a></li></ol></div>
 
       </div>
       <!--/noindex-->
@@ -627,7 +609,7 @@
       quicklink({
         timeout : 3000,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'https://kevin1061517.github.io/blog/posts/Hexo/2721/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://kevin1061517.github.io/blog/posts/LeetCode/5d26d1a2/',]
       });
       });
   </script>
@@ -644,9 +626,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://kevin1061517.github.io/blog/posts/Hexo/2721/";
-    this.page.identifier = "blog/posts/Hexo/2721/";
-    this.page.title = "Hexo圖片不套用fancybox";
+    this.page.url = "https://kevin1061517.github.io/blog/posts/LeetCode/5d26d1a2/";
+    this.page.identifier = "blog/posts/LeetCode/5d26d1a2/";
+    this.page.title = "Rotting Orange";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
