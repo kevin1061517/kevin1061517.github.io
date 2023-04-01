@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://kevin1061517.github.io/blog/posts/uncategorized/190abbf0/</loc>
+    <loc>https://kevin1061517.github.io/blog/posts/Diary/190abbf0/</loc>
     
     <lastmod>2023-04-01</lastmod>
     
@@ -235,6 +235,13 @@
   </url>
   
   <url>
+    <loc>https://kevin1061517.github.io/tags/Next/</loc>
+    <lastmod>2023-04-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://kevin1061517.github.io/tags/Diary/</loc>
     <lastmod>2023-04-01</lastmod>
     <changefreq>daily</changefreq>
@@ -242,7 +249,7 @@
   </url>
   
   <url>
-    <loc>https://kevin1061517.github.io/tags/Next/</loc>
+    <loc>https://kevin1061517.github.io/tags/LeetCode/</loc>
     <lastmod>2023-04-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -263,7 +270,7 @@
   </url>
   
   <url>
-    <loc>https://kevin1061517.github.io/tags/LeetCode/</loc>
+    <loc>https://kevin1061517.github.io/tags/var-let/</loc>
     <lastmod>2023-04-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -283,14 +290,14 @@
     <priority>0.6</priority>
   </url>
   
+
+  
   <url>
-    <loc>https://kevin1061517.github.io/tags/var-let/</loc>
+    <loc>https://kevin1061517.github.io/categories/Design-Pattern/</loc>
     <lastmod>2023-04-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
-  
-
   
   <url>
     <loc>https://kevin1061517.github.io/categories/ExtJS/</loc>
@@ -301,13 +308,6 @@
   
   <url>
     <loc>https://kevin1061517.github.io/categories/Hexo/</loc>
-    <lastmod>2023-04-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://kevin1061517.github.io/categories/Design-Pattern/</loc>
     <lastmod>2023-04-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -335,14 +335,14 @@
   </url>
   
   <url>
-    <loc>https://kevin1061517.github.io/categories/Study/</loc>
+    <loc>https://kevin1061517.github.io/categories/LeetCode/</loc>
     <lastmod>2023-04-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://kevin1061517.github.io/categories/LeetCode/</loc>
+    <loc>https://kevin1061517.github.io/categories/Study/</loc>
     <lastmod>2023-04-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
