@@ -268,7 +268,7 @@
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>這幾個禮拜花點時間把大神Kuro的<a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/users/20065504/ironman/1259">重新認識 JavaScript</a> 系列的文章讀完，過程中跟隨作者的每一篇文章練習編寫JS，自己認為補足了許多之前不熟悉的觀念和技術，因此我這篇就將自己學習遇到的問題和重點記錄下來吧!</p>
 <span id="more"></span>
 
-<h2 id="指定-this-方式"><a href="#指定-this-方式" class="headerlink" title="指定 this 方式"></a>指定 this 方式</h2><p>func使用apply函式將this.t = 100的新變數增加到obj物件，有點像是把func裡面<code>this指定的變數或方法</code>複製到obj裡面去，因為在執行func.apply(obj)的時候，就會執行一次func裡面的code(func還回傳this.x的值123)，所以在func裡面的針對this屬性的賦值動作都會定義到參數obj裡面，最後才會有像是複製屬性的行為。<br>另外call和apply其實結果都相同，只是在傳遞參數的時，call()第二以後的參數會作為參數傳進目標函式中，而apply()第二參數必須是陣列，並將陣列中的每個元素作為參數傳進目標函式中</p>
+<h2 id="指定-this-方式"><a href="#指定-this-方式" class="headerlink" title="指定 this 方式"></a>指定 this 方式</h2><p>func使用apply函式將this.t &#x3D; 100的新變數增加到obj物件，有點像是把func裡面<code>this指定的變數或方法</code>複製到obj裡面去，因為在執行func.apply(obj)的時候，就會執行一次func裡面的code(func還回傳this.x的值123)，所以在func裡面的針對this屬性的賦值動作都會定義到參數obj裡面，最後才會有像是複製屬性的行為。<br>另外call和apply其實結果都相同，只是在傳遞參數的時，call()第二以後的參數會作為參數傳進目標函式中，而apply()第二參數必須是陣列，並將陣列中的每個元素作為參數傳進目標函式中</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">	<span class="attr">x</span>: <span class="number">123</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> func = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">	<span class="keyword">var</span> a = <span class="number">50</span>;</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">t</span> = <span class="number">100</span>;</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">y</span> = <span class="number">10</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">x</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(func.<span class="title function_">apply</span>(obj)); <span class="comment">//123</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj); <span class="comment">// &#123;x: 123, t: 100, y: 10&#125; </span></span><br></pre></td></tr></table></figure>
 
 <p>bind()也會有一樣的複製效果</p>
@@ -296,11 +296,11 @@
 <ol>
 <li>比較的a 或 b其中一個為<code>boolean</code>，會在比較相等性之前將<code>false轉0 / true轉1</code>轉成數值型態</li>
 <li>比較的a 或 b其中一個為<code>String</code>，而另一個是數值，同樣會將字符串轉成數值型態</li>
-<li> 比較的a 或 b其中一個是物件，另外一個不是，則會調用物件的valueOf()方法得到基本型別(如果其中一方是「物件」型別，而另一方是基本型別的情況下，則會先透過物件的 valueOf() 方法取得對應的基本型別的值，再進行後續的比較</li>
+<li>比較的a 或 b其中一個是物件，另外一個不是，則會調用物件的valueOf()方法得到基本型別(如果其中一方是「物件」型別，而另一方是基本型別的情況下，則會先透過物件的 valueOf() 方法取得對應的基本型別的值，再進行後續的比較</li>
 </ol>
 <p>補充: </p>
 <ul>
-<li>null == undefined 會是true</li>
+<li>null &#x3D;&#x3D; undefined 會是true</li>
 <li>NaN 不等於 NaN，不管是兩個等號或三個等號都一樣</li>
 </ul>
 <h2 id="Regular-Expression"><a href="#Regular-Expression" class="headerlink" title="Regular Expression"></a>Regular Expression</h2><p>正規表達式都會包含兩個 <code>/</code>，後面的符號就會用跳脫字元<code>\</code>來表示，</p>
