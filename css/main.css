@@ -1208,7 +1208,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #fb6f5d;
+  background: #d4de5c;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1435,7 +1435,7 @@ pre .javascript .function {
 }
 .languages {
   display: inline-block;
-  font-size: 1.125em;
+  font-size: 1.1em;
   position: relative;
 }
 .languages .lang-select-label span {
@@ -1577,7 +1577,7 @@ var {
 }
 @media (min-width: 1200px) {
   .post-body {
-    font-size: 1.125em;
+    font-size: 1.1em;
   }
 }
 .post-body ::-moz-selection {
@@ -1671,7 +1671,7 @@ var {
   }
 }
 .posts-collapse .collection-title {
-  font-size: 1.125em;
+  font-size: 1.1em;
   position: relative;
 }
 .posts-collapse .collection-title::before {
@@ -1873,7 +1873,7 @@ var {
   margin: 0;
 }
 .posts-expand .post-header {
-  font-size: 1.125em;
+  font-size: 1.1em;
 }
 .posts-expand .post-title {
   font-size: 1.75em;
