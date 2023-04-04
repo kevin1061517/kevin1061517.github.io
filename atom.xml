@@ -6,7 +6,7 @@
   <link href="https://kevin1061517.github.io/atom.xml" rel="self"/>
   
   <link href="https://kevin1061517.github.io/"/>
-  <updated>2023-04-04T05:58:23.349Z</updated>
+  <updated>2023-04-04T07:24:30.435Z</updated>
   <id>https://kevin1061517.github.io/</id>
   
   <author>
@@ -21,10 +21,10 @@
     <link href="https://kevin1061517.github.io/blog/posts/LeetCode/bf384adb/"/>
     <id>https://kevin1061517.github.io/blog/posts/LeetCode/bf384adb/</id>
     <published>2023-04-04T05:44:53.000Z</published>
-    <updated>2023-04-04T05:58:23.349Z</updated>
+    <updated>2023-04-04T07:24:30.435Z</updated>
     
     
-    <summary type="html">&lt;p&gt;This &lt;a href=&quot;https://leetcode.com/problems/coin-change&quot;&gt;problem&lt;/a&gt; on LeetCode is a typical Dynamic Programming problem and unfortunatelly I&amp;#39;m always having a hard time solving DP problems. Therefore, this conin-change problem is the best practice to be familiar with DP.&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;This &lt;a href=&quot;https://leetcode.com/problems/coin-change&quot;&gt;problem&lt;/a&gt; on LeetCode is a typical Dynamic Programming problem. Unfortunately, I always have a hard time solving DP problems. Therefore, practicing with this coin-change problem would be the best way for me to become more familiar with DP.&lt;/p&gt;</summary>
     
     
     
