@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://kevin1061517.github.io/blog/posts/Diary/190abbf0/</loc>
+    
+    <lastmod>2023-04-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://kevin1061517.github.io/blog/posts/LeetCode/bf384adb/</loc>
     
     <lastmod>2023-04-04</lastmod>
@@ -14,15 +23,6 @@
     <loc>https://kevin1061517.github.io/blog/posts/LeetCode/5d26d1a2/</loc>
     
     <lastmod>2023-04-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://kevin1061517.github.io/blog/posts/Diary/190abbf0/</loc>
-    
-    <lastmod>2023-04-01</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -245,7 +245,7 @@
 
   
   <url>
-    <loc>https://kevin1061517.github.io/tags/ExtJS/</loc>
+    <loc>https://kevin1061517.github.io/tags/Hexo/</loc>
     <lastmod>2023-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -259,7 +259,7 @@
   </url>
   
   <url>
-    <loc>https://kevin1061517.github.io/tags/Hexo/</loc>
+    <loc>https://kevin1061517.github.io/tags/ExtJS/</loc>
     <lastmod>2023-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -274,13 +274,6 @@
   
   <url>
     <loc>https://kevin1061517.github.io/tags/Array/</loc>
-    <lastmod>2023-04-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://kevin1061517.github.io/tags/Next/</loc>
     <lastmod>2023-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -308,6 +301,13 @@
   </url>
   
   <url>
+    <loc>https://kevin1061517.github.io/tags/Next/</loc>
+    <lastmod>2023-04-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://kevin1061517.github.io/tags/Design-Pattern/</loc>
     <lastmod>2023-04-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -315,14 +315,14 @@
   </url>
   
   <url>
-    <loc>https://kevin1061517.github.io/tags/LeetCode/</loc>
+    <loc>https://kevin1061517.github.io/tags/Study/</loc>
     <lastmod>2023-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://kevin1061517.github.io/tags/Study/</loc>
+    <loc>https://kevin1061517.github.io/tags/LeetCode/</loc>
     <lastmod>2023-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -352,7 +352,7 @@
 
   
   <url>
-    <loc>https://kevin1061517.github.io/categories/ExtJS/</loc>
+    <loc>https://kevin1061517.github.io/categories/Hexo/</loc>
     <lastmod>2023-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -366,7 +366,7 @@
   </url>
   
   <url>
-    <loc>https://kevin1061517.github.io/categories/Hexo/</loc>
+    <loc>https://kevin1061517.github.io/categories/ExtJS/</loc>
     <lastmod>2023-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -394,14 +394,14 @@
   </url>
   
   <url>
-    <loc>https://kevin1061517.github.io/categories/LeetCode/</loc>
+    <loc>https://kevin1061517.github.io/categories/Study/</loc>
     <lastmod>2023-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://kevin1061517.github.io/categories/Study/</loc>
+    <loc>https://kevin1061517.github.io/categories/LeetCode/</loc>
     <lastmod>2023-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

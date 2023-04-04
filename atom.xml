@@ -6,7 +6,7 @@
   <link href="https://kevin1061517.github.io/atom.xml" rel="self"/>
   
   <link href="https://kevin1061517.github.io/"/>
-  <updated>2023-04-04T07:24:30.435Z</updated>
+  <updated>2023-04-04T13:13:51.506Z</updated>
   <id>https://kevin1061517.github.io/</id>
   
   <author>
@@ -21,10 +21,10 @@
     <link href="https://kevin1061517.github.io/blog/posts/LeetCode/bf384adb/"/>
     <id>https://kevin1061517.github.io/blog/posts/LeetCode/bf384adb/</id>
     <published>2023-04-04T05:44:53.000Z</published>
-    <updated>2023-04-04T07:24:30.435Z</updated>
+    <updated>2023-04-04T13:13:51.506Z</updated>
     
     
-    <summary type="html">&lt;p&gt;This &lt;a href=&quot;https://leetcode.com/problems/coin-change&quot;&gt;problem&lt;/a&gt; on LeetCode is a typical Dynamic Programming problem. Unfortunately, I always have a hard time solving DP problems. Therefore, practicing with this coin-change problem would be the best way for me to become more familiar with DP.&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;This &lt;a href=&quot;https://leetcode.com/problems/coin-change&quot;&gt;problem&lt;/a&gt; on LeetCode is a typical &lt;a href=&quot;https://www.geeksforgeeks.org/dynamic-programming/&quot;&gt;DP&lt;/a&gt; problem. Unfortunately, I always have a hard time solving DP problems. Therefore, practicing with this coin-change problem would be the best way for me to become more familiar with DP.&lt;/p&gt;</summary>
     
     
     
@@ -40,10 +40,10 @@
     <link href="https://kevin1061517.github.io/blog/posts/Diary/190abbf0/"/>
     <id>https://kevin1061517.github.io/blog/posts/Diary/190abbf0/</id>
     <published>2023-04-01T12:36:47.000Z</published>
-    <updated>2023-04-01T15:51:31.324Z</updated>
+    <updated>2023-04-04T13:25:19.142Z</updated>
     
     
-    <summary type="html">&lt;p&gt;A lot has happened these day.&lt;br&gt;I planned to resign from my poisition, ended a chemistry in a relationship, rejected a girl who likes me, met a new friend who works abroad as a software engineer and got another job interview opportunity in Australia.&lt;br&gt;What an incredible month.&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;A lot has happened these day.&lt;br&gt;I planned to resign from my poisition, ended a relationship that was draining and made me feel hopeless, rejected a girl who likes me, met a new friend who works abroad as a software engineer and got another job interview opportunity in Australia.&lt;br&gt;What an incredible month.&lt;/p&gt;</summary>
     
     
     
@@ -321,9 +321,9 @@
     <category term="Hexo" scheme="https://kevin1061517.github.io/categories/Hexo/"/>
     
     
-    <category term="fancybox照片放大" scheme="https://kevin1061517.github.io/tags/fancybox%E7%85%A7%E7%89%87%E6%94%BE%E5%A4%A7/"/>
-    
     <category term="Hexo" scheme="https://kevin1061517.github.io/tags/Hexo/"/>
+    
+    <category term="fancybox照片放大" scheme="https://kevin1061517.github.io/tags/fancybox%E7%85%A7%E7%89%87%E6%94%BE%E5%A4%A7/"/>
     
   </entry>
   
