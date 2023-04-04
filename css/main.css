@@ -1208,7 +1208,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #85f;
+  background: #ff8b22;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2692,7 +2692,7 @@ ul.breadcrumb li + li:last-child {
   background: rgba(252,252,252,0.6);
   border-radius: 8px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
-  padding: 30px;
+  padding: 20px 20px 10px 20px;
   margin-top: 6px;
   margin-left: 18px;
   margin-bottom: 15px;
@@ -2830,7 +2830,7 @@ ul.breadcrumb li + li:last-child {
     border-radius: 8px;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
     min-height: auto;
-    padding: 20px;
+    padding: 20px 20px 10px 20px;
   }
   .post-block + .post-block {
     margin-top: 10px;
