@@ -6,7 +6,7 @@
   <link href="https://kevin1061517.github.io/atom.xml" rel="self"/>
   
   <link href="https://kevin1061517.github.io/"/>
-  <updated>2023-04-04T13:13:51.506Z</updated>
+  <updated>2023-04-05T13:39:57.428Z</updated>
   <id>https://kevin1061517.github.io/</id>
   
   <author>
@@ -17,11 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>6.Zigzag Conversion</title>
+    <link href="https://kevin1061517.github.io/blog/posts/LeetCode/d852132f/"/>
+    <id>https://kevin1061517.github.io/blog/posts/LeetCode/d852132f/</id>
+    <published>2023-04-05T12:11:43.000Z</published>
+    <updated>2023-04-05T13:39:57.428Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;This &lt;a href=&quot;https://leetcode.com/problems/zigzag-conversion&quot;&gt;problem&lt;/a&gt; on LeetCode was so interesting that I initially tried to find a pattern or rule to solve it. However, after an hour of unsuccessful attempts, I decided to write an easy and straightforward solution that I came up with. Later on, I discovered this &lt;a href=&quot;https://www.youtube.com/watch?v=Q2Tw6gcVEwc&amp;t=571s&quot;&gt;Youtube video&lt;/a&gt;, which presents a more elegant and cleaner solution.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="LeetCode" scheme="https://kevin1061517.github.io/categories/LeetCode/"/>
+    
+    
+    <category term="LeetCode" scheme="https://kevin1061517.github.io/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>322.Coin Change</title>
     <link href="https://kevin1061517.github.io/blog/posts/LeetCode/bf384adb/"/>
     <id>https://kevin1061517.github.io/blog/posts/LeetCode/bf384adb/</id>
     <published>2023-04-04T05:44:53.000Z</published>
-    <updated>2023-04-04T13:13:51.506Z</updated>
+    <updated>2023-04-05T04:11:38.891Z</updated>
     
     
     <summary type="html">&lt;p&gt;This &lt;a href=&quot;https://leetcode.com/problems/coin-change&quot;&gt;problem&lt;/a&gt; on LeetCode is a typical &lt;a href=&quot;https://www.geeksforgeeks.org/dynamic-programming/&quot;&gt;DP&lt;/a&gt; problem. Unfortunately, I always have a hard time solving DP problems. Therefore, practicing with this coin-change problem would be the best way for me to become more familiar with DP.&lt;/p&gt;</summary>
@@ -385,31 +404,6 @@
     <category term="JavaScript" scheme="https://kevin1061517.github.io/tags/JavaScript/"/>
     
     <category term="var &amp; let" scheme="https://kevin1061517.github.io/tags/var-let/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python &amp; Java 輸出n層三角形圖形</title>
-    <link href="https://kevin1061517.github.io/blog/posts/Java/a3e5/"/>
-    <id>https://kevin1061517.github.io/blog/posts/Java/a3e5/</id>
-    <published>2020-08-05T16:55:46.000Z</published>
-    <updated>2020-12-28T14:05:25.381Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;這邊來記錄一下使用Java和Python來輸出各個不同類型的三角形圖形&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;通常這類型的題目都是將幾個階層利用參數傳進來，再看問題要求是什麼，有些題目是要求用print的，有些則是回覆String字串就好&lt;figure class=&quot;highlight stata&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;EX&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;input&lt;/span&gt;:   3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;output:  *&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;        ***&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;       *****&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="Java" scheme="https://kevin1061517.github.io/categories/Java/"/>
-    
-    
-    <category term="Java" scheme="https://kevin1061517.github.io/tags/Java/"/>
-    
-    <category term="Print pyramid using *" scheme="https://kevin1061517.github.io/tags/Print-pyramid-using/"/>
-    
-    <category term="python" scheme="https://kevin1061517.github.io/tags/python/"/>
     
   </entry>
   

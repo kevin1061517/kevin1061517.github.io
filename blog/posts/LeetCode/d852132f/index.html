@@ -23,20 +23,22 @@
     var CONFIG = {"hostname":"kevin1061517.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":230,"display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"perspectiveUpIn","sidebar":"shrinkIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="此篇為 Kevin 心情日記，需要密碼才能進行閱讀 ~">
+  <meta name="description" content="This problem on LeetCode was so interesting that I initially tried to find a pattern or rule to solve it. However, after an hour of unsuccessful attempts, I decided to write an easy and straightforwar">
 <meta property="og:type" content="article">
-<meta property="og:title" content="黃金山城">
-<meta property="og:url" content="https://kevin1061517.github.io/blog/posts/Diary/cd49170e/index.html">
+<meta property="og:title" content="6.Zigzag Conversion">
+<meta property="og:url" content="https://kevin1061517.github.io/blog/posts/LeetCode/d852132f/index.html">
 <meta property="og:site_name" content="Kevin Blog">
-<meta property="og:description" content="此篇為 Kevin 心情日記，需要密碼才能進行閱讀 ~">
+<meta property="og:description" content="This problem on LeetCode was so interesting that I initially tried to find a pattern or rule to solve it. However, after an hour of unsuccessful attempts, I decided to write an easy and straightforwar">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2021-09-03T15:59:49.000Z">
-<meta property="article:modified_time" content="2023-01-21T04:00:19.200Z">
+<meta property="og:image" content="https://i.imgur.com/TEeqXJK.png">
+<meta property="article:published_time" content="2023-04-05T12:11:43.000Z">
+<meta property="article:modified_time" content="2023-04-05T13:39:57.428Z">
 <meta property="article:author" content="Kevin Fang">
-<meta property="article:tag" content="Diary">
+<meta property="article:tag" content="LeetCode">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/TEeqXJK.png">
 
-<link rel="canonical" href="https://kevin1061517.github.io/blog/posts/Diary/cd49170e/">
+<link rel="canonical" href="https://kevin1061517.github.io/blog/posts/LeetCode/d852132f/">
 
 
 <script id="page-configurations">
@@ -49,7 +51,7 @@
   };
 </script>
 
-  <title>黃金山城 | Kevin Blog</title>
+  <title>6.Zigzag Conversion | Kevin Blog</title>
   
 
 
@@ -205,7 +207,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://kevin1061517.github.io/blog/posts/Diary/cd49170e/">
+    <link itemprop="mainEntityOfPage" href="https://kevin1061517.github.io/blog/posts/LeetCode/d852132f/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.imgur.com/xSBjopS.jpg">
@@ -218,7 +220,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          黃金山城
+          6.Zigzag Conversion
         </h1>
 
         <div class="post-meta">
@@ -227,8 +229,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
+              
 
-              <time title="創建時間：2021-09-03 23:59:49" itemprop="dateCreated datePublished" datetime="2021-09-03T23:59:49+08:00">2021-09-03</time>
+              <time title="創建時間：2023-04-05 20:11:43 / 修改時間：21:39:57" itemprop="dateCreated datePublished" datetime="2023-04-05T20:11:43+08:00">2023-04-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -236,7 +239,7 @@
               </span>
               <span class="post-meta-item-text">分類於</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Diary/" itemprop="url" rel="index"><span itemprop="name">Diary</span></a>
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
                 </span>
             </span>
 
@@ -249,8 +252,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/blog/posts/Diary/cd49170e/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="blog/posts/Diary/cd49170e/" itemprop="commentCount"></span>
+    <a title="disqus" href="/blog/posts/LeetCode/d852132f/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="blog/posts/LeetCode/d852132f/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -265,18 +268,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="你的密碼不正確，有興趣可以找 Kevin 聊聊" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="d12ba88a9b089285ce5a346538dca80cd31d59191d05b634ea9d94d28b5fdb0c">a7669e0cb90a4c580326b0fcf2c9e1bfee10b46a58796ff4577b4ae351fa60a419e43ffb2d2007f1cce3064bfaf554abe6f639a863ba5b1a51d35129125953589311d9f37c94397536c111ef42d743c1035f3aa1f2c05e647c393aaab35ea0dd90a6c7ba51f058dcf7b9f47cc183e3a1bb6827677f72c367c5918b2d0733bef3e9976e0db4c8796a6b662e8744fcbe9743d1b98c831af5b6e162941e64eb83386acc19b0a9c298bcc8fedd46689cead33170261544e9b09c5b5a2e8181ecedb4fe6ce3ef8a76faff7835818ca42f18cfe33ce0ed516d0a8b712f5d29e249cc0da6eeea7772479d69e2f9351ca37bde0985885975567b1649fc25a274558e5155ce595ad9acc949aee05865068de40316ffe3d9d643748beb10a7e58a8f3505951bc2bc9d297e596b3975c9c96d999687d1159bcd0909940e672120a8dcde0f3466139001dc37a5c218c456ade4a0d2913b1db97a1158d105fd6c2968cf6f008509642d1aa1d6994f1c80d91bfd599f059cb2906691cddfa74f77cf2be7437daa5b44f095b4a3196dbb8983b54c43e93cf973d75eee5aef6ce90a8f628e1c6a10f8e53917e59d7ec2d2531381c28d1b07798ad0d32af5473d00d6828fbee139dbe9c2cba9890f6abf1781396687bf7dd53128852b8cda9b4deaf34a2ac029134e04eae1539b16a4c516de741a58f99ac424f57a5c10f046e23b3a9157e9822592072db16081d17bae7cc2581e49f7333e7503aaeeac4df23ec126c85da690736489726a4abf0df36ebc93e9e78fdcd6934327de562bef853777428ac0620a1e041dba3ad3a42b990affd2b07bacf846379af6b69d5cb9b4e91ddfa6c6f969534394717e211651d727caf55988355ff7b8269d06bb8d63e28ffe293bd343c4a5c20796588302f5b701d71ca28d346308e6b177cd0464b41456569f0160f6f477bf83335466b409b48926fb847fb5bf2d1db19881e744548e2acc65bf0f22c7b863d58f30fa842abd2d75e7eb9cdfe7e275aff4f0077fec2dcff7245a3d335b11abd7924750c8de485bb8eebb10b3e5639eee334a7026927bc315d361dc3e27dac0d20d155e6beb1b9c41b7f1df05f388494435a3100b4c5656add0b3cf6c4d3f62c9098e6d5e7dcac624491183b475d4e6528478f516c3668125c2d7692377a0f75d110aa366f23361243176c09568c2892e3036de857b9197dfaadd3965c86aa68b83b881b97ec2c7fd16b78b3984e1b5cdfa60f67eff7c7d37a73c0351cd6f8463b485256faf95544a622a05056d6ad9ff9169314ac24682400eb04f79ef448bea73bcf8b006d3a29df0110f58cd63f772a9da2003e18bc07348985bc567bff223b55b5032a3123197c201dbc3300c219728345dae6109b571f8d0f750820214056bc0397025aca1cbc2d6e549f92f3ced3ea4257b2123a40f262d90fdb9b3cbe14a7c5cb51655bc013b3f01d3e11ad5e5236f000571ebc6fc96e0b4c00acdee24ed93e2794e401b7480e6bbcf88b8650b1aec94e252cddf4dd53f2baa8014bd157f345518a2e150bb7808714b6ec1c2db4e725bfa21beb197778d14557ddb16432fa6396ca031f760a612de8aff88fd96768f2f64d080e5fb904a8ac6fb72ff7a98ece0831526950c1a8be716fb7079896a6d33ec0ba71e145846c075c2f62741d3a2f6bf0f3ee1b00c615d7dd82147897b0d7900d00373ee95d5195d353bcbfcd5a98febee82cef2ca3bf7cdcf49f4b7f69e9d72763d1733a1b2e88ae9ea3a161114fb02c7d7ad43ed79ee274ad061a8dd4f4c975ea91862bdffc5d574fccad0e1fcc51981d49e66907c9efac23ce71df6bcf0353d95b5a7726947ab53e51c809b21b8bbaeaa6a7b6893fe7db803ef7af861613fa89dece095faa1992dab0612767d5dd7ec645e181b165a4408892471f31a009e487073868b79fb77175c6ba1848d7c8f263bbc07014ba66ec6013b0b090e719edf9f4da904deecf718ee988ff5c72b48be592efcdf629fadbbf9869af65b24f93ee6c619bb9c3c045f9904ae3545f905aa09f5fce77081e61617e79383302b05e1ac19eb02ab50bfe131e02e502825ef1b0c38b48b5621c8bce72448e49b8f8557d5f365abfd31d32ee92550396b4a97d8429d1ea0ee0b7dbe794ba11fcc5615c10a814f3904656a5debb451f8d521106719fdfa01a29cf7114ba9f3379f45faf22265fe8670bc095a8976b23ef190dd88bd09a59a94def8986529321caffb235a48cb3e2afb79a4ff0475c21b2023995c66573687d3c7a00da24ced0c1e7604812c4442b06091fc4b94f741afd2c34de15cf110cb3b41288e2d5e2bee993d8f6f67c3c5ba978e2a4af656cebc8ee5eb841f857c6703995cc12424dce7ed4d00f3137ee200fd7fb6bd849084df944cb9a76b21fe92d7ab5c3af885733e7d238e13d96e29ea34ce9a2e02d30531b7e8d2798dbe123e954e474e8f50ce3272ae61048cf6dafad5f8b92155e40ab5f03f91ab50e3cbac81daef81943fe08d803c9088ba1f56f6b231e07332b044691fc871626fc7512f70f2e3ae4f619935e5aaf9de63e80074e802550ec306f114892ea50a5b3f80c9d5b4f2c31dd9b67a63e2b04c5003c83c6266dedd69aeb02e6240ca0b705c33d63f8a407fc766a0d2016bbe6497d7ef632530b9f32e13cc6fd5cbff59688ca325d38ffae9c21612745fb6ca9b79c49c1862e3dc4cd80b6a1d06e0795c91b2af4d92f800872d5ac796262527b92d0a69ae1b8d4d40b5c17b19b3c5a6e1181fd2ffff265e29cc02e92fe7855954ba6cde72372f626c35433306fb0cd82379c4432854698196b684df06add8dd34ae53de049b8f74524474e514ac3de79ed80a2437bce180eb4ab5d6be407cb62b45a2eb5b41297d32aa8935d4d5e95828bf0ccf48fd27951dc2145ec50d7f87a17f8b6094ab2efbf612b0f58bc957b6f91ab8f20b1fa4272cb439c9e36724cb428023c8e767ff90eb6680a89da2581627ae6b5e26fbba176ab38ffbbe0a1f2342c8b0c6fc76f3aed0355cf5bd9fce240c35dc226daf3bfb49919870e5070aca4c18d74695d15777bfdc5f1cb5a8c5e3949f42055c7ea67ac03723db4c714db991e7df5078d08baa29d1504445023dbbee630ed25cf663adfff19110251d80fb3a0fd5633897053636bbee81822e25fe786d0188a54657ca6be24bafb4952bf27203ad60f10dbdefccf0ebdff602a7b645993ae74f4fcf649996a72632a8842f8eb742881b655c3087cb64ae8a7df1ec91f6a158005cd594b3ff4840ba18f1d8e57bd4c8fa8381b4c36b3a02ffc912d4ec494c196725a3050277848027841fbee489f39d84249b275d5e574fb53a4e0beb03a34104f1815a3a5e63a6b92e8094c57ff4748ed6998b409675d61d4a7a4668eae80ca1ac653df67a13fc91c939644143bb09fe8ba8208a3b8cb94630c035f3d970fa1b273fb1240c9eda84afa632f113f069cacf36ebd0243f5d9df58983e912f9b42a4d7afc1d5a149caaf9bd7572e1bc1b881011a837f1114ff5f0d70ead95a4a9fd2b430acc6cafb1cb8dd0100ef609b4e8ef04981606a1d10687a547426dc97e622bdf18da1bf6ac0f424e7a80a8878db3a5bd6e598ab6921c1a3dc7413ff886cb8fa48caee5eecdfc11a719d5a0117ca79a4528b75a1eee115804c7e4deffa76fa73804ca3b07ac0e0e398c73460cc6601d368f34c9fa97e9f632e07b25c91b70fb8894443f463c17c555b12dffa4ad2c43f3438786354ffa00250f556a7ff77417374f86c4ca0ac7aed5af00a0d8e8c44797c36d3db64440ea5346b07d264b81e6d9273988e8f90174a78c53cc265be7def2a388e7e5b50a59800e19785e471a3da605d93c970117ff4aa1a4399df5eb10e3a2ae4f3c2e0c02fd88c6b7223bd33df0b51b35860ad5d88c055b1f12930a49d8e25bed0747e5e3c67cf464e8d82ee26d1150c9661d5995f55f30e2f8eedb09b9354d469a14724b106fbe15ac879af3f8b8a185469f6de6a6382d0411421db63c28b4240ab70c37122e7898fbc4791c5aa5c35fe9df22567490438ac27f2f0c6b5d5922bebcfc17f250aefe4833216a987168fc88ebb3977bbf153b4422adfda1ec4aef6de531671010390877dc8c8fd93f0a74dba65cb4629b1caa261577fa05951784f68fab8e05ce24842b1c1a8db1b609a7f0a10ff3861687cbf77e3036ae019b1387d5566293112e8d682a750ed341894023fe413fdc8596b014294684e908b46ee25ebe3e33d95c4428d89498551d98ea7f0e826e8406c1bd9c21a2ef042452f31cef9ead280aa5fb25ee78eeffca7d008a83318f69ecb7ba1efa41b5c054a42fadedea451ac6e8872f42d7dbc577d3eb5166fc1246b7eef874b2ca77d1f62f22a95512159dd756c890719e1f8a9e4a472f688af717863b0779a71570f827c16f6bc477d8bec96e8c76d92c5e4f6b281842c56849c7afc053c2785e780ce57f7b2d32c6b17cda3776a095f500c7998f2285b46c22d511daae7f1e04aa912190ef466e76850958cb44b6bbd5f5ba68e8c6a5be1a5b829c762fbe414a09fa2a6f20c1d8042a3eb0a619246a22fd2eadc9a83926aa7bbe04417ea94054459aaa60a30cc5c9fb528d925cdb87beeb88fe3b79ee9fb3a9d2079b84d5aaa1acc8e5c46b8c1b2927b7adf9c5254af718db8e1fceac82d3d0f3cdadcff5a9b4014a7514def99adf1f779bd5548825f3f918b577d39809fda852fbcecc7dc9e8391e3fd33012c4ea703bd37fdf1ecf011f9ebd83bacc6c5b5d0a79e9448c251efb548f7aa41ccfa6c1ea29b6393325ca071367bde46b28e0d37a66e552ba8dcfad7a853d329b4e6037d27dbb5f91206d6f4cbd81db0f0048b1f28bded4c4ad918f3711738cab3c270ebf37e828e37dab39504b10e2b9521af3e34411fe264b45e36b0add61e038fad3e0642942ea00e8e050c33dfcb7f14dea8146f9b8efe852f1cd1cad31df6d43519a1c25dad642accc61324cb2f1ac9f3d06e9c4016ec9380c56ed964476b857a31375949143ed6bed1da28a2b277afde37d49f810393aeb066214021be7aa0d09166508194c6e8c7030b57f92cd71d339a69b9e3ac4a1dc0f26b848f6f77db55aeebc1cb8a7fde2374f55e256d346bd299b48e092511171e20a8ff4863992b3e8438f58a1436bc599ad53ed4535d01ac54f3e5d0b4a4522ac61774672dc7c4175caf835379e91a66d1cb7a32348c3d918b1eaa935ad2939d634d1c6b27805244a1528efda5289d23cf0034434b3d3d4909c484a197023bc02215e31e9e631df0de6b610e7f837edd3f62f59a042eb743755b2b0bfdce74e057fab6962094515a7f8a67e914079e349fbc9a513d6405c375fb9b500d296ffe8b424a5931a6aa75ecd0a0f0fea52ff5818637ea6818455dd940c3811018332f7a682578eb3c030df4d7e34b5e4678b72605f9aaaa9b67e4c05089d74bc0b64bafae156fa7fccdbce5505de866ec1a7645fa6a67e8f6fdbee01ac004422010623592cbb7ef6962f4b3f4bb5f7bf951d7ae1f21465bbf4c22b40d66294cf20c03b6a2db4da57512d276676ebf6d463f87268a40fbac101093ece088bcf3383ad95daf01a9c3ce0f23669a4e83d316ee43156429dc1fe0c22536a641c55904b7272d5f8ceaf67b0c48b0c203383f6afd59200b289959045cf86dd7881b0268d9a777e01a6ed9ca1f7e4c80b9231f2a2136fee874727ae08b49065cd3eb760340bf37b11967fd3c99b17f23f0a2a2820539fdb3cd6adc42d3a0d6a08ddba85752fd8687f3671d450b98849c72a06202cadc075b002f7de6c2f4a77df618fc52b777512e9777a0aff6de15a21ea67b07fd4f371c81ef63fe5817ef67ca944cf73417fde0587dd7eac07471295b777c6d08fa51ff266f34437c782b178f13a77eb82f90e8fcae730e98eebae3395185607c550de1f50652b168de83ecedb92d7677a5a0805b8f6d885054963543c0bce78b92dfa43504e26fa4ddc9c9a1be9aede2b2d659a82fff42e55753f2f3b4a1ce32b03d76fac000d9cf8a7b4a9526a8d97fa7b972cc564ce6e048a60691b1da91cf7f40f32d3d64129e09da8adb34ca882eb7ff51ec0c60069d3c0ee3ab545c85bc2dcab31bea0a1d515a054d6e74066b1f9317a7336a7d8c4127b02cabfc2fdf99c9031233efa8642283cb0d02e8351ca12a8994aee592880578b0d5e85a76af60af4991ad39911258f82592b3d0c3e529886a7995d9f51533ca8772f19c58bfb114adb364e2dee827646672fb7c11d68816e01e92cbebffc99fd4a23c21627be8c42743dd9a6e53db06b13b62c9025d60e194bb02c88b952134d66ef2bf629bd2b383e7f4724672e2dccc42cb4969d73a5723dda76e943c985b337eb0fb4bf5e5b526bcab1fa620d330ab95f24c9129c2ec719a5c10760a21f6b9e46e22dfb5677ffa09fd305cc5672fa15272ba6d317948a3620abf1f7009017c8120217a2418d41509b9679c5bb3dfa92a5c829e63eabaed519a736c1fbd1d2df0c130c3dea5c6954cea2e39ca6495989d40ed41ce695b960afb631838249e86e11450e2e61d8d1a9697b4258ff17571dc407b05ec2a492034b351ff83d8e9c471efa08d67e5886c2bdb3abdecdeca6699a493368d41f57eb54fd896446ab27b3440e9de0ca2d6a8a4b123c5ef04e9c2ddcfe7a46eeb0438ff002da1ca2f6feb49dc3cb6ad990b0cb370dd8775aa56546075256d399ed03cfc1dfce0dc9a360417d00ddbd8b31043ed2a512bb2c0dc02ccba4bf2fcaa326b267a9395e7db09fa716678bef0cf67154f8d0e13df0e8cdccf786e67ab38609347ac52a614e0e26a2c19d1fba3b677c4cf4c024b8301f53648643c8691e566ab7a0b47bbc5cfd1cd1f08bdaa8f0428e8148100c1c48adf8f0466eabf730b80e2eddacd4616d63a6a377abbf6262f22d93a6c1430addeee378df20e288534754e987ae103a1ed4e7cda585601dbca5d685a19c700e1df41db7a6d30d2b4412f076b3a70d8be11397c8e82b2e5385ae9ade3aa21b2aeab0abf7d231cf346861c7e58c626d2e88f81ccffe6ca0cafcfd32e7429762c4ea1e6be2bb449d54b43e6ad3f4f4ce44ca67907e7e1d65d6addb58e745ef8402ee0d785ba18efafd65f556c0192fcf5338e07d0e54e52c7466bb596cd2173a3ba1d3325e5849a640c6937cf6cafcaf2b6a4c3e06adc9a8c2bd776270e1f8c7d7f1bf37337e3c7ca37714ab1e07b00997cc878db97838027b54570cbfadf59095b13bc209560e2a3f43b9b5d087da582efcfcb5515c49ef9f2fcdd9a44e5e1b025fa908088d694bae15192e69fda1d46cf280a41cc33503245e32668402e4c6f1553d5ba670721353995936e4b23d18aaa2327fe74d8c57a2de876e885017bb9cd1703086ec17cb5b7fd946dc6c3c29c1e78f1287b1f25d8a490902ef4f6d3d6c5dc452db5c1c402e42b0aa0e6158a82db55fcb37c293ace75a6dc4b909d29d7dd57c27b5638fe65835ad3ffdb1f4cd2c9249d52e141c80c94c50374c438d0354a9b2a55f6d49f1b348f5852f917bbdaa5d2242fbf03811c79d3dbf8fe309a2149a930b5f7579238bd1bfe4b680b1693ac3ce8c1d7966cc100bd3dbd5871a2ad4</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">此篇為心情日記，請輸入密碼確認:</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+        <p>This <a target="_blank" rel="noopener" href="https://leetcode.com/problems/zigzag-conversion">problem</a> on LeetCode was so interesting that I initially tried to find a pattern or rule to solve it. However, after an hour of unsuccessful attempts, I decided to write an easy and straightforward solution that I came up with. Later on, I discovered this <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Q2Tw6gcVEwc&t=571s">Youtube video</a>, which presents a more elegant and cleaner solution.</p>
+<span id="more"></span>
+<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><img src="https://i.imgur.com/TEeqXJK.png" alt="Coin Change Problem"></p>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>First, we initialize each item in the StringBuilder array and then we obtain the result through the following steps.</p>
+<ol>
+<li>Loop for only one vertical line chars</li>
+<li>Get back to the start row of diagonal line(like P)</li>
+<li>Loop for only one diagonal line chars</li>
+</ol>
+<p>Continue to repeat these steps until the loop reaches the last index of s.<br>This <a target="_blank" rel="noopener" href="https://i.imgur.com/spFpkUc.jpg">diagram</a> illustrates how the steps progress.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">convert</span><span class="params">(String s, <span class="type">int</span> numRows)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(numRows == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> s;</span><br><span class="line">        &#125;</span><br><span class="line">        StringBuilder[] strs = <span class="keyword">new</span> <span class="title class_">StringBuilder</span>[numRows];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;numRows; i++) &#123;</span><br><span class="line">            strs[i] = <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">        &#125;</span><br><span class="line">                </span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; s.length()) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">currRow</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            <span class="comment">//step 1. Loop for only one vertical line chars</span></span><br><span class="line">            <span class="keyword">while</span>(currRow &lt; numRows &amp;&amp; i &lt; s.length()) &#123;</span><br><span class="line">                strs[currRow++].append(s.charAt(i++));</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//step 2. Get back to the start row of diagonal line(like P)</span></span><br><span class="line">            currRow -= <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//step 3. Loop for only one diagonal line chars</span></span><br><span class="line">            <span class="keyword">while</span>(currRow &gt; <span class="number">0</span> &amp;&amp; i &lt; s.length()) &#123;</span><br><span class="line">                strs[currRow--].append(s.charAt(i++));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">StringBuilder</span> <span class="variable">res</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">        <span class="keyword">for</span>(StringBuilder str : strs) &#123;</span><br><span class="line">            res.append(str);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Solution-2-Master"><a href="#Solution-2-Master" class="headerlink" title="Solution 2 (Master)"></a>Solution 2 (Master)</h2><p>Reference from <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Q2Tw6gcVEwc&t=571s">Youtube video</a>.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">convert</span><span class="params">(String s, <span class="type">int</span> numRows)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(numRows == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> s;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> s.length();</span><br><span class="line">        <span class="type">String</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; numRows) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">increment</span> <span class="operator">=</span> <span class="number">2</span>*(numRows-<span class="number">1</span>);</span><br><span class="line">            <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> i;</span><br><span class="line">            <span class="keyword">while</span>(j &lt; len)&#123;</span><br><span class="line">                ans += s.charAt(j);</span><br><span class="line">                <span class="keyword">if</span>(i&gt;<span class="number">0</span> &amp;&amp; i&lt;numRows-<span class="number">1</span> &amp;&amp; j + increment - <span class="number">2</span>*i &lt; len) &#123;</span><br><span class="line">                    ans += s.charAt(j + increment - <span class="number">2</span>*i);</span><br><span class="line">                &#125;</span><br><span class="line">                j += increment;</span><br><span class="line">            &#125;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -291,7 +296,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>文章連結：</strong>
-    <a href="https://kevin1061517.github.io/blog/posts/Diary/cd49170e/" title="黃金山城">https://kevin1061517.github.io/blog/posts/Diary/cd49170e/</a>
+    <a href="https://kevin1061517.github.io/blog/posts/LeetCode/d852132f/" title="6.Zigzag Conversion">https://kevin1061517.github.io/blog/posts/LeetCode/d852132f/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 許可協議。轉載請註明出處！
@@ -303,7 +308,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Diary/" rel="tag">Diary</a>
+              <a href="/tags/LeetCode/" rel="tag">LeetCode</a>
           </div>
 
         
@@ -312,13 +317,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/posts/Design-Pattern/6eb01663/" rel="prev" title="Singleton Design Pattern">
-      <i class="fa fa-chevron-left"></i> Singleton Design Pattern
+    <a href="/blog/posts/LeetCode/bf384adb/" rel="prev" title="322.Coin Change">
+      <i class="fa fa-chevron-left"></i> 322.Coin Change
     </a></div>
-      <div class="post-nav-item">
-    <a href="/blog/posts/Study/1309b942/" rel="next" title="Clean Coder 無暇的程式碼-番外篇">
-      Clean Coder 無暇的程式碼-番外篇 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -332,9 +334,9 @@
 			
 			<ul>
 				
-					<li><a href="https://kevin1061517.github.io/blog/posts/Study/1309b942/">Clean Coder 無暇的程式碼-番外篇</a></li>
+					<li><a href="https://kevin1061517.github.io/blog/posts/LeetCode/bf384adb/">322.Coin Change</a></li>
 				
-					<li><a href="https://kevin1061517.github.io/blog/posts/Design-Pattern/6eb01663/">Singleton Design Pattern</a></li>
+					<li><a href="https://kevin1061517.github.io/blog/posts/Diary/190abbf0/">Time To Get Over It</a></li>
 				
 			</ul>
 			 
@@ -347,18 +349,14 @@
        <div class="post-nav">
          <div class="post-nav-next post-nav-item">
            
-             <a href="/blog/posts/Study/1309b942/" rel="prev" title="Clean Coder 無暇的程式碼-番外篇">
-               <i class="fa fa-chevron-left"></i> Clean Coder 無暇的程式碼-番外篇
-             </a>
-           
          </div>
 
          <span class="post-nav-divider"></span>
 
          <div class="post-nav-prev post-nav-item">
            
-             <a href="/blog/posts/Design-Pattern/6eb01663/" rel="next" title="Singleton Design Pattern">
-               Singleton Design Pattern <i class="fa fa-chevron-right"></i>
+             <a href="/blog/posts/LeetCode/bf384adb/" rel="next" title="322.Coin Change">
+               322.Coin Change <i class="fa fa-chevron-right"></i>
              </a>
            
          </div>
@@ -426,6 +424,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Problem"><span class="nav-number">1.</span> <span class="nav-text">Problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-1"><span class="nav-number">2.</span> <span class="nav-text">Solution 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-2-Master"><span class="nav-number">3.</span> <span class="nav-text">Solution 2 (Master)</span></a></li></ol></div>
 
       </div>
       <!--/noindex-->
@@ -602,7 +601,7 @@
       quicklink({
         timeout : 3000,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'https://kevin1061517.github.io/blog/posts/Diary/cd49170e/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://kevin1061517.github.io/blog/posts/LeetCode/d852132f/',]
       });
       });
   </script>
@@ -619,9 +618,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://kevin1061517.github.io/blog/posts/Diary/cd49170e/";
-    this.page.identifier = "blog/posts/Diary/cd49170e/";
-    this.page.title = "黃金山城";
+    this.page.url = "https://kevin1061517.github.io/blog/posts/LeetCode/d852132f/";
+    this.page.identifier = "blog/posts/LeetCode/d852132f/";
+    this.page.title = "6.Zigzag Conversion";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
