@@ -6,7 +6,7 @@
   <link href="https://kevin1061517.github.io/atom.xml" rel="self"/>
   
   <link href="https://kevin1061517.github.io/"/>
-  <updated>2023-04-05T13:39:57.428Z</updated>
+  <updated>2023-04-12T06:09:52.283Z</updated>
   <id>https://kevin1061517.github.io/</id>
   
   <author>
@@ -15,6 +15,19 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Permutations</title>
+    <link href="https://kevin1061517.github.io/blog/posts/uncategorized/3d073648/"/>
+    <id>https://kevin1061517.github.io/blog/posts/uncategorized/3d073648/</id>
+    <published>2023-04-12T06:09:52.000Z</published>
+    <updated>2023-04-12T06:09:52.283Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>6.Zigzag Conversion</title>
@@ -383,27 +396,6 @@
     <category term="Java" scheme="https://kevin1061517.github.io/tags/Java/"/>
     
     <category term="Collection" scheme="https://kevin1061517.github.io/tags/Collection/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>初探var及let變數</title>
-    <link href="https://kevin1061517.github.io/blog/posts/ExtJS/c7fe/"/>
-    <id>https://kevin1061517.github.io/blog/posts/ExtJS/c7fe/</id>
-    <published>2020-09-05T03:38:20.000Z</published>
-    <updated>2020-12-27T15:50:49.526Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;h2 id=&quot;JavaScript中不同宣告變數的關鍵字會有不同的調用區域-也稱作用域-Scope-，我自己剛接觸JavaScript時，曾經沒有使用var-關鍵字來宣告變數，所以導致宣告的變數無論在哪裡都會是全域變數，這會很容易造成後面誤用或干擾到區域變數，進而成為系統程式bug的原因。因此，對於變數的作用域範圍必須要有所掌握，才可以寫出具有穩定性的程式&quot;&gt;&lt;a href=&quot;#JavaScript中不同宣告變數的關鍵字會有不同的調用區域-也稱作用域-Scope-，我自己剛接觸JavaScript時，曾經沒有使用var-關鍵字來宣告變數，所以導致宣告的變數無論在哪裡都會是全域變數，這會很容易造成後面誤用或干擾到區域變數，進而成為系統程式bug的原因。因此，對於變數的作用域範圍必須要有所掌握，才可以寫出具有穩定性的程式&quot; class=&quot;headerlink&quot; title=&quot;JavaScript中不同宣告變數的關鍵字會有不同的調用區域(也稱作用域)(Scope)，我自己剛接觸JavaScript時，曾經沒有使用var 關鍵字來宣告變數，所以導致宣告的變數無論在哪裡都會是全域變數，這會很容易造成後面誤用或干擾到區域變數，進而成為系統程式bug的原因。因此，對於變數的作用域範圍必須要有所掌握，才可以寫出具有穩定性的程式!&quot;&gt;&lt;/a&gt;JavaScript中不同宣告變數的關鍵字會有不同的調用區域(也稱作用域)(Scope)，我自己剛接觸JavaScript時，曾經沒有使用var 關鍵字來宣告變數，所以導致宣告的變數無論在哪裡都會是全域變數，這會很容易造成後面誤用或干擾到區域變數，進而成為系統程式bug的原因。因此，對於變數的作用域範圍必須要有所掌握，才可以寫出具有穩定性的程式!&lt;br&gt;</summary>
-    
-    
-    
-    <category term="ExtJS" scheme="https://kevin1061517.github.io/categories/ExtJS/"/>
-    
-    
-    <category term="JavaScript" scheme="https://kevin1061517.github.io/tags/JavaScript/"/>
-    
-    <category term="var &amp; let" scheme="https://kevin1061517.github.io/tags/var-let/"/>
     
   </entry>
   
