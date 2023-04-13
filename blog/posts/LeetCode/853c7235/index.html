@@ -23,20 +23,23 @@
     var CONFIG = {"hostname":"kevin1061517.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":230,"display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"perspectiveUpIn","sidebar":"shrinkIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Please enter password to access this page">
+  <meta name="description" content="This problem on LeetCode is a similar question to the Permutations problem I did yesterday. But it is more tricky and interesting to solve it. Today is totally another brainstorming day.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Time To Get Over It">
-<meta property="og:url" content="https://kevin1061517.github.io/blog/posts/Diary/190abbf0/index.html">
+<meta property="og:title" content="78.Subsets">
+<meta property="og:url" content="https://kevin1061517.github.io/blog/posts/LeetCode/853c7235/index.html">
 <meta property="og:site_name" content="Kevin Blog">
-<meta property="og:description" content="Please enter password to access this page">
+<meta property="og:description" content="This problem on LeetCode is a similar question to the Permutations problem I did yesterday. But it is more tricky and interesting to solve it. Today is totally another brainstorming day.">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2023-04-01T12:36:47.000Z">
-<meta property="article:modified_time" content="2023-04-13T04:46:50.840Z">
+<meta property="og:image" content="https://laravel.gstatics.cn/wp-content/uploads/2019/06/e061afa89017a8b75d1ec7497b3e8c4d.png">
+<meta property="og:image" content="https://i.imgur.com/Fu9CCHV.jpg">
+<meta property="article:published_time" content="2023-04-13T03:13:16.000Z">
+<meta property="article:modified_time" content="2023-04-13T04:27:59.365Z">
 <meta property="article:author" content="Kevin Fang">
-<meta property="article:tag" content="Diary">
+<meta property="article:tag" content="LeetCode">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://laravel.gstatics.cn/wp-content/uploads/2019/06/e061afa89017a8b75d1ec7497b3e8c4d.png">
 
-<link rel="canonical" href="https://kevin1061517.github.io/blog/posts/Diary/190abbf0/">
+<link rel="canonical" href="https://kevin1061517.github.io/blog/posts/LeetCode/853c7235/">
 
 
 <script id="page-configurations">
@@ -49,7 +52,7 @@
   };
 </script>
 
-  <title>Time To Get Over It | Kevin Blog</title>
+  <title>78.Subsets | Kevin Blog</title>
   
 
 
@@ -205,7 +208,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://kevin1061517.github.io/blog/posts/Diary/190abbf0/">
+    <link itemprop="mainEntityOfPage" href="https://kevin1061517.github.io/blog/posts/LeetCode/853c7235/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.imgur.com/xSBjopS.jpg">
@@ -218,7 +221,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Time To Get Over It
+          78.Subsets
         </h1>
 
         <div class="post-meta">
@@ -227,8 +230,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
+              
 
-              <time title="創建時間：2023-04-01 20:36:47" itemprop="dateCreated datePublished" datetime="2023-04-01T20:36:47+08:00">2023-04-01</time>
+              <time title="創建時間：2023-04-13 11:13:16 / 修改時間：12:27:59" itemprop="dateCreated datePublished" datetime="2023-04-13T11:13:16+08:00">2023-04-13</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -236,7 +240,7 @@
               </span>
               <span class="post-meta-item-text">分類於</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Diary/" itemprop="url" rel="index"><span itemprop="name">Diary</span></a>
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
                 </span>
             </span>
 
@@ -249,8 +253,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/blog/posts/Diary/190abbf0/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="blog/posts/Diary/190abbf0/" itemprop="commentCount"></span>
+    <a title="disqus" href="/blog/posts/LeetCode/853c7235/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="blog/posts/LeetCode/853c7235/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -265,18 +269,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="你的密碼不正確，有興趣可以找 Kevin 聊聊" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="c0b18ef5881ada137906d9f70fefdfd0b619b0e0dfcbd70dac088a501b50d1cd">a7669e0cb90a4c580326b0fcf2c9e1bf73ce5b8240dda31458a4ce1ccb56c0848bde5be294ae597af1cd9c76af09cc08ee9784582f058c6f6cf959dfd8dae21fe58f064f09a8da072f675e133176ea80e01c09387e97ff8123af2aeadba29f33dd20be8ee9f8280e10521cde09ae97094601bf8c2c0d0c2c7e390b36d872e4bbb1caeef11ee492e0027e0c61253b63a0299050a6b2ad7f1f3c72d642bc15d40c5cab5fc6561c571386ed0610acee98cc3db10204db16280f525f0dc9dda20d40996053c33222c78796b86c5b62ad82b681e25f3285258306ed8d5e43e0ffff7436f2987d565d6705873260103f99ef31caf3a58c1af2642261af4e35eee80472ed7c80f98db7b0357da257f54df1cfae22a63cf06882a535d75e5eb4551a94b170cfea787838a35c67248ca4d1995ea01ff6e87c517d469fa3860cc14160c92402d7a3a075f43b9c35451d6ecf5c54e29a97a7bc1e1d886a7784a73adcecbd18583e2f7a92c5919564fc12038852388c10f68b97ee8a2a937074646f950e78dbe833000ec772446f1340d82e7c1729a619ab82723e84d802cb7661f2fa60eb280937e9ea9b0391d922b50f54747755a86a6530b64155a524dd750cf8b903a064b73b483e6602e47b75d34ec3bd48b5f959f8d11118e199e750d42fb87102eddf722d98d712dfa5e214042110717369e6365d21d06ecc42828f145fd20d50c7f00493e4b49fa0a46ac91a5db409e0e3513c71992fc54ee47220e2638ac7d7d8fed8e4b804e6a314ddf9745b584d5f193fdcb0064eddf6d8325429bfc24f5845ddc0cb9a8268487812d56bcd5b08cecdc8ab81a9e09de1250ae27985487499e000202228974670b04ea61089d2fa962d4d46b63962089dab6683b1efe830798bfb91f50f0de28b5d6d3de076f1814498d572dd8188d69ae2bd54b7367f96d323953c32a255d49cfddfd54761b2f32ef27c126f0368fc34c7038dd452cec50568bb0943c4769839bdfc01cc704aa3ad14dcfabe1d4bada3c36b0fc3178521e7ca4a8270b2d82eeff39f11b37bedc22900ade3568f7a27ae6508159270d4f818edee8a582878d8db7842414932b5b59a88ea3b063fcd560be76cfd500f856ab4ef0e0ae8a2c7d0b6f92d6ad1defe51126837b80392296a9cc361cc9fba30344384fadefa7920afd5a9d77cb0d36dd439359a22f6a069104bf67d6f10f6e86350b149f375d9c57bec6e7b32b3fb4d8b2fe93bd1219b34e8c5db4fd6472ec82953da1372257636ecccdb4652b9c4d764f6aa25e3dd1119c5cee16414c6c91ccd0b97c9c76bc32f2cf30e868c318f8568dd3f07afcfbb3455f584bef95efe5f513e5b1abfcf8094cbd5d288608559e2e1e0d829244b50675ac76a9e7b927151d54f4a253ff23d75217b70f289823d072a9dbe98c41962eae2baa58a17a11c5cf140f9aac0728bc91561a1b1a353d65ee3fe34167f11c3c453b33a12f18672a4e31843918373d02a47f9fc7e0d765bade16035dd5fe430739690cbcc3cbd4103ac1774432f27575ff8368d6cfcee3812316c598028838e594f91495835d03a590c24c86b</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">The hint involves 'Lousy Things'</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+        <p>This <a target="_blank" rel="noopener" href="https://leetcode.com/problems/subsets">problem</a> on LeetCode is a similar question to the Permutations problem I did yesterday. But it is more tricky and interesting to solve it. Today is totally another brainstorming day.</p>
+<span id="more"></span>
+
+<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><img src="https://laravel.gstatics.cn/wp-content/uploads/2019/06/e061afa89017a8b75d1ec7497b3e8c4d.png" alt="Subsets Problem"></p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h3 id="Backtracking"><a href="#Backtracking" class="headerlink" title="Backtracking"></a>Backtracking</h3><p>This approach generates all possible subsets of nums by considering whether or not to include each element in the subset. The time complexity of this algorithm is <code>O(2^N)</code>, where N is the length of the input array, since there are <code>2^N</code> possible subsets.</p>
+<p><img src="https://i.imgur.com/Fu9CCHV.jpg" alt="Subsets Tree"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  O(2^N)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> <span class="title class_">ArrayList</span>();</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; <span class="title function_">subsets</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        helper(nums, <span class="number">0</span>, <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;());</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">helper</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> index, List&lt;Integer&gt; list)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(index &gt;= nums.length) &#123;</span><br><span class="line">            res.add(<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(list));</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        list.add(nums[index]);</span><br><span class="line">        helper(nums, index + <span class="number">1</span>, list);</span><br><span class="line"></span><br><span class="line">        list.remove(list.size()-<span class="number">1</span>);</span><br><span class="line">        helper(nums, index + <span class="number">1</span>, list);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; <span class="title function_">subsets</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        backtrack(nums, <span class="number">0</span>, <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(), res);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">backtrack</span><span class="params">(</span></span><br><span class="line"><span class="params">		<span class="type">int</span>[] nums, <span class="type">int</span> start, </span></span><br><span class="line"><span class="params">		List&lt;Integer&gt; curr, </span></span><br><span class="line"><span class="params">		List&lt;List&lt;Integer&gt;&gt; res)</span>&#123;</span><br><span class="line">        res.add(<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(curr));</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> start; i &lt; nums.length; i++) &#123;</span><br><span class="line">            curr.add(nums[i]);</span><br><span class="line">            backtrack(nums, i + <span class="number">1</span>, curr, res);</span><br><span class="line">            curr.remove(curr.size() - <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Brute-force"><a href="#Brute-force" class="headerlink" title="Brute force"></a>Brute force</h3><p>At first, I thought this solution was lousy…and I got the <code>Time Limit Exceeded</code>.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> <span class="title class_">ArrayList</span>();</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; <span class="title function_">subsets</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        helper(nums, <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;Integer&gt;());</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">helper</span><span class="params">(<span class="type">int</span>[] nums, List&lt;Integer&gt; list)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(list.size() &gt; nums.length) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(isNotExist(list)) &#123;</span><br><span class="line">            res.add(<span class="keyword">new</span> <span class="title class_">ArrayList</span>(list));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(!list.contains(nums[i])) &#123;</span><br><span class="line">                list.add(nums[i]);</span><br><span class="line">                helper(nums, list);</span><br><span class="line">                list.remove(list.size()-<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> <span class="title function_">isNotExist</span><span class="params">(List&lt;Integer&gt; subList)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span>(List&lt;Integer&gt; list:res) &#123;</span><br><span class="line">            <span class="keyword">if</span>(list.size() == subList.size()) &#123;</span><br><span class="line">                <span class="type">boolean</span> <span class="variable">isSame</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> i:list) &#123;</span><br><span class="line">                    <span class="keyword">if</span>(!subList.contains(i)) &#123;</span><br><span class="line">                        isSame = <span class="literal">false</span>;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(isSame) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -291,7 +296,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>文章連結：</strong>
-    <a href="https://kevin1061517.github.io/blog/posts/Diary/190abbf0/" title="Time To Get Over It">https://kevin1061517.github.io/blog/posts/Diary/190abbf0/</a>
+    <a href="https://kevin1061517.github.io/blog/posts/LeetCode/853c7235/" title="78.Subsets">https://kevin1061517.github.io/blog/posts/LeetCode/853c7235/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 許可協議。轉載請註明出處！
@@ -303,7 +308,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Diary/" rel="tag">Diary</a>
+              <a href="/tags/LeetCode/" rel="tag">LeetCode</a>
           </div>
 
         
@@ -312,13 +317,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/posts/LeetCode/5d26d1a2/" rel="prev" title="994.Rotting Oranges">
-      <i class="fa fa-chevron-left"></i> 994.Rotting Oranges
+    <a href="/blog/posts/LeetCode/3d073648/" rel="prev" title="46.Permutations">
+      <i class="fa fa-chevron-left"></i> 46.Permutations
     </a></div>
-      <div class="post-nav-item">
-    <a href="/blog/posts/LeetCode/bf384adb/" rel="next" title="322.Coin Change">
-      322.Coin Change <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -332,9 +334,9 @@
 			
 			<ul>
 				
-					<li><a href="https://kevin1061517.github.io/blog/posts/LeetCode/bf384adb/">322.Coin Change</a></li>
+					<li><a href="https://kevin1061517.github.io/blog/posts/LeetCode/3d073648/">46.Permutations</a></li>
 				
-					<li><a href="https://kevin1061517.github.io/blog/posts/LeetCode/5d26d1a2/">994.Rotting Oranges</a></li>
+					<li><a href="https://kevin1061517.github.io/blog/posts/LeetCode/d852132f/">6.Zigzag Conversion</a></li>
 				
 			</ul>
 			 
@@ -347,18 +349,14 @@
        <div class="post-nav">
          <div class="post-nav-next post-nav-item">
            
-             <a href="/blog/posts/LeetCode/bf384adb/" rel="prev" title="322.Coin Change">
-               <i class="fa fa-chevron-left"></i> 322.Coin Change
-             </a>
-           
          </div>
 
          <span class="post-nav-divider"></span>
 
          <div class="post-nav-prev post-nav-item">
            
-             <a href="/blog/posts/LeetCode/5d26d1a2/" rel="next" title="994.Rotting Oranges">
-               994.Rotting Oranges <i class="fa fa-chevron-right"></i>
+             <a href="/blog/posts/LeetCode/3d073648/" rel="next" title="46.Permutations">
+               46.Permutations <i class="fa fa-chevron-right"></i>
              </a>
            
          </div>
@@ -426,6 +424,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Problem"><span class="nav-number">1.</span> <span class="nav-text">Problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">2.</span> <span class="nav-text">Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Backtracking"><span class="nav-number">2.1.</span> <span class="nav-text">Backtracking</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Brute-force"><span class="nav-number">2.2.</span> <span class="nav-text">Brute force</span></a></li></ol></li></ol></div>
 
       </div>
       <!--/noindex-->
@@ -602,7 +601,7 @@
       quicklink({
         timeout : 3000,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'https://kevin1061517.github.io/blog/posts/Diary/190abbf0/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://kevin1061517.github.io/blog/posts/LeetCode/853c7235/',]
       });
       });
   </script>
@@ -619,9 +618,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://kevin1061517.github.io/blog/posts/Diary/190abbf0/";
-    this.page.identifier = "blog/posts/Diary/190abbf0/";
-    this.page.title = "Time To Get Over It";
+    this.page.url = "https://kevin1061517.github.io/blog/posts/LeetCode/853c7235/";
+    this.page.identifier = "blog/posts/LeetCode/853c7235/";
+    this.page.title = "78.Subsets";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
