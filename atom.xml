@@ -6,7 +6,7 @@
   <link href="https://kevin1061517.github.io/atom.xml" rel="self"/>
   
   <link href="https://kevin1061517.github.io/"/>
-  <updated>2023-04-13T04:27:59.365Z</updated>
+  <updated>2023-04-13T05:36:04.541Z</updated>
   <id>https://kevin1061517.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://kevin1061517.github.io/blog/posts/LeetCode/853c7235/"/>
     <id>https://kevin1061517.github.io/blog/posts/LeetCode/853c7235/</id>
     <published>2023-04-13T03:13:16.000Z</published>
-    <updated>2023-04-13T04:27:59.365Z</updated>
+    <updated>2023-04-13T05:36:04.541Z</updated>
     
     
     <summary type="html">&lt;p&gt;This &lt;a href=&quot;https://leetcode.com/problems/subsets&quot;&gt;problem&lt;/a&gt; on LeetCode is a similar question to the Permutations problem I did yesterday. But it is more tricky and interesting to solve it. Today is totally another brainstorming day.&lt;/p&gt;</summary>
@@ -40,7 +40,7 @@
     <link href="https://kevin1061517.github.io/blog/posts/LeetCode/3d073648/"/>
     <id>https://kevin1061517.github.io/blog/posts/LeetCode/3d073648/</id>
     <published>2023-04-12T06:09:52.000Z</published>
-    <updated>2023-04-13T04:20:24.158Z</updated>
+    <updated>2023-04-13T05:31:20.896Z</updated>
     
     
     <summary type="html">&lt;p&gt;This &lt;a href=&quot;https://leetcode.com/problems/permutations&quot;&gt;problem&lt;/a&gt; on LeetCode is the similar question I solved during a live coding interview this week. After that, I took some time to review BFS and DFS. I believe this is a good opportunity to gain a more extensive understanding of them.&lt;/p&gt;</summary>
