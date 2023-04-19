@@ -23,17 +23,17 @@
     var CONFIG = {"hostname":"kevin1061517.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":230,"display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"perspectiveUpIn","sidebar":"shrinkIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="This problem on LeetCode is a similar question to the Permutations problem I did yesterday. But it is more tricky and interesting to solve it. Today is totally another brainstorming day.">
+  <meta name="description" content="This question on LeetCode is a similar question to the Permutations question I did yesterday. But it is more tricky and interesting to solve it. Today is totally another brainstorming day.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="78.Subsets">
 <meta property="og:url" content="https://kevin1061517.github.io/blog/posts/LeetCode/853c7235/index.html">
 <meta property="og:site_name" content="Kevin Blog">
-<meta property="og:description" content="This problem on LeetCode is a similar question to the Permutations problem I did yesterday. But it is more tricky and interesting to solve it. Today is totally another brainstorming day.">
+<meta property="og:description" content="This question on LeetCode is a similar question to the Permutations question I did yesterday. But it is more tricky and interesting to solve it. Today is totally another brainstorming day.">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://laravel.gstatics.cn/wp-content/uploads/2019/06/e061afa89017a8b75d1ec7497b3e8c4d.png">
 <meta property="og:image" content="https://i.imgur.com/Fu9CCHV.jpg">
 <meta property="article:published_time" content="2023-04-13T03:13:16.000Z">
-<meta property="article:modified_time" content="2023-04-13T05:36:04.541Z">
+<meta property="article:modified_time" content="2023-04-19T07:28:15.186Z">
 <meta property="article:author" content="Kevin Fang">
 <meta property="article:tag" content="LeetCode">
 <meta name="twitter:card" content="summary">
@@ -230,9 +230,8 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2023-04-13 11:13:16 / 修改時間：13:36:04" itemprop="dateCreated datePublished" datetime="2023-04-13T11:13:16+08:00">2023-04-13</time>
+              <time title="創建時間：2023-04-13 11:13:16" itemprop="dateCreated datePublished" datetime="2023-04-13T11:13:16+08:00">2023-04-13</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -269,10 +268,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>This <a target="_blank" rel="noopener" href="https://leetcode.com/problems/subsets">problem</a> on LeetCode is a similar question to the Permutations problem I did yesterday. But it is more tricky and interesting to solve it. Today is totally another brainstorming day.</p>
+        <p>This <a target="_blank" rel="noopener" href="https://leetcode.com/problems/subsets">question</a> on LeetCode is a similar question to the Permutations question I did yesterday. But it is more tricky and interesting to solve it. Today is totally another brainstorming day.</p>
 <span id="more"></span>
 
-<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><img src="https://laravel.gstatics.cn/wp-content/uploads/2019/06/e061afa89017a8b75d1ec7497b3e8c4d.png" alt="Subsets Problem"></p>
+<h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p><img src="https://laravel.gstatics.cn/wp-content/uploads/2019/06/e061afa89017a8b75d1ec7497b3e8c4d.png" alt="Subsets Question"></p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h3 id="Backtracking"><a href="#Backtracking" class="headerlink" title="Backtracking"></a>Backtracking</h3><p>This approach generates all possible subsets of nums by considering whether or not to include each element in the subset. The time complexity of this algorithm is <code>O(2^N)</code>, where N is the length of the input array, since there are <code>2^N</code> possible subsets.</p>
 <p><img src="https://i.imgur.com/Fu9CCHV.jpg" alt="Subsets Tree"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  O(2^N)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> <span class="title class_">ArrayList</span>();</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; <span class="title function_">subsets</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        helper(nums, <span class="number">0</span>, <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;());</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">helper</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> index, List&lt;Integer&gt; list)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(index &gt;= nums.length) &#123;</span><br><span class="line">            res.add(<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(list));</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        list.add(nums[index]);</span><br><span class="line">        helper(nums, index + <span class="number">1</span>, list);</span><br><span class="line"></span><br><span class="line">        list.remove(list.size()-<span class="number">1</span>);</span><br><span class="line">        helper(nums, index + <span class="number">1</span>, list);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -320,7 +319,10 @@
     <a href="/blog/posts/LeetCode/3d073648/" rel="prev" title="46.Permutations">
       <i class="fa fa-chevron-left"></i> 46.Permutations
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/blog/posts/LeetCode/5643d300/" rel="next" title="5.Longest Palindromic Substring">
+      5.Longest Palindromic Substring <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -334,9 +336,9 @@
 			
 			<ul>
 				
-					<li><a href="https://kevin1061517.github.io/blog/posts/LeetCode/3d073648/">46.Permutations</a></li>
+					<li><a href="https://kevin1061517.github.io/blog/posts/LeetCode/5643d300/">5.Longest Palindromic Substring</a></li>
 				
-					<li><a href="https://kevin1061517.github.io/blog/posts/LeetCode/d852132f/">6.Zigzag Conversion</a></li>
+					<li><a href="https://kevin1061517.github.io/blog/posts/LeetCode/3d073648/">46.Permutations</a></li>
 				
 			</ul>
 			 
@@ -348,6 +350,10 @@
 	
        <div class="post-nav">
          <div class="post-nav-next post-nav-item">
+           
+             <a href="/blog/posts/LeetCode/5643d300/" rel="prev" title="5.Longest Palindromic Substring">
+               <i class="fa fa-chevron-left"></i> 5.Longest Palindromic Substring
+             </a>
            
          </div>
 
@@ -424,7 +430,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Problem"><span class="nav-number">1.</span> <span class="nav-text">Problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">2.</span> <span class="nav-text">Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Backtracking"><span class="nav-number">2.1.</span> <span class="nav-text">Backtracking</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Brute-force"><span class="nav-number">2.2.</span> <span class="nav-text">Brute force</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Question"><span class="nav-number">1.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">2.</span> <span class="nav-text">Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Backtracking"><span class="nav-number">2.1.</span> <span class="nav-text">Backtracking</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Brute-force"><span class="nav-number">2.2.</span> <span class="nav-text">Brute force</span></a></li></ol></li></ol></div>
 
       </div>
       <!--/noindex-->
@@ -449,7 +455,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">Posts</span>
         </a>
       </div>
@@ -462,7 +468,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
         
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">Tags</span></a>
       </div>
   </nav>
@@ -491,15 +497,15 @@
 		<!-- 显示三条近期文章，请自信合理配置 -->
 		
 		  <li>
+			<a href="/blog/posts/LeetCode/5643d300/" title="5.Longest Palindromic Substring" target="_self">5.Longest Palindromic Substring</a>
+		  </li>
+		
+		  <li>
 			<a href="/blog/posts/LeetCode/853c7235/" title="78.Subsets" target="_self">78.Subsets</a>
 		  </li>
 		
 		  <li>
 			<a href="/blog/posts/LeetCode/3d073648/" title="46.Permutations" target="_self">46.Permutations</a>
-		  </li>
-		
-		  <li>
-			<a href="/blog/posts/LeetCode/d852132f/" title="6.Zigzag Conversion" target="_self">6.Zigzag Conversion</a>
 		  </li>
 		
 	  </ul>
