@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://nicklee1006.github.io/Leetcode-5-Longest-Palindromic-Substring/Question.png">
 <meta property="og:image" content="https://i.imgur.com/qSPtiXj.jpg">
 <meta property="article:published_time" content="2023-04-18T05:02:13.000Z">
-<meta property="article:modified_time" content="2023-04-19T07:27:28.809Z">
+<meta property="article:modified_time" content="2023-04-20T05:31:57.119Z">
 <meta property="article:author" content="Kevin Fang">
 <meta property="article:tag" content="LeetCode">
 <meta property="article:tag" content="Dynamic programming">
@@ -273,7 +273,7 @@
 <span id="more"></span>
 
 <h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p><img src="https://nicklee1006.github.io/Leetcode-5-Longest-Palindromic-Substring/Question.png" alt="Longest Palindromic Substring Question"></p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>There are three conditions following:</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>We create a 2D-array dp, where <code>dp[i][j]</code> contains the boolean answer that the current substring formed from index <code>i</code> to <code>j</code> in <code>s</code> is palindromic or not.<br>There are three conditions following:</p>
 <ol>
 <li><em><strong>i &#x3D;&#x3D; j</strong></em><br>It is always true that single-word substrings are palindromes</li>
 <li><em><strong>s[i] &#x3D;&#x3D; s[j]</strong></em><br>If the substring between indices i+1 and j-1 is a palindrome, then we can conclude that the current substring is also a palindrome. However, we must be cautious when two-word substrings like substring <code>dd</code> in the string <code>(bab&#39;dd&#39;)</code> is palindromes as well cause the default value of boolean array is false. So, the dp[4][3] will get false in this situation. That reason why I added <code>j - i == 1</code> to the conditional expression.</li>
@@ -329,7 +329,10 @@
     <a href="/blog/posts/LeetCode/853c7235/" rel="prev" title="78.Subsets">
       <i class="fa fa-chevron-left"></i> 78.Subsets
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/blog/posts/LeetCode/1ffa14bc/" rel="next" title="516.Longest Palindromic Subsequence">
+      516.Longest Palindromic Subsequence <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -343,9 +346,9 @@
 			
 			<ul>
 				
-					<li><a href="https://kevin1061517.github.io/blog/posts/LeetCode/853c7235/">78.Subsets</a></li>
+					<li><a href="https://kevin1061517.github.io/blog/posts/LeetCode/1ffa14bc/">516.Longest Palindromic Subsequence</a></li>
 				
-					<li><a href="https://kevin1061517.github.io/blog/posts/LeetCode/3d073648/">46.Permutations</a></li>
+					<li><a href="https://kevin1061517.github.io/blog/posts/LeetCode/853c7235/">78.Subsets</a></li>
 				
 			</ul>
 			 
@@ -357,6 +360,10 @@
 	
        <div class="post-nav">
          <div class="post-nav-next post-nav-item">
+           
+             <a href="/blog/posts/LeetCode/1ffa14bc/" rel="prev" title="516.Longest Palindromic Subsequence">
+               <i class="fa fa-chevron-left"></i> 516.Longest Palindromic Subsequence
+             </a>
            
          </div>
 
@@ -458,7 +465,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">Posts</span>
         </a>
       </div>
@@ -500,15 +507,15 @@
 		<!-- 显示三条近期文章，请自信合理配置 -->
 		
 		  <li>
+			<a href="/blog/posts/LeetCode/1ffa14bc/" title="516.Longest Palindromic Subsequence" target="_self">516.Longest Palindromic Subsequence</a>
+		  </li>
+		
+		  <li>
 			<a href="/blog/posts/LeetCode/5643d300/" title="5.Longest Palindromic Substring" target="_self">5.Longest Palindromic Substring</a>
 		  </li>
 		
 		  <li>
 			<a href="/blog/posts/LeetCode/853c7235/" title="78.Subsets" target="_self">78.Subsets</a>
-		  </li>
-		
-		  <li>
-			<a href="/blog/posts/LeetCode/3d073648/" title="46.Permutations" target="_self">46.Permutations</a>
 		  </li>
 		
 	  </ul>
