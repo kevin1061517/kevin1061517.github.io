@@ -6,7 +6,7 @@
   <link href="https://kevin1061517.github.io/atom.xml" rel="self"/>
   
   <link href="https://kevin1061517.github.io/"/>
-  <updated>2023-04-20T05:37:37.444Z</updated>
+  <updated>2023-09-15T09:13:30.158Z</updated>
   <id>https://kevin1061517.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Which collections classes are thread-safe in Java</title>
+    <link href="https://kevin1061517.github.io/blog/posts/Java/Collections/597821ba/"/>
+    <id>https://kevin1061517.github.io/blog/posts/Java/Collections/597821ba/</id>
+    <published>2023-09-15T08:32:14.000Z</published>
+    <updated>2023-09-15T09:13:30.158Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Currently, I&amp;#39;ve been preparing for interview questions related to Java, and I find thread-safe Collections classes quite interesting. This is because I encountered a similar question related to Collections in a previous job interview. I would say that Collections is one of the most popular topics that interviewers like to ask about.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Java" scheme="https://kevin1061517.github.io/categories/Java/"/>
+    
+    <category term="Collections" scheme="https://kevin1061517.github.io/categories/Java/Collections/"/>
+    
+    
+    <category term="Java" scheme="https://kevin1061517.github.io/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>516.Longest Palindromic Subsequence</title>
@@ -383,25 +404,6 @@
     <category term="JavaScript" scheme="https://kevin1061517.github.io/tags/JavaScript/"/>
     
     <category term="Design Pattern" scheme="https://kevin1061517.github.io/tags/Design-Pattern/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Practical Java筆記</title>
-    <link href="https://kevin1061517.github.io/blog/posts/Java/8f30/"/>
-    <id>https://kevin1061517.github.io/blog/posts/Java/8f30/</id>
-    <published>2020-11-01T02:48:30.000Z</published>
-    <updated>2021-01-06T16:03:23.314Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;我們接觸Java可能已經有好幾年時間了，對於Java提供的不同關鍵字或各種機制都有一定程度上的了解，尤其常常受惠於它優秀、擴充性強大及多樣功能的標準函式庫(library)，透過這些套件就可以快速開發出一個應用程式，但其中還是有許多設計和編寫上的實用方法及觀念，讓我們可以花較少的時間在除錯或優化程式碼，並產出較高效能的系統，所以當然需要來好好了解這些知識點。所以此篇為 Peter Haggar 所著寫的 Practical Java Programming Language Guide 之讀後心得筆記，目標就是讓我們寫出更正確、高效率且穩定的Java程式，且非常適合我們中高階的Programmer來閱讀。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Java" scheme="https://kevin1061517.github.io/categories/Java/"/>
-    
-    
-    <category term="Java" scheme="https://kevin1061517.github.io/tags/Java/"/>
     
   </entry>
   
