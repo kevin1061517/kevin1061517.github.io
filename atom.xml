@@ -58,10 +58,10 @@
   
   <entry>
     <title>516.Longest Palindromic Subsequence</title>
-    <link href="https://kevin1061517.github.io/blog/posts/LeetCode/1ffa14bc/"/>
-    <id>https://kevin1061517.github.io/blog/posts/LeetCode/1ffa14bc/</id>
+    <link href="https://kevin1061517.github.io/blog/posts/LeetCode/DP/1ffa14bc/"/>
+    <id>https://kevin1061517.github.io/blog/posts/LeetCode/DP/1ffa14bc/</id>
     <published>2023-04-20T04:11:58.000Z</published>
-    <updated>2023-04-20T05:37:37.444Z</updated>
+    <updated>2023-09-20T10:00:03.112Z</updated>
     
     
     <summary type="html">&lt;p&gt;This &lt;a href=&quot;https://leetcode.com/problems/longest-palindromic-subsequence&quot;&gt;question&lt;/a&gt; on LeetCode took me the whole night to solve, and it&amp;#39;s another typical dynamic programming problem. It seems like I have been encountering a lot of DP problems lately.&lt;/p&gt;</summary>
@@ -69,6 +69,8 @@
     
     
     <category term="LeetCode" scheme="https://kevin1061517.github.io/categories/LeetCode/"/>
+    
+    <category term="DP" scheme="https://kevin1061517.github.io/categories/LeetCode/DP/"/>
     
     
     <category term="LeetCode" scheme="https://kevin1061517.github.io/tags/LeetCode/"/>
@@ -79,10 +81,10 @@
   
   <entry>
     <title>5.Longest Palindromic Substring</title>
-    <link href="https://kevin1061517.github.io/blog/posts/LeetCode/5643d300/"/>
-    <id>https://kevin1061517.github.io/blog/posts/LeetCode/5643d300/</id>
+    <link href="https://kevin1061517.github.io/blog/posts/LeetCode/DP/5643d300/"/>
+    <id>https://kevin1061517.github.io/blog/posts/LeetCode/DP/5643d300/</id>
     <published>2023-04-18T05:02:13.000Z</published>
-    <updated>2023-04-20T05:31:57.119Z</updated>
+    <updated>2023-09-20T10:00:16.606Z</updated>
     
     
     <summary type="html">&lt;p&gt;This &lt;a href=&quot;https://leetcode.com/problems/longest-palindromic-substring&quot;&gt;question&lt;/a&gt; on LeetCode is similar to the &lt;a href=&quot;https://leetcode.com/problems/longest-palindromic-subsequence&quot;&gt;516. Longest Palindromic Subsequence&lt;/a&gt;. Therefore, I&amp;#39;m also using the same dynamic programming solution to solve. However, there are slight differences. Here, we are using the dp array to store the boolean value indicating whether the substring from index i to j is a palindromic substring.&lt;/p&gt;</summary>
@@ -90,6 +92,8 @@
     
     
     <category term="LeetCode" scheme="https://kevin1061517.github.io/categories/LeetCode/"/>
+    
+    <category term="DP" scheme="https://kevin1061517.github.io/categories/LeetCode/DP/"/>
     
     
     <category term="LeetCode" scheme="https://kevin1061517.github.io/tags/LeetCode/"/>
@@ -100,10 +104,10 @@
   
   <entry>
     <title>78.Subsets</title>
-    <link href="https://kevin1061517.github.io/blog/posts/LeetCode/853c7235/"/>
-    <id>https://kevin1061517.github.io/blog/posts/LeetCode/853c7235/</id>
+    <link href="https://kevin1061517.github.io/blog/posts/LeetCode/Backtracking/853c7235/"/>
+    <id>https://kevin1061517.github.io/blog/posts/LeetCode/Backtracking/853c7235/</id>
     <published>2023-04-13T03:13:16.000Z</published>
-    <updated>2023-04-19T07:28:15.186Z</updated>
+    <updated>2023-09-20T10:00:30.266Z</updated>
     
     
     <summary type="html">&lt;p&gt;This &lt;a href=&quot;https://leetcode.com/problems/subsets&quot;&gt;question&lt;/a&gt; on LeetCode is a similar question to the Permutations question I did yesterday. But it is more tricky and interesting to solve it. Today is totally another brainstorming day.&lt;/p&gt;</summary>
@@ -112,6 +116,8 @@
     
     <category term="LeetCode" scheme="https://kevin1061517.github.io/categories/LeetCode/"/>
     
+    <category term="Backtracking" scheme="https://kevin1061517.github.io/categories/LeetCode/Backtracking/"/>
+    
     
     <category term="LeetCode" scheme="https://kevin1061517.github.io/tags/LeetCode/"/>
     
@@ -119,10 +125,10 @@
   
   <entry>
     <title>46.Permutations</title>
-    <link href="https://kevin1061517.github.io/blog/posts/LeetCode/3d073648/"/>
-    <id>https://kevin1061517.github.io/blog/posts/LeetCode/3d073648/</id>
+    <link href="https://kevin1061517.github.io/blog/posts/LeetCode/Backtracking/3d073648/"/>
+    <id>https://kevin1061517.github.io/blog/posts/LeetCode/Backtracking/3d073648/</id>
     <published>2023-04-12T06:09:52.000Z</published>
-    <updated>2023-04-19T07:30:25.484Z</updated>
+    <updated>2023-09-20T09:59:38.625Z</updated>
     
     
     <summary type="html">&lt;p&gt;This &lt;a href=&quot;https://leetcode.com/problems/permutations&quot;&gt;question&lt;/a&gt; on LeetCode is the similar question I solved during a live coding interview this week. After that, I took some time to review BFS and DFS. I believe this is a good opportunity to gain a more extensive understanding of them.&lt;/p&gt;</summary>
@@ -130,6 +136,8 @@
     
     
     <category term="LeetCode" scheme="https://kevin1061517.github.io/categories/LeetCode/"/>
+    
+    <category term="Backtracking" scheme="https://kevin1061517.github.io/categories/LeetCode/Backtracking/"/>
     
     
     <category term="LeetCode" scheme="https://kevin1061517.github.io/tags/LeetCode/"/>
@@ -195,10 +203,10 @@
   
   <entry>
     <title>994.Rotting Oranges</title>
-    <link href="https://kevin1061517.github.io/blog/posts/LeetCode/5d26d1a2/"/>
-    <id>https://kevin1061517.github.io/blog/posts/LeetCode/5d26d1a2/</id>
+    <link href="https://kevin1061517.github.io/blog/posts/LeetCode/DFS/5d26d1a2/"/>
+    <id>https://kevin1061517.github.io/blog/posts/LeetCode/DFS/5d26d1a2/</id>
     <published>2023-01-29T07:49:38.000Z</published>
-    <updated>2023-04-19T07:30:58.273Z</updated>
+    <updated>2023-09-20T09:58:59.552Z</updated>
     
     
     <summary type="html">&lt;p&gt;This &lt;a href=&quot;https://leetcode.com/problems/rotting-oranges&quot;&gt;question&lt;/a&gt; on LeetCode has been bothering me for a couple of days and afterwards I understood that the typical solution is to use BFS for the cases specified in the description of the question. Therefore, I take a note to let me memorize the solution to this problem next time.&lt;/p&gt;</summary>
@@ -206,6 +214,8 @@
     
     
     <category term="LeetCode" scheme="https://kevin1061517.github.io/categories/LeetCode/"/>
+    
+    <category term="DFS" scheme="https://kevin1061517.github.io/categories/LeetCode/DFS/"/>
     
     
     <category term="LeetCode" scheme="https://kevin1061517.github.io/tags/LeetCode/"/>
