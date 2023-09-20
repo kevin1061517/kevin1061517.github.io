@@ -23,20 +23,24 @@
     var CONFIG = {"hostname":"kevin1061517.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":230,"display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"perspectiveUpIn","sidebar":"shrinkIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="前言Singleton Design Pattern 是一種設計的模式，目的是確保執行環境(JVM)內只會有一個物件實例，有點類似於Bean在Spring容器管理的Singleton作用域，意思一個IOC容器中只會有唯一的物件。它們都是希望可以避免系統資源的浪費，且確定這一個物件是無狀態的(Stateless)，並能讓類別的腳色定義能更明確。常見Scope為Singleton的例子就是Spring">
+  <meta name="description" content="This question on LeetCode is good practice for sliding window problems. Of course, we can solve it easily using a collections Map, but it&#39;s interesting and efficient to apply the sliding window al">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Singleton Design Pattern">
-<meta property="og:url" content="https://kevin1061517.github.io/blog/posts/Design-Pattern/6eb01663/index.html">
+<meta property="og:title" content="219. Contains Duplicate II">
+<meta property="og:url" content="https://kevin1061517.github.io/blog/posts/LeetCode/Slide-Window/15a1c628/index.html">
 <meta property="og:site_name" content="Kevin Blog">
-<meta property="og:description" content="前言Singleton Design Pattern 是一種設計的模式，目的是確保執行環境(JVM)內只會有一個物件實例，有點類似於Bean在Spring容器管理的Singleton作用域，意思一個IOC容器中只會有唯一的物件。它們都是希望可以避免系統資源的浪費，且確定這一個物件是無狀態的(Stateless)，並能讓類別的腳色定義能更明確。常見Scope為Singleton的例子就是Spring">
+<meta property="og:description" content="This question on LeetCode is good practice for sliding window problems. Of course, we can solve it easily using a collections Map, but it&#39;s interesting and efficient to apply the sliding window al">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2021-08-21T02:31:49.000Z">
-<meta property="article:modified_time" content="2021-08-21T12:07:42.743Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37058233/142946828-fef3ab23-1974-43bc-a738-0b217a7bde48.png">
+<meta property="og:image" content="https://i.imgur.com/fz3v0aV.jpg">
+<meta property="og:image" content="https://i.imgur.com/Nsg9byO.jpg">
+<meta property="article:published_time" content="2023-09-20T08:38:48.000Z">
+<meta property="article:modified_time" content="2023-09-20T09:40:45.076Z">
 <meta property="article:author" content="Kevin Fang">
-<meta property="article:tag" content="Kevin Blog,Kevin部落格,Java,Python,Kevin">
+<meta property="article:tag" content="LeetCode">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37058233/142946828-fef3ab23-1974-43bc-a738-0b217a7bde48.png">
 
-<link rel="canonical" href="https://kevin1061517.github.io/blog/posts/Design-Pattern/6eb01663/">
+<link rel="canonical" href="https://kevin1061517.github.io/blog/posts/LeetCode/Slide-Window/15a1c628/">
 
 
 <script id="page-configurations">
@@ -49,7 +53,7 @@
   };
 </script>
 
-  <title>Singleton Design Pattern | Kevin Blog</title>
+  <title>219. Contains Duplicate II | Kevin Blog</title>
   
 
 
@@ -205,7 +209,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://kevin1061517.github.io/blog/posts/Design-Pattern/6eb01663/">
+    <link itemprop="mainEntityOfPage" href="https://kevin1061517.github.io/blog/posts/LeetCode/Slide-Window/15a1c628/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.imgur.com/xSBjopS.jpg">
@@ -218,7 +222,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Singleton Design Pattern
+          219. Contains Duplicate II
         </h1>
 
         <div class="post-meta">
@@ -229,7 +233,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2021-08-21 10:31:49 / 修改時間：20:07:42" itemprop="dateCreated datePublished" datetime="2021-08-21T10:31:49+08:00">2021-08-21</time>
+              <time title="創建時間：2023-09-20 16:38:48 / 修改時間：17:40:45" itemprop="dateCreated datePublished" datetime="2023-09-20T16:38:48+08:00">2023-09-20</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -237,7 +241,11 @@
               </span>
               <span class="post-meta-item-text">分類於</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Design-Pattern/" itemprop="url" rel="index"><span itemprop="name">Design Pattern</span></a>
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/Slide-Window/" itemprop="url" rel="index"><span itemprop="name">Slide Window</span></a>
                 </span>
             </span>
 
@@ -250,8 +258,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/blog/posts/Design-Pattern/6eb01663/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="blog/posts/Design-Pattern/6eb01663/" itemprop="commentCount"></span>
+    <a title="disqus" href="/blog/posts/LeetCode/Slide-Window/15a1c628/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="blog/posts/LeetCode/Slide-Window/15a1c628/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -266,46 +274,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Singleton Design Pattern 是一種設計的模式，目的是確保執行環境(JVM)內只會有一個物件實例，有點類似於Bean在Spring容器管理的Singleton作用域，意思一個IOC容器中只會有唯一的物件。它們都是希望可以避免系統資源的浪費，且確定這一個物件是無狀態的(Stateless)，並能讓類別的腳色定義能更明確。常見Scope為Singleton的例子就是Spring boot專案裡的Service或是自己定義的Utility類別，我們並不需要每次都注入一個新的物件吧!</p>
+        <p>This <a target="_blank" rel="noopener" href="https://leetcode.com/problems/contains-duplicate-ii/description/">question</a> on LeetCode is good practice for sliding window problems. Of course, we can solve it easily using a collections Map, but it&#39;s interesting and efficient to apply the sliding window algorithm to tackle it.</p>
 <span id="more"></span>
 
-<h2 id="獨體設計模式建構"><a href="#獨體設計模式建構" class="headerlink" title="獨體設計模式建構"></a>獨體設計模式建構</h2><p>Singleton Design Pattern有幾個關鍵步驟來實踐</p>
-<ol>
-<li>類別的建構子存取修飾子固定設為private <ul>
-<li>目的為不予許其他外部類別使用new關鍵字來建立物件，也就保證了只有單一的物件</li>
-</ul>
-</li>
-<li>使用private static final來實體化這一物件 <ul>
-<li>因為物件只需要一份就好，所以在類別內使用private static final來宣告實體化這一物件，並表示該物件不可由外部類別直接存取(private)，同時在JVM只會有一份(static)，且該物件參考永遠不能指向其他參考(final)</li>
-</ul>
-</li>
-<li>提供公開的Getter方法來存取此物件<ul>
-<li>最後需要一個公開的Getter方法來存取物件，慣例上會使用getInstance來返回此物件</li>
-</ul>
-</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">SingletonPattern</span> &#123;</span><br><span class="line">    <span class="comment">// Step 1</span></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">SingletonPattern</span><span class="params">()</span> &#123;&#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">String</span> <span class="variable">text</span> <span class="operator">=</span> <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line">    <span class="comment">// Step 2</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">SingletonPattern</span> <span class="variable">singletonPattern</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SingletonPattern</span>();</span><br><span class="line">    <span class="comment">// Step 3</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> SingletonPattern <span class="title function_">getInstance</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> singletonPattern;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getText</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> text;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="comment">// SingletonPattern singleton = SingletonPattern.getInstance();</span></span><br></pre></td></tr></table></figure>
-<h2 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h2><p>在使用static必須要十分小心，加上static的變數會讓類別變成一個有狀態(State)的類別，如果在多執行續的情況下，常會造成結果跟預期的不相同，如下就是一個錯誤的例子，之前某舊專案使用到分頁，當時使用static來存放第幾筆資料和抓取數量，想說可以在Controller設定好資料，再EBO那邊直接再取就好，但經前輩指導後，這在多執行緒時就會有嚴重問題，這就是為何static要盡可能使用再無狀態的類別裡面!</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Pager</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> start;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> limit;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Pager</span><span class="params">()</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Pager</span> <span class="variable">pager</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Pager</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Pager <span class="title function_">getinstance</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> pager;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">setPagerInfo</span><span class="params">(<span class="type">int</span> first, <span class="type">int</span> maxresult)</span> &#123;</span><br><span class="line">        start = first;<span class="comment">//參數名稱要和static的成員變數不同，不然java預設會使用this.xxx</span></span><br><span class="line">        limit = maxresult;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">getStart</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> start;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">getLimit</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> limit;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>前言提到的Bean作用域有分為下列幾種，最常使用的就是Singleton和Prototype，兩者差別就是前者適用無狀態(Stateless)，後者適用有狀態的(Stateful)Bean</p>
-<ul>
-<li>Singleton<ul>
-<li>為預設的bean scope，整個IoC容器只會有唯一的實例</li>
-</ul>
-</li>
-<li>Prototype<ul>
-<li>每次被調用都是建構新的實例</li>
-</ul>
-</li>
-<li>Request <ul>
-<li>實例的scope為HTTP Request，同個request的實例才會相同 (Web環境才存在的scope)</li>
-</ul>
-</li>
-<li>Session<ul>
-<li>實例的scope為HTTP Session，同個session的實例才會相同 (Web環境才存在的scope)</li>
-</ul>
-</li>
-</ul>
+<h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p><img src="https://user-images.githubusercontent.com/37058233/142946828-fef3ab23-1974-43bc-a738-0b217a7bde48.png" alt="Contains Duplicate II"></p>
+<h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Time complexity: O(n)</span></span><br><span class="line"><span class="comment">// Space complexity: O(n)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">containsNearbyDuplicate</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">        Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> nums[i];</span><br><span class="line">            <span class="keyword">if</span>(map.containsKey(n) &amp;&amp; i-map.get(n) &lt;= k) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            map.put(n, i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Slide-Window"><a href="#Slide-Window" class="headerlink" title="Slide Window"></a>Slide Window</h2><p>We can follow the diagram I created below step by step.</p>
+<p><img src="https://i.imgur.com/fz3v0aV.jpg" alt="Example 1"></p>
+<p><img src="https://i.imgur.com/Nsg9byO.jpg" alt="Example 3"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Time complexity: O(n)</span></span><br><span class="line"><span class="comment">// Space complexity: O(n)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">containsNearbyDuplicate</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">        HashSet&lt;Integer&gt; set = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++) &#123;</span><br><span class="line">            <span class="comment">// Step 1: Check if there is duplicate among the set</span></span><br><span class="line">            <span class="keyword">if</span>(!set.add(nums[i])) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// Step 2: Remove the first element in the set</span></span><br><span class="line">            <span class="keyword">if</span>(set.size()&gt;k) &#123;</span><br><span class="line">                set.remove(nums[i-k]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -321,7 +299,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>文章連結：</strong>
-    <a href="https://kevin1061517.github.io/blog/posts/Design-Pattern/6eb01663/" title="Singleton Design Pattern">https://kevin1061517.github.io/blog/posts/Design-Pattern/6eb01663/</a>
+    <a href="https://kevin1061517.github.io/blog/posts/LeetCode/Slide-Window/15a1c628/" title="219. Contains Duplicate II">https://kevin1061517.github.io/blog/posts/LeetCode/Slide-Window/15a1c628/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 許可協議。轉載請註明出處！
@@ -332,6 +310,9 @@
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/LeetCode/" rel="tag">LeetCode</a>
+          </div>
 
         
 
@@ -339,13 +320,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/posts/JavaScript/f868cf93/" rel="prev" title="JavaScipt Array 常用方法">
-      <i class="fa fa-chevron-left"></i> JavaScipt Array 常用方法
+    <a href="/blog/posts/Java/597821ba/" rel="prev" title="Which collections classes are thread-safe in Java">
+      <i class="fa fa-chevron-left"></i> Which collections classes are thread-safe in Java
     </a></div>
-      <div class="post-nav-item">
-    <a href="/blog/posts/Diary/cd49170e/" rel="next" title="黃金山城">
-      黃金山城 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -359,9 +337,9 @@
 			
 			<ul>
 				
-					<li><a href="https://kevin1061517.github.io/blog/posts/Diary/cd49170e/">黃金山城</a></li>
+					<li><a href="https://kevin1061517.github.io/blog/posts/Java/597821ba/">Which collections classes are thread-safe in Java</a></li>
 				
-					<li><a href="https://kevin1061517.github.io/blog/posts/JavaScript/f868cf93/">JavaScipt Array 常用方法</a></li>
+					<li><a href="https://kevin1061517.github.io/blog/posts/LeetCode/1ffa14bc/">516.Longest Palindromic Subsequence</a></li>
 				
 			</ul>
 			 
@@ -374,18 +352,14 @@
        <div class="post-nav">
          <div class="post-nav-next post-nav-item">
            
-             <a href="/blog/posts/Diary/cd49170e/" rel="prev" title="黃金山城">
-               <i class="fa fa-chevron-left"></i> 黃金山城
-             </a>
-           
          </div>
 
          <span class="post-nav-divider"></span>
 
          <div class="post-nav-prev post-nav-item">
            
-             <a href="/blog/posts/JavaScript/f868cf93/" rel="next" title="JavaScipt Array 常用方法">
-               JavaScipt Array 常用方法 <i class="fa fa-chevron-right"></i>
+             <a href="/blog/posts/Java/597821ba/" rel="next" title="Which collections classes are thread-safe in Java">
+               Which collections classes are thread-safe in Java <i class="fa fa-chevron-right"></i>
              </a>
            
          </div>
@@ -453,7 +427,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8D%A8%E9%AB%94%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F%E5%BB%BA%E6%A7%8B"><span class="nav-number">2.</span> <span class="nav-text">獨體設計模式建構</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A3%9C%E5%85%85"><span class="nav-number">3.</span> <span class="nav-text">補充</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Question"><span class="nav-number">1.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap"><span class="nav-number">2.</span> <span class="nav-text">HashMap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Slide-Window"><span class="nav-number">3.</span> <span class="nav-text">Slide Window</span></a></li></ol></div>
 
       </div>
       <!--/noindex-->
@@ -630,7 +604,7 @@
       quicklink({
         timeout : 3000,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'https://kevin1061517.github.io/blog/posts/Design-Pattern/6eb01663/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://kevin1061517.github.io/blog/posts/LeetCode/Slide-Window/15a1c628/',]
       });
       });
   </script>
@@ -647,9 +621,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://kevin1061517.github.io/blog/posts/Design-Pattern/6eb01663/";
-    this.page.identifier = "blog/posts/Design-Pattern/6eb01663/";
-    this.page.title = "Singleton Design Pattern";
+    this.page.url = "https://kevin1061517.github.io/blog/posts/LeetCode/Slide-Window/15a1c628/";
+    this.page.identifier = "blog/posts/LeetCode/Slide-Window/15a1c628/";
+    this.page.title = "219. Contains Duplicate II";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {

@@ -6,7 +6,7 @@
   <link href="https://kevin1061517.github.io/atom.xml" rel="self"/>
   
   <link href="https://kevin1061517.github.io/"/>
-  <updated>2023-09-15T09:13:30.158Z</updated>
+  <updated>2023-09-20T09:40:45.076Z</updated>
   <id>https://kevin1061517.github.io/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>219. Contains Duplicate II</title>
+    <link href="https://kevin1061517.github.io/blog/posts/LeetCode/Slide-Window/15a1c628/"/>
+    <id>https://kevin1061517.github.io/blog/posts/LeetCode/Slide-Window/15a1c628/</id>
+    <published>2023-09-20T08:38:48.000Z</published>
+    <updated>2023-09-20T09:40:45.076Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;This &lt;a href=&quot;https://leetcode.com/problems/contains-duplicate-ii/description/&quot;&gt;question&lt;/a&gt; on LeetCode is good practice for sliding window problems. Of course, we can solve it easily using a collections Map, but it&amp;#39;s interesting and efficient to apply the sliding window algorithm to tackle it.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="LeetCode" scheme="https://kevin1061517.github.io/categories/LeetCode/"/>
+    
+    <category term="Slide Window" scheme="https://kevin1061517.github.io/categories/LeetCode/Slide-Window/"/>
+    
+    
+    <category term="LeetCode" scheme="https://kevin1061517.github.io/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Which collections classes are thread-safe in Java</title>
-    <link href="https://kevin1061517.github.io/blog/posts/Java/Collections/597821ba/"/>
-    <id>https://kevin1061517.github.io/blog/posts/Java/Collections/597821ba/</id>
+    <link href="https://kevin1061517.github.io/blog/posts/Java/597821ba/"/>
+    <id>https://kevin1061517.github.io/blog/posts/Java/597821ba/</id>
     <published>2023-09-15T08:32:14.000Z</published>
-    <updated>2023-09-15T09:13:30.158Z</updated>
+    <updated>2023-09-20T08:39:34.486Z</updated>
     
     
     <summary type="html">&lt;p&gt;Currently, I&amp;#39;ve been preparing for interview questions related to Java, and I find thread-safe Collections classes quite interesting. This is because I encountered a similar question related to Collections in a previous job interview. I would say that Collections is one of the most popular topics that interviewers like to ask about.&lt;/p&gt;</summary>
@@ -29,8 +50,6 @@
     
     
     <category term="Java" scheme="https://kevin1061517.github.io/categories/Java/"/>
-    
-    <category term="Collections" scheme="https://kevin1061517.github.io/categories/Java/Collections/"/>
     
     
     <category term="Java" scheme="https://kevin1061517.github.io/tags/Java/"/>
@@ -382,28 +401,6 @@
     <category term="Hexo" scheme="https://kevin1061517.github.io/tags/Hexo/"/>
     
     <category term="Next" scheme="https://kevin1061517.github.io/tags/Next/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Revealing Module Pattern (JS)</title>
-    <link href="https://kevin1061517.github.io/blog/posts/JavaScript/45fd/"/>
-    <id>https://kevin1061517.github.io/blog/posts/JavaScript/45fd/</id>
-    <published>2020-12-20T11:51:58.000Z</published>
-    <updated>2020-12-27T15:50:49.522Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;看到在 stackoverflow 有人發問 &lt;a href=&quot;https://stackoverflow.com/questions/43929098/why-do-i-need-to-return-init-to-execute-init-function&quot;&gt;why do I need to return “init” to execute init function?
-&lt;/a&gt; ，這是一個關於JS的design pattern的問題，其實我之前在其他地方就有看過類似的寫法，只是不知道它的一些概念和目的，因此這篇就來記錄一下這種設計模式的筆記。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="JavaScript" scheme="https://kevin1061517.github.io/categories/JavaScript/"/>
-    
-    
-    <category term="JavaScript" scheme="https://kevin1061517.github.io/tags/JavaScript/"/>
-    
-    <category term="Design Pattern" scheme="https://kevin1061517.github.io/tags/Design-Pattern/"/>
     
   </entry>
   
