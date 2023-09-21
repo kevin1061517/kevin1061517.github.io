@@ -6,7 +6,7 @@
   <link href="https://kevin1061517.github.io/atom.xml" rel="self"/>
   
   <link href="https://kevin1061517.github.io/"/>
-  <updated>2023-09-20T09:40:45.076Z</updated>
+  <updated>2023-09-21T08:03:36.089Z</updated>
   <id>https://kevin1061517.github.io/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>1658. Minimum Operations to Reduce X to Zero</title>
+    <link href="https://kevin1061517.github.io/blog/posts/LeetCode/Slide-Window/75312feb/"/>
+    <id>https://kevin1061517.github.io/blog/posts/LeetCode/Slide-Window/75312feb/</id>
+    <published>2023-09-21T06:53:08.000Z</published>
+    <updated>2023-09-21T08:03:36.089Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;This &lt;a href=&quot;https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero/description/&quot;&gt;question&lt;/a&gt; on LeetCode is another Slide Window problem and we can use two pointers to traverse the array to find the longest subarray whose sum equals the result of sum of elements in nums minus x. To put it simply, I drew a diagram to understand this process!&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="LeetCode" scheme="https://kevin1061517.github.io/categories/LeetCode/"/>
+    
+    <category term="Slide Window" scheme="https://kevin1061517.github.io/categories/LeetCode/Slide-Window/"/>
+    
+    
+    <category term="LeetCode" scheme="https://kevin1061517.github.io/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>219. Contains Duplicate II</title>
     <link href="https://kevin1061517.github.io/blog/posts/LeetCode/Slide-Window/15a1c628/"/>
     <id>https://kevin1061517.github.io/blog/posts/LeetCode/Slide-Window/15a1c628/</id>
     <published>2023-09-20T08:38:48.000Z</published>
-    <updated>2023-09-20T09:40:45.076Z</updated>
+    <updated>2023-09-21T07:03:01.973Z</updated>
     
     
     <summary type="html">&lt;p&gt;This &lt;a href=&quot;https://leetcode.com/problems/contains-duplicate-ii/description/&quot;&gt;question&lt;/a&gt; on LeetCode is good practice for sliding window problems. Of course, we can solve it easily using a collections Map, but it&amp;#39;s interesting and efficient to apply the sliding window algorithm to tackle it.&lt;/p&gt;</summary>
@@ -390,27 +411,6 @@
     
     
     <category term="Hexo" scheme="https://kevin1061517.github.io/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Next的CSS相關樣式配置</title>
-    <link href="https://kevin1061517.github.io/blog/posts/Hexo/3f30/"/>
-    <id>https://kevin1061517.github.io/blog/posts/Hexo/3f30/</id>
-    <published>2020-12-26T16:29:20.000Z</published>
-    <updated>2021-02-12T07:12:49.772Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;在 &lt;a href=&quot;https://kevin1061517.github.io/blog/posts/Hexo/5364/&quot;&gt;Hexo &amp;amp; Next 建構部落格&lt;/a&gt; 這篇有說明到Next主題(theme)套用的方式，其實Hexo還有很多其他的 &lt;a href=&quot;https://hexo.io/themes/&quot;&gt;Theme&lt;/a&gt; ，但目前Next的關注度及資源都比其他還要來的高，透過Hexo和Next主題套件能夠快速客製化和其他人不同的排版、字形、顏色等風格的部落格，因此這邊來記錄在使用Next主題的相關樣式配置，特別是針對Gemini這個外觀(Scheme)，但有可能版本不同會有所些微差異，所以有疑問都歡迎留言告知!&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Hexo" scheme="https://kevin1061517.github.io/categories/Hexo/"/>
-    
-    
-    <category term="Hexo" scheme="https://kevin1061517.github.io/tags/Hexo/"/>
-    
-    <category term="Next" scheme="https://kevin1061517.github.io/tags/Next/"/>
     
   </entry>
   

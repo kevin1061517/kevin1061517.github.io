@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://i.imgur.com/fz3v0aV.jpg">
 <meta property="og:image" content="https://i.imgur.com/Nsg9byO.jpg">
 <meta property="article:published_time" content="2023-09-20T08:38:48.000Z">
-<meta property="article:modified_time" content="2023-09-20T09:40:45.076Z">
+<meta property="article:modified_time" content="2023-09-21T07:03:01.973Z">
 <meta property="article:author" content="Kevin Fang">
 <meta property="article:tag" content="LeetCode">
 <meta name="twitter:card" content="summary">
@@ -231,9 +231,8 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2023-09-20 16:38:48 / 修改時間：17:40:45" itemprop="dateCreated datePublished" datetime="2023-09-20T16:38:48+08:00">2023-09-20</time>
+              <time title="創建時間：2023-09-20 16:38:48" itemprop="dateCreated datePublished" datetime="2023-09-20T16:38:48+08:00">2023-09-20</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -278,9 +277,9 @@
 <span id="more"></span>
 
 <h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p><img src="https://user-images.githubusercontent.com/37058233/142946828-fef3ab23-1974-43bc-a738-0b217a7bde48.png" alt="Contains Duplicate II"></p>
-<h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Time complexity: O(n)</span></span><br><span class="line"><span class="comment">// Space complexity: O(n)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">containsNearbyDuplicate</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">        Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> nums[i];</span><br><span class="line">            <span class="keyword">if</span>(map.containsKey(n) &amp;&amp; i-map.get(n) &lt;= k) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            map.put(n, i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Time complexity: O(n)</span></span><br><span class="line"><span class="comment">// Space complexity: O(n)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">containsNearbyDuplicate</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">        Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> nums[i];</span><br><span class="line">            <span class="keyword">if</span>(map.containsKey(n) &amp;&amp; i-map.get(n) &lt;= k) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            map.put(n, i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="Slide-Window"><a href="#Slide-Window" class="headerlink" title="Slide Window"></a>Slide Window</h2><p>We can follow the diagram I created below step by step.</p>
+<h3 id="Slide-Window"><a href="#Slide-Window" class="headerlink" title="Slide Window"></a>Slide Window</h3><p>We can follow the diagram I created below step by step.</p>
 <p><img src="https://i.imgur.com/fz3v0aV.jpg" alt="Example 1"></p>
 <p><img src="https://i.imgur.com/Nsg9byO.jpg" alt="Example 3"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Time complexity: O(n)</span></span><br><span class="line"><span class="comment">// Space complexity: O(n)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">containsNearbyDuplicate</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">        HashSet&lt;Integer&gt; set = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++) &#123;</span><br><span class="line">            <span class="comment">// Step 1: Check if there is duplicate among the set</span></span><br><span class="line">            <span class="keyword">if</span>(!set.add(nums[i])) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// Step 2: Remove the first element in the set</span></span><br><span class="line">            <span class="keyword">if</span>(set.size()&gt;k) &#123;</span><br><span class="line">                set.remove(nums[i-k]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -323,7 +322,10 @@
     <a href="/blog/posts/Java/597821ba/" rel="prev" title="Which collections classes are thread-safe in Java">
       <i class="fa fa-chevron-left"></i> Which collections classes are thread-safe in Java
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/blog/posts/LeetCode/Slide-Window/75312feb/" rel="next" title="1658. Minimum Operations to Reduce X to Zero">
+      1658. Minimum Operations to Reduce X to Zero <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -337,9 +339,9 @@
 			
 			<ul>
 				
-					<li><a href="https://kevin1061517.github.io/blog/posts/Java/597821ba/">Which collections classes are thread-safe in Java</a></li>
+					<li><a href="https://kevin1061517.github.io/blog/posts/LeetCode/Slide-Window/75312feb/">1658. Minimum Operations to Reduce X to Zero</a></li>
 				
-					<li><a href="https://kevin1061517.github.io/blog/posts/LeetCode/DP/1ffa14bc/">516.Longest Palindromic Subsequence</a></li>
+					<li><a href="https://kevin1061517.github.io/blog/posts/Java/597821ba/">Which collections classes are thread-safe in Java</a></li>
 				
 			</ul>
 			 
@@ -351,6 +353,10 @@
 	
        <div class="post-nav">
          <div class="post-nav-next post-nav-item">
+           
+             <a href="/blog/posts/LeetCode/Slide-Window/75312feb/" rel="prev" title="1658. Minimum Operations to Reduce X to Zero">
+               <i class="fa fa-chevron-left"></i> 1658. Minimum Operations to Reduce X to Zero
+             </a>
            
          </div>
 
@@ -427,7 +433,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Question"><span class="nav-number">1.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap"><span class="nav-number">2.</span> <span class="nav-text">HashMap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Slide-Window"><span class="nav-number">3.</span> <span class="nav-text">Slide Window</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Question"><span class="nav-number">1.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">2.</span> <span class="nav-text">Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap"><span class="nav-number">2.1.</span> <span class="nav-text">HashMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Slide-Window"><span class="nav-number">2.2.</span> <span class="nav-text">Slide Window</span></a></li></ol></li></ol></div>
 
       </div>
       <!--/noindex-->
@@ -452,7 +458,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">Posts</span>
         </a>
       </div>
@@ -494,15 +500,15 @@
 		<!-- 显示三条近期文章，请自信合理配置 -->
 		
 		  <li>
+			<a href="/blog/posts/LeetCode/Slide-Window/75312feb/" title="1658. Minimum Operations to Reduce X to Zero" target="_self">1658. Minimum Operations to Reduce X to Zero</a>
+		  </li>
+		
+		  <li>
 			<a href="/blog/posts/LeetCode/Slide-Window/15a1c628/" title="219. Contains Duplicate II" target="_self">219. Contains Duplicate II</a>
 		  </li>
 		
 		  <li>
 			<a href="/blog/posts/Java/597821ba/" title="Which collections classes are thread-safe in Java" target="_self">Which collections classes are thread-safe in Java</a>
-		  </li>
-		
-		  <li>
-			<a href="/blog/posts/LeetCode/DP/1ffa14bc/" title="516.Longest Palindromic Subsequence" target="_self">516.Longest Palindromic Subsequence</a>
 		  </li>
 		
 	  </ul>
