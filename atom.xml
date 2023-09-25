@@ -6,7 +6,7 @@
   <link href="https://kevin1061517.github.io/atom.xml" rel="self"/>
   
   <link href="https://kevin1061517.github.io/"/>
-  <updated>2023-09-21T08:03:36.089Z</updated>
+  <updated>2023-09-25T02:58:16.959Z</updated>
   <id>https://kevin1061517.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Intellij 單行註解調整</title>
+    <link href="https://kevin1061517.github.io/blog/posts/Intellij/fb6755/"/>
+    <id>https://kevin1061517.github.io/blog/posts/Intellij/fb6755/</id>
+    <published>2023-09-25T02:48:51.000Z</published>
+    <updated>2023-09-25T02:58:16.959Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;想設定讓 Intellij 的註解可以起始在目前程式當前空格的地方，而不是在首行，可以這樣設定&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/./img/intellij_comment.png&quot; alt=&quot;Intellij comment</summary>
+        
+      
+    
+    
+    
+    <category term="Intellij" scheme="https://kevin1061517.github.io/categories/Intellij/"/>
+    
+    
+    <category term="Intellij" scheme="https://kevin1061517.github.io/tags/Intellij/"/>
+    
+  </entry>
   
   <entry>
     <title>1658. Minimum Operations to Reduce X to Zero</title>
@@ -385,25 +411,6 @@
     
     
     <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;上次寫完上一篇文章筆記後，執行hexo g生成靜態文件後，就出現下面的錯誤了!導致後續的部屬根本進行不下去，google搜尋的問題大都是提到某個模板(swig)出現的字串符號跟 Hexo 產生衝突，把我之前修改的.swig檔案全部Run過一遍，結果看到眼睛爛掉也沒找出什麼，最後沒辦法只好重新佈署一個新的Next資料夾，在一個個檔案試哪邊錯，結果找到是主題目錄下的_config註解錯地方了…其實會導致Hexo編譯時出現 Template render error的原因有幾種，這篇就來記錄一下吧!&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Hexo" scheme="https://kevin1061517.github.io/categories/Hexo/"/>
-    
-    
-    <category term="Hexo" scheme="https://kevin1061517.github.io/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo分類頁面部分項目連結404錯誤</title>
-    <link href="https://kevin1061517.github.io/blog/posts/Hexo/7dce27be/"/>
-    <id>https://kevin1061517.github.io/blog/posts/Hexo/7dce27be/</id>
-    <published>2020-12-28T13:30:15.000Z</published>
-    <updated>2020-12-29T13:10:48.564Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;原本分類(categories)和標籤(tags)頁面很正常，某天調整了Next主題的一些配置，接著就發現分類和標籤頁面的某些關鍵字點下去都直接爛掉(顯示404)如下圖，原本一直以為是哪邊配置沒有弄號，但越試越奇怪，明明localhost端的分類項目和標籤關鍵字連結開起來一切都正常，到Remote開起來就會有些顯示404。結果試了老半天，發現原來是Hexo有個小bug…因此這邊來記錄一下!&lt;/p&gt;</summary>
     
     
     
