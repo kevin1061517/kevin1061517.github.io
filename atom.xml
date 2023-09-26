@@ -6,7 +6,7 @@
   <link href="https://kevin1061517.github.io/atom.xml" rel="self"/>
   
   <link href="https://kevin1061517.github.io/"/>
-  <updated>2023-09-25T02:58:16.959Z</updated>
+  <updated>2023-09-25T03:20:53.966Z</updated>
   <id>https://kevin1061517.github.io/</id>
   
   <author>
@@ -21,17 +21,10 @@
     <link href="https://kevin1061517.github.io/blog/posts/Intellij/fb6755/"/>
     <id>https://kevin1061517.github.io/blog/posts/Intellij/fb6755/</id>
     <published>2023-09-25T02:48:51.000Z</published>
-    <updated>2023-09-25T02:58:16.959Z</updated>
+    <updated>2023-09-25T03:20:53.966Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;想設定讓 Intellij 的註解可以起始在目前程式當前空格的地方，而不是在首行，可以這樣設定&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/./img/intellij_comment.png&quot; alt=&quot;Intellij comment</summary>
-        
-      
+    <summary type="html">&lt;p&gt;我們想設定讓 Intellij 的註解可以起始在目前程式當前空格的地方，而不是在首行，可以這樣設定&lt;/p&gt;</summary>
     
     
     
