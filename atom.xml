@@ -6,7 +6,7 @@
   <link href="https://kevin1061517.github.io/atom.xml" rel="self"/>
   
   <link href="https://kevin1061517.github.io/"/>
-  <updated>2023-09-25T03:20:53.966Z</updated>
+  <updated>2023-10-03T14:45:12.509Z</updated>
   <id>https://kevin1061517.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2038. Remove Colored Pieces if Both Neighbors are the Same Color</title>
+    <link href="https://kevin1061517.github.io/blog/posts/LeetCode/ae82a640/"/>
+    <id>https://kevin1061517.github.io/blog/posts/LeetCode/ae82a640/</id>
+    <published>2023-10-03T08:07:06.000Z</published>
+    <updated>2023-10-03T14:45:12.509Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;This &lt;a href=&quot;https://leetcode.com/problems/remove-colored-pieces-if-both-neighbors-are-the-same-color/description/&quot;&gt;question&lt;/a&gt; on LeetCode is a great practice for warm-ups. The approach I used was to count the consecutive occurrences of &lt;code&gt;A&lt;/code&gt; and &lt;code&gt;B&lt;/code&gt; excluding the ones at the beginning and end of the sequence. However, we can also use the Regular Expression to check who will win the game.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="LeetCode" scheme="https://kevin1061517.github.io/categories/LeetCode/"/>
+    
+    
+    <category term="LeetCode" scheme="https://kevin1061517.github.io/tags/LeetCode/"/>
+    
+  </entry>
   
   <entry>
     <title>Intellij 單行註解調整</title>
@@ -392,25 +411,6 @@
     
     
     <category term="JavaScript" scheme="https://kevin1061517.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo出現 Template render error</title>
-    <link href="https://kevin1061517.github.io/blog/posts/Hexo/e5a2de66/"/>
-    <id>https://kevin1061517.github.io/blog/posts/Hexo/e5a2de66/</id>
-    <published>2021-01-05T13:43:44.000Z</published>
-    <updated>2021-01-10T12:05:15.273Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;上次寫完上一篇文章筆記後，執行hexo g生成靜態文件後，就出現下面的錯誤了!導致後續的部屬根本進行不下去，google搜尋的問題大都是提到某個模板(swig)出現的字串符號跟 Hexo 產生衝突，把我之前修改的.swig檔案全部Run過一遍，結果看到眼睛爛掉也沒找出什麼，最後沒辦法只好重新佈署一個新的Next資料夾，在一個個檔案試哪邊錯，結果找到是主題目錄下的_config註解錯地方了…其實會導致Hexo編譯時出現 Template render error的原因有幾種，這篇就來記錄一下吧!&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Hexo" scheme="https://kevin1061517.github.io/categories/Hexo/"/>
-    
-    
-    <category term="Hexo" scheme="https://kevin1061517.github.io/tags/Hexo/"/>
     
   </entry>
   
